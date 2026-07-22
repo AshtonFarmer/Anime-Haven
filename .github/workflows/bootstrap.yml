@@ -2,7 +2,7 @@ name: Build and publish Anime Haven
 on:
   push:
     branches: [main]
-    paths: [anime-haven-payload.b64]
+    paths: [anime-haven-v2.b64]
   workflow_dispatch:
 permissions:
   contents: write
@@ -22,9 +22,9 @@ jobs:
         uses: actions/checkout@v6
       - name: Expand complete app
         run: |
-          cat anime-haven-payload.part* anime-haven-payload.b64 | base64 --decode > anime-haven.zip
+          cat anime-haven-v2.part* anime-haven-v2.b64 | base64 --decode > anime-haven.zip
           unzip -o anime-haven.zip
-          rm anime-haven.zip anime-haven-payload.part* anime-haven-payload.b64 .github/workflows/bootstrap.yml
+          rm -f anime-haven.zip anime-haven-v2.part* anime-haven-v2.b64 anime-haven-payload.part* anime-haven-payload.b64 .github/workflows/bootstrap.yml
       - name: Commit complete app
         run: |
           git config user.name "github-actions[bot]"
