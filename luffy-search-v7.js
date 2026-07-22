@@ -1,0 +1,16 @@
+(()=>{
+  const svg=`<svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="palm" x1="0" y1="0" x2=".7" y2="1"><stop offset="0" stop-color="#ffd7b5"/><stop offset=".48" stop-color="#efa778"/><stop offset="1" stop-color="#b85b3e"/></linearGradient><linearGradient id="finger" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe0c0"/><stop offset=".52" stop-color="#eda276"/><stop offset="1" stop-color="#c36748"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#5d2519" flood-opacity=".55"/></filter></defs><circle cx="50" cy="50" r="47" fill="#7c3528" opacity=".32"/><g filter="url(#shadow)" stroke="#7b3425" stroke-width="3.2" stroke-linejoin="round"><path fill="url(#palm)" d="M21 43C20 29 28 20 42 18h19c13 1 21 9 22 22l2 22c1 13-9 23-22 24H42C28 85 18 76 18 62Z"/><rect x="25" y="17" width="15" height="36" rx="8" fill="url(#finger)" transform="rotate(-4 32 35)"/><rect x="39" y="14" width="15" height="39" rx="8" fill="url(#finger)"/><rect x="53" y="15" width="15" height="38" rx="8" fill="url(#finger)"/><rect x="67" y="19" width="14" height="34" rx="7" fill="url(#finger)" transform="rotate(4 74 36)"/><path fill="url(#finger)" d="M20 54c7-7 18-9 28-4l13 7c6 3 7 11 2 16-4 4-10 5-15 2l-10-5-4 10c-2 6-9 8-14 4-5-3-7-9-4-14Z"/><path d="M29 38h9M43 36h10M57 37h10M70 40h8" stroke="#9c4b35" stroke-width="2.2" stroke-linecap="round" opacity=".75"/><path d="M30 67c8-2 17 0 24 5" fill="none" stroke="#91412f" stroke-width="2.5" stroke-linecap="round" opacity=".78"/></g><path d="M24 30c10-13 38-17 54-4" fill="none" stroke="#fff2df" stroke-width="3" stroke-linecap="round" opacity=".55"/></svg>`;
+  const install=()=>{
+    const box=document.getElementById('rubberSearch'),button=document.getElementById('searchPunch'),input=document.getElementById('globalSearch'),fist=button?.querySelector('.fist');
+    if(!box||!button||!input||!fist)return false;if(box.dataset.luffyV7)return true;box.dataset.luffyV7='1';
+    const link=document.createElement('link');link.rel='stylesheet';link.href='./luffy-search-v7.css?v=7';document.head.appendChild(link);
+    fist.innerHTML=svg;button.setAttribute('aria-label','Punch left to open anime search');let wasOpen=false,openTimer=0,impactTimer=0;
+    button.addEventListener('pointerdown',()=>{wasOpen=box.classList.contains('open');if(!wasOpen)box.classList.add('priming')});
+    const cancel=()=>box.classList.remove('priming');button.addEventListener('pointerup',cancel);button.addEventListener('pointercancel',cancel);button.addEventListener('pointerleave',cancel);
+    button.addEventListener('click',()=>{cancel();clearTimeout(openTimer);clearTimeout(impactTimer);if(!wasOpen){box.classList.add('opening');document.body.classList.add('search-impact');openTimer=setTimeout(()=>box.classList.remove('opening'),760);impactTimer=setTimeout(()=>document.body.classList.remove('search-impact'),430)}});
+    input.addEventListener('focus',()=>box.classList.add('open'));
+    document.addEventListener('click',e=>{if(!box.contains(e.target)&&box.classList.contains('open')&&!input.value.trim()){box.classList.remove('open','opening','priming');input.blur()}});
+    return true;
+  };
+  if(install())return;let tries=0;const timer=setInterval(()=>{tries++;if(install()||tries>160)clearInterval(timer)},100);
+})();
