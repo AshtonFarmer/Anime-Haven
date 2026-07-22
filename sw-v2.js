@@ -1,8 +1,10 @@
-const CACHE='anime-haven-v6';
+const CACHE='anime-haven-v7';
 const CORE=[
   './',
   './index.html',
   './bootstrap-v3.js?v=6',
+  './luffy-search-v7.js?v=7',
+  './luffy-search-v7.css?v=7',
   './manifest-v2.webmanifest',
   './icons/icon.svg',
   './anime-haven-v4.part00?v=4',
@@ -13,11 +15,9 @@ self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(c
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET')return;
-  event.respondWith(
-    caches.match(event.request).then(hit=>hit||fetch(event.request).then(response=>{
-      const copy=response.clone();
-      caches.open(CACHE).then(cache=>cache.put(event.request,copy));
-      return response;
-    }).catch(()=>caches.match('./index.html')))
-  );
+  event.respondWith(fetch(event.request).then(response=>{
+    const copy=response.clone();
+    caches.open(CACHE).then(cache=>cache.put(event.request,copy));
+    return response;
+  }).catch(()=>caches.match(event.request).then(hit=>hit||caches.match('./index.html'))));
 });
