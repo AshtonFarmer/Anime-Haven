@@ -1,0 +1,19 @@
+{
+  "name": "Anime Haven",
+  "short_name": "Anime Haven",
+  "description": "Ashton’s anime season and episode tracker",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#060611",
+  "theme_color": "#080817",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
