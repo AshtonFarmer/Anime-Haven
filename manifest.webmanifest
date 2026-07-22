@@ -1,0 +1,41 @@
+{
+  "name": "Anime Haven",
+  "short_name": "Anime Haven",
+  "description": "Two-profile anime season and episode tracker with franchise watch order.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070611",
+  "theme_color": "#090718",
+  "orientation": "portrait-primary",
+  "categories": [
+    "entertainment",
+    "lifestyle"
+  ],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Watched + In Progress",
+      "short_name": "Archive",
+      "url": "./?view=watched"
+    },
+    {
+      "name": "Haven’t Started",
+      "short_name": "Unstarted",
+      "url": "./?view=planned"
+    }
+  ]
+}
