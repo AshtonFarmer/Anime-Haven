@@ -1,9 +1,8 @@
 name: Build and publish Anime Haven
 on:
-  push:
-    branches: [main]
-    paths: [anime-haven-v2.b64]
   workflow_dispatch:
+  issues:
+    types: [opened]
 permissions:
   contents: write
   pages: write
