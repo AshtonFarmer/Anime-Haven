@@ -3,7 +3,7 @@
   const status=document.querySelector('#boot-status');
   const progress=document.querySelector('#boot-progress');
   const set=(text,pct)=>{if(status)status.textContent=text;if(progress)progress.style.width=`${pct}%`};
-  const parts=['anime-haven-v3.part00','anime-haven-v3.part01','anime-haven-v3.part02'];
+  const parts=['anime-haven-v4.part00','anime-haven-v4.part01','anime-haven-v4.part02'];
   const decoder=new TextDecoder();
   const u16=(v,o)=>v.getUint16(o,true),u32=(v,o)=>v.getUint32(o,true);
   const inflate=async bytes=>{
@@ -32,12 +32,16 @@
     set('Summoning Ashton’s anime archive…',8);
     const texts=[];
     for(let i=0;i<parts.length;i++){
-      const response=await fetch(`./${parts[i]}`,{cache:'no-store'});
+      const response=await fetch(`./${parts[i]}?v=4`,{cache:'no-store'});
       if(!response.ok)throw new Error(`Missing app package ${i+1}`);
-      texts.push((await response.text()).trim());
+      const text=(await response.text()).replace(/[^A-Za-z0-9+/=]/g,'');
+      if(!text)throw new Error(`App package ${i+1} was empty`);
+      texts.push(text);
       set(`Loading realm ${i+1} of ${parts.length}…`,14+Math.round((i+1)/parts.length*38));
     }
-    const binary=atob(texts.join(''));
+    const encoded=texts.join('');
+    if(encoded.length%4!==0)throw new Error('The app package was incomplete. Refresh once more.');
+    const binary=atob(encoded);
     const bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));
     set('Unlocking the Haven…',60);
     const files=await unzip(bytes);
