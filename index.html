@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#080817">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Anime Haven">
+  <title>Anime Haven</title>
+  <link rel="manifest" href="./manifest-v2.webmanifest">
+  <link rel="icon" href="./icons/icon.svg">
+  <link rel="apple-touch-icon" href="./icons/icon.svg">
+  <style>
+    :root{color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;background:#070611;color:#fff}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 15%,#18205d 0,#0b0920 34%,#05040d 72%)}body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(70px);opacity:.58;animation:drift 5s ease-in-out infinite alternate}body:before{width:280px;height:280px;background:#623cff;left:-80px;top:5%}body:after{width:260px;height:260px;background:#00d9ff;right:-110px;bottom:5%;animation-delay:-2s}.boot{position:relative;z-index:2;width:min(86vw,430px);padding:38px 26px 30px;border:1px solid #8170ff66;border-radius:30px;background:#0c0a1dcc;box-shadow:0 28px 100px #000b,0 0 70px #6948ff2e;text-align:center;backdrop-filter:blur(18px)}.sigil{width:94px;height:94px;margin:auto;border-radius:28px;display:grid;place-items:center;font-size:42px;background:linear-gradient(145deg,#6c41ff,#0bd3ff);box-shadow:0 0 30px #5e4cffaa;animation:float 1.8s ease-in-out infinite alternate}.boot h1{font-size:clamp(32px,9vw,48px);margin:22px 0 5px;letter-spacing:-2px}.boot p{color:#aaa8c8;margin:0 0 24px}.bar{height:8px;border-radius:99px;background:#29233e;overflow:hidden}.bar i{display:block;width:5%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8b5cff,#2de5ff,#fff);box-shadow:0 0 18px #48dcff;transition:width .35s ease}.boot small{display:block;margin-top:13px;color:#d9d4ff}.boot-error{max-width:520px;padding:30px;text-align:center}.boot-error div{font-size:50px}.boot-error button{border:0;border-radius:999px;padding:14px 24px;font-weight:900;background:#6c4cff;color:#fff}@keyframes float{to{transform:translateY(-10px) rotate(3deg)}}@keyframes drift{to{transform:translate(35px,40px) scale(1.18)}}
+  </style>
+</head>
+<body>
+  <main class="boot">
+    <div class="sigil">影</div>
+    <h1>Anime Haven</h1>
+    <p>Your watch realm is forming.</p>
+    <div class="bar"><i id="boot-progress"></i></div>
+    <small id="boot-status">Opening the gate…</small>
+  </main>
+  <script src="./bootstrap-v3.js"></script>
+</body>
+</html>
