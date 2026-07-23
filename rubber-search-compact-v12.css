@@ -1,0 +1,137 @@
+/* Anime Haven — compact mobile sizing for the Haki punch search */
+.rubber-search[data-haki-punch-v11][data-compact-v12]{
+  right:max(10px,env(safe-area-inset-right))!important;
+  bottom:calc(var(--safe-bottom) + 70px)!important;
+  width:min(620px,78vw)!important;
+  height:104px!important;
+}
+
+.rubber-search[data-haki-punch-v11][data-compact-v12] .v11-launcher{
+  right:-18px!important;
+  top:0!important;
+  scale:.76;
+  transform-origin:right center!important;
+}
+
+.rubber-search[data-haki-punch-v11][data-compact-v12] .fist-button{
+  right:145px!important;
+  top:9px!important;
+  scale:.78;
+  transform-origin:right center!important;
+}
+
+.rubber-search[data-haki-punch-v11][data-compact-v12] .arm-coil{
+  left:44px!important;
+  right:4px!important;
+  top:22px!important;
+  height:54px!important;
+  border-radius:31px 16px 16px 31px!important;
+}
+
+.rubber-search[data-haki-punch-v11][data-compact-v12] .arm-coil:before{
+  inset:6px 11px!important;
+}
+
+.rubber-search[data-haki-punch-v11][data-compact-v12] input{
+  top:22px!important;
+  height:54px!important;
+  padding:0 58px 0 102px!important;
+  font-size:15px!important;
+}
+
+.rubber-search[data-haki-punch-v11][data-compact-v12] .v11-search-glyph{
+  right:18px!important;
+  top:35px!important;
+  width:26px!important;
+  height:26px!important;
+}
+
+.rubber-search[data-haki-punch-v11][data-compact-v12] .v11-smoke{
+  right:108px!important;
+  top:-8px!important;
+  scale:.72;
+  transform-origin:right center!important;
+}
+
+.rubber-search[data-haki-punch-v11][data-compact-v12] .v11-impact{
+  left:-14px!important;
+  top:5px!important;
+  scale:.76;
+}
+
+.rubber-search[data-haki-punch-v11][data-compact-v12] .v11-sparks{
+  left:-26px!important;
+  top:-8px!important;
+  scale:.72;
+}
+
+@media(max-width:560px){
+  .rubber-search[data-haki-punch-v11][data-compact-v12]{
+    right:10px!important;
+    bottom:calc(var(--safe-bottom) + 72px)!important;
+    width:min(330px,84vw)!important;
+    height:92px!important;
+  }
+
+  .rubber-search[data-haki-punch-v11][data-compact-v12] .v11-launcher{
+    right:-34px!important;
+    top:-4px!important;
+    scale:.62;
+  }
+
+  .rubber-search[data-haki-punch-v11][data-compact-v12] .fist-button{
+    right:105px!important;
+    top:10px!important;
+    scale:.68;
+  }
+
+  .rubber-search[data-haki-punch-v11][data-compact-v12] .arm-coil{
+    left:36px!important;
+    right:4px!important;
+    top:20px!important;
+    height:48px!important;
+    border-radius:28px 14px 14px 28px!important;
+  }
+
+  .rubber-search[data-haki-punch-v11][data-compact-v12] .arm-coil:before{
+    inset:5px 9px!important;
+  }
+
+  .rubber-search[data-haki-punch-v11][data-compact-v12] input{
+    top:20px!important;
+    height:48px!important;
+    padding:0 42px 0 80px!important;
+    font-size:14px!important;
+  }
+
+  .rubber-search[data-haki-punch-v11][data-compact-v12] .v11-search-glyph{
+    right:12px!important;
+    top:31px!important;
+    width:20px!important;
+    height:20px!important;
+  }
+
+  .rubber-search[data-haki-punch-v11][data-compact-v12] .v11-smoke{
+    right:72px!important;
+    top:-10px!important;
+    scale:.56;
+  }
+
+  .rubber-search[data-haki-punch-v11][data-compact-v12] .v11-impact{
+    left:-20px!important;
+    top:0!important;
+    scale:.58;
+  }
+
+  .rubber-search[data-haki-punch-v11][data-compact-v12] .v11-sparks{
+    left:-32px!important;
+    top:-12px!important;
+    scale:.56;
+  }
+}
+
+@media(max-width:380px){
+  .rubber-search[data-haki-punch-v11][data-compact-v12]{width:min(310px,82vw)!important}
+  .rubber-search[data-haki-punch-v11][data-compact-v12] .fist-button{right:94px!important;scale:.64}
+  .rubber-search[data-haki-punch-v11][data-compact-v12] input{padding-left:74px!important;font-size:13px!important}
+}
