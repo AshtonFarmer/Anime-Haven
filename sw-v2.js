@@ -1,15 +1,15 @@
-const CACHE='anime-haven-v9';
+const CACHE='anime-haven-v10';
 const CORE=[
   './',
   './index.html',
-  './bootstrap-v3.js?v=6',
-  './luffy-search-v9.js?v=9',
-  './luffy-search-v9.css?v=9',
+  './bootstrap-v4.js?release=10',
+  './rubber-search-v10.js?release=10',
+  './rubber-search-v10.css?release=10',
   './manifest-v2.webmanifest',
   './icons/icon.svg',
-  './anime-haven-v4.part00?v=4',
-  './anime-haven-v4.part01?v=4',
-  './anime-haven-v4.part02?v=4'
+  './anime-haven-v4.part00?package=4',
+  './anime-haven-v4.part01?package=4',
+  './anime-haven-v4.part02?package=4'
 ];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
