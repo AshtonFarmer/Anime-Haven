@@ -9,8 +9,7 @@
   const u32=(v,o)=>v.getUint32(o,true);
   const rebrand=source=>String(source||'')
     .replace(/ANIME[\s-]*HAVEN/g,'KAGENEXUS')
-    .replace(/Anime[\s-]*Haven/g,'KageNexus')
-    .replace(/anime[\s-]*haven/g,'KageNexus');
+    .replace(/Anime[\s-]*Haven/g,'KageNexus');
 
   const inflate=async bytes=>{
     const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
