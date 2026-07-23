@@ -1,13 +1,20 @@
 (()=>{
   'use strict';
-  const parts=['mobile-suite-v22.part00','mobile-suite-v22.part01','mobile-suite-v22.part02','mobile-suite-v22.part03','mobile-suite-v22.part04','mobile-suite-v22.part05a','mobile-suite-v22.part05b','mobile-suite-v22.part06','mobile-suite-v22.part07'];
+  const parts=["mobile-suite-v22.part00","mobile-suite-v22.part01","mobile-suite-v22.part02","mobile-suite-v22.part03","mobile-suite-v22.part04","mobile-suite-v22.part05a","mobile-suite-v22.part05b","mobile-suite-v22.part06","mobile-suite-v22.part07"];
+  const replacements=[["    section.innerHTML=`<div class=\"kn-section-heading\">","    const signature=items.map(item=>[item.id,item.status,item.season,item.episode,item.updatedAt].join(':')).join('|');\n    if(section.dataset.knSignature===signature)return;\n    section.dataset.knSignature=signature;\n    section.innerHTML=`<div class=\"kn-section-heading\">"],["      const item=map.get(titleKey(title));if(!item)return;\n      let row=$('.kn-card-actions',card);\n      const html=actionRow(item);\n      if(row){\n        const wrapper=document.createElement('div');wrapper.innerHTML=html;\n        row.replaceWith(wrapper.firstElementChild);\n      }else card.insertAdjacentHTML('beforeend',html);","      const item=map.get(titleKey(title));if(!item)return;\n      const signature=[item.id,item.mediaType,item.status,item.season,item.episode,item.updatedAt].join(':');\n      let row=$('.kn-card-actions',card);\n      if(row?.dataset.knSignature===signature){card.dataset.knItemId=item.id;return}\n      const wrapper=document.createElement('div');wrapper.innerHTML=actionRow(item);\n      const nextRow=wrapper.firstElementChild;nextRow.dataset.knSignature=signature;\n      if(row)row.replaceWith(nextRow);else card.appendChild(nextRow);"],["  function detectBottomNav(){\n    const labels=","  function detectBottomNav(){\n    if($('.kn-bottom-nav[data-kn-safe-nav=\"22\"]'))return;\n    const labels="],["        node.classList.add('kn-bottom-nav');","        node.classList.add('kn-bottom-nav');node.dataset.knSafeNav='22';"],["        setHeight();new ResizeObserver(setHeight).observe(node);return;","        setHeight();if('ResizeObserver' in window)new ResizeObserver(setHeight).observe(node);return;"],["    const observer=new MutationObserver(records=>{if(records.some(record=>record.addedNodes.length))enhance()});","    const observer=new MutationObserver(records=>{\n      const relevant=records.some(record=>[...record.addedNodes].some(node=>node instanceof Element&&(node.matches('.anime-card,#homeView,#settingsView,#addAnimeDialog,#globalSearch,#rubberSearch')||node.querySelector?.('.anime-card,#homeView,#settingsView,#addAnimeDialog,#globalSearch,#rubberSearch'))));\n      if(relevant)enhance();\n    });"]];
   const decode=text=>{const bytes=Uint8Array.from(atob(text),c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)};
   (async()=>{
     try{
       const chunks=await Promise.all(parts.map(path=>fetch(`./${path}?release=22`,{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error(`Missing ${path}`);return response.text()})));
       const payload=JSON.parse(decode(chunks.join('').replace(/\s+/g,'')));
+      let source=payload.js;
+      for(const [before,after] of replacements){
+        if(!source.includes(before))throw new Error('Mobile stability patch did not match');
+        source=source.replace(before,after);
+      }
+      document.getElementById('kagenexus-mobile-suite-v22')?.remove();
       const style=document.createElement('style');style.id='kagenexus-mobile-suite-v22';style.textContent=payload.css;document.head.appendChild(style);
-      (0,eval)(payload.js);
+      (0,eval)(source);
     }catch(error){console.error('KageNexus mobile suite could not load',error)}
   })();
 })();
