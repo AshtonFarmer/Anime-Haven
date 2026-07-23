@@ -1,7 +1,7 @@
 (()=>{
   'use strict';
 
-  const ICON_PATH='./icons/kagenexus-icon-v18.png';
+  const ICON_PATH='./icons/kagenexus-icon.png?brand=18';
   const iconUrl=()=>new URL(ICON_PATH,document.baseURI).href;
   const replacements=[
     [/ANIME[\s-]*HAVEN/g,'KAGENEXUS'],
