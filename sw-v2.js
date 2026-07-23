@@ -1,10 +1,10 @@
-const CACHE='kagenexus-v20-transform';
+const CACHE='kagenexus-v21-touch-fix';
 const CORE=[
   './','./index.html','./bootstrap-v4.js?release=18','./kagenexus-brand-v19.js?release=19',
   './rubber-search-v11.js?release=11','./rubber-search-v11.css?release=11',
   './rubber-search-compact-v12.js?release=12','./rubber-search-compact-v12.css?release=12',
   './nav-scroll-guard-v13.js?release=14','./library-manager-v15.js?release=15','./library-manager-v14.css?release=15',
-  './power-transform-v20.js?release=20','./power-transform-motion-v20.js?release=20','./power-transform-v20.css?release=20',
+  './power-transform-v21.js?release=21','./power-transform-motion-v20.js?release=20','./power-transform-v20.css?release=20','./power-touch-v21.css?release=21',
   './manifest.webmanifest?brand=19','./manifest-v2.webmanifest?brand=19',
   './icons/kagenexus-favicon-v19.svg','./icons/kagenexus-icon.png?brand=19',
   './anime-haven-v4.part00?package=4','./anime-haven-v4.part01?package=4','./anime-haven-v4.part02?package=4'
