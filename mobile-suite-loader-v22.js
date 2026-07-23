@@ -1,6 +1,6 @@
 (()=>{
   'use strict';
-  const parts=['mobile-suite-v22.part00','mobile-suite-v22.part01','mobile-suite-v22.part02','mobile-suite-v22.part03','mobile-suite-v22.part04','mobile-suite-v22.part05','mobile-suite-v22.part06','mobile-suite-v22.part07'];
+  const parts=['mobile-suite-v22.part00','mobile-suite-v22.part01','mobile-suite-v22.part02','mobile-suite-v22.part03','mobile-suite-v22.part04','mobile-suite-v22.part05a','mobile-suite-v22.part05b','mobile-suite-v22.part06','mobile-suite-v22.part07'];
   const decode=text=>{const bytes=Uint8Array.from(atob(text),c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)};
   (async()=>{
     try{
