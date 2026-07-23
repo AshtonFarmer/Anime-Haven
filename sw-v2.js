@@ -1,9 +1,9 @@
-const CACHE='kagenexus-v17';
+const CACHE='kagenexus-v18';
 const CORE=[
   './',
   './index.html',
-  './bootstrap-v4.js?release=17',
-  './kagenexus-brand-v17.js?release=17',
+  './bootstrap-v4.js?release=18',
+  './kagenexus-brand-v18.js?release=18',
   './rubber-search-v11.js?release=11',
   './rubber-search-v11.css?release=11',
   './rubber-search-compact-v12.js?release=12',
@@ -11,10 +11,9 @@ const CORE=[
   './nav-scroll-guard-v13.js?release=14',
   './library-manager-v15.js?release=15',
   './library-manager-v14.css?release=15',
-  './manifest-v2.webmanifest',
-  './manifest.webmanifest',
-  './icons/kagenexus-icon.png',
-  './icons/icon.svg',
+  './manifest-v2.webmanifest?brand=18',
+  './manifest.webmanifest?brand=18',
+  './icons/kagenexus-icon.png?brand=18',
   './anime-haven-v4.part00?package=4',
   './anime-haven-v4.part01?package=4',
   './anime-haven-v4.part02?package=4'
