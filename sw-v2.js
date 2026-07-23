@@ -1,10 +1,10 @@
-const CACHE='anime-haven-v8';
+const CACHE='anime-haven-v9';
 const CORE=[
   './',
   './index.html',
   './bootstrap-v3.js?v=6',
-  './luffy-search-v8.js?v=8',
-  './luffy-search-v8.css?v=8',
+  './luffy-search-v9.js?v=9',
+  './luffy-search-v9.css?v=9',
   './manifest-v2.webmanifest',
   './icons/icon.svg',
   './anime-haven-v4.part00?v=4',
