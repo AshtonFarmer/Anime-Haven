@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Anime Haven">
+  <defs>
+    <linearGradient id="bg" x1="60" y1="40" x2="452" y2="472" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8b5cff"/>
+      <stop offset=".5" stop-color="#4f62ff"/>
+      <stop offset="1" stop-color="#18d8ee"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="65%">
+      <stop stop-color="#ffffff" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#09051d" flood-opacity=".5"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="#090817"/>
+  <rect x="24" y="24" width="464" height="464" rx="104" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="24" y="24" width="464" height="464" rx="104" fill="url(#glow)"/>
+  <path d="M137 153c48-51 190-66 250 6-43-24-88-30-130-16-39 13-72 39-101 78-12-17-18-40-19-68Z" fill="#fff" opacity=".18"/>
+  <circle cx="256" cy="256" r="136" fill="#080817" opacity=".2" stroke="#fff" stroke-opacity=".35" stroke-width="8"/>
+  <text x="256" y="326" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="194" font-weight="900" fill="#fff">影</text>
+</svg>
