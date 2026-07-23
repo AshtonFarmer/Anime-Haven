@@ -78,6 +78,33 @@
     set('Powering up…',88);
     const parsed=new DOMParser().parseFromString(html,'text/html');
     parsed.querySelectorAll('link[rel="stylesheet"],script[src]').forEach(node=>node.remove());
+
+    parsed.querySelectorAll('link[rel="manifest"]').forEach(node=>node.remove());
+    const manifest=document.createElement('link');
+    manifest.rel='manifest';
+    manifest.href='./manifest-v2.webmanifest';
+    parsed.head.appendChild(manifest);
+
+    parsed.querySelectorAll('link[rel~="icon"],link[rel="apple-touch-icon"]').forEach(node=>node.remove());
+    const icon=document.createElement('link');
+    icon.rel='icon';
+    icon.href='./icons/icon.svg';
+    parsed.head.appendChild(icon);
+    const touchIcon=document.createElement('link');
+    touchIcon.rel='apple-touch-icon';
+    touchIcon.href='./icons/icon.svg';
+    parsed.head.appendChild(touchIcon);
+
+    const ensureMeta=(name,content)=>{
+      let meta=parsed.head.querySelector(`meta[name="${name}"]`);
+      if(!meta){meta=document.createElement('meta');meta.name=name;parsed.head.appendChild(meta);}
+      meta.content=content;
+    };
+    ensureMeta('mobile-web-app-capable','yes');
+    ensureMeta('apple-mobile-web-app-capable','yes');
+    ensureMeta('apple-mobile-web-app-status-bar-style','black-translucent');
+    ensureMeta('theme-color','#080817');
+
     document.documentElement.lang=parsed.documentElement.lang||'en';
     document.head.innerHTML=parsed.head.innerHTML;
     document.body.innerHTML=parsed.body.innerHTML;
