@@ -1,34 +1,13 @@
-const CACHE='kagenexus-v18';
+const CACHE='kagenexus-v19';
 const CORE=[
-  './',
-  './index.html',
-  './bootstrap-v4.js?release=18',
-  './kagenexus-brand-v18.js?release=18',
-  './rubber-search-v11.js?release=11',
-  './rubber-search-v11.css?release=11',
-  './rubber-search-compact-v12.js?release=12',
-  './rubber-search-compact-v12.css?release=12',
-  './nav-scroll-guard-v13.js?release=14',
-  './library-manager-v15.js?release=15',
-  './library-manager-v14.css?release=15',
-  './manifest-v2.webmanifest?brand=18',
-  './manifest.webmanifest?brand=18',
-  './icons/kagenexus-icon.png?brand=18',
-  './anime-haven-v4.part00?package=4',
-  './anime-haven-v4.part01?package=4',
-  './anime-haven-v4.part02?package=4'
+  './','./index.html','./bootstrap-v4.js?release=18','./kagenexus-brand-v19.js?release=19',
+  './rubber-search-v11.js?release=11','./rubber-search-v11.css?release=11',
+  './rubber-search-compact-v12.js?release=12','./rubber-search-compact-v12.css?release=12',
+  './nav-scroll-guard-v13.js?release=14','./library-manager-v15.js?release=15','./library-manager-v14.css?release=15',
+  './manifest.webmanifest?brand=19','./manifest-v2.webmanifest?brand=19',
+  './icons/kagenexus-favicon-v19.svg','./icons/kagenexus-icon.png?brand=19',
+  './anime-haven-v4.part00?package=4','./anime-haven-v4.part01?package=4','./anime-haven-v4.part02?package=4'
 ];
-self.addEventListener('install',event=>event.waitUntil(
-  caches.open(CACHE).then(cache=>Promise.all(CORE.map(url=>cache.add(url).catch(error=>console.warn('KageNexus cache skipped',url,error))))).then(()=>self.skipWaiting())
-));
-self.addEventListener('activate',event=>event.waitUntil(
-  caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())
-));
-self.addEventListener('fetch',event=>{
-  if(event.request.method!=='GET')return;
-  event.respondWith(fetch(event.request).then(response=>{
-    const copy=response.clone();
-    caches.open(CACHE).then(cache=>cache.put(event.request,copy));
-    return response;
-  }).catch(()=>caches.match(event.request).then(hit=>hit||caches.match('./index.html'))));
-});
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>Promise.all(CORE.map(url=>cache.add(url).catch(error=>console.warn('KageNexus cache skipped',url,error))))).then(()=>self.skipWaiting())));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;event.respondWith(fetch(event.request).then(response=>{const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));return response;}).catch(()=>caches.match(event.request).then(hit=>hit||caches.match('./index.html'))));});
