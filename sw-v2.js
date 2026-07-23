@@ -1,10 +1,15 @@
-const CACHE='anime-haven-v10';
+const CACHE='anime-haven-v13';
 const CORE=[
   './',
   './index.html',
   './bootstrap-v4.js?release=10',
-  './rubber-search-v10.js?release=10',
-  './rubber-search-v10.css?release=10',
+  './assets/haki-idle-0.js?release=13',
+  './assets/haki-idle-1.js?release=13',
+  './assets/haki-idle-rest.js?release=13',
+  './assets/haki-final-0.js?release=13',
+  './assets/haki-final-1.js?release=13',
+  './rubber-search-v13.js?release=13',
+  './rubber-search-v13.css?release=13',
   './manifest-v2.webmanifest',
   './icons/icon.svg',
   './anime-haven-v4.part00?package=4',
