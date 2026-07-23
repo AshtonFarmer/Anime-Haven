@@ -1,4 +1,4 @@
-const CACHE='kagenexus-v22-mobile-suite';
+const CACHE='kagenexus-v22-mobile-suite-fixed';
 const CORE=[
   './','./index.html','./offline.html',
   './bootstrap-v4.js?release=18','./kagenexus-brand-v19.js?release=19',
@@ -8,7 +8,7 @@ const CORE=[
   './power-transform-v21.js?release=21','./power-transform-motion-v20.js?release=20','./power-transform-v20.css?release=20','./power-touch-v21.css?release=21',
   './mobile-suite-loader-v22.js?release=22',
   './mobile-suite-v22.part00?release=22','./mobile-suite-v22.part01?release=22','./mobile-suite-v22.part02?release=22','./mobile-suite-v22.part03?release=22',
-  './mobile-suite-v22.part04?release=22','./mobile-suite-v22.part05?release=22','./mobile-suite-v22.part06?release=22','./mobile-suite-v22.part07?release=22',
+  './mobile-suite-v22.part04?release=22','./mobile-suite-v22.part05a?release=22','./mobile-suite-v22.part05b?release=22','./mobile-suite-v22.part06?release=22','./mobile-suite-v22.part07?release=22',
   './manifest.webmanifest?brand=19','./manifest-v2.webmanifest?brand=19',
   './icons/kagenexus-favicon-v19.svg','./icons/kagenexus-icon.png?brand=19',
   './anime-haven-v4.part00?package=4','./anime-haven-v4.part01?package=4','./anime-haven-v4.part02?package=4'
