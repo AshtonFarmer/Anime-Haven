@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070611">
+  <title>Anime Haven Haki Search Preview</title>
+  <style>
+    :root{color-scheme:dark;--safe-bottom:env(safe-area-inset-bottom,0px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100svh;overflow:hidden;background:radial-gradient(circle at 50% 18%,#251146 0,#0d0920 34%,#04040b 76%);color:#fff}
+    body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(80px);opacity:.52;pointer-events:none}
+    body:before{width:310px;height:310px;background:#5f28ff;left:-130px;top:4%}
+    body:after{width:300px;height:300px;background:#cf002b;right:-130px;bottom:2%}
+    .preview-copy{position:fixed;top:max(28px,env(safe-area-inset-top));left:20px;right:20px;text-align:center;z-index:3;pointer-events:none}
+    .preview-copy h1{margin:0;font-size:clamp(27px,8vw,46px);letter-spacing:-1.6px}
+    .preview-copy p{margin:10px auto 0;max-width:500px;color:#c4bbdb;font-weight:650;line-height:1.45}
+    .hint{position:fixed;left:20px;right:20px;bottom:calc(env(safe-area-inset-bottom) + 20px);z-index:2;text-align:center;color:#aaa1c3;font-size:13px;font-weight:700}
+    .rubber-search{--safe-bottom:env(safe-area-inset-bottom,0px)}
+    .rubber-search input{font:inherit}
+  </style>
+</head>
+<body>
+  <header class="preview-copy">
+    <h1>Haki Punch Search Preview</h1>
+    <p>The arm should coil on the right, punch left, then become the search bar. Tap the fist to replay after closing it.</p>
+  </header>
+
+  <form id="rubberSearch" class="rubber-search" role="search" onsubmit="event.preventDefault()">
+    <div class="arm-coil" aria-hidden="true"></div>
+    <input id="globalSearch" type="search" placeholder="Search your anime realm…" autocomplete="off" aria-label="Search Anime Haven">
+    <button id="searchPunch" class="fist-button" type="submit">
+      <span class="haki" aria-hidden="true"></span>
+      <span class="fist"></span>
+    </button>
+  </form>
+
+  <div class="hint">Press Escape on a keyboard or tap outside with an empty search to retract it.</div>
+  <script src="./rubber-search-v11.js?preview=1"></script>
+</body>
+</html>
