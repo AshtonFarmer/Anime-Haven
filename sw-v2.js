@@ -1,4 +1,4 @@
-const CACHE='anime-haven-v13';
+const CACHE='anime-haven-v14';
 const CORE=[
   './',
   './index.html',
@@ -7,7 +7,7 @@ const CORE=[
   './rubber-search-v11.css?release=11',
   './rubber-search-compact-v12.js?release=12',
   './rubber-search-compact-v12.css?release=12',
-  './nav-scroll-guard-v13.js?release=13',
+  './nav-scroll-guard-v13.js?release=14',
   './manifest-v2.webmanifest',
   './icons/icon.svg',
   './anime-haven-v4.part00?package=4',
