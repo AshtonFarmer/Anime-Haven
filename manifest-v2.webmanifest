@@ -1,7 +1,8 @@
 {
-  "name": "Anime Haven",
-  "short_name": "Anime Haven",
-  "description": "Ashton’s anime season and episode tracker",
+  "id": "./",
+  "name": "KageNexus",
+  "short_name": "KageNexus",
+  "description": "Ashton’s anime and movie tracking nexus",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -10,9 +11,9 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "icons/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "icons/kagenexus-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]

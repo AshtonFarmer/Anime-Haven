@@ -7,6 +7,10 @@
   const decoder=new TextDecoder();
   const u16=(v,o)=>v.getUint16(o,true);
   const u32=(v,o)=>v.getUint32(o,true);
+  const rebrand=source=>String(source||'')
+    .replace(/ANIME[\s-]*HAVEN/g,'KAGENEXUS')
+    .replace(/Anime[\s-]*Haven/g,'KageNexus')
+    .replace(/anime[\s-]*haven/g,'KageNexus');
 
   const inflate=async bytes=>{
     const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
@@ -44,7 +48,7 @@
   }
 
   try{
-    set('Summoning Ashton’s anime archive…',8);
+    set('Summoning Ashton’s anime nexus…',8);
     const texts=[];
     for(let i=0;i<parts.length;i++){
       const response=await fetch(`./${parts[i]}?package=4`,{cache:'no-store'});
@@ -59,20 +63,20 @@
     if(encoded.length%4!==0)throw new Error('The app package was incomplete. Refresh once more.');
     const binary=atob(encoded);
     const bytes=Uint8Array.from(binary,c=>c.charCodeAt(0));
-    set('Unlocking the Haven…',60);
+    set('Unlocking the Nexus…',60);
     const files=await unzip(bytes);
     for(const key of ['index.html','styles.css','data.js','config.js','app-v2.js']){
       if(!files[key])throw new Error(`${key} is missing`);
     }
 
-    const html=decoder.decode(files['index.html']);
-    const css=decoder.decode(files['styles.css']);
+    const html=rebrand(decoder.decode(files['index.html']));
+    const css=rebrand(decoder.decode(files['styles.css']));
     const data=decoder.decode(files['data.js']);
-    const config=decoder.decode(files['config.js']);
-    let app=decoder.decode(files['app-v2.js']);
+    const config=rebrand(decoder.decode(files['config.js']));
+    let app=rebrand(decoder.decode(files['app-v2.js']));
     app=app.replace(
       'localStorage.setItem(STORAGE_KEY, JSON.stringify(state));',
-      "try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) { console.warn('Could not save Anime Haven progress', error); }"
+      "try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) { console.warn('Could not save KageNexus progress', error); }"
     );
 
     set('Powering up…',88);
@@ -82,17 +86,21 @@
     parsed.querySelectorAll('link[rel="manifest"]').forEach(node=>node.remove());
     const manifest=document.createElement('link');
     manifest.rel='manifest';
-    manifest.href='./manifest-v2.webmanifest';
+    manifest.href='./manifest.webmanifest';
     parsed.head.appendChild(manifest);
 
     parsed.querySelectorAll('link[rel~="icon"],link[rel="apple-touch-icon"]').forEach(node=>node.remove());
     const icon=document.createElement('link');
     icon.rel='icon';
-    icon.href='./icons/icon.svg';
+    icon.type='image/png';
+    icon.sizes='192x192';
+    icon.href='./icons/kagenexus-icon.png';
     parsed.head.appendChild(icon);
     const touchIcon=document.createElement('link');
     touchIcon.rel='apple-touch-icon';
-    touchIcon.href='./icons/icon.svg';
+    touchIcon.type='image/png';
+    touchIcon.sizes='192x192';
+    touchIcon.href='./icons/kagenexus-icon.png';
     parsed.head.appendChild(touchIcon);
 
     const ensureMeta=(name,content)=>{
@@ -103,23 +111,27 @@
     ensureMeta('mobile-web-app-capable','yes');
     ensureMeta('apple-mobile-web-app-capable','yes');
     ensureMeta('apple-mobile-web-app-status-bar-style','black-translucent');
+    ensureMeta('apple-mobile-web-app-title','KageNexus');
+    ensureMeta('application-name','KageNexus');
     ensureMeta('theme-color','#080817');
+    parsed.title='KageNexus';
 
     document.documentElement.lang=parsed.documentElement.lang||'en';
     document.head.innerHTML=parsed.head.innerHTML;
     document.body.innerHTML=parsed.body.innerHTML;
 
     const style=document.createElement('style');
-    style.id='anime-haven-core-styles';
+    style.id='kagenexus-core-styles';
     style.textContent=css;
     document.head.appendChild(style);
 
     (0,eval)(data);
     (0,eval)(config);
     (0,eval)(app);
+    window.dispatchEvent(new CustomEvent('kagenexus-ready'));
     window.dispatchEvent(new CustomEvent('anime-haven-ready'));
   }catch(error){
     console.error(error);
-    document.body.innerHTML=`<main class="boot-error"><div>⚠</div><h1>Anime Haven could not awaken</h1><p>${String(error.message||error)}</p><button onclick="location.reload()">Try again</button></main>`;
+    document.body.innerHTML=`<main class="boot-error"><div>⚠</div><h1>KageNexus could not awaken</h1><p>${String(error.message||error)}</p><button onclick="location.reload()">Try again</button></main>`;
   }
 })();
