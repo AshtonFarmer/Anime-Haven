@@ -1,43 +1,56 @@
 (()=>{
   'use strict';
 
-  const NAV_LABELS=['home','archive','unstarted','settings'];
-  const CONTROL_SELECTOR='button,a,[role="button"],[data-view],[data-route],[tabindex]';
+  const CONTROL_SELECTOR=[
+    'button',
+    'a[href]',
+    '[role="button"]',
+    '[data-view]',
+    '[data-route]',
+    'input:not([type="range"])',
+    'textarea',
+    'select',
+    'label[for]',
+    'summary',
+    '[contenteditable="true"]',
+    '[tabindex]:not([tabindex="-1"])'
+  ].join(',');
   const MOVE_THRESHOLD=8;
-  const CLICK_BLOCK_MS=850;
+  const CLICK_BLOCK_MS=750;
 
-  const normalize=value=>String(value||'').trim().toLowerCase().replace(/\s+/g,' ');
-
-  const getNavControl=target=>{
+  const getControl=target=>{
     if(!(target instanceof Element))return null;
-    const control=target.closest(CONTROL_SELECTOR);
-    if(!control)return null;
-    const label=normalize(`${control.getAttribute('aria-label')||''} ${control.textContent||''}`);
-    return NAV_LABELS.some(name=>label===name||label.startsWith(`${name} `)||label.endsWith(` ${name}`))?control:null;
+    return target.closest(CONTROL_SELECTOR);
   };
 
-  const markNavControls=()=>{
-    document.querySelectorAll(CONTROL_SELECTOR).forEach(control=>{
-      if(getNavControl(control))control.classList.add('ah-scroll-safe-nav');
-    });
+  const markControls=root=>{
+    if(!(root instanceof Element||root instanceof Document))return;
+    if(root instanceof Element&&root.matches(CONTROL_SELECTOR))root.classList.add('ah-scroll-safe-control');
+    root.querySelectorAll?.(CONTROL_SELECTOR).forEach(control=>control.classList.add('ah-scroll-safe-control'));
   };
 
   const install=()=>{
-    if(document.documentElement.dataset.navScrollGuardV13)return;
-    document.documentElement.dataset.navScrollGuardV13='1';
+    if(document.documentElement.dataset.appScrollGuardV14)return;
+    document.documentElement.dataset.appScrollGuardV14='1';
 
     const style=document.createElement('style');
-    style.textContent='.ah-scroll-safe-nav{touch-action:pan-y!important;-webkit-tap-highlight-color:transparent}';
+    style.textContent='.ah-scroll-safe-control{touch-action:pan-y;-webkit-tap-highlight-color:transparent}input[type="range"].ah-scroll-safe-control{touch-action:auto}';
     document.head.appendChild(style);
 
-    let tracking=false;
+    let trackedControl=null;
     let moved=false;
     let startX=0;
     let startY=0;
+    let blockedControl=null;
     let suppressClicksUntil=0;
 
-    const stopAccidentalNavigation=event=>{
-      if(!getNavControl(event.target))return;
+    const sameControl=(eventTarget,control)=>{
+      if(!control||!(eventTarget instanceof Element))return false;
+      const clicked=getControl(eventTarget);
+      return clicked===control||control.contains(eventTarget)||Boolean(clicked&&clicked.contains(control));
+    };
+
+    const cancelActivation=event=>{
       event.preventDefault();
       event.stopPropagation();
       event.stopImmediatePropagation();
@@ -45,44 +58,51 @@
 
     document.addEventListener('touchstart',event=>{
       if(event.touches.length!==1){
-        tracking=false;
+        trackedControl=null;
         moved=false;
         return;
       }
-      tracking=Boolean(getNavControl(event.target));
+      trackedControl=getControl(event.target);
       moved=false;
-      if(!tracking)return;
+      if(!trackedControl)return;
       startX=event.touches[0].clientX;
       startY=event.touches[0].clientY;
     },{capture:true,passive:true});
 
     document.addEventListener('touchmove',event=>{
-      if(!tracking||event.touches.length!==1)return;
+      if(!trackedControl||event.touches.length!==1)return;
       const dx=event.touches[0].clientX-startX;
       const dy=event.touches[0].clientY-startY;
       if(Math.hypot(dx,dy)>=MOVE_THRESHOLD)moved=true;
     },{capture:true,passive:true});
 
     document.addEventListener('touchend',event=>{
-      if(tracking&&moved){
+      if(trackedControl&&moved){
+        blockedControl=trackedControl;
         suppressClicksUntil=performance.now()+CLICK_BLOCK_MS;
-        stopAccidentalNavigation(event);
+        cancelActivation(event);
       }
-      tracking=false;
+      trackedControl=null;
       moved=false;
     },{capture:true,passive:false});
 
     document.addEventListener('touchcancel',()=>{
-      tracking=false;
+      trackedControl=null;
       moved=false;
     },{capture:true,passive:true});
 
     document.addEventListener('click',event=>{
-      if(performance.now()<suppressClicksUntil)stopAccidentalNavigation(event);
+      if(performance.now()>=suppressClicksUntil){
+        blockedControl=null;
+        return;
+      }
+      if(sameControl(event.target,blockedControl))cancelActivation(event);
     },true);
 
-    markNavControls();
-    const observer=new MutationObserver(markNavControls);
+    markControls(document);
+    const observer=new MutationObserver(records=>{
+      records.forEach(record=>record.addedNodes.forEach(node=>markControls(node)));
+    });
     observer.observe(document.body,{childList:true,subtree:true});
 
     window.addEventListener('pagehide',()=>observer.disconnect(),{once:true});
@@ -90,5 +110,5 @@
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
   else install();
-  window.addEventListener('anime-haven-ready',markNavControls);
+  window.addEventListener('anime-haven-ready',()=>markControls(document));
 })();
