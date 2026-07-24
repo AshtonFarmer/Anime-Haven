@@ -725,6 +725,13 @@
       state.card.contains(state.clickTarget)
     ) ? state.clickTarget : state.card;
     try {
+      const destination = state.card.dataset.target;
+      const menuTarget = [...document.querySelectorAll('[data-view]')]
+        .find(control => control.dataset.view === destination);
+      if (menuTarget && typeof menuTarget.click === 'function') {
+        menuTarget.click();
+        return;
+      }
       if ('PointerEvent' in window) {
         const pointer = {
           bubbles: true,
@@ -963,6 +970,13 @@
     clearTimeout(timer);
     timer = setTimeout(scan, 80);
   }
+
+  document.addEventListener('click', event => {
+    const control = event.target instanceof Element
+      ? event.target.closest('[data-view]')
+      : null;
+    if (control?.dataset.view === 'home') schedule();
+  }, true);
 
   for (const type of ['selectstart', 'contextmenu', 'dragstart']) {
     document.addEventListener(type, event => {
