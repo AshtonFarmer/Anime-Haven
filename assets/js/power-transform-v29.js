@@ -101,6 +101,11 @@
     .replace(/[’‘]/g, "'")
     .replace(/\s+/g, ' ')
     .trim();
+  const compact = value => normalize(value).replace(/[^a-z0-9]+/g, '');
+  const matchesPath = (value, path) => {
+    const text = compact(value);
+    return path.match.some(term => text.includes(compact(term)));
+  };
 
   const visible = element => {
     if (!(element instanceof Element)) return false;
@@ -118,7 +123,7 @@
     for (const element of document.querySelectorAll(selector)) {
       if (!visible(element) || element.closest('.kn29-overlay,.kn29-shield')) continue;
       const text = normalize(element.textContent);
-      if (!path.match.some(term => text.includes(term)) || text.length > 180) continue;
+      if (!matchesPath(text, path) || text.length > 180) continue;
       const rect = element.getBoundingClientRect();
       matches.push({
         element,
@@ -140,9 +145,9 @@
     ) return -Infinity;
 
     const text = normalize(element.innerText || element.textContent);
-    if (!path.match.some(term => text.includes(term))) return -Infinity;
+    if (!matchesPath(text, path)) return -Infinity;
     const other = Object.values(PATHS).find(candidate => candidate !== path);
-    if (other.match.some(term => text.includes(term))) return -Infinity;
+    if (matchesPath(text, other)) return -Infinity;
 
     const style = getComputedStyle(element);
     const radius = Number.parseFloat(style.borderTopLeftRadius) || 0;
