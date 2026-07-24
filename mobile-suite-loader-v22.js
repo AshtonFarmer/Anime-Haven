@@ -1,6 +1,16 @@
 (()=>{
   'use strict';
-  const parts=["mobile-suite-v22.part00","mobile-suite-v22.part01","mobile-suite-v22.part02","mobile-suite-v22.part03","mobile-suite-v22.part04","mobile-suite-v22.part05a","mobile-suite-v22.part05b","mobile-suite-v22.part06","mobile-suite-v22.part07"];
+  const parts=[
+    "data/mobile-suite/mobile-suite-v22.part00",
+    "data/mobile-suite/mobile-suite-v22.part01",
+    "data/mobile-suite/mobile-suite-v22.part02",
+    "data/mobile-suite/mobile-suite-v22.part03",
+    "data/mobile-suite/mobile-suite-v22.part04",
+    "data/mobile-suite/mobile-suite-v22.part05a",
+    "data/mobile-suite/mobile-suite-v22.part05b",
+    "data/mobile-suite/mobile-suite-v22.part06",
+    "data/mobile-suite/mobile-suite-v22.part07"
+  ];
   const replacements=[
     ["    section.innerHTML=`<div class=\"kn-section-heading\">","    const signature=items.map(item=>[item.id,item.status,item.season,item.episode,item.updatedAt].join(':')).join('|');\n    if(section.dataset.knSignature===signature)return;\n    section.dataset.knSignature=signature;\n    section.innerHTML=`<div class=\"kn-section-heading\">"],
     ["      const item=map.get(titleKey(title));if(!item)return;\n      let row=$('.kn-card-actions',card);\n      const html=actionRow(item);\n      if(row){\n        const wrapper=document.createElement('div');wrapper.innerHTML=html;\n        row.replaceWith(wrapper.firstElementChild);\n      }else card.insertAdjacentHTML('beforeend',html);","      const item=map.get(titleKey(title));if(!item)return;\n      const signature=[item.id,item.mediaType,item.status,item.season,item.episode,item.updatedAt].join(':');\n      let row=$('.kn-card-actions',card);\n      if(row?.dataset.knSignature===signature){card.dataset.knItemId=item.id;return}\n      const wrapper=document.createElement('div');wrapper.innerHTML=actionRow(item);\n      const nextRow=wrapper.firstElementChild;nextRow.dataset.knSignature=signature;\n      if(row)row.replaceWith(nextRow);else card.appendChild(nextRow);"],
@@ -64,9 +74,6 @@
         if(!source.includes(before))throw new Error('Mobile stability patch did not match');
         source=source.replace(before,after);
       }
-      // The bundled mobile suite originally registered sw-v2. Force every
-      // registration path to use the exact same worker URL so workers cannot
-      // continually replace one another.
       source=source
         .split('./sw-v2.js?release=22').join('./sw-v26.js?release=26')
         .split('./sw-v25.js?release=25').join('./sw-v26.js?release=26')
