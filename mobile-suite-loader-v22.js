@@ -23,6 +23,7 @@
       user-select:text!important;
       -webkit-touch-callout:default!important;
     }
+    #knGlobalSearchClose{display:none!important}
   `;
   const noSelectionSelector='button,[role="button"],input[type="button"],input[type="submit"],input[type="reset"],.kn-bottom-nav a';
   const installNoSelectionGuards=()=>{
@@ -35,6 +36,16 @@
     document.addEventListener('selectstart',stopSelection,true);
     document.addEventListener('contextmenu',stopSelection,true);
     document.addEventListener('dragstart',stopSelection,true);
+  };
+  const cleanHomeHero=()=>{
+    document.getElementById('knGlobalSearchClose')?.remove();
+    const home=document.getElementById('homeView');
+    if(!home)return;
+    const heading=[...home.querySelectorAll('h1,h2')].find(node=>/build your story/i.test(node.textContent||'')&&/never lose your place/i.test(node.textContent||''));
+    if(!heading)return;
+    const keeper=[...heading.querySelectorAll('*')].find(node=>!/build your story/i.test(node.textContent||'')&&/never lose your place/i.test(node.textContent||''));
+    if(keeper)heading.replaceChildren(keeper.cloneNode(true));
+    else heading.textContent='Never lose your place.';
   };
   const decode=text=>{const bytes=Uint8Array.from(atob(text),c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)};
   (async()=>{
@@ -51,6 +62,11 @@
       const style=document.createElement('style');style.id='kagenexus-mobile-suite-v22';style.textContent=payload.css+noSelectionCss;document.head.appendChild(style);
       installNoSelectionGuards();
       (0,eval)(source);
+      cleanHomeHero();
+      const cleanupObserver=new MutationObserver(records=>{
+        if(records.some(record=>[...record.addedNodes].some(node=>node instanceof Element&&(node.id==='knGlobalSearchClose'||node.id==='homeView'||node.querySelector?.('#knGlobalSearchClose,#homeView')))))cleanHomeHero();
+      });
+      cleanupObserver.observe(document.body,{childList:true,subtree:true});
     }catch(error){console.error('KageNexus mobile suite could not load',error)}
   })();
 })();
