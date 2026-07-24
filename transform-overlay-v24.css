@@ -1,0 +1,138 @@
+/* KageNexus v24 — strict transformation overlay isolation */
+.kn-transform-card{
+  -webkit-user-select:none!important;
+  user-select:none!important;
+  -webkit-touch-callout:none!important;
+}
+
+/* During a hold, the original card becomes one hidden layer. This prevents every
+   nested title, count, label, and decorative caption from colliding with the
+   transformation interface, regardless of the card's internal markup. */
+.kn-transform-card.kn-charging > *:not(.kn-power-layer):not(.kn-touch-shield),
+.kn-transform-card.kn-unleashed > *:not(.kn-power-layer):not(.kn-touch-shield),
+.kn-transform-card.kn-collapse > *:not(.kn-power-layer):not(.kn-touch-shield){
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
+
+.kn-transform-card > .kn-power-layer{
+  position:absolute!important;
+  inset:0!important;
+  z-index:100!important;
+  display:block!important;
+  overflow:hidden!important;
+  pointer-events:none!important;
+  border-radius:inherit!important;
+}
+
+.kn-transform-card > .kn-touch-shield{
+  position:absolute!important;
+  inset:0!important;
+  z-index:200!important;
+  display:block!important;
+  background:transparent!important;
+  -webkit-user-select:none!important;
+  user-select:none!important;
+  -webkit-touch-callout:none!important;
+  touch-action:none!important;
+}
+
+/* The form name lives in a dedicated bottom bar instead of sharing the title area. */
+.kn-transform-card .kn-stage-panel{
+  position:absolute!important;
+  left:16px!important;
+  right:16px!important;
+  top:auto!important;
+  bottom:16px!important;
+  z-index:140!important;
+  min-width:0!important;
+  width:auto!important;
+  margin:0!important;
+  padding:11px 13px!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  grid-template-areas:"path percent" "name percent"!important;
+  align-items:center!important;
+  gap:4px 12px!important;
+  text-align:left!important;
+  border:1px solid color-mix(in srgb,var(--kn-aura) 58%,transparent)!important;
+  border-radius:15px!important;
+  background:linear-gradient(135deg,rgba(4,5,13,.96),rgba(16,18,40,.96))!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.72),inset 0 0 18px color-mix(in srgb,var(--kn-aura) 12%,transparent)!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  transform:translateY(8px)!important;
+  transition:opacity .14s ease,transform .14s ease,visibility 0s linear .14s!important;
+}
+.kn-transform-card.kn-charging .kn-stage-panel,
+.kn-transform-card.kn-unleashed .kn-stage-panel,
+.kn-transform-card.kn-collapse .kn-stage-panel{
+  opacity:1!important;
+  visibility:visible!important;
+  transform:translateY(0)!important;
+  transition-delay:0s!important;
+}
+.kn-transform-card .kn-stage-path{
+  grid-area:path!important;
+  font-size:9px!important;
+  line-height:1!important;
+  font-weight:950!important;
+  letter-spacing:.2em!important;
+  white-space:nowrap!important;
+}
+.kn-transform-card .kn-stage-name{
+  grid-area:name!important;
+  margin:3px 0 0!important;
+  max-width:100%!important;
+  font-size:clamp(12px,1.5vw,17px)!important;
+  line-height:1.05!important;
+  font-weight:950!important;
+  letter-spacing:.025em!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.kn-transform-card .kn-stage-percent{
+  grid-area:percent!important;
+  margin:0!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:.08em!important;
+  white-space:nowrap!important;
+  text-align:right!important;
+}
+.kn-transform-card .kn-stage-pips{
+  left:16px!important;
+  top:15px!important;
+  bottom:auto!important;
+  z-index:145!important;
+  opacity:0!important;
+  visibility:hidden!important;
+}
+.kn-transform-card .kn-meter{
+  z-index:150!important;
+  opacity:0!important;
+  visibility:hidden!important;
+}
+.kn-transform-card.kn-charging .kn-stage-pips,
+.kn-transform-card.kn-unleashed .kn-stage-pips,
+.kn-transform-card.kn-collapse .kn-stage-pips,
+.kn-transform-card.kn-charging .kn-meter,
+.kn-transform-card.kn-unleashed .kn-meter,
+.kn-transform-card.kn-collapse .kn-meter{
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+@media (max-width:480px){
+  .kn-transform-card .kn-stage-panel{
+    left:10px!important;
+    right:10px!important;
+    bottom:10px!important;
+    padding:9px 10px!important;
+  }
+  .kn-transform-card .kn-stage-name{font-size:11px!important}
+  .kn-transform-card .kn-stage-percent{font-size:8px!important}
+  .kn-transform-card .kn-stage-pips{left:11px!important;top:11px!important}
+}
