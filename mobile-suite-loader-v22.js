@@ -47,6 +47,13 @@
     if(keeper)heading.replaceChildren(keeper.cloneNode(true));
     else heading.textContent='Never lose your place.';
   };
+  const registerCleanWorker=async()=>{
+    if(!('serviceWorker' in navigator))return;
+    try{
+      const registration=await navigator.serviceWorker.register('./sw-v25.js?release=25',{scope:'./',updateViaCache:'none'});
+      await registration.update();
+    }catch(error){console.error('KageNexus v25 worker registration failed',error)}
+  };
   const decode=text=>{const bytes=Uint8Array.from(atob(text),c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)};
   (async()=>{
     try{
@@ -63,10 +70,11 @@
       installNoSelectionGuards();
       (0,eval)(source);
       cleanHomeHero();
+      registerCleanWorker();
       const cleanupObserver=new MutationObserver(records=>{
         if(records.some(record=>[...record.addedNodes].some(node=>node instanceof Element&&(node.id==='knGlobalSearchClose'||node.id==='homeView'||node.querySelector?.('#knGlobalSearchClose,#homeView')))))cleanHomeHero();
       });
       cleanupObserver.observe(document.body,{childList:true,subtree:true});
-    }catch(error){console.error('KageNexus mobile suite could not load',error)}
+    }catch(error){console.error('KageNexus mobile suite could not load',error);registerCleanWorker()}
   })();
 })();
