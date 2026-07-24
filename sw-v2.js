@@ -1,2 +1,2 @@
 // Compatibility bridge for devices still registered to the old worker URL.
-importScripts('./sw-v25.js?release=25');
+importScripts('./sw-v26.js?release=26');
