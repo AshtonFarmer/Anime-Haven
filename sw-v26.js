@@ -1,4 +1,4 @@
-const CACHE='kagenexus-v26-single-worker';
+const CACHE='kagenexus-v26-organized-repo';
 const CORE=[
   './','./index.html','./offline.html',
   './bootstrap-v4.js?release=18','./kagenexus-brand-v19.js?release=19',
@@ -7,11 +7,11 @@ const CORE=[
   './nav-scroll-guard-v13.js?release=14','./library-manager-v15.js?release=15','./library-manager-v14.css?release=15',
   './power-transform-v21.js?release=21','./power-transform-motion-v20.js?release=20','./power-transform-v20.css?release=23','./power-touch-v21.css?release=21',
   './transform-hardfix-v25.js?release=25','./mobile-suite-loader-v22.js?release=26',
-  './mobile-suite-v22.part00?release=22','./mobile-suite-v22.part01?release=22','./mobile-suite-v22.part02?release=22','./mobile-suite-v22.part03?release=22',
-  './mobile-suite-v22.part04?release=22','./mobile-suite-v22.part05a?release=22','./mobile-suite-v22.part05b?release=22','./mobile-suite-v22.part06?release=22','./mobile-suite-v22.part07?release=22',
+  './data/mobile-suite/mobile-suite-v22.part00?release=22','./data/mobile-suite/mobile-suite-v22.part01?release=22','./data/mobile-suite/mobile-suite-v22.part02?release=22','./data/mobile-suite/mobile-suite-v22.part03?release=22',
+  './data/mobile-suite/mobile-suite-v22.part04?release=22','./data/mobile-suite/mobile-suite-v22.part05a?release=22','./data/mobile-suite/mobile-suite-v22.part05b?release=22','./data/mobile-suite/mobile-suite-v22.part06?release=22','./data/mobile-suite/mobile-suite-v22.part07?release=22',
   './manifest.webmanifest?brand=25','./manifest-v2.webmanifest?brand=25',
   './icons/kagenexus-favicon-v19.svg?brand=25',
-  './anime-haven-v4.part00?package=4','./anime-haven-v4.part01?package=4','./anime-haven-v4.part02?package=4'
+  './data/app/anime-haven-v4.part00?package=4','./data/app/anime-haven-v4.part01?package=4','./data/app/anime-haven-v4.part02?package=4'
 ];
 
 self.addEventListener('install',event=>{
