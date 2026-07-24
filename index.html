@@ -38,5 +38,18 @@
   <script src="./power-transform-motion-v20.js?release=20"></script>
   <script src="./transform-hardfix-v25.js?release=25"></script>
   <script src="./mobile-suite-loader-v22.js?release=25"></script>
+  <script>
+    if('serviceWorker' in navigator){
+      let reloading=false;
+      navigator.serviceWorker.addEventListener('controllerchange',()=>{
+        if(reloading)return;
+        reloading=true;
+        location.reload();
+      });
+      navigator.serviceWorker.register('./sw-v25.js?release=25.1',{scope:'./',updateViaCache:'none'})
+        .then(registration=>registration.update())
+        .catch(error=>console.error('KageNexus direct worker registration failed',error));
+    }
+  </script>
 </body>
 </html>
