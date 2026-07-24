@@ -1,4 +1,4 @@
-const CACHE='kagenexus-v23-transform-overlay-clean';
+const CACHE='kagenexus-v24-transform-overlay-isolated';
 const CORE=[
   './','./index.html','./offline.html',
   './bootstrap-v4.js?release=18','./kagenexus-brand-v19.js?release=19',
@@ -6,6 +6,7 @@ const CORE=[
   './rubber-search-compact-v12.js?release=12','./rubber-search-compact-v12.css?release=12',
   './nav-scroll-guard-v13.js?release=14','./library-manager-v15.js?release=15','./library-manager-v14.css?release=15',
   './power-transform-v21.js?release=21','./power-transform-motion-v20.js?release=20','./power-transform-v20.css?release=23','./power-touch-v21.css?release=21',
+  './transform-overlay-v24.css?release=24','./transform-overlay-v24.js?release=24',
   './mobile-suite-loader-v22.js?release=22.3',
   './mobile-suite-v22.part00?release=22','./mobile-suite-v22.part01?release=22','./mobile-suite-v22.part02?release=22','./mobile-suite-v22.part03?release=22',
   './mobile-suite-v22.part04?release=22','./mobile-suite-v22.part05a?release=22','./mobile-suite-v22.part05b?release=22','./mobile-suite-v22.part06?release=22','./mobile-suite-v22.part07?release=22',
