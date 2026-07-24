@@ -1,4 +1,4 @@
-const CACHE='kagenexus-v25-clean-worker';
+const CACHE='kagenexus-v25-clean-worker-final';
 const CORE=[
   './','./index.html','./offline.html',
   './bootstrap-v4.js?release=18','./kagenexus-brand-v19.js?release=19',
@@ -47,13 +47,11 @@ self.addEventListener('fetch',event=>{
     try{
       const response=await fetch(request);
       if(response && response.ok){
-        // Clone immediately, before returning the original response to the page.
+        // Clone while the body is still untouched, then write the clone separately.
         const cacheCopy=response.clone();
-        event.waitUntil(
-          caches.open(CACHE)
-            .then(cache=>cache.put(request,cacheCopy))
-            .catch(error=>console.warn('KageNexus cache write skipped',error))
-        );
+        caches.open(CACHE)
+          .then(cache=>cache.put(request,cacheCopy))
+          .catch(error=>console.warn('KageNexus cache write skipped',error));
       }
       return response;
     }catch(error){
