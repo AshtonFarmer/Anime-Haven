@@ -14,6 +14,13 @@
   const rebrand=source=>String(source||'')
     .replace(/ANIME[\s-]*HAVEN/g,'KAGENEXUS')
     .replace(/Anime[\s-]*Haven/g,'KageNexus');
+  const loadScript=src=>new Promise((resolve,reject)=>{
+    const script=document.createElement('script');
+    script.src=src;
+    script.onload=resolve;
+    script.onerror=()=>reject(new Error(`Could not load ${src}`));
+    document.head.appendChild(script);
+  });
 
   const inflate=async bytes=>{
     const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('deflate-raw'));
@@ -128,6 +135,13 @@
     (0,eval)(data);
     (0,eval)(config);
     (0,eval)(app);
+
+    const transformStyle=document.createElement('link');
+    transformStyle.rel='stylesheet';
+    transformStyle.href='./assets/css/power-transform-v29.css?release=30';
+    document.head.appendChild(transformStyle);
+    await loadScript('./assets/js/power-transform-v29.js?release=30');
+
     window.dispatchEvent(new CustomEvent('kagenexus-ready'));
     window.dispatchEvent(new CustomEvent('anime-haven-ready'));
   }catch(error){
