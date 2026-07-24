@@ -725,13 +725,25 @@
       state.card.contains(state.clickTarget)
     ) ? state.clickTarget : state.card;
     try {
-      if (typeof target.click === 'function') target.click();
-      else {
-        target.dispatchEvent(new MouseEvent('click', {
+      if ('PointerEvent' in window) {
+        const pointer = {
           bubbles: true,
           cancelable: true,
-          view: window
+          pointerId: -29,
+          pointerType: 'mouse',
+          isPrimary: true,
+          button: 0
+        };
+        target.dispatchEvent(new PointerEvent('pointerdown', {
+          ...pointer,
+          buttons: 1
         }));
+        target.dispatchEvent(new PointerEvent('pointerup', {
+          ...pointer,
+          buttons: 0
+        }));
+      } else if (typeof target.click === 'function') {
+        target.click();
       }
     } finally {
       state.allowClick = false;
