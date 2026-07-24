@@ -3,7 +3,11 @@
   const status=document.querySelector('#boot-status');
   const progress=document.querySelector('#boot-progress');
   const set=(text,pct)=>{if(status)status.textContent=text;if(progress)progress.style.width=`${pct}%`};
-  const parts=['anime-haven-v4.part00','anime-haven-v4.part01','anime-haven-v4.part02'];
+  const parts=[
+    'data/app/anime-haven-v4.part00',
+    'data/app/anime-haven-v4.part01',
+    'data/app/anime-haven-v4.part02'
+  ];
   const decoder=new TextDecoder();
   const u16=(v,o)=>v.getUint16(o,true);
   const u32=(v,o)=>v.getUint32(o,true);
@@ -85,21 +89,18 @@
     parsed.querySelectorAll('link[rel="manifest"]').forEach(node=>node.remove());
     const manifest=document.createElement('link');
     manifest.rel='manifest';
-    manifest.href='./manifest.webmanifest';
+    manifest.href='./manifest.webmanifest?brand=25';
     parsed.head.appendChild(manifest);
 
     parsed.querySelectorAll('link[rel~="icon"],link[rel="apple-touch-icon"]').forEach(node=>node.remove());
     const icon=document.createElement('link');
     icon.rel='icon';
-    icon.type='image/png';
-    icon.sizes='192x192';
-    icon.href='./icons/kagenexus-icon.png';
+    icon.type='image/svg+xml';
+    icon.href='./icons/kagenexus-favicon-v19.svg?brand=25';
     parsed.head.appendChild(icon);
     const touchIcon=document.createElement('link');
     touchIcon.rel='apple-touch-icon';
-    touchIcon.type='image/png';
-    touchIcon.sizes='192x192';
-    touchIcon.href='./icons/kagenexus-icon.png';
+    touchIcon.href='./icons/kagenexus-favicon-v19.svg?brand=25';
     parsed.head.appendChild(touchIcon);
 
     const ensureMeta=(name,content)=>{
