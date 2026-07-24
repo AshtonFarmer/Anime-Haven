@@ -10,6 +10,6 @@
   "theme_color": "#080817",
   "orientation": "any",
   "icons": [
-    {"src":"icons/kagenexus-icon.png?brand=19","sizes":"192x192","type":"image/png","purpose":"any maskable"}
+    {"src":"icons/kagenexus-favicon-v19.svg?brand=25","sizes":"any","type":"image/svg+xml","purpose":"any"}
   ]
 }
