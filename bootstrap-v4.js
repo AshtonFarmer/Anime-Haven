@@ -138,9 +138,9 @@
 
     const transformStyle=document.createElement('link');
     transformStyle.rel='stylesheet';
-    transformStyle.href='./assets/css/power-transform-v29.css?release=30';
+    transformStyle.href='./assets/css/power-transform-v29.css?release=31';
     document.head.appendChild(transformStyle);
-    await loadScript('./assets/js/power-transform-v29.js?release=30');
+    await loadScript('./assets/js/power-transform-v29.js?release=31');
 
     window.dispatchEvent(new CustomEvent('kagenexus-ready'));
     window.dispatchEvent(new CustomEvent('anime-haven-ready'));
