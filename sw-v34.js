@@ -1,9 +1,9 @@
-const CACHE = 'kagenexus-v36-weapons-batch-two';
+const CACHE = 'kagenexus-v37-weapons-batch-three';
 const CORE = [
   './',
   './index.html',
   './offline.html',
-  './bootstrap-v4.js?release=36',
+  './bootstrap-v4.js?release=37',
   './kagenexus-brand-v19.js?release=19',
   './rubber-search-v11.js?release=11',
   './rubber-search-v11.css?release=11',
@@ -12,9 +12,9 @@ const CORE = [
   './nav-scroll-guard-v13.js?release=14',
   './library-manager-v15.js?release=15',
   './library-manager-v14.css?release=15',
-  './mobile-suite-loader-v22.js?release=36',
-  './arsenal-v34.js?release=36',
-  './arsenal-v34.css?release=36',
+  './mobile-suite-loader-v22.js?release=37',
+  './arsenal-v34.js?release=37',
+  './arsenal-v34.css?release=37',
   './assets/arsenal/media-sources.json',
   './assets/css/power-transform-v29.css?release=33',
   './assets/js/power-transform-v29.js?release=33',
