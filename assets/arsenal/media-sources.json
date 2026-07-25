@@ -1,0 +1,38 @@
+{
+  "release": 35,
+  "note": "KageNexus does not claim ownership of third-party media. The app embeds each item from its credited host and links to the original source.",
+  "powers": [
+    {"id":"mob-telekinesis","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/mobpsycho100-kageyamashigeo-telekinesis-gif-6137101"},
+    {"id":"hollow-purple","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/gojo-satoru-gojo-hollow-purple-jujutsu-kaisen-blue-gif-16843591044568531318"},
+    {"id":"kamehameha","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/goku-kamehameha-dragon-ball-son-goku-energy-wave-gif-9815496963847746678"},
+    {"id":"arise","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/sung-jin-woo-igris-arise-solo-leveling-bloodred-commander-gif-17496945317088408472"},
+    {"id":"getsuga-tensho","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/ichigo-kurosaki-getsuga-tensho-fade-to-black-snake-movie3-gif-24230454"},
+    {"id":"megiddo","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/rimuru-tempest-megiddo-ybaau-solos-yba-au-gif-25761644"},
+    {"id":"zoltraak","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/frieren-zoltraak-gif-4846196759717581677"},
+    {"id":"malevolent-shrine","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/malevolent-shrine-jujutsu-kaisen-sukuna-sukuna-vs-mahoraga-shibuya-gif-5523999485760831537"},
+    {"id":"detroit-smash","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/detroit-smash-izuku-midoriya-deku-my-hero-academia-boku-no-hero-academia-gif-17757946"},
+    {"id":"adolla-burst","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/shinra-shinra-kusakabe-fire-force-enen-no-shouboutai-adolla-burst-gif-25690254"},
+    {"id":"full-counter","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/meliodas-full-counter-the-seven-deadly-sins-tsds-seven-deadly-sins-sds-gif-20751424"},
+    {"id":"water-breathing","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/demon-slayer-tanjiro-kamado-kimetsu-no-yaiba-water-breathing-gif-10480000295623830569"}
+  ],
+  "weapons": [
+    {"id":"zangetsu","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/ichigo-kurosaki-shikai-bleach-fan-art-8cb58515c55943fa8549610124186414"},
+    {"id":"demon-slayer-sword","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/black-clover-demon-slayer-sword-c7ff315569354e6496dafc110338be4d"},
+    {"id":"demon-dweller-sword","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/demon-dweller-black-clover-asta-sword-b7ed730bac5d4237b08203282065e160"},
+    {"id":"yami-katana","host":"YouTube / Crunchyroll","media":"official anime clip thumbnail","source":"https://www.youtube.com/watch?v=y91x1c4IjHk"},
+    {"id":"elucidator","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/kiritos-elucidator-d5fd833325d846ec810c97c03d96776f"},
+    {"id":"dark-repulser","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/kiritos-dark-repulser-7c1def3ae60146c78eb1871ce7aeb954"},
+    {"id":"blue-rose-sword","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/blue-rose-sword-from-sword-art-online-ca533d34643d4034a2a3710b95a0ffd8"},
+    {"id":"dragon-slayer","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/dragon-slayer-berserk-3f9e323324af41fdb4c54b97c8cb9807"},
+    {"id":"murasame","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/murasame-e815bef689ff40a3ace5513f63bb3e35"},
+    {"id":"lostvayne","host":"Mini Katana","media":"anime-accurate physical replica photo","source":"https://minikatana.com/products/lostvayne-metal-dull-sword"},
+    {"id":"chastiefol","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/chastiefol-spirit-spear-seven-deadly-sins-19d518e9563c40b1b9e4f04faf857deb"},
+    {"id":"rhitta","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/rhitta-escanors-axe-seven-deadly-sins-98b6ee1cbd7a496db3ae3020b57252c5"},
+    {"id":"kurikara","host":"Mini Katana","media":"anime-accurate physical replica photo","source":"https://minikatana.com/products/rin-okumuras-katana-metal"},
+    {"id":"playful-cloud","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/playful-cloud-jujutsu-kaisen-5d79400ce4ec4830819aa0f347c2f2c9"},
+    {"id":"inverted-spear","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/inverted-spear-of-heaven-jujutsu-kaisen-089c61807b8b4c68ad5b814ae481b87f"},
+    {"id":"rebellion","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/rebellion-sword-game-asset-devil-may-cry-5-07a2646d166b469daa6bf41028d5e4cc"},
+    {"id":"excalibur","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/fatestay-night-excalibur-updated-dc4e601857e94a2b9c3acbd856943581"},
+    {"id":"black-march","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/black-march-blade-tower-of-god-6e59cc78a1ee4ccd94fb7f24f8156a86"}
+  ]
+}
