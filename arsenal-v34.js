@@ -552,6 +552,13 @@
       description:'Simon’s small golden drill acts as Lagann’s ignition key and a focused conduit for his ever-growing Spiral Power.'
     }
   ];
+  const arsenalCollator=new Intl.Collator(undefined,{numeric:true,sensitivity:'base'});
+  const DISPLAY_ITEMS=[
+    ...ITEMS.filter(item=>item.type==='power'),
+    ...ITEMS
+      .filter(item=>item.type==='weapon')
+      .sort((left,right)=>arsenalCollator.compare(left.anime,right.anime)||arsenalCollator.compare(left.name,right.name))
+  ];
 
   const POWER_MARKUP={
     telekinesis:'<span class="fx-ring"></span><span class="fx-ring ring-b"></span><span class="fx-core"></span><span class="fx-shard shard-a"></span><span class="fx-shard shard-b"></span><span class="fx-shard shard-c"></span>',
@@ -692,9 +699,9 @@
     </div>`;
   }
 
-  function cardMarkup(item,index){
+  function cardMarkup(item,index,groupKey){
     const media=mediaMeta(item);
-    return `<article class="arsenal-card" role="button" tabindex="0" data-arsenal-id="${escapeHtml(item.id)}" data-arsenal-type="${item.type}" data-search="${escapeHtml(`${item.name} ${item.owner} ${item.anime}`.toLowerCase())}" style="--accent:${escapeHtml(item.accent)};--accent2:${escapeHtml(item.accent2)}" aria-label="Open ${escapeHtml(item.name)} showcase">
+    return `<article class="arsenal-card" role="button" tabindex="0" data-arsenal-id="${escapeHtml(item.id)}" data-arsenal-type="${item.type}" data-arsenal-group="${escapeHtml(groupKey)}" data-search="${escapeHtml(`${item.name} ${item.owner} ${item.anime}`.toLowerCase())}" style="--accent:${escapeHtml(item.accent)};--accent2:${escapeHtml(item.accent2)}" aria-label="Open ${escapeHtml(item.name)} showcase">
       ${visualMarkup(item,index)}
       <span class="arsenal-card-copy">
         <span class="arsenal-anime">${escapeHtml(item.anime)}</span>
@@ -703,6 +710,13 @@
         <span class="arsenal-card-footer"><span>${media.label}</span><b>${item.type==='power'?'WATCH ATTACK':'INSPECT WEAPON'}</b></span>
       </span>
     </article>`;
+  }
+
+  function groupDividerMarkup(title,count,groupKey,type){
+    return `<div class="arsenal-anime-divider" data-arsenal-group="${escapeHtml(groupKey)}" data-arsenal-group-type="${escapeHtml(type)}">
+      <span>${escapeHtml(title)}</span>
+      <small>${count} ${type==='power'?'POWER'+(count===1?'':'S'):'WEAPON'+(count===1?'':'S')}</small>
+    </div>`;
   }
 
   const canvasStates=new Map();
@@ -906,17 +920,31 @@
 
   function renderArsenal(section){
     const grid=section.querySelector('#arsenalGrid');
-    grid.innerHTML=ITEMS.map(cardMarkup).join('');
+    const powers=DISPLAY_ITEMS.filter(item=>item.type==='power');
+    const weaponGroups=new Map();
+    DISPLAY_ITEMS.filter(item=>item.type==='weapon').forEach(item=>{
+      if(!weaponGroups.has(item.anime))weaponGroups.set(item.anime,[]);
+      weaponGroups.get(item.anime).push(item);
+    });
+    let displayIndex=0;
+    let markup=groupDividerMarkup('Powers & Techniques',powers.length,'power:all','power');
+    markup+=powers.map(item=>cardMarkup(item,displayIndex++,'power:all')).join('');
+    weaponGroups.forEach((items,anime)=>{
+      const groupKey=`weapon:${anime}`;
+      markup+=groupDividerMarkup(anime,items.length,groupKey,'weapon');
+      markup+=items.map(item=>cardMarkup(item,displayIndex++,groupKey)).join('');
+    });
+    grid.innerHTML=markup;
     grid.querySelectorAll('[data-arsenal-media-src]').forEach(node=>initializeMedia(node));
   }
 
   function install(){
-    if(document.documentElement.dataset.arsenalV37)return true;
+    if(document.documentElement.dataset.arsenalV38)return true;
     const app=document.getElementById('app');
     const nav=document.querySelector('.bottom-nav');
     const topbar=document.querySelector('.topbar');
     if(!app||!nav||!topbar)return false;
-    document.documentElement.dataset.arsenalV37='1';
+    document.documentElement.dataset.arsenalV38='1';
 
     let arsenalStyles=document.querySelector('link[href*="arsenal-v34.css"]');
     if(!arsenalStyles){
@@ -924,7 +952,7 @@
       arsenalStyles.rel='stylesheet';
       document.head.appendChild(arsenalStyles);
     }
-    arsenalStyles.href='./arsenal-v34.css?release=37';
+    arsenalStyles.href='./arsenal-v34.css?release=38';
 
     const settingsNav=nav.querySelector('[data-view="settings"]');
     if(settingsNav){
@@ -976,7 +1004,7 @@
         </div>
         <button class="arsenal-random" id="arsenalRandom" type="button">UNLEASH RANDOM</button>
       </div>
-      <div class="arsenal-results-line"><span id="arsenalResultCount"><strong>${totalCount}</strong> entries ready</span><span>Tap to view in action</span></div>
+      <div class="arsenal-results-line"><span id="arsenalResultCount"><strong>${totalCount}</strong> entries ready</span><span>Weapons grouped A–Z by anime</span></div>
       <div class="arsenal-grid" id="arsenalGrid"></div>`;
     app.appendChild(section);
 
@@ -1011,6 +1039,10 @@
         card.hidden=!(matchesType&&matchesQuery);
         if(!card.hidden)count++;
       });
+      const cards=[...section.querySelectorAll('.arsenal-card')];
+      section.querySelectorAll('.arsenal-anime-divider').forEach(divider=>{
+        divider.hidden=!cards.some(card=>card.dataset.arsenalGroup===divider.dataset.arsenalGroup&&!card.hidden);
+      });
       const countLine=section.querySelector('#arsenalResultCount');
       countLine.innerHTML=count
         ? `<strong>${count}</strong> entr${count===1?'y':'ies'} ready`
@@ -1032,22 +1064,22 @@
     });
     section.querySelector('#arsenalGrid').addEventListener('click',event=>{
       const card=event.target.closest('[data-arsenal-id]');if(!card)return;
-      const index=ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
-      if(index>=0)openShowcase(ITEMS[index],index);
+      const index=DISPLAY_ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
+      if(index>=0)openShowcase(DISPLAY_ITEMS[index],index);
     });
     section.querySelector('#arsenalGrid').addEventListener('keydown',event=>{
       if(event.key!=='Enter'&&event.key!==' ')return;
       const card=event.target.closest('[data-arsenal-id]');if(!card)return;
       event.preventDefault();
-      const index=ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
-      if(index>=0)openShowcase(ITEMS[index],index);
+      const index=DISPLAY_ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
+      if(index>=0)openShowcase(DISPLAY_ITEMS[index],index);
     });
     section.querySelector('#arsenalRandom').addEventListener('click',()=>{
       const visible=[...section.querySelectorAll('.arsenal-card:not([hidden])')];
       if(!visible.length)return;
       const card=visible[Math.floor(Math.random()*visible.length)];
-      const index=ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
-      if(index>=0)openShowcase(ITEMS[index],index);
+      const index=DISPLAY_ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
+      if(index>=0)openShowcase(DISPLAY_ITEMS[index],index);
     });
 
     const closeDialog=()=>{

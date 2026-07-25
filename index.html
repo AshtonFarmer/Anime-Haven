@@ -26,17 +26,17 @@
     <div class="bar"><i id="boot-progress"></i></div>
     <small id="boot-status">Opening the Nexus…</small>
   </main>
-  <script src="./bootstrap-v4.js?release=37"></script>
+  <script src="./bootstrap-v4.js?release=38"></script>
   <script src="./kagenexus-brand-v19.js?release=19"></script>
   <script src="./rubber-search-v11.js?release=11"></script>
   <script src="./rubber-search-compact-v12.js?release=12"></script>
   <script src="./nav-scroll-guard-v13.js?release=14"></script>
   <script src="./library-manager-v15.js?release=15"></script>
-  <script src="./mobile-suite-loader-v22.js?release=37"></script>
-  <script src="./arsenal-v34.js?release=37"></script>
+  <script src="./mobile-suite-loader-v22.js?release=38"></script>
+  <script src="./arsenal-v34.js?release=38"></script>
   <script>
     if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('./sw-v34.js?release=37',{scope:'./',updateViaCache:'none'})
+      navigator.serviceWorker.register('./sw-v34.js?release=38',{scope:'./',updateViaCache:'none'})
         .then(registration=>registration.update())
         .catch(error=>console.error('KageNexus worker registration failed',error));
     }
