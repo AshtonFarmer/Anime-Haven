@@ -550,6 +550,706 @@
       sketchfabId:'112ad6d1a48842c0bb6a395576842d89',
       sourceUrl:'https://sketchfab.com/3d-models/core-drill-gurren-lagann-112ad6d1a48842c0bb6a395576842d89',
       description:'Simon’s small golden drill acts as Lagann’s ignition key and a focused conduit for his ever-growing Spiral Power.'
+    },
+    {
+      id:'muichiro-nichirin',type:'weapon',kind:'katana',name:'Mist Nichirin Sword',owner:'Muichiro Tokito',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'1d4be69a4c56442c91c02db9445a7cc2',
+      sourceUrl:'https://sketchfab.com/3d-models/muichiro-tokitos-nichirin-1d4be69a4c56442c91c02db9445a7cc2',
+      description:'A faithful interactive replica of Mist Nichirin Sword, the katana used by Muichiro Tokito in Demon Slayer.'
+    },
+    {
+      id:'mitsuri-katana',type:'weapon',kind:'whip sword',name:'Love Nichirin Sword',owner:'Mitsuri Kanroji',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'46f3154c78b64eaf83f66c89c61dae13',
+      sourceUrl:'https://sketchfab.com/3d-models/mitsuri-kanroji-katana-46f3154c78b64eaf83f66c89c61dae13',
+      description:'A faithful interactive replica of Love Nichirin Sword, the whip sword used by Mitsuri Kanroji in Demon Slayer.'
+    },
+    {
+      id:'sanemi-katana',type:'weapon',kind:'katana',name:'Wind Nichirin Sword',owner:'Sanemi Shinazugawa',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'2fbb72c30b1d45b6aa3f8f5b562cfa0e',
+      sourceUrl:'https://sketchfab.com/3d-models/sanemi-shinazugawa-katana-2fbb72c30b1d45b6aa3f8f5b562cfa0e',
+      description:'A faithful interactive replica of Wind Nichirin Sword, the katana used by Sanemi Shinazugawa in Demon Slayer.'
+    },
+    {
+      id:'obanai-katana',type:'weapon',kind:'wavy katana',name:'Serpent Nichirin Sword',owner:'Obanai Iguro',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'def96fff1d864c129ba5eeed36d77df3',
+      sourceUrl:'https://sketchfab.com/3d-models/obanai-iguro-nichirin-katana-def96fff1d864c129ba5eeed36d77df3',
+      description:'A faithful interactive replica of Serpent Nichirin Sword, the wavy katana used by Obanai Iguro in Demon Slayer.'
+    },
+    {
+      id:'kanao-katana',type:'weapon',kind:'katana',name:'Flower Nichirin Sword',owner:'Kanao Tsuyuri',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'d1d77e301d454f669785ffbcb2c3428f',
+      sourceUrl:'https://sketchfab.com/3d-models/kanao-tsuyuri-nichirin-katana-d1d77e301d454f669785ffbcb2c3428f',
+      description:'A faithful interactive replica of Flower Nichirin Sword, the katana used by Kanao Tsuyuri in Demon Slayer.'
+    },
+    {
+      id:'yoriichi-katana',type:'weapon',kind:'katana',name:'Yoriichi’s Nichirin Sword',owner:'Yoriichi Tsugikuni',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'dbe5481430954719be09111e9ece7756',
+      sourceUrl:'https://sketchfab.com/3d-models/yoriichi-tsugikuni-nichirin-katana-dbe5481430954719be09111e9ece7756',
+      description:'A faithful interactive replica of Yoriichi’s Nichirin Sword, the katana used by Yoriichi Tsugikuni in Demon Slayer.'
+    },
+    {
+      id:'kokushibo-sword',type:'weapon',kind:'demonic katana',name:'Kokushibo’s Flesh Sword',owner:'Kokushibo',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'67dcb4b0872c46ff9e03b213781ede10',
+      sourceUrl:'https://sketchfab.com/3d-models/kokushibo-sword-67dcb4b0872c46ff9e03b213781ede10',
+      description:'A faithful interactive replica of Kokushibo’s Flesh Sword, the demonic katana used by Kokushibo in Demon Slayer.'
+    },
+    {
+      id:'genya-shotgun',type:'weapon',kind:'shotgun',name:'Double-Barreled Shotgun',owner:'Genya Shinazugawa',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'e73b2e70b9b84430a93854c2419d412c',
+      sourceUrl:'https://sketchfab.com/3d-models/genya-double-barreled-shotgun-e73b2e70b9b84430a93854c2419d412c',
+      description:'A faithful interactive replica of Double-Barreled Shotgun, the shotgun used by Genya Shinazugawa in Demon Slayer.'
+    },
+    {
+      id:'genya-wakizashi',type:'weapon',kind:'wakizashi',name:'Genya’s Nichirin Wakizashi',owner:'Genya Shinazugawa',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'d48fc2ef8c854369ac836dea1df90258',
+      sourceUrl:'https://sketchfab.com/3d-models/genya-nichirin-wakizashi-d48fc2ef8c854369ac836dea1df90258',
+      description:'A faithful interactive replica of Genya’s Nichirin Wakizashi, the wakizashi used by Genya Shinazugawa in Demon Slayer.'
+    },
+    {
+      id:'gyutaro-sickles',type:'weapon',kind:'paired sickles',name:'Blood Demon Sickles',owner:'Gyutaro',
+      anime:'Demon Slayer',accent:'#4a2638',accent2:'#ff98c8',
+      sketchfabId:'f218953bcb9f4bc4afda2cc65601fb78',
+      sourceUrl:'https://sketchfab.com/3d-models/gyutaro-blood-sickles-f218953bcb9f4bc4afda2cc65601fb78',
+      description:'A faithful interactive replica of Blood Demon Sickles, the paired sickles used by Gyutaro in Demon Slayer.'
+    },
+    {
+      id:'kikoku',type:'weapon',kind:'nodachi',name:'Kikoku',owner:'Trafalgar Law',
+      anime:'One Piece',accent:'#29456d',accent2:'#ffd45d',
+      sketchfabId:'24fabb796280452c91c558470e1c2862',
+      sourceUrl:'https://sketchfab.com/3d-models/one-piece-kikoku-trafalgar-laws-sword-24fabb796280452c91c558470e1c2862',
+      description:'A faithful interactive replica of Kikoku, the nodachi used by Trafalgar Law in One Piece.'
+    },
+    {
+      id:'gryphon',type:'weapon',kind:'saber',name:'Gryphon',owner:'Shanks',
+      anime:'One Piece',accent:'#29456d',accent2:'#ffd45d',
+      sketchfabId:'7323f684cee74967b7b5133749dcfc95',
+      sourceUrl:'https://sketchfab.com/3d-models/one-piece-gryphon-shanks-sword-7323f684cee74967b7b5133749dcfc95',
+      description:'A faithful interactive replica of Gryphon, the saber used by Shanks in One Piece.'
+    },
+    {
+      id:'napoleon',type:'weapon',kind:'sentient saber',name:'Napoleon',owner:'Charlotte Linlin',
+      anime:'One Piece',accent:'#29456d',accent2:'#ffd45d',
+      sketchfabId:'a87f178b13be454fac2a9581c5beee36',
+      sourceUrl:'https://sketchfab.com/3d-models/one-piece-napoleon-big-mom-sword-a87f178b13be454fac2a9581c5beee36',
+      description:'A faithful interactive replica of Napoleon, the sentient saber used by Charlotte Linlin in One Piece.'
+    },
+    {
+      id:'kuro-kabuto',type:'weapon',kind:'slingshot',name:'Kuro Kabuto',owner:'Usopp',
+      anime:'One Piece',accent:'#29456d',accent2:'#ffd45d',
+      sketchfabId:'bb3d77707d8641fb9ea93d0d3bfe1b71',
+      sourceUrl:'https://sketchfab.com/3d-models/one-piece-kuro-kabuto-usopp-bb3d77707d8641fb9ea93d0d3bfe1b71',
+      description:'A faithful interactive replica of Kuro Kabuto, the slingshot used by Usopp in One Piece.'
+    },
+    {
+      id:'clima-tact',type:'weapon',kind:'weather staff',name:'Clima-Tact',owner:'Nami',
+      anime:'One Piece',accent:'#29456d',accent2:'#ffd45d',
+      sketchfabId:'516e3020ec6b40e182916dbe33aa6068',
+      sourceUrl:'https://sketchfab.com/3d-models/one-piece-nami-clima-tact-v1-v2-516e3020ec6b40e182916dbe33aa6068',
+      description:'A faithful interactive replica of Clima-Tact, the weather staff used by Nami in One Piece.'
+    },
+    {
+      id:'soul-solid',type:'weapon',kind:'shikomizue',name:'Soul Solid',owner:'Brook',
+      anime:'One Piece',accent:'#29456d',accent2:'#ffd45d',
+      sketchfabId:'c7c7a63e865f447ca6e920387338e6e5',
+      sourceUrl:'https://sketchfab.com/3d-models/one-piece-brook-soul-solid-c7c7a63e865f447ca6e920387338e6e5',
+      description:'A faithful interactive replica of Soul Solid, the shikomizue used by Brook in One Piece.'
+    },
+    {
+      id:'shigure',type:'weapon',kind:'katana',name:'Shigure',owner:'Tashigi',
+      anime:'One Piece',accent:'#29456d',accent2:'#ffd45d',
+      sketchfabId:'a6031da932dd48ab80e1eacf033ecc3c',
+      sourceUrl:'https://sketchfab.com/3d-models/one-piece-tashigi-shigure-a6031da932dd48ab80e1eacf033ecc3c',
+      description:'A faithful interactive replica of Shigure, the katana used by Tashigi in One Piece.'
+    },
+    {
+      id:'kiribachi',type:'weapon',kind:'sawblade sword',name:'Kiribachi',owner:'Arlong',
+      anime:'One Piece',accent:'#29456d',accent2:'#ffd45d',
+      sketchfabId:'28bbd0089ae34468abe4cf5f97809dcd',
+      sourceUrl:'https://sketchfab.com/3d-models/one-piece-arlong-kiribachi-28bbd0089ae34468abe4cf5f97809dcd',
+      description:'A faithful interactive replica of Kiribachi, the sawblade sword used by Arlong in One Piece.'
+    },
+    {
+      id:'enel-staff',type:'weapon',kind:'bo staff and trident',name:'Nonosama Bo',owner:'Enel',
+      anime:'One Piece',accent:'#29456d',accent2:'#ffd45d',
+      sketchfabId:'874d905a337f4e23a8aede500fda4b09',
+      sourceUrl:'https://sketchfab.com/3d-models/one-piece-enel-bo-staff-trident-874d905a337f4e23a8aede500fda4b09',
+      description:'A faithful interactive replica of Nonosama Bo, the bo staff and trident used by Enel in One Piece.'
+    },
+    {
+      id:'myrtenaster',type:'weapon',kind:'revolver rapier',name:'Myrtenaster',owner:'Weiss Schnee',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'6d62431468c74bb99545849b431e8b5b',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-myrtenaster-6d62431468c74bb99545849b431e8b5b',
+      description:'A faithful interactive replica of Myrtenaster, the revolver rapier used by Weiss Schnee in RWBY.'
+    },
+    {
+      id:'gambol-shroud',type:'weapon',kind:'variant ballistic chain scythe',name:'Gambol Shroud',owner:'Blake Belladonna',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'673257c7fb944025a4d2d5428dece5d1',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-gambol-shroud-673257c7fb944025a4d2d5428dece5d1',
+      description:'A faithful interactive replica of Gambol Shroud, the variant ballistic chain scythe used by Blake Belladonna in RWBY.'
+    },
+    {
+      id:'ember-celica',type:'weapon',kind:'shotgun gauntlets',name:'Ember Celica',owner:'Yang Xiao Long',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'687a6a62d1924de29e2cf649ffa8efef',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-ember-celica-687a6a62d1924de29e2cf649ffa8efef',
+      description:'A faithful interactive replica of Ember Celica, the shotgun gauntlets used by Yang Xiao Long in RWBY.'
+    },
+    {
+      id:'magnhild',type:'weapon',kind:'grenade launcher hammer',name:'Magnhild',owner:'Nora Valkyrie',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'62fcca87d0564795806efe6f9c359c29',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-magnhild-62fcca87d0564795806efe6f9c359c29',
+      description:'A faithful interactive replica of Magnhild, the grenade launcher hammer used by Nora Valkyrie in RWBY.'
+    },
+    {
+      id:'crocea-mors',type:'weapon',kind:'sword and shield',name:'Crocea Mors',owner:'Jaune Arc',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'7e73b3a80cb540ccb0aa4ea98c94895f',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-crocea-mors-7e73b3a80cb540ccb0aa4ea98c94895f',
+      description:'A faithful interactive replica of Crocea Mors, the sword and shield used by Jaune Arc in RWBY.'
+    },
+    {
+      id:'storm-flower',type:'weapon',kind:'machine pistols',name:'StormFlower',owner:'Lie Ren',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'d5f8663d032643bdabcbf15e4c318300',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-storm-flower-d5f8663d032643bdabcbf15e4c318300',
+      description:'A faithful interactive replica of StormFlower, the machine pistols used by Lie Ren in RWBY.'
+    },
+    {
+      id:'milo-akouo',type:'weapon',kind:'rifle javelin and shield',name:'Miló and Akoúo',owner:'Pyrrha Nikos',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'011e340892824ca7a8450d21b57a3001',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-milo-and-akouo-011e340892824ca7a8450d21b57a3001',
+      description:'A faithful interactive replica of Miló and Akoúo, the rifle javelin and shield used by Pyrrha Nikos in RWBY.'
+    },
+    {
+      id:'harbinger',type:'weapon',kind:'sword and scythe',name:'Harbinger',owner:'Qrow Branwen',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'d0ac2e311b4843a8a3a03c615dc2f490',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-harbinger-sword-d0ac2e311b4843a8a3a03c615dc2f490',
+      description:'A faithful interactive replica of Harbinger, the sword and scythe used by Qrow Branwen in RWBY.'
+    },
+    {
+      id:'omen',type:'weapon',kind:'dust katana',name:'Omen',owner:'Raven Branwen',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'707011994ae5428a9ad1afe003e51757',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-omen-raven-sword-707011994ae5428a9ad1afe003e51757',
+      description:'A faithful interactive replica of Omen, the dust katana used by Raven Branwen in RWBY.'
+    },
+    {
+      id:'long-memory',type:'weapon',kind:'cane',name:'The Long Memory',owner:'Ozpin / Oscar Pine',
+      anime:'RWBY',accent:'#62233a',accent2:'#ff6b8a',
+      sketchfabId:'d654f7642e464102bf4305320a88e03e',
+      sourceUrl:'https://sketchfab.com/3d-models/rwby-the-long-memory-d654f7642e464102bf4305320a88e03e',
+      description:'A faithful interactive replica of The Long Memory, the cane used by Ozpin / Oscar Pine in RWBY.'
+    },
+    {
+      id:'hiramekarei',type:'weapon',kind:'dual-handled sword',name:'Hiramekarei',owner:'Chōjūrō',
+      anime:'Naruto Shippuden',accent:'#223b58',accent2:'#70c9ff',
+      sketchfabId:'cb784173e62b4ab7bb068092d9026002',
+      sourceUrl:'https://sketchfab.com/3d-models/naruto-hiramekarei-cb784173e62b4ab7bb068092d9026002',
+      description:'A faithful interactive replica of Hiramekarei, the dual-handled sword used by Chōjūrō in Naruto Shippuden.'
+    },
+    {
+      id:'nuibari',type:'weapon',kind:'needle sword',name:'Nuibari',owner:'Kushimaru Kuriarare',
+      anime:'Naruto Shippuden',accent:'#223b58',accent2:'#70c9ff',
+      sketchfabId:'cdca29c608bc469698c6a2e213f2ab4d',
+      sourceUrl:'https://sketchfab.com/3d-models/naruto-nuibari-cdca29c608bc469698c6a2e213f2ab4d',
+      description:'A faithful interactive replica of Nuibari, the needle sword used by Kushimaru Kuriarare in Naruto Shippuden.'
+    },
+    {
+      id:'kabutowari',type:'weapon',kind:'axe and hammer',name:'Kabutowari',owner:'Jinin Akebino',
+      anime:'Naruto Shippuden',accent:'#223b58',accent2:'#70c9ff',
+      sketchfabId:'711a0f1c3dac424fb2b02e0f0cc4e7f5',
+      sourceUrl:'https://sketchfab.com/3d-models/naruto-kabutowari-711a0f1c3dac424fb2b02e0f0cc4e7f5',
+      description:'A faithful interactive replica of Kabutowari, the axe and hammer used by Jinin Akebino in Naruto Shippuden.'
+    },
+    {
+      id:'shibuki',type:'weapon',kind:'explosive sword',name:'Shibuki',owner:'Jinpachi Munashi',
+      anime:'Naruto Shippuden',accent:'#223b58',accent2:'#70c9ff',
+      sketchfabId:'023042765274456cb056c7ec71765be2',
+      sourceUrl:'https://sketchfab.com/3d-models/naruto-shibuki-023042765274456cb056c7ec71765be2',
+      description:'A faithful interactive replica of Shibuki, the explosive sword used by Jinpachi Munashi in Naruto Shippuden.'
+    },
+    {
+      id:'asuma-chakra-blades',type:'weapon',kind:'trench knives',name:'Chakra Blades',owner:'Asuma Sarutobi',
+      anime:'Naruto Shippuden',accent:'#223b58',accent2:'#70c9ff',
+      sketchfabId:'8c9c1fb242624ba198920cdf465c0de6',
+      sourceUrl:'https://sketchfab.com/3d-models/naruto-asuma-chakra-blades-8c9c1fb242624ba198920cdf465c0de6',
+      description:'A faithful interactive replica of Chakra Blades, the trench knives used by Asuma Sarutobi in Naruto Shippuden.'
+    },
+    {
+      id:'hidan-scythe',type:'weapon',kind:'scythe',name:'Triple-Bladed Scythe',owner:'Hidan',
+      anime:'Naruto Shippuden',accent:'#223b58',accent2:'#70c9ff',
+      sketchfabId:'27e5bed0dc134ffeb10673f6b13c6cac',
+      sourceUrl:'https://sketchfab.com/3d-models/naruto-hidan-triple-bladed-scythe-27e5bed0dc134ffeb10673f6b13c6cac',
+      description:'A faithful interactive replica of Triple-Bladed Scythe, the scythe used by Hidan in Naruto Shippuden.'
+    },
+    {
+      id:'hiruko-puppet',type:'weapon',kind:'combat puppet',name:'Hiruko',owner:'Sasori',
+      anime:'Naruto Shippuden',accent:'#223b58',accent2:'#70c9ff',
+      sketchfabId:'5c5ce1d07cbe4de8822702ad3d5810dd',
+      sourceUrl:'https://sketchfab.com/3d-models/naruto-sasori-hiruko-puppet-5c5ce1d07cbe4de8822702ad3d5810dd',
+      description:'A faithful interactive replica of Hiruko, the combat puppet used by Sasori in Naruto Shippuden.'
+    },
+    {
+      id:'anneal-blade',type:'weapon',kind:'longsword',name:'Anneal Blade',owner:'Kirito',
+      anime:'Sword Art Online',accent:'#15263d',accent2:'#57d9ff',
+      sketchfabId:'1f62bdc79b2347eabd7c35b05c0c148d',
+      sourceUrl:'https://sketchfab.com/3d-models/sword-art-online-anneal-blade-1f62bdc79b2347eabd7c35b05c0c148d',
+      description:'A faithful interactive replica of Anneal Blade, the longsword used by Kirito in Sword Art Online.'
+    },
+    {
+      id:'wind-fleuret',type:'weapon',kind:'rapier',name:'Wind Fleuret',owner:'Asuna',
+      anime:'Sword Art Online',accent:'#15263d',accent2:'#57d9ff',
+      sketchfabId:'cc654bc3f9fe4824bc0895dbfce49fcc',
+      sourceUrl:'https://sketchfab.com/3d-models/sword-art-online-wind-fleuret-cc654bc3f9fe4824bc0895dbfce49fcc',
+      description:'A faithful interactive replica of Wind Fleuret, the rapier used by Asuna in Sword Art Online.'
+    },
+    {
+      id:'kagemitsu-g4',type:'weapon',kind:'photon sword',name:'Kagemitsu G4',owner:'Kirito',
+      anime:'Sword Art Online',accent:'#15263d',accent2:'#57d9ff',
+      sketchfabId:'59651b44ecdf474aba93527d29d301f1',
+      sourceUrl:'https://sketchfab.com/3d-models/kagemitsu-g4-photon-sword-from-sao-59651b44ecdf474aba93527d29d301f1',
+      description:'A faithful interactive replica of Kagemitsu G4, the photon sword used by Kirito in Sword Art Online.'
+    },
+    {
+      id:'hecate-ii',type:'weapon',kind:'sniper rifle',name:'PGM Ultima Ratio Hecate II',owner:'Sinon',
+      anime:'Sword Art Online',accent:'#15263d',accent2:'#57d9ff',
+      sketchfabId:'bb075495498a41f7bf86f423c951a45b',
+      sourceUrl:'https://sketchfab.com/3d-models/hecate-ii-bb075495498a41f7bf86f423c951a45b',
+      description:'A faithful interactive replica of PGM Ultima Ratio Hecate II, the sniper rifle used by Sinon in Sword Art Online.'
+    },
+    {
+      id:'death-gun-loadout',type:'weapon',kind:'rifle and pistol',name:'L115A3 and Type 54',owner:'Death Gun',
+      anime:'Sword Art Online',accent:'#15263d',accent2:'#57d9ff',
+      sketchfabId:'7bd219d200fc456291bb12661d81b413',
+      sourceUrl:'https://sketchfab.com/3d-models/sword-art-online-death-gun-7bd219d200fc456291bb12661d81b413',
+      description:'A faithful interactive replica of L115A3 and Type 54, the rifle and pistol used by Death Gun in Sword Art Online.'
+    },
+    {
+      id:'yuuki-sword',type:'weapon',kind:'longsword',name:'Yuuki’s Sword',owner:'Yuuki Konno',
+      anime:'Sword Art Online',accent:'#15263d',accent2:'#57d9ff',
+      sketchfabId:'9997f6fdcc3545a1a71a109ca249d238',
+      sourceUrl:'https://sketchfab.com/3d-models/sword-art-online-konno-yuuki-sword-9997f6fdcc3545a1a71a109ca249d238',
+      description:'A faithful interactive replica of Yuuki’s Sword, the longsword used by Yuuki Konno in Sword Art Online.'
+    },
+    {
+      id:'annihilate-ray',type:'weapon',kind:'bow',name:'Annihilate Ray',owner:'Sinon',
+      anime:'Sword Art Online: Alicization',accent:'#234f61',accent2:'#8ffff1',
+      sketchfabId:'513b02b3c9c140368d2c66c50cdd21bb',
+      sourceUrl:'https://sketchfab.com/3d-models/sao-alicization-sinons-bow-in-underworld-513b02b3c9c140368d2c66c50cdd21bb',
+      description:'A faithful interactive replica of Annihilate Ray, the bow used by Sinon in Sword Art Online: Alicization.'
+    },
+    {
+      id:'ordinal-scale-sword',type:'weapon',kind:'longsword',name:'Ordinal Scale Sword',owner:'Kirito',
+      anime:'Sword Art Online: Ordinal Scale',accent:'#172544',accent2:'#60cfff',
+      sketchfabId:'219cbf2236f646a48f673c1e6218132d',
+      sourceUrl:'https://sketchfab.com/3d-models/ordinal-scale-sword-219cbf2236f646a48f673c1e6218132d',
+      description:'A faithful interactive replica of Ordinal Scale Sword, the longsword used by Kirito in Sword Art Online: Ordinal Scale.'
+    },
+    {
+      id:'black-iron-greatsword',type:'weapon',kind:'greatsword',name:'Black Iron Greatsword',owner:'Kirito',
+      anime:'Sword Art Online',accent:'#15263d',accent2:'#57d9ff',
+      sketchfabId:'edf04a33f12f4c2f901eacec344b04f1',
+      sourceUrl:'https://sketchfab.com/3d-models/alo-black-iron-great-sword-edf04a33f12f4c2f901eacec344b04f1',
+      description:'A faithful interactive replica of Black Iron Greatsword, the greatsword used by Kirito in Sword Art Online.'
+    },
+    {
+      id:'aincrad-floor-100-sword',type:'weapon',kind:'longsword',name:'Aincrad Floor 100 Sword',owner:'Kirito',
+      anime:'Sword Art Online: Ordinal Scale',accent:'#172544',accent2:'#60cfff',
+      sketchfabId:'dee78194bd4b43609b43b06541ca8d92',
+      sourceUrl:'https://sketchfab.com/3d-models/sword-floor-100th-aincrad-sao-ordinal-scale-dee78194bd4b43609b43b06541ca8d92',
+      description:'A faithful interactive replica of Aincrad Floor 100 Sword, the longsword used by Kirito in Sword Art Online: Ordinal Scale.'
+    },
+    {
+      id:'rule-breaker',type:'weapon',kind:'dagger',name:'Rule Breaker',owner:'Medea',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'c06aa46e12e24dc0b0a4383c238a5f44',
+      sourceUrl:'https://sketchfab.com/3d-models/fate-rule-breaker-c06aa46e12e24dc0b0a4383c238a5f44',
+      description:'A faithful interactive replica of Rule Breaker, the dagger used by Medea in Fate.'
+    },
+    {
+      id:'clarent',type:'weapon',kind:'longsword',name:'Clarent',owner:'Mordred',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'40ddcafa94d44635b32cb624ee736df1',
+      sourceUrl:'https://sketchfab.com/3d-models/fate-clarent-40ddcafa94d44635b32cb624ee736df1',
+      description:'A faithful interactive replica of Clarent, the longsword used by Mordred in Fate.'
+    },
+    {
+      id:'balmung',type:'weapon',kind:'greatsword',name:'Balmung',owner:'Siegfried',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'d6180daa0a9b43838e3226028486e12a',
+      sourceUrl:'https://sketchfab.com/3d-models/fate-balmung-d6180daa0a9b43838e3226028486e12a',
+      description:'A faithful interactive replica of Balmung, the greatsword used by Siegfried in Fate.'
+    },
+    {
+      id:'arondight',type:'weapon',kind:'longsword',name:'Arondight',owner:'Lancelot',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'998dcafc79a949b390e2853d9604fe6a',
+      sourceUrl:'https://sketchfab.com/3d-models/fate-arondight-998dcafc79a949b390e2853d9604fe6a',
+      description:'A faithful interactive replica of Arondight, the longsword used by Lancelot in Fate.'
+    },
+    {
+      id:'rhongomyniad-alter',type:'weapon',kind:'holy lance',name:'Rhongomyniad Alter',owner:'Artoria Pendragon Alter',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'a95651982a9b4c70a770c0e093e8a181',
+      sourceUrl:'https://sketchfab.com/3d-models/fate-rhongomyniad-alter-a95651982a9b4c70a770c0e093e8a181',
+      description:'A faithful interactive replica of Rhongomyniad Alter, the holy lance used by Artoria Pendragon Alter in Fate.'
+    },
+    {
+      id:'caladbolg-fergus',type:'weapon',kind:'spiral sword',name:'Caladbolg',owner:'Fergus mac Róich',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'351e06177930445d9c2e39a667ddcc54',
+      sourceUrl:'https://sketchfab.com/3d-models/fate-caladbolg-fergus-351e06177930445d9c2e39a667ddcc54',
+      description:'A faithful interactive replica of Caladbolg, the spiral sword used by Fergus mac Róich in Fate.'
+    },
+    {
+      id:'rhongomyniad-lr',type:'weapon',kind:'lance',name:'Rhongomyniad LR',owner:'Mysterious Heroine XX',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'cdaacfff7bd447c4bb54d8e1a66dc5b4',
+      sourceUrl:'https://sketchfab.com/3d-models/fate-mysterious-heroine-xx-rhongomyniad-lr-cdaacfff7bd447c4bb54d8e1a66dc5b4',
+      description:'A faithful interactive replica of Rhongomyniad LR, the lance used by Mysterious Heroine XX in Fate.'
+    },
+    {
+      id:'nobunaga-rifle',type:'weapon',kind:'matchlock rifle',name:'Nobunaga’s Rifle',owner:'Oda Nobunaga',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'59ac58320cbd4b7d911aaaf4f9cce56c',
+      sourceUrl:'https://sketchfab.com/3d-models/nobunagas-rifle-59ac58320cbd4b7d911aaaf4f9cce56c',
+      description:'A faithful interactive replica of Nobunaga’s Rifle, the matchlock rifle used by Oda Nobunaga in Fate.'
+    },
+    {
+      id:'lord-camelot',type:'weapon',kind:'great shield',name:'Lord Camelot',owner:'Mash Kyrielight',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'9977953dd1b846baab41af7c354d5b58',
+      sourceUrl:'https://sketchfab.com/3d-models/lord-camelot-9977953dd1b846baab41af7c354d5b58',
+      description:'A faithful interactive replica of Lord Camelot, the great shield used by Mash Kyrielight in Fate.'
+    },
+    {
+      id:'gae-bolg-alternative',type:'weapon',kind:'twin spears',name:'Gáe Bolg Alternative',owner:'Scáthach',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'4fb05e5a925346a5be2de76e5ada1533',
+      sourceUrl:'https://sketchfab.com/3d-models/gae-bolg-alternative-4fb05e5a925346a5be2de76e5ada1533',
+      description:'A faithful interactive replica of Gáe Bolg Alternative, the twin spears used by Scáthach in Fate.'
+    },
+    {
+      id:'musashi-swords',type:'weapon',kind:'katana set',name:'Musashi’s Five Swords',owner:'Miyamoto Musashi',
+      anime:'Fate',accent:'#3c335f',accent2:'#c2adff',
+      sketchfabId:'7425246c92f240dc97a2151f4948ffbe',
+      sourceUrl:'https://sketchfab.com/3d-models/musashis-swords-7425246c92f240dc97a2151f4948ffbe',
+      description:'A faithful interactive replica of Musashi’s Five Swords, the katana set used by Miyamoto Musashi in Fate.'
+    },
+    {
+      id:'benihime',type:'weapon',kind:'katana',name:'Benihime',owner:'Kisuke Urahara',
+      anime:'Bleach',accent:'#222d3d',accent2:'#78e8ff',
+      sketchfabId:'ecffb4fd74194241bd7b1ee03ac0e0bd',
+      sourceUrl:'https://sketchfab.com/3d-models/bleach-benihime-ecffb4fd74194241bd7b1ee03ac0e0bd',
+      description:'A faithful interactive replica of Benihime, the katana used by Kisuke Urahara in Bleach.'
+    },
+    {
+      id:'katen-kyokotsu',type:'weapon',kind:'paired daisho',name:'Katen Kyōkotsu',owner:'Shunsui Kyōraku',
+      anime:'Bleach',accent:'#222d3d',accent2:'#78e8ff',
+      sketchfabId:'a58123cb1c894bd49549c4b3f541d492',
+      sourceUrl:'https://sketchfab.com/3d-models/bleach-katen-kyokotsu-a58123cb1c894bd49549c4b3f541d492',
+      description:'A faithful interactive replica of Katen Kyōkotsu, the paired daisho used by Shunsui Kyōraku in Bleach.'
+    },
+    {
+      id:'hihio-zabimaru',type:'weapon',kind:'segmented bankai blade',name:'Hihiō Zabimaru',owner:'Renji Abarai',
+      anime:'Bleach',accent:'#222d3d',accent2:'#78e8ff',
+      sketchfabId:'6aa056382a3642e9917f0937e8b2aca4',
+      sourceUrl:'https://sketchfab.com/3d-models/bleach-hihio-zabimaru-animated-6aa056382a3642e9917f0937e8b2aca4',
+      description:'A faithful interactive replica of Hihiō Zabimaru, the segmented bankai blade used by Renji Abarai in Bleach.'
+    },
+    {
+      id:'true-zangetsu',type:'weapon',kind:'dual blades',name:'True Zangetsu',owner:'Ichigo Kurosaki',
+      anime:'Bleach',accent:'#222d3d',accent2:'#78e8ff',
+      sketchfabId:'ec43bee4305a42f5b85e6f8acd25e976',
+      sourceUrl:'https://sketchfab.com/3d-models/bleach-dual-true-zangetsu-ec43bee4305a42f5b85e6f8acd25e976',
+      description:'A faithful interactive replica of True Zangetsu, the dual blades used by Ichigo Kurosaki in Bleach.'
+    },
+    {
+      id:'true-tensa-zangetsu',type:'weapon',kind:'bankai sword',name:'True Tensa Zangetsu',owner:'Ichigo Kurosaki',
+      anime:'Bleach',accent:'#222d3d',accent2:'#78e8ff',
+      sketchfabId:'98c6e4f137e94f03b388b9f7a1baa728',
+      sourceUrl:'https://sketchfab.com/3d-models/bleach-true-tensa-zangetsu-98c6e4f137e94f03b388b9f7a1baa728',
+      description:'A faithful interactive replica of True Tensa Zangetsu, the bankai sword used by Ichigo Kurosaki in Bleach.'
+    },
+    {
+      id:'wabisuke',type:'weapon',kind:'hooked katana',name:'Wabisuke',owner:'Izuru Kira',
+      anime:'Bleach',accent:'#222d3d',accent2:'#78e8ff',
+      sketchfabId:'6633c88a11514ce193d223eadefd54f8',
+      sourceUrl:'https://sketchfab.com/3d-models/bleach-wabisuke-6633c88a11514ce193d223eadefd54f8',
+      description:'A faithful interactive replica of Wabisuke, the hooked katana used by Izuru Kira in Bleach.'
+    },
+    {
+      id:'slaughter-demon',type:'weapon',kind:'combat knife',name:'Slaughter Demon',owner:'Yuji Itadori',
+      anime:'Jujutsu Kaisen',accent:'#372448',accent2:'#c88cff',
+      sketchfabId:'dd23c7d47a974ee0a10454f731d04335',
+      sourceUrl:'https://sketchfab.com/3d-models/jujutsu-kaisen-slaughter-demon-dd23c7d47a974ee0a10454f731d04335',
+      description:'A faithful interactive replica of Slaughter Demon, the combat knife used by Yuji Itadori in Jujutsu Kaisen.'
+    },
+    {
+      id:'split-soul-katana',type:'weapon',kind:'katana',name:'Split Soul Katana',owner:'Maki Zenin / Toji Fushiguro',
+      anime:'Jujutsu Kaisen',accent:'#372448',accent2:'#c88cff',
+      sketchfabId:'6ec3e5d28c0c41dcb12e141b3f14ce4b',
+      sourceUrl:'https://sketchfab.com/3d-models/jujutsu-kaisen-split-soul-katana-6ec3e5d28c0c41dcb12e141b3f14ce4b',
+      description:'A faithful interactive replica of Split Soul Katana, the katana used by Maki Zenin / Toji Fushiguro in Jujutsu Kaisen.'
+    },
+    {
+      id:'nanami-blunt-sword',type:'weapon',kind:'wrapped cleaver',name:'Nanami’s Blunt Sword',owner:'Kento Nanami',
+      anime:'Jujutsu Kaisen',accent:'#372448',accent2:'#c88cff',
+      sketchfabId:'d7cc893de18a4a3980bc7d24e997db00',
+      sourceUrl:'https://sketchfab.com/3d-models/jujutsu-kaisen-nanami-blunt-sword-d7cc893de18a4a3980bc7d24e997db00',
+      description:'A faithful interactive replica of Nanami’s Blunt Sword, the wrapped cleaver used by Kento Nanami in Jujutsu Kaisen.'
+    },
+    {
+      id:'nobara-hammer',type:'weapon',kind:'hammer',name:'Nobara’s Hammer',owner:'Nobara Kugisaki',
+      anime:'Jujutsu Kaisen',accent:'#372448',accent2:'#c88cff',
+      sketchfabId:'91b6090bffa7476092b3d45ef493ba19',
+      sourceUrl:'https://sketchfab.com/3d-models/hammer-91b6090bffa7476092b3d45ef493ba19',
+      description:'A faithful interactive replica of Nobara’s Hammer, the hammer used by Nobara Kugisaki in Jujutsu Kaisen.'
+    },
+    {
+      id:'shigemo-cursed-tool',type:'weapon',kind:'hand-hilt sword',name:'Shigemo’s Cursed Tool',owner:'Haruta Shigemo',
+      anime:'Jujutsu Kaisen',accent:'#372448',accent2:'#c88cff',
+      sketchfabId:'3881a926d4ad4cc7ac9e20d3a8d537e6',
+      sourceUrl:'https://sketchfab.com/3d-models/shigemos-cursed-tool-jujutsu-kaisen-3881a926d4ad4cc7ac9e20d3a8d537e6',
+      description:'A faithful interactive replica of Shigemo’s Cursed Tool, the hand-hilt sword used by Haruta Shigemo in Jujutsu Kaisen.'
+    },
+    {
+      id:'cursed-speech-megaphone',type:'weapon',kind:'megaphone',name:'Cursed Speech Megaphone',owner:'Yuta Okkotsu',
+      anime:'Jujutsu Kaisen',accent:'#372448',accent2:'#c88cff',
+      sketchfabId:'864459bb96b54ca08667ec6ede22dc1c',
+      sourceUrl:'https://sketchfab.com/3d-models/cursed-speech-megaphone-low-poly-864459bb96b54ca08667ec6ede22dc1c',
+      description:'A faithful interactive replica of Cursed Speech Megaphone, the megaphone used by Yuta Okkotsu in Jujutsu Kaisen.'
+    },
+    {
+      id:'kasaka-venom-fang',type:'weapon',kind:'dagger',name:'Kasaka’s Venom Fang',owner:'Sung Jin-Woo',
+      anime:'Solo Leveling',accent:'#2b1f50',accent2:'#9f72ff',
+      sketchfabId:'6a5b0acb6db94959ad5f6439e36c8040',
+      sourceUrl:'https://sketchfab.com/3d-models/kasakas-venom-fang-dagger-solo-leveling-6a5b0acb6db94959ad5f6439e36c8040',
+      description:'A faithful interactive replica of Kasaka’s Venom Fang, the dagger used by Sung Jin-Woo in Solo Leveling.'
+    },
+    {
+      id:'knight-killer',type:'weapon',kind:'dagger',name:'Knight Killer',owner:'Sung Jin-Woo',
+      anime:'Solo Leveling',accent:'#2b1f50',accent2:'#9f72ff',
+      sketchfabId:'3462be9aed204f4c86d6553f12e0005d',
+      sourceUrl:'https://sketchfab.com/3d-models/knight-killer-dagger-solo-leveling-3462be9aed204f4c86d6553f12e0005d',
+      description:'A faithful interactive replica of Knight Killer, the dagger used by Sung Jin-Woo in Solo Leveling.'
+    },
+    {
+      id:'baruka-dagger',type:'weapon',kind:'dagger',name:'Baruka’s Dagger',owner:'Sung Jin-Woo',
+      anime:'Solo Leveling',accent:'#2b1f50',accent2:'#9f72ff',
+      sketchfabId:'01b139c4fa4d4ee0ab36fc15268a899a',
+      sourceUrl:'https://sketchfab.com/3d-models/barukas-dagger-solo-leveling-01b139c4fa4d4ee0ab36fc15268a899a',
+      description:'A faithful interactive replica of Baruka’s Dagger, the dagger used by Sung Jin-Woo in Solo Leveling.'
+    },
+    {
+      id:'demon-king-daggers',type:'weapon',kind:'paired daggers',name:'Demon King’s Daggers',owner:'Sung Jin-Woo',
+      anime:'Solo Leveling',accent:'#2b1f50',accent2:'#9f72ff',
+      sketchfabId:'7361f36cf8c74b53a5e6caef138cf780',
+      sourceUrl:'https://sketchfab.com/3d-models/demon-kings-daggers-7361f36cf8c74b53a5e6caef138cf780',
+      description:'A faithful interactive replica of Demon King’s Daggers, the paired daggers used by Sung Jin-Woo in Solo Leveling.'
+    },
+    {
+      id:'kamish-wrath',type:'weapon',kind:'paired daggers',name:'Kamish’s Wrath',owner:'Sung Jin-Woo',
+      anime:'Solo Leveling',accent:'#2b1f50',accent2:'#9f72ff',
+      sketchfabId:'966ed284660449048c881a9300bbcb8c',
+      sourceUrl:'https://sketchfab.com/3d-models/kamishs-wrath-dagger-left-966ed284660449048c881a9300bbcb8c',
+      description:'A faithful interactive replica of Kamish’s Wrath, the paired daggers used by Sung Jin-Woo in Solo Leveling.'
+    },
+    {
+      id:'anti-personnel-odm',type:'weapon',kind:'paired firearms',name:'Anti-Personnel ODM Gear',owner:'Kenny Ackerman’s squad',
+      anime:'Attack on Titan',accent:'#4a3b31',accent2:'#d8b88f',
+      sketchfabId:'b979d5b1c0ac49f3b82a7a475327bed8',
+      sourceUrl:'https://sketchfab.com/3d-models/anti-personnel-odm-gear-attack-on-titan-b979d5b1c0ac49f3b82a7a475327bed8',
+      description:'A faithful interactive replica of Anti-Personnel ODM Gear, the paired firearms used by Kenny Ackerman’s squad in Attack on Titan.'
+    },
+    {
+      id:'signal-flare-gun',type:'weapon',kind:'flare gun',name:'Signal Flare Gun',owner:'Survey Corps',
+      anime:'Attack on Titan',accent:'#4a3b31',accent2:'#d8b88f',
+      sketchfabId:'5739890e24584b09abe77e19fb7fe32e',
+      sourceUrl:'https://sketchfab.com/3d-models/attack-on-titan-signal-flare-gun-5739890e24584b09abe77e19fb7fe32e',
+      description:'A faithful interactive replica of Signal Flare Gun, the flare gun used by Survey Corps in Attack on Titan.'
+    },
+    {
+      id:'bakuzan',type:'weapon',kind:'katana',name:'Bakuzan',owner:'Satsuki Kiryūin',
+      anime:'Kill la Kill',accent:'#4d1728',accent2:'#ff5b75',
+      sketchfabId:'03b22bd57a38431786e0f109f9dc3208',
+      sourceUrl:'https://sketchfab.com/3d-models/satsukis-bakuzan-03b22bd57a38431786e0f109f9dc3208',
+      description:'A faithful interactive replica of Bakuzan, the katana used by Satsuki Kiryūin in Kill la Kill.'
+    },
+    {
+      id:'nui-scissor-blade',type:'weapon',kind:'scissor blade',name:'Purple Scissor Blade',owner:'Nui Harime',
+      anime:'Kill la Kill',accent:'#4d1728',accent2:'#ff5b75',
+      sketchfabId:'00d4810c877c4cfda24b02cebec253fc',
+      sourceUrl:'https://sketchfab.com/3d-models/nui-harimes-scissor-blade-00d4810c877c4cfda24b02cebec253fc',
+      description:'A faithful interactive replica of Purple Scissor Blade, the scissor blade used by Nui Harime in Kill la Kill.'
+    },
+    {
+      id:'bakugo-gauntlets',type:'weapon',kind:'explosive gauntlets',name:'Grenadier Bracers',owner:'Katsuki Bakugo',
+      anime:'My Hero Academia',accent:'#244a43',accent2:'#6ff0c1',
+      sketchfabId:'eddfb0fd1c514445acede00e333dfd68',
+      sourceUrl:'https://sketchfab.com/3d-models/my-hero-academia-bakugou-gauntlets-eddfb0fd1c514445acede00e333dfd68',
+      description:'A faithful interactive replica of Grenadier Bracers, the explosive gauntlets used by Katsuki Bakugo in My Hero Academia.'
+    },
+    {
+      id:'ixa',type:'weapon',kind:'quinque lance and shield',name:'IXA',owner:'Kishou Arima',
+      anime:'Tokyo Ghoul',accent:'#3f1e33',accent2:'#e98cc7',
+      sketchfabId:'7f63fa30337a47a8a069394789556a56',
+      sourceUrl:'https://sketchfab.com/3d-models/ixa-final-7f63fa30337a47a8a069394789556a56',
+      description:'A faithful interactive replica of IXA, the quinque lance and shield used by Kishou Arima in Tokyo Ghoul.'
+    },
+    {
+      id:'mami-musket',type:'weapon',kind:'rifled musket',name:'Mami’s Musket',owner:'Mami Tomoe',
+      anime:'Puella Magi Madoka Magica',accent:'#5a284f',accent2:'#ff9cdd',
+      sketchfabId:'2c1a7a77d5e8499abe4338a004808595',
+      sourceUrl:'https://sketchfab.com/3d-models/mami-tomoes-gun-2c1a7a77d5e8499abe4338a004808595',
+      description:'A faithful interactive replica of Mami’s Musket, the rifled musket used by Mami Tomoe in Puella Magi Madoka Magica.'
+    },
+    {
+      id:'sayaka-sword',type:'weapon',kind:'saber',name:'Sayaka’s Sword',owner:'Sayaka Miki',
+      anime:'Puella Magi Madoka Magica',accent:'#5a284f',accent2:'#ff9cdd',
+      sketchfabId:'8a836ea0b32547b5be492692e7df4b85',
+      sourceUrl:'https://sketchfab.com/3d-models/sayaka-sword-8a836ea0b32547b5be492692e7df4b85',
+      description:'A faithful interactive replica of Sayaka’s Sword, the saber used by Sayaka Miki in Puella Magi Madoka Magica.'
+    },
+    {
+      id:'kyoko-spear',type:'weapon',kind:'chain spear',name:'Kyoko’s Spear',owner:'Kyoko Sakura',
+      anime:'Puella Magi Madoka Magica',accent:'#5a284f',accent2:'#ff9cdd',
+      sketchfabId:'89927440bdf64343924283327b7a7bce',
+      sourceUrl:'https://sketchfab.com/3d-models/kyoko-sakuras-spear-89927440bdf64343924283327b7a7bce',
+      description:'A faithful interactive replica of Kyoko’s Spear, the chain spear used by Kyoko Sakura in Puella Magi Madoka Magica.'
+    },
+    {
+      id:'homura-shield',type:'weapon',kind:'time shield',name:'Homura’s Shield',owner:'Homura Akemi',
+      anime:'Puella Magi Madoka Magica',accent:'#5a284f',accent2:'#ff9cdd',
+      sketchfabId:'d9defb0040404dd18ba6bccd31471570',
+      sourceUrl:'https://sketchfab.com/3d-models/madoka-magica-homuras-shield-d9defb0040404dd18ba6bccd31471570',
+      description:'A faithful interactive replica of Homura’s Shield, the time shield used by Homura Akemi in Puella Magi Madoka Magica.'
+    },
+    {
+      id:'aki-sword',type:'weapon',kind:'nail sword',name:'Aki’s Cursed Sword',owner:'Aki Hayakawa',
+      anime:'Chainsaw Man',accent:'#4a2b24',accent2:'#ff765b',
+      sketchfabId:'c9e59329407a431d9575e0cae67f6a9e',
+      sourceUrl:'https://sketchfab.com/3d-models/aki-sword-c9e59329407a431d9575e0cae67f6a9e',
+      description:'A faithful interactive replica of Aki’s Cursed Sword, the nail sword used by Aki Hayakawa in Chainsaw Man.'
+    },
+    {
+      id:'darkness-devil-sword',type:'weapon',kind:'ritual sword',name:'Darkness Devil Sword',owner:'Darkness Devil',
+      anime:'Chainsaw Man',accent:'#4a2b24',accent2:'#ff765b',
+      sketchfabId:'72032fcb4e1c4780be733b686d157770',
+      sourceUrl:'https://sketchfab.com/3d-models/chainsaw-man-darkness-devil-sword-72032fcb4e1c4780be733b686d157770',
+      description:'A faithful interactive replica of Darkness Devil Sword, the ritual sword used by Darkness Devil in Chainsaw Man.'
+    },
+    {
+      id:'anubis-sword',type:'weapon',kind:'katana',name:'Anubis',owner:'Chaka / Polnareff',
+      anime:'JoJo’s Bizarre Adventure',accent:'#4c295e',accent2:'#df9bff',
+      sketchfabId:'9f5cb1ba97164ca398491eead7606184',
+      sourceUrl:'https://sketchfab.com/3d-models/anubis-jojos-roblox-model-9f5cb1ba97164ca398491eead7606184',
+      description:'A faithful interactive replica of Anubis, the katana used by Chaka / Polnareff in JoJo’s Bizarre Adventure.'
+    },
+    {
+      id:'stand-bow-arrow',type:'weapon',kind:'bow and arrow',name:'Stand Bow and Arrow',owner:'Keicho Nijimura and others',
+      anime:'JoJo’s Bizarre Adventure',accent:'#4c295e',accent2:'#df9bff',
+      sketchfabId:'72796820bcb74e41a2eaf686809f24fe',
+      sourceUrl:'https://sketchfab.com/3d-models/jojo-bow-and-arrow-72796820bcb74e41a2eaf686809f24fe',
+      description:'A faithful interactive replica of Stand Bow and Arrow, the bow and arrow used by Keicho Nijimura and others in JoJo’s Bizarre Adventure.'
+    },
+    {
+      id:'gyro-steel-ball',type:'weapon',kind:'throwing ball',name:'Steel Ball',owner:'Gyro Zeppeli',
+      anime:'JoJo’s Bizarre Adventure',accent:'#4c295e',accent2:'#df9bff',
+      sketchfabId:'dfb1780502da492faa383d5126df495f',
+      sourceUrl:'https://sketchfab.com/3d-models/gyro-zeppelis-steel-ball-jjba-steel-ball-run-dfb1780502da492faa383d5126df495f',
+      description:'A faithful interactive replica of Steel Ball, the throwing ball used by Gyro Zeppeli in JoJo’s Bizarre Adventure.'
+    },
+    {
+      id:'dominator',type:'weapon',kind:'transforming handgun',name:'Dominator',owner:'Public Safety Bureau Inspectors',
+      anime:'Psycho-Pass',accent:'#1b3f4c',accent2:'#64e5ff',
+      sketchfabId:'1aba64ef0e28467bba43088eeb80771d',
+      sourceUrl:'https://sketchfab.com/3d-models/dominator-from-psycho-pass-1aba64ef0e28467bba43088eeb80771d',
+      description:'A faithful interactive replica of Dominator, the transforming handgun used by Public Safety Bureau Inspectors in Psycho-Pass.'
+    },
+    {
+      id:'z-sword',type:'weapon',kind:'greatsword',name:'Z Sword',owner:'Son Gohan',
+      anime:'Dragon Ball Z',accent:'#783b16',accent2:'#ffcc5f',
+      sketchfabId:'62573e40dcb948329b2d282d4526bf84',
+      sourceUrl:'https://sketchfab.com/3d-models/z-sword-dragon-ball-z-62573e40dcb948329b2d282d4526bf84',
+      description:'A faithful interactive replica of Z Sword, the greatsword used by Son Gohan in Dragon Ball Z.'
+    },
+    {
+      id:'moon-stick',type:'weapon',kind:'magic wand',name:'Moon Stick',owner:'Usagi Tsukino',
+      anime:'Sailor Moon',accent:'#392b6e',accent2:'#ff9ae1',
+      sketchfabId:'612582bc490a4353ba468a9839bf9119',
+      sourceUrl:'https://sketchfab.com/3d-models/sailor-moon-moon-stick-612582bc490a4353ba468a9839bf9119',
+      description:'A faithful interactive replica of Moon Stick, the magic wand used by Usagi Tsukino in Sailor Moon.'
+    },
+    {
+      id:'clow-wand',type:'weapon',kind:'magic staff',name:'Clow Wand',owner:'Sakura Kinomoto',
+      anime:'Cardcaptor Sakura',accent:'#56325e',accent2:'#ffb1dd',
+      sketchfabId:'493ff31ae5fa4fe2a840aa57d4dca2eb',
+      sourceUrl:'https://sketchfab.com/3d-models/cardcaptor-sakuras-clow-wand-493ff31ae5fa4fe2a840aa57d4dca2eb',
+      description:'A faithful interactive replica of Clow Wand, the magic staff used by Sakura Kinomoto in Cardcaptor Sakura.'
+    },
+    {
+      id:'rock-cannon',type:'weapon',kind:'cannon',name:'Rock Cannon',owner:'Black Rock Shooter',
+      anime:'Black Rock Shooter',accent:'#172b45',accent2:'#55baff',
+      sketchfabId:'1aa11400029942ec94bfaffe838afb15',
+      sourceUrl:'https://sketchfab.com/3d-models/rock-cannon-1aa11400029942ec94bfaffe838afb15',
+      description:'A faithful interactive replica of Rock Cannon, the cannon used by Black Rock Shooter in Black Rock Shooter.'
+    },
+    {
+      id:'sekki',type:'weapon',kind:'regalia sword',name:'Sekki',owner:'Yato / Yukine',
+      anime:'Noragami',accent:'#223d62',accent2:'#7fdcff',
+      sketchfabId:'8fabbfb6ecca43cead00fc714a704cb1',
+      sourceUrl:'https://sketchfab.com/3d-models/yatos-sword-yukine-sekki-8fabbfb6ecca43cead00fc714a704cb1',
+      description:'A faithful interactive replica of Sekki, the regalia sword used by Yato / Yukine in Noragami.'
+    },
+    {
+      id:'sakabato',type:'weapon',kind:'reverse-blade katana',name:'Sakabatō',owner:'Kenshin Himura',
+      anime:'Rurouni Kenshin',accent:'#4d2c27',accent2:'#ff9a70',
+      sketchfabId:'05fd4090fd24483facf1ed54b8ea6ace',
+      sourceUrl:'https://sketchfab.com/3d-models/kenshins-reverse-blade-sword-05fd4090fd24483facf1ed54b8ea6ace',
+      description:'A faithful interactive replica of Sakabatō, the reverse-blade katana used by Kenshin Himura in Rurouni Kenshin.'
+    },
+    {
+      id:'liz-patty-pistols',type:'weapon',kind:'twin pistols',name:'Liz and Patty',owner:'Death the Kid',
+      anime:'Soul Eater',accent:'#342740',accent2:'#caa0ff',
+      sketchfabId:'01c7e51355f8477b8065b2f29264cce6',
+      sourceUrl:'https://sketchfab.com/3d-models/death-the-kid-liz-or-patty-01c7e51355f8477b8065b2f29264cce6',
+      description:'A faithful interactive replica of Liz and Patty, the twin pistols used by Death the Kid in Soul Eater.'
+    },
+    {
+      id:'tsubaki-chain-scythe',type:'weapon',kind:'chain scythe',name:'Tsubaki Chain Scythe',owner:'Black☆Star',
+      anime:'Soul Eater',accent:'#342740',accent2:'#caa0ff',
+      sketchfabId:'26cb30656451439a83577b823315abb6',
+      sourceUrl:'https://sketchfab.com/3d-models/soul-eater-tsubaki-26cb30656451439a83577b823315abb6',
+      description:'A faithful interactive replica of Tsubaki Chain Scythe, the chain scythe used by Black☆Star in Soul Eater.'
+    },
+    {
+      id:'ragnarok-sword',type:'weapon',kind:'demon sword',name:'Ragnarok',owner:'Crona',
+      anime:'Soul Eater',accent:'#342740',accent2:'#caa0ff',
+      sketchfabId:'ecf4a194453b427f882d550e00a9ce4c',
+      sourceUrl:'https://sketchfab.com/3d-models/soul-eater-ragnarok-ecf4a194453b427f882d550e00a9ce4c',
+      description:'A faithful interactive replica of Ragnarok, the demon sword used by Crona in Soul Eater.'
+    },
+    {
+      id:'guts-cannon-arm',type:'weapon',kind:'prosthetic cannon',name:'Cannon Arm',owner:'Guts',
+      anime:'Berserk',accent:'#34333a',accent2:'#ff766b',
+      sketchfabId:'f50dd328d0a94ea89cff45367774ddd5',
+      sourceUrl:'https://sketchfab.com/3d-models/asset-3d-berserk-ironarm-cannon-of-guts-f50dd328d0a94ea89cff45367774ddd5',
+      description:'A faithful interactive replica of Cannon Arm, the prosthetic cannon used by Guts in Berserk.'
     }
   ];
   const arsenalCollator=new Intl.Collator(undefined,{numeric:true,sensitivity:'base'});
@@ -939,12 +1639,12 @@
   }
 
   function install(){
-    if(document.documentElement.dataset.arsenalV38)return true;
+    if(document.documentElement.dataset.arsenalV39)return true;
     const app=document.getElementById('app');
     const nav=document.querySelector('.bottom-nav');
     const topbar=document.querySelector('.topbar');
     if(!app||!nav||!topbar)return false;
-    document.documentElement.dataset.arsenalV38='1';
+    document.documentElement.dataset.arsenalV39='1';
 
     let arsenalStyles=document.querySelector('link[href*="arsenal-v34.css"]');
     if(!arsenalStyles){
@@ -952,7 +1652,7 @@
       arsenalStyles.rel='stylesheet';
       document.head.appendChild(arsenalStyles);
     }
-    arsenalStyles.href='./arsenal-v34.css?release=38';
+    arsenalStyles.href='./arsenal-v34.css?release=39';
 
     const settingsNav=nav.querySelector('[data-view="settings"]');
     if(settingsNav){
