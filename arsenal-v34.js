@@ -214,6 +214,132 @@
       sketchfabId:'6e59cc78a1ee4ccd94fb7f24f8156a86',
       sourceUrl:'https://sketchfab.com/3d-models/black-march-blade-tower-of-god-6e59cc78a1ee4ccd94fb7f24f8156a86',
       description:'One of the legendary 13 Month Series weapons, appearing as a dark needle with a golden handle.'
+    },
+    {
+      id:'demon-destroyer-sword',type:'weapon',kind:'greatsword',name:'Demon-Destroyer Sword',owner:'Asta',
+      anime:'Black Clover',accent:'#242733',accent2:'#7ee9ff',
+      sketchfabId:'d7ed451d88f34f51b8ce039376868c3c',
+      sourceUrl:'https://sketchfab.com/3d-models/astas-demon-destroyer-sword-d7ed451d88f34f51b8ce039376868c3c',
+      description:'Asta’s third anti-magic sword can sever the cause-and-effect relationship of spells and remove their lingering effects.'
+    },
+    {
+      id:'tanjiro-nichirin',type:'weapon',kind:'katana',name:'Tanjiro’s Nichirin Sword',owner:'Tanjiro Kamado',
+      anime:'Demon Slayer',accent:'#171b21',accent2:'#45e1ff',
+      sketchfabId:'51b99ce0ffa943dea9d91fe24341fb35',
+      sourceUrl:'https://sketchfab.com/3d-models/kamado-tanjiro-nichirin-sword-51b99ce0ffa943dea9d91fe24341fb35',
+      description:'Tanjiro’s black Nichirin blade is forged from sunlight-absorbing ore and carried through his battles against demons.'
+    },
+    {
+      id:'rengoku-nichirin',type:'weapon',kind:'katana',name:'Flame Nichirin Sword',owner:'Kyojuro Rengoku',
+      anime:'Demon Slayer',accent:'#d2351d',accent2:'#ffd75d',
+      sketchfabId:'c230d145932c43f1b44c7103552d0394',
+      sourceUrl:'https://sketchfab.com/3d-models/rengoku-s-nichirin-c230d145932c43f1b44c7103552d0394',
+      description:'Rengoku’s red Nichirin katana bears a flame-shaped guard and the engraving Destroyer of Demons.'
+    },
+    {
+      id:'zenitsu-nichirin',type:'weapon',kind:'katana',name:'Thunder Nichirin Sword',owner:'Zenitsu Agatsuma',
+      anime:'Demon Slayer',accent:'#a86d12',accent2:'#fff27a',
+      sketchfabId:'988a106cadf54f66a0a7b07bee4d9ddc',
+      sourceUrl:'https://sketchfab.com/3d-models/zenitsus-nichirin-katana-demon-slayer-988a106cadf54f66a0a7b07bee4d9ddc',
+      description:'Zenitsu’s golden Nichirin blade is marked by a lightning pattern from hilt to tip.'
+    },
+    {
+      id:'tengen-cleavers',type:'weapon',kind:'cleaver',name:'Nichirin Cleavers',owner:'Tengen Uzui',
+      anime:'Demon Slayer',accent:'#7b284b',accent2:'#ffbfde',
+      sketchfabId:'7f11ec4f79b840c58c9797c5038719f4',
+      sourceUrl:'https://sketchfab.com/3d-models/tengen-uzuis-nichirin-sword-7f11ec4f79b840c58c9797c5038719f4',
+      description:'Tengen’s enormous amber-edged Nichirin cleavers are chained together for his explosive Sound Breathing style.'
+    },
+    {
+      id:'gyomei-flail-axe',type:'weapon',kind:'axe',name:'Nichirin Flail and Axe',owner:'Gyomei Himejima',
+      anime:'Demon Slayer',accent:'#46526a',accent2:'#b5d9ff',
+      sketchfabId:'2d36969b7f49483c97136b9a9bc44986',
+      sourceUrl:'https://sketchfab.com/3d-models/swordtember-2022-day-23-chain-iconic-2d36969b7f49483c97136b9a9bc44986',
+      description:'Gyomei’s unique Nichirin weapon joins a spiked flail and hand axe with a heavy chain.'
+    },
+    {
+      id:'enma',type:'weapon',kind:'katana',name:'Enma',owner:'Roronoa Zoro / Kozuki Oden',
+      anime:'One Piece',accent:'#5c245d',accent2:'#f6a8ff',
+      sketchfabId:'3706646a721c4293a33dca08ffe5d825',
+      sourceUrl:'https://sketchfab.com/3d-models/katana-enma-3706646a721c4293a33dca08ffe5d825',
+      description:'One of Oden’s legendary blades, Enma forcefully draws out its wielder’s Haki and now belongs to Zoro.'
+    },
+    {
+      id:'wado-ichimonji',type:'weapon',kind:'katana',name:'Wado Ichimonji',owner:'Roronoa Zoro',
+      anime:'One Piece',accent:'#e2e5ee',accent2:'#fff8d4',
+      sketchfabId:'3b40e5a485c34a1b8a88104756f81610',
+      sourceUrl:'https://sketchfab.com/3d-models/zoro-katana-3b40e5a485c34a1b8a88104756f81610',
+      description:'The white-hilted Great Grade sword Zoro inherited after promising Kuina that one of them would become the world’s greatest swordsman.'
+    },
+    {
+      id:'yoru',type:'weapon',kind:'greatsword',name:'Yoru',owner:'Dracule Mihawk',
+      anime:'One Piece',accent:'#171a21',accent2:'#72f0a4',
+      sketchfabId:'8f5adf7747a246a8b1f9eb5c1ab9316e',
+      sourceUrl:'https://sketchfab.com/3d-models/yoru-one-piece-dracula-mihawk-black-sword-8f5adf7747a246a8b1f9eb5c1ab9316e',
+      description:'Mihawk’s enormous cruciform Black Blade is one of the world’s twelve Supreme Grade swords.'
+    },
+    {
+      id:'samehada',type:'weapon',kind:'greatsword',name:'Samehada',owner:'Kisame Hoshigaki',
+      anime:'Naruto Shippuden',accent:'#243a54',accent2:'#83caff',
+      sketchfabId:'5bacda6b788c44f9a1e98b6fc0e9c254',
+      sourceUrl:'https://sketchfab.com/3d-models/naruto-shippuden-samehada-5bacda6b788c44f9a1e98b6fc0e9c254',
+      description:'A living, scale-covered blade that shreds its target and feeds on chakra instead of cutting cleanly.'
+    },
+    {
+      id:'kubikiribocho',type:'weapon',kind:'cleaver',name:'Kubikiribōchō',owner:'Zabuza Momochi / Suigetsu Hozuki',
+      anime:'Naruto',accent:'#3c4651',accent2:'#dceeff',
+      sketchfabId:'3ba757110ebb4a479874a7aea2532b96',
+      sourceUrl:'https://sketchfab.com/3d-models/kubikiribocho-aka-zabuzas-sword-3ba757110ebb4a479874a7aea2532b96',
+      description:'The Executioner’s Blade repairs damage by absorbing iron from the blood of those it cuts.'
+    },
+    {
+      id:'senbonzakura',type:'weapon',kind:'katana',name:'Senbonzakura',owner:'Byakuya Kuchiki',
+      anime:'Bleach',accent:'#713e78',accent2:'#ffb9ef',
+      sketchfabId:'6e98d195d2c246aba076049c1c359c3c',
+      sourceUrl:'https://sketchfab.com/3d-models/6e98d195d2c246aba076049c1c359c3c',
+      description:'Byakuya’s elegant Zanpakutō disperses into countless petal-like blades when released.'
+    },
+    {
+      id:'nozarashi',type:'weapon',kind:'axe',name:'Nozarashi',owner:'Kenpachi Zaraki',
+      anime:'Bleach',accent:'#51493d',accent2:'#f2d68e',
+      sketchfabId:'296a44990bc14d96a43f262913d1b5ca',
+      sourceUrl:'https://sketchfab.com/3d-models/nozarashi-bleach-296a44990bc14d96a43f262913d1b5ca',
+      description:'Kenpachi’s released Zanpakutō becomes a gigantic war-cleaver capable of cutting through massive opponents.'
+    },
+    {
+      id:'hyorinmaru',type:'weapon',kind:'katana',name:'Hyōrinmaru',owner:'Tōshirō Hitsugaya',
+      anime:'Bleach',accent:'#205579',accent2:'#9deaff',
+      sketchfabId:'53ca107bd8e34cb195b3baa04d93820b',
+      sourceUrl:'https://sketchfab.com/3d-models/japanese-sword-katana-hyorinmaru-53ca107bd8e34cb195b3baa04d93820b',
+      description:'Hitsugaya’s ice-type Zanpakutō commands frozen water and manifests a chain with a crescent blade at its hilt.'
+    },
+    {
+      id:'soul-evans-scythe',type:'weapon',kind:'spear',name:'Soul Evans — Scythe Form',owner:'Maka Albarn',
+      anime:'Soul Eater',accent:'#782235',accent2:'#ff6f7f',
+      sketchfabId:'302b1bd3047742cdb69de27df6e0692f',
+      sourceUrl:'https://sketchfab.com/3d-models/soul-eater-soul-evans-scythe-form-302b1bd3047742cdb69de27df6e0692f',
+      description:'Soul transforms into a red-and-black demon scythe and synchronizes with Maka through soul resonance.'
+    },
+    {
+      id:'gae-bolg',type:'weapon',kind:'spear',name:'Gáe Bolg',owner:'Cú Chulainn',
+      anime:'Fate/stay night',accent:'#7b1027',accent2:'#ff5b74',
+      sketchfabId:'b92555eef0b2433d81e72ef8dd038c3d',
+      sourceUrl:'https://sketchfab.com/3d-models/gae-bolg-cu-chulainn-b92555eef0b2433d81e72ef8dd038c3d',
+      description:'Lancer’s crimson cursed spear reverses cause and effect so its thrust is destined to pierce the heart.'
+    },
+    {
+      id:'killua-yoyos',type:'weapon',kind:'staff',name:'50-Kilogram Yo-Yos',owner:'Killua Zoldyck',
+      anime:'Hunter × Hunter',accent:'#343d63',accent2:'#9bd8ff',
+      sketchfabId:'b71eb6ada5ca41dc9884a8242e1c7e9d',
+      sourceUrl:'https://sketchfab.com/3d-models/killuas-yoyo-hunter-x-hunter-b71eb6ada5ca41dc9884a8242e1c7e9d',
+      description:'Killua’s nearly indestructible yo-yos weigh fifty kilograms each and double as devastating close-range weapons.'
+    },
+    {
+      id:'hestia-knife',type:'weapon',kind:'dagger',name:'Hestia Knife',owner:'Bell Cranel',
+      anime:'Is It Wrong to Try to Pick Up Girls in a Dungeon?',accent:'#473b78',accent2:'#95f5ff',
+      sketchfabId:'fd8d9286ad5a4cabaa0067317ec73108',
+      sourceUrl:'https://sketchfab.com/3d-models/danmachi-hestia-knife-fd8d9286ad5a4cabaa0067317ec73108',
+      description:'A living Divine Knife forged by Hephaestus that grows stronger alongside Bell and bears Hestia’s sacred writing.'
     }
   ];
 
@@ -575,12 +701,12 @@
   }
 
   function install(){
-    if(document.documentElement.dataset.arsenalV35)return true;
+    if(document.documentElement.dataset.arsenalV36)return true;
     const app=document.getElementById('app');
     const nav=document.querySelector('.bottom-nav');
     const topbar=document.querySelector('.topbar');
     if(!app||!nav||!topbar)return false;
-    document.documentElement.dataset.arsenalV35='1';
+    document.documentElement.dataset.arsenalV36='1';
 
     let arsenalStyles=document.querySelector('link[href*="arsenal-v34.css"]');
     if(!arsenalStyles){
@@ -588,7 +714,7 @@
       arsenalStyles.rel='stylesheet';
       document.head.appendChild(arsenalStyles);
     }
-    arsenalStyles.href='./arsenal-v34.css?release=35';
+    arsenalStyles.href='./arsenal-v34.css?release=36';
 
     const settingsNav=nav.querySelector('[data-view="settings"]');
     if(settingsNav){
@@ -615,29 +741,32 @@
 
     const section=document.createElement('section');
     section.id='arsenalView';section.className='view arsenal-view';section.dataset.viewName='arsenal';
+    const powerCount=ITEMS.filter(item=>item.type==='power').length;
+    const weaponCount=ITEMS.filter(item=>item.type==='weapon').length;
+    const totalCount=ITEMS.length;
     section.innerHTML=`
       <div class="section-heading arsenal-heading">
         <button class="back-button" data-view="home">← HOME</button>
         <div class="arsenal-heading-copy">
-          <p class="eyebrow">30 RELICS, POWERS + TECHNIQUES</p>
+          <p class="eyebrow">${totalCount} RELICS, POWERS + TECHNIQUES</p>
           <h2>Arsenal</h2>
           <p class="arsenal-lede">Physical weapons and unforgettable abilities from across your anime universe. Tap anything to unleash its full showcase.</p>
         </div>
       </div>
       <section class="arsenal-overview" aria-label="Arsenal collection summary">
-        <div><strong>The real moves. The exact weapons.</strong><p>Twelve sourced anime attack GIFs plus eighteen exact weapon models and stills. Every entry links back to the original media source.</p></div>
-        <div class="arsenal-counts"><span><b>12</b><small>Anime GIFs</small></span><span><b>18</b><small>Exact Weapons</small></span><span><b>30</b><small>Sourced</small></span></div>
+        <div><strong>The real moves. The exact weapons.</strong><p>${powerCount} sourced anime attack GIFs plus ${weaponCount} exact weapon models and stills. Every entry links back to the original media source.</p></div>
+        <div class="arsenal-counts"><span><b>${powerCount}</b><small>Anime GIFs</small></span><span><b>${weaponCount}</b><small>Exact Weapons</small></span><span><b>${totalCount}</b><small>Sourced</small></span></div>
       </section>
       <div class="arsenal-toolbar">
         <label class="arsenal-search-wrap"><input id="arsenalSearch" type="search" autocomplete="off" placeholder="Search weapon, power, character or anime…" aria-label="Search Arsenal"></label>
         <div class="arsenal-filters" aria-label="Arsenal filters">
-          <button class="arsenal-filter active" type="button" data-arsenal-filter="all">ALL 30</button>
-          <button class="arsenal-filter" type="button" data-arsenal-filter="power">POWERS</button>
-          <button class="arsenal-filter" type="button" data-arsenal-filter="weapon">WEAPONS</button>
+          <button class="arsenal-filter active" type="button" data-arsenal-filter="all">ALL ${totalCount}</button>
+          <button class="arsenal-filter" type="button" data-arsenal-filter="power">POWERS ${powerCount}</button>
+          <button class="arsenal-filter" type="button" data-arsenal-filter="weapon">WEAPONS ${weaponCount}</button>
         </div>
         <button class="arsenal-random" id="arsenalRandom" type="button">UNLEASH RANDOM</button>
       </div>
-      <div class="arsenal-results-line"><span id="arsenalResultCount"><strong>30</strong> entries ready</span><span>Tap to view in action</span></div>
+      <div class="arsenal-results-line"><span id="arsenalResultCount"><strong>${totalCount}</strong> entries ready</span><span>Tap to view in action</span></div>
       <div class="arsenal-grid" id="arsenalGrid"></div>`;
     app.appendChild(section);
 

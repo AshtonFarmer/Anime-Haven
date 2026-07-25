@@ -1,5 +1,5 @@
 {
-  "release": 35,
+  "release": 36,
   "note": "KageNexus does not claim ownership of third-party media. The app embeds each item from its credited host and links to the original source.",
   "powers": [
     {"id":"mob-telekinesis","host":"Tenor","media":"anime GIF","source":"https://tenor.com/view/mobpsycho100-kageyamashigeo-telekinesis-gif-6137101"},
@@ -33,6 +33,24 @@
     {"id":"inverted-spear","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/inverted-spear-of-heaven-jujutsu-kaisen-089c61807b8b4c68ad5b814ae481b87f"},
     {"id":"rebellion","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/rebellion-sword-game-asset-devil-may-cry-5-07a2646d166b469daa6bf41028d5e4cc"},
     {"id":"excalibur","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/fatestay-night-excalibur-updated-dc4e601857e94a2b9c3acbd856943581"},
-    {"id":"black-march","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/black-march-blade-tower-of-god-6e59cc78a1ee4ccd94fb7f24f8156a86"}
+    {"id":"black-march","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/black-march-blade-tower-of-god-6e59cc78a1ee4ccd94fb7f24f8156a86"},
+    {"id":"demon-destroyer-sword","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/astas-demon-destroyer-sword-d7ed451d88f34f51b8ce039376868c3c"},
+    {"id":"tanjiro-nichirin","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/kamado-tanjiro-nichirin-sword-51b99ce0ffa943dea9d91fe24341fb35"},
+    {"id":"rengoku-nichirin","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/rengoku-s-nichirin-c230d145932c43f1b44c7103552d0394"},
+    {"id":"zenitsu-nichirin","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/zenitsus-nichirin-katana-demon-slayer-988a106cadf54f66a0a7b07bee4d9ddc"},
+    {"id":"tengen-cleavers","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/tengen-uzuis-nichirin-sword-7f11ec4f79b840c58c9797c5038719f4"},
+    {"id":"gyomei-flail-axe","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/swordtember-2022-day-23-chain-iconic-2d36969b7f49483c97136b9a9bc44986"},
+    {"id":"enma","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/katana-enma-3706646a721c4293a33dca08ffe5d825"},
+    {"id":"wado-ichimonji","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/zoro-katana-3b40e5a485c34a1b8a88104756f81610"},
+    {"id":"yoru","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/yoru-one-piece-dracula-mihawk-black-sword-8f5adf7747a246a8b1f9eb5c1ab9316e"},
+    {"id":"samehada","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/naruto-shippuden-samehada-5bacda6b788c44f9a1e98b6fc0e9c254"},
+    {"id":"kubikiribocho","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/kubikiribocho-aka-zabuzas-sword-3ba757110ebb4a479874a7aea2532b96"},
+    {"id":"senbonzakura","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/6e98d195d2c246aba076049c1c359c3c"},
+    {"id":"nozarashi","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/nozarashi-bleach-296a44990bc14d96a43f262913d1b5ca"},
+    {"id":"hyorinmaru","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/japanese-sword-katana-hyorinmaru-53ca107bd8e34cb195b3baa04d93820b"},
+    {"id":"soul-evans-scythe","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/soul-eater-soul-evans-scythe-form-302b1bd3047742cdb69de27df6e0692f"},
+    {"id":"gae-bolg","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/gae-bolg-cu-chulainn-b92555eef0b2433d81e72ef8dd038c3d"},
+    {"id":"killua-yoyos","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/killuas-yoyo-hunter-x-hunter-b71eb6ada5ca41dc9884a8242e1c7e9d"},
+    {"id":"hestia-knife","host":"Sketchfab","media":"exact 3D replica","source":"https://sketchfab.com/3d-models/danmachi-hestia-knife-fd8d9286ad5a4cabaa0067317ec73108"}
   ]
 }
