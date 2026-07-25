@@ -1089,3 +1089,68 @@ body.arsenal-active #swordScroll {
     transition: none;
   }
 }
+
+/* Release 38: A-Z anime organization for the full weapon collection. */
+.arsenal-anime-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  margin: 19px 2px 1px;
+}
+
+.arsenal-anime-divider:first-child {
+  margin-top: 0;
+}
+
+.arsenal-anime-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  min-width: 24px;
+  background: linear-gradient(90deg, rgba(128, 107, 255, .48), rgba(55, 223, 255, .12), transparent);
+}
+
+.arsenal-anime-divider span {
+  overflow: hidden;
+  color: #f4f2ff;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 950;
+  letter-spacing: -.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arsenal-anime-divider small {
+  order: 2;
+  flex: none;
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 999px;
+  color: #aaa8c5;
+  background: rgba(9, 9, 26, .72);
+  font-size: 8px;
+  font-weight: 950;
+  letter-spacing: .11em;
+}
+
+.arsenal-anime-divider[hidden] {
+  display: none;
+}
+
+@media (max-width: 560px) {
+  .arsenal-anime-divider {
+    gap: 9px;
+    margin-top: 14px;
+  }
+
+  .arsenal-anime-divider span {
+    font-size: 16px;
+  }
+
+  .arsenal-anime-divider small {
+    padding: 4px 7px;
+    font-size: 7px;
+  }
+}
