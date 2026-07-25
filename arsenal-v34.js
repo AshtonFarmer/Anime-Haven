@@ -5,151 +5,214 @@
     {
       id:'mob-telekinesis',type:'power',effect:'telekinesis',name:'100% Telekinesis',owner:'Shigeo “Mob” Kageyama',
       anime:'Mob Psycho 100',accent:'#ff58c8',accent2:'#65f8ff',
+      tenorId:'6137101',
+      sourceUrl:'https://tenor.com/view/mobpsycho100-kageyamashigeo-telekinesis-gif-6137101',
       description:'Psychic force erupts into a shifting storm of color, floating debris and pressure waves as Mob reaches 100%.'
     },
     {
       id:'hollow-purple',type:'power',effect:'hollow',name:'Hollow Purple',owner:'Satoru Gojo',
       anime:'Jujutsu Kaisen',accent:'#a73cff',accent2:'#ff59cc',
+      tenorId:'16843591044568531318',
+      sourceUrl:'https://tenor.com/view/gojo-satoru-gojo-hollow-purple-jujutsu-kaisen-blue-gif-16843591044568531318',
       description:'Blue and Red collide into an overwhelming imaginary mass that tears through everything in its path.'
     },
     {
       id:'kamehameha',type:'power',effect:'kamehameha',name:'Kamehameha',owner:'Goku',
       anime:'Dragon Ball',accent:'#2477ff',accent2:'#7df8ff',
+      tenorId:'9815496963847746678',
+      sourceUrl:'https://tenor.com/view/goku-kamehameha-dragon-ball-son-goku-energy-wave-gif-9815496963847746678',
       description:'A concentrated sphere of ki releases as a roaring blue-white energy wave.'
     },
     {
       id:'arise',type:'power',effect:'arise',name:'Arise',owner:'Sung Jin-Woo',
       anime:'Solo Leveling',accent:'#7d35ff',accent2:'#caa7ff',
+      tenorId:'17496945317088408472',
+      sourceUrl:'https://tenor.com/view/sung-jin-woo-igris-arise-solo-leveling-bloodred-commander-gif-17496945317088408472',
       description:'Fallen enemies rise from violet-black energy and join the Shadow Monarch’s army.'
     },
     {
       id:'getsuga-tensho',type:'power',effect:'getsuga',name:'Getsuga Tenshō',owner:'Ichigo Kurosaki',
       anime:'Bleach',accent:'#175dff',accent2:'#7ff8ff',
+      tenorId:'24230454',
+      sourceUrl:'https://tenor.com/view/ichigo-kurosaki-getsuga-tensho-fade-to-black-snake-movie3-gif-24230454',
       description:'Compressed spiritual energy leaves Zangetsu as a massive crescent-shaped slash.'
     },
     {
       id:'megiddo',type:'power',effect:'megiddo',name:'Megiddo',owner:'Rimuru Tempest',
       anime:'That Time I Got Reincarnated as a Slime',accent:'#ffc84f',accent2:'#fff5ad',
+      tenorId:'25761644',
+      sourceUrl:'https://tenor.com/view/rimuru-tempest-megiddo-ybaau-solos-yba-au-gif-25761644',
       description:'Countless water lenses focus sunlight into a silent and terrifying rain of beams.'
     },
     {
       id:'zoltraak',type:'power',effect:'zoltraak',name:'Zoltraak',owner:'Frieren',
       anime:'Frieren: Beyond Journey’s End',accent:'#6b42ff',accent2:'#ffe789',
+      tenorId:'4846196759717581677',
+      sourceUrl:'https://tenor.com/view/frieren-zoltraak-gif-4846196759717581677',
       description:'A precise magic circle forms before a devastating beam of ordinary offensive magic is released.'
     },
     {
       id:'malevolent-shrine',type:'power',effect:'shrine',name:'Malevolent Shrine',owner:'Ryomen Sukuna',
       anime:'Jujutsu Kaisen',accent:'#e51f45',accent2:'#ffb05e',
+      tenorId:'5523999485760831537',
+      sourceUrl:'https://tenor.com/view/malevolent-shrine-jujutsu-kaisen-sukuna-sukuna-vs-mahoraga-shibuya-gif-5523999485760831537',
       description:'A barrierless domain manifests with relentless invisible slashes across its entire range.'
     },
     {
       id:'detroit-smash',type:'power',effect:'impact',name:'Detroit Smash',owner:'Izuku Midoriya',
       anime:'My Hero Academia',accent:'#25d5a0',accent2:'#a4fff0',
+      tenorId:'17757946',
+      sourceUrl:'https://tenor.com/view/detroit-smash-izuku-midoriya-deku-my-hero-academia-boku-no-hero-academia-gif-17757946',
       description:'One For All detonates through a single strike and turns the surrounding air into a shockwave.'
     },
     {
       id:'adolla-burst',type:'power',effect:'adolla',name:'Adolla Burst',owner:'Shinra Kusakabe',
       anime:'Fire Force',accent:'#ff3f1f',accent2:'#ffe660',
+      tenorId:'25690254',
+      sourceUrl:'https://tenor.com/view/shinra-shinra-kusakabe-fire-force-enen-no-shouboutai-adolla-burst-gif-25690254',
       description:'Pure flame explodes from Shinra’s feet with brilliant heat, speed and jet-like force.'
     },
     {
       id:'full-counter',type:'power',effect:'counter',name:'Full Counter',owner:'Meliodas',
       anime:'The Seven Deadly Sins',accent:'#9a4dff',accent2:'#ffe275',
+      tenorId:'20751424',
+      sourceUrl:'https://tenor.com/view/meliodas-full-counter-the-seven-deadly-sins-tsds-seven-deadly-sins-sds-gif-20751424',
       description:'Incoming magical power is reflected back at the attacker with even greater force.'
     },
     {
       id:'water-breathing',type:'power',effect:'water',name:'Water Breathing',owner:'Tanjiro Kamado',
       anime:'Demon Slayer',accent:'#176fff',accent2:'#7ef4ff',
+      tenorId:'10480000295623830569',
+      sourceUrl:'https://tenor.com/view/demon-slayer-tanjiro-kamado-kimetsu-no-yaiba-water-breathing-gif-10480000295623830569',
       description:'A flowing sword form surrounds each movement with luminous arcs of rushing water.'
     },
     {
       id:'zangetsu',type:'weapon',kind:'cleaver',name:'Zangetsu',owner:'Ichigo Kurosaki',
       anime:'Bleach',accent:'#172235',accent2:'#7deeff',
+      sketchfabId:'8cb58515c55943fa8549610124186414',
+      sourceUrl:'https://sketchfab.com/3d-models/ichigo-kurosaki-shikai-bleach-fan-art-8cb58515c55943fa8549610124186414',
       description:'Ichigo’s enormous original Zanpakutō, shaped like a cleaver without a traditional guard.'
     },
     {
       id:'demon-slayer-sword',type:'weapon',kind:'greatsword',name:'Demon-Slayer Sword',owner:'Asta',
       anime:'Black Clover',accent:'#242733',accent2:'#ff4c69',
+      sketchfabId:'c7ff315569354e6496dafc110338be4d',
+      sourceUrl:'https://sketchfab.com/3d-models/black-clover-demon-slayer-sword-c7ff315569354e6496dafc110338be4d',
       description:'A massive anti-magic blade capable of cutting magic and batting spells back toward an enemy.'
     },
     {
       id:'demon-dweller-sword',type:'weapon',kind:'cleaver',name:'Demon-Dweller Sword',owner:'Asta',
       anime:'Black Clover',accent:'#222634',accent2:'#65d8ff',
+      sketchfabId:'b7ed730bac5d4237b08203282065e160',
+      sourceUrl:'https://sketchfab.com/3d-models/demon-dweller-black-clover-asta-sword-b7ed730bac5d4237b08203282065e160',
       description:'An anti-magic sword that can borrow, absorb and release the magic of Asta’s allies.'
     },
     {
       id:'yami-katana',type:'weapon',kind:'katana',name:'Yami’s Katana',owner:'Yami Sukehiro',
       anime:'Black Clover',accent:'#182535',accent2:'#a764ff',
+      imageUrl:'https://i.ytimg.com/vi/y91x1c4IjHk/maxresdefault.jpg',
+      sourceUrl:'https://www.youtube.com/watch?v=y91x1c4IjHk',
+      mediaKind:'ANIME STILL',mediaLabel:'OFFICIAL ANIME STILL • CRUNCHYROLL',
       description:'A dark-cloaked katana used to channel Yami’s dimension-cutting magic.'
     },
     {
       id:'elucidator',type:'weapon',kind:'longsword',name:'Elucidator',owner:'Kirito',
       anime:'Sword Art Online',accent:'#111727',accent2:'#68dfff',
+      sketchfabId:'d5fd833325d846ec810c97c03d96776f',
+      sourceUrl:'https://sketchfab.com/3d-models/kiritos-elucidator-d5fd833325d846ec810c97c03d96776f',
       description:'Kirito’s black one-handed sword and the defining blade of his Aincrad equipment.'
     },
     {
       id:'dark-repulser',type:'weapon',kind:'longsword',name:'Dark Repulser',owner:'Kirito',
       anime:'Sword Art Online',accent:'#1e5965',accent2:'#a4fff5',
+      sketchfabId:'7c1def3ae60146c78eb1871ce7aeb954',
+      sourceUrl:'https://sketchfab.com/3d-models/kiritos-dark-repulser-7c1def3ae60146c78eb1871ce7aeb954',
       description:'A crystalline blue-green sword forged for Kirito and paired with Elucidator for Dual Blades.'
     },
     {
       id:'blue-rose-sword',type:'weapon',kind:'longsword',name:'Blue Rose Sword',owner:'Eugeo',
       anime:'Sword Art Online: Alicization',accent:'#297bd7',accent2:'#e6fbff',
+      sketchfabId:'ca533d34643d4034a2a3710b95a0ffd8',
+      sourceUrl:'https://sketchfab.com/3d-models/blue-rose-sword-from-sword-art-online-ca533d34643d4034a2a3710b95a0ffd8',
       description:'A Divine Object with an icy blue blade and a rose motif capable of freezing its surroundings.'
     },
     {
       id:'dragon-slayer',type:'weapon',kind:'greatsword',name:'Dragon Slayer',owner:'Guts',
       anime:'Berserk',accent:'#343a48',accent2:'#ff6c5c',
+      sketchfabId:'3f9e323324af41fdb4c54b97c8cb9807',
+      sourceUrl:'https://sketchfab.com/3d-models/dragon-slayer-berserk-3f9e323324af41fdb4c54b97c8cb9807',
       description:'An impossibly large slab of iron made deadly through Guts’s strength and endless battles.'
     },
     {
       id:'murasame',type:'weapon',kind:'katana',name:'Murasame',owner:'Akame',
       anime:'Akame ga Kill!',accent:'#651827',accent2:'#ff526d',
+      sketchfabId:'e815bef689ff40a3ace5513f63bb3e35',
+      sourceUrl:'https://sketchfab.com/3d-models/murasame-e815bef689ff40a3ace5513f63bb3e35',
       description:'A cursed Teigu whose poisonous cut can kill a target with a single wound.'
     },
     {
       id:'lostvayne',type:'weapon',kind:'dagger',name:'Lostvayne',owner:'Meliodas',
       anime:'The Seven Deadly Sins',accent:'#3f274e',accent2:'#b784ff',
+      imageUrl:'https://minikatana.com/cdn/shop/products/IMG_8727-1_36e97682-5065-4613-8018-a6a8854b786b_1100x.jpg?v=1657647023',
+      sourceUrl:'https://minikatana.com/products/lostvayne-metal-dull-sword',
+      mediaKind:'HD REPLICA',mediaLabel:'ANIME-ACCURATE REPLICA • MINI KATANA',
       description:'Meliodas’s curved Sacred Treasure, built to create physical clones of its wielder.'
     },
     {
       id:'chastiefol',type:'weapon',kind:'spear',name:'Spirit Spear Chastiefol',owner:'King',
       anime:'The Seven Deadly Sins',accent:'#19708a',accent2:'#94ffdd',
+      sketchfabId:'19d518e9563c40b1b9e4f04faf857deb',
+      sourceUrl:'https://sketchfab.com/3d-models/chastiefol-spirit-spear-seven-deadly-sins-19d518e9563c40b1b9e4f04faf857deb',
       description:'A Sacred Treasure made from the Fairy Realm’s sacred tree that changes between many forms.'
     },
     {
       id:'rhitta',type:'weapon',kind:'axe',name:'Divine Axe Rhitta',owner:'Escanor',
       anime:'The Seven Deadly Sins',accent:'#b84318',accent2:'#ffde68',
+      sketchfabId:'98b6ee1cbd7a496db3ae3020b57252c5',
+      sourceUrl:'https://sketchfab.com/3d-models/rhitta-escanors-axe-seven-deadly-sins-98b6ee1cbd7a496db3ae3020b57252c5',
       description:'A gigantic ornate axe that stores and releases the overwhelming heat of Sunshine.'
     },
     {
       id:'kurikara',type:'weapon',kind:'katana',name:'Kurikara',owner:'Rin Okumura',
       anime:'Blue Exorcist',accent:'#16325a',accent2:'#3bbdff',
+      imageUrl:'https://minikatana.com/cdn/shop/files/BlueExorcistSword-DULL_1100x.png?v=1757112920',
+      sourceUrl:'https://minikatana.com/products/rin-okumuras-katana-metal',
+      mediaKind:'HD REPLICA',mediaLabel:'ANIME-ACCURATE REPLICA • MINI KATANA',
       description:'The demon-slaying blade that seals Rin’s demonic heart and releases his blue flames when drawn.'
     },
     {
       id:'playful-cloud',type:'weapon',kind:'staff',name:'Playful Cloud',owner:'Maki Zenin / Toji Fushiguro',
       anime:'Jujutsu Kaisen',accent:'#531c2a',accent2:'#ff8f63',
+      sketchfabId:'5d79400ce4ec4830819aa0f347c2f2c9',
+      sourceUrl:'https://sketchfab.com/3d-models/playful-cloud-jujutsu-kaisen-5d79400ce4ec4830819aa0f347c2f2c9',
       description:'A three-section cursed tool whose physical power depends entirely on the strength of its wielder.'
     },
     {
       id:'inverted-spear',type:'weapon',kind:'dagger',name:'Inverted Spear of Heaven',owner:'Toji Fushiguro',
       anime:'Jujutsu Kaisen',accent:'#293241',accent2:'#8bf5ff',
+      sketchfabId:'089c61807b8b4c68ad5b814ae481b87f',
+      sourceUrl:'https://sketchfab.com/3d-models/inverted-spear-of-heaven-jujutsu-kaisen-089c61807b8b4c68ad5b814ae481b87f',
       description:'A special-grade cursed tool capable of forcing active cursed techniques to stop.'
     },
     {
       id:'rebellion',type:'weapon',kind:'greatsword',name:'Rebellion',owner:'Dante',
       anime:'Devil May Cry',accent:'#491a24',accent2:'#ff6378',
+      sketchfabId:'07a2646d166b469daa6bf41028d5e4cc',
+      sourceUrl:'https://sketchfab.com/3d-models/rebellion-sword-game-asset-devil-may-cry-5-07a2646d166b469daa6bf41028d5e4cc',
       description:'Dante’s signature demonic greatsword, marked by a skeletal guard and immense power.'
     },
     {
       id:'excalibur',type:'weapon',kind:'longsword',name:'Excalibur',owner:'Saber',
       anime:'Fate',accent:'#765a17',accent2:'#fff1a4',
+      sketchfabId:'dc4e601857e94a2b9c3acbd856943581',
+      sourceUrl:'https://sketchfab.com/3d-models/fatestay-night-excalibur-updated-dc4e601857e94a2b9c3acbd856943581',
       description:'The golden Sword of Promised Victory, concealed by wind until its brilliant power is released.'
     },
     {
       id:'black-march',type:'weapon',kind:'needle',name:'Black March',owner:'Yuri Jahad / Bam',
       anime:'Tower of God',accent:'#22192c',accent2:'#f2b4ff',
+      sketchfabId:'6e59cc78a1ee4ccd94fb7f24f8156a86',
+      sourceUrl:'https://sketchfab.com/3d-models/black-march-blade-tower-of-god-6e59cc78a1ee4ccd94fb7f24f8156a86',
       description:'One of the legendary 13 Month Series weapons, appearing as a dark needle with a golden handle.'
     }
   ];
@@ -249,31 +312,90 @@
       </svg>`;
   }
 
+  function mediaMeta(item){
+    if(item.type==='power'){
+      return {
+        kind:'ANIME GIF',
+        label:'REAL ANIME GIF • TENOR',
+        src:`https://tenor.com/embed/${encodeURIComponent(item.tenorId)}`,
+        className:'arsenal-tenor-frame',
+        tag:'iframe'
+      };
+    }
+    if(item.sketchfabId){
+      return {
+        kind:'EXACT 3D',
+        label:'SOURCED 3D REPLICA • SKETCHFAB',
+        src:`https://sketchfab.com/models/${encodeURIComponent(item.sketchfabId)}/embed?autostart=1&autospin=0.25&ui_hint=0&ui_theme=dark&ui_infos=0&ui_controls=0&ui_watermark=1&dnt=1`,
+        className:'arsenal-model-frame',
+        tag:'iframe'
+      };
+    }
+    return {
+      kind:item.mediaKind||'ANIME STILL',
+      label:item.mediaLabel||'SOURCED ANIME WEAPON STILL',
+      src:item.imageUrl,
+      className:'arsenal-media-image',
+      tag:'img'
+    };
+  }
+
   function visualMarkup(item,index,showcase=false){
-    const classes=`arsenal-visual ${showcase?'arsenal-showcase-visual ':''}${item.type==='power'?`effect-${item.effect}`:'weapon-visual'}`;
-    const content=item.type==='power'
-      ? `<canvas class="arsenal-particles" aria-hidden="true"></canvas>${POWER_MARKUP[item.effect]||''}`
-      : weaponArt(item);
-    return `<div class="${classes}" data-effect="${escapeHtml(item.effect||item.kind)}" data-accent="${escapeHtml(item.accent)}" data-accent2="${escapeHtml(item.accent2)}" style="--accent:${escapeHtml(item.accent)};--accent2:${escapeHtml(item.accent2)}">
-      ${content}
-      ${showcase?'':`<span class="arsenal-index">${String(index+1).padStart(2,'0')}</span><span class="arsenal-kind">${item.type==='power'?'ANIMATED':'WEAPON'}</span>`}
+    const media=mediaMeta(item);
+    const classes=`arsenal-visual ${showcase?'arsenal-showcase-visual ':''}${item.type==='power'?'arsenal-power-media':'arsenal-weapon-media'}`;
+    const content=media.tag==='iframe'
+      ? `<iframe class="arsenal-media-frame ${media.className}" data-arsenal-media-src="${escapeHtml(media.src)}" title="${escapeHtml(`${item.name} ${media.kind.toLowerCase()}`)}" tabindex="-1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen></iframe>`
+      : `<img class="${media.className}" data-arsenal-media-src="${escapeHtml(media.src)}" alt="${escapeHtml(`${item.name}, the weapon used by ${item.owner}`)}" loading="lazy" decoding="async">`;
+    return `<div class="${classes}" data-accent="${escapeHtml(item.accent)}" data-accent2="${escapeHtml(item.accent2)}" style="--accent:${escapeHtml(item.accent)};--accent2:${escapeHtml(item.accent2)}">
+      <div class="arsenal-media-shell">
+        <span class="arsenal-media-loading" aria-hidden="true"><i></i><b>LOADING REAL MEDIA</b></span>
+        ${content}
+        <span class="arsenal-media-failed" role="status">REAL MEDIA UNAVAILABLE — OPEN SOURCE</span>
+      </div>
+      ${showcase?'':`<span class="arsenal-index">${String(index+1).padStart(2,'0')}</span><span class="arsenal-kind">${media.kind}</span><span class="arsenal-media-label">${media.label}</span>`}
     </div>`;
   }
 
   function cardMarkup(item,index){
-    return `<button class="arsenal-card" type="button" data-arsenal-id="${escapeHtml(item.id)}" data-arsenal-type="${item.type}" data-search="${escapeHtml(`${item.name} ${item.owner} ${item.anime}`.toLowerCase())}" style="--accent:${escapeHtml(item.accent)};--accent2:${escapeHtml(item.accent2)}" aria-label="Open ${escapeHtml(item.name)} showcase">
+    const media=mediaMeta(item);
+    return `<article class="arsenal-card" role="button" tabindex="0" data-arsenal-id="${escapeHtml(item.id)}" data-arsenal-type="${item.type}" data-search="${escapeHtml(`${item.name} ${item.owner} ${item.anime}`.toLowerCase())}" style="--accent:${escapeHtml(item.accent)};--accent2:${escapeHtml(item.accent2)}" aria-label="Open ${escapeHtml(item.name)} showcase">
       ${visualMarkup(item,index)}
       <span class="arsenal-card-copy">
         <span class="arsenal-anime">${escapeHtml(item.anime)}</span>
         <h3>${escapeHtml(item.name)}</h3>
         <span class="arsenal-owner">${escapeHtml(item.owner)}</span>
-        <span class="arsenal-card-footer"><span>${item.type==='power'?'POWER • LIVE EFFECT':'PHYSICAL WEAPON • HD ART'}</span><b>VIEW IN ACTION</b></span>
+        <span class="arsenal-card-footer"><span>${media.label}</span><b>${item.type==='power'?'WATCH ATTACK':'INSPECT WEAPON'}</b></span>
       </span>
-    </button>`;
+    </article>`;
   }
 
   const canvasStates=new Map();
   let canvasObserver;
+  let mediaObserver;
+
+  function loadMedia(media){
+    if(!media||media.dataset.arsenalMediaLoaded==='1')return;
+    const src=media.dataset.arsenalMediaSrc;
+    if(!src)return;
+    media.dataset.arsenalMediaLoaded='1';
+    const shell=media.closest('.arsenal-media-shell');
+    const loaded=()=>{
+      shell?.classList.add('media-loaded');
+      shell?.classList.remove('media-failed');
+    };
+    const failed=()=>{
+      shell?.classList.add('media-failed');
+      shell?.classList.remove('media-loaded');
+    };
+    media.addEventListener('load',loaded,{once:true});
+    media.addEventListener('error',failed,{once:true});
+    media.src=src;
+  }
+
+  function initializeMedia(media,immediate=false){
+    if(immediate||!mediaObserver)loadMedia(media);
+    else mediaObserver.observe(media);
+  }
 
   function hexRgb(value){
     const hex=String(value||'#ffffff').replace('#','');
@@ -427,51 +549,46 @@
   function openShowcase(item,index){
     const dialog=document.getElementById('arsenalShowcase');
     if(!dialog)return;
+    const media=mediaMeta(item);
     dialog.style.setProperty('--showcase-accent',item.accent);
     dialog.querySelector('#arsenalShowcaseBody').innerHTML=`
       ${visualMarkup(item,index,true)}
       <div class="arsenal-showcase-copy">
         <div>
-          <span class="arsenal-anime">${escapeHtml(item.anime)} • ${item.type==='power'?'ANIMATED POWER':'PHYSICAL WEAPON'}</span>
+          <span class="arsenal-anime">${escapeHtml(item.anime)} • ${media.label}</span>
           <h2>${escapeHtml(item.name)}</h2>
           <p><strong>${escapeHtml(item.owner)}</strong> — ${escapeHtml(item.description)}</p>
+          <a class="arsenal-showcase-source" href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL MEDIA SOURCE ↗</a>
         </div>
         <span class="arsenal-showcase-number">${String(index+1).padStart(2,'0')}</span>
       </div>`;
     dialog.showModal();
     document.body.classList.add('arsenal-dialog-open');
-    requestAnimationFrame(()=>dialog.querySelectorAll('canvas').forEach(initializeCanvas));
+    requestAnimationFrame(()=>dialog.querySelectorAll('[data-arsenal-media-src]').forEach(node=>initializeMedia(node,true)));
     navigator.vibrate?.(item.type==='power'?[18,28,36]:12);
   }
 
   function renderArsenal(section){
     const grid=section.querySelector('#arsenalGrid');
     grid.innerHTML=ITEMS.map(cardMarkup).join('');
-    grid.querySelectorAll('canvas').forEach(initializeCanvas);
-    grid.querySelectorAll('[data-arsenal-type="weapon"]').forEach(card=>{
-      card.addEventListener('pointermove',event=>{
-        const rect=card.getBoundingClientRect();
-        card.style.setProperty('--weapon-x',`${((event.clientX-rect.left)/rect.width-.5)*11}px`);
-        card.style.setProperty('--weapon-y',`${((event.clientY-rect.top)/rect.height-.5)*8}px`);
-      });
-      card.addEventListener('pointerleave',()=>{
-        card.style.removeProperty('--weapon-x');card.style.removeProperty('--weapon-y');
-      });
-    });
+    grid.querySelectorAll('[data-arsenal-media-src]').forEach(node=>initializeMedia(node));
   }
 
   function install(){
-    if(document.documentElement.dataset.arsenalV34)return true;
+    if(document.documentElement.dataset.arsenalV35)return true;
     const app=document.getElementById('app');
     const nav=document.querySelector('.bottom-nav');
     const topbar=document.querySelector('.topbar');
     if(!app||!nav||!topbar)return false;
-    document.documentElement.dataset.arsenalV34='1';
+    document.documentElement.dataset.arsenalV35='1';
 
-    if(!document.querySelector('link[href*="arsenal-v34.css"]')){
-      const link=document.createElement('link');
-      link.rel='stylesheet';link.href='./arsenal-v34.css?release=34';document.head.appendChild(link);
+    let arsenalStyles=document.querySelector('link[href*="arsenal-v34.css"]');
+    if(!arsenalStyles){
+      arsenalStyles=document.createElement('link');
+      arsenalStyles.rel='stylesheet';
+      document.head.appendChild(arsenalStyles);
     }
+    arsenalStyles.href='./arsenal-v34.css?release=35';
 
     const settingsNav=nav.querySelector('[data-view="settings"]');
     if(settingsNav){
@@ -508,8 +625,8 @@
         </div>
       </div>
       <section class="arsenal-overview" aria-label="Arsenal collection summary">
-        <div><strong>Built to look alive.</strong><p>Twelve animated power showcases and eighteen razor-sharp weapon illustrations—optimized so only what you can see is moving.</p></div>
-        <div class="arsenal-counts"><span><b>12</b><small>Animated</small></span><span><b>18</b><small>Weapons</small></span><span><b>30</b><small>Total</small></span></div>
+        <div><strong>The real moves. The exact weapons.</strong><p>Twelve sourced anime attack GIFs plus eighteen exact weapon models and stills. Every entry links back to the original media source.</p></div>
+        <div class="arsenal-counts"><span><b>12</b><small>Anime GIFs</small></span><span><b>18</b><small>Exact Weapons</small></span><span><b>30</b><small>Sourced</small></span></div>
       </section>
       <div class="arsenal-toolbar">
         <label class="arsenal-search-wrap"><input id="arsenalSearch" type="search" autocomplete="off" placeholder="Search weapon, power, character or anime…" aria-label="Search Arsenal"></label>
@@ -535,6 +652,13 @@
         if(state)state.active=entry.isIntersecting;
       });
     },{rootMargin:'80px 0px',threshold:.05});
+    mediaObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(!entry.isIntersecting)return;
+        mediaObserver.unobserve(entry.target);
+        loadMedia(entry.target);
+      });
+    },{rootMargin:'420px 0px',threshold:.01});
 
     renderArsenal(section);
 
@@ -569,6 +693,13 @@
     });
     section.querySelector('#arsenalGrid').addEventListener('click',event=>{
       const card=event.target.closest('[data-arsenal-id]');if(!card)return;
+      const index=ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
+      if(index>=0)openShowcase(ITEMS[index],index);
+    });
+    section.querySelector('#arsenalGrid').addEventListener('keydown',event=>{
+      if(event.key!=='Enter'&&event.key!==' ')return;
+      const card=event.target.closest('[data-arsenal-id]');if(!card)return;
+      event.preventDefault();
       const index=ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
       if(index>=0)openShowcase(ITEMS[index],index);
     });
