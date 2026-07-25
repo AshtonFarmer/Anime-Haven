@@ -340,6 +340,216 @@
       sketchfabId:'fd8d9286ad5a4cabaa0067317ec73108',
       sourceUrl:'https://sketchfab.com/3d-models/danmachi-hestia-knife-fd8d9286ad5a4cabaa0067317ec73108',
       description:'A living Divine Knife forged by Hephaestus that grows stronger alongside Bell and bears Hestia’s sacred writing.'
+    },
+    {
+      id:'inosuke-nichirin',type:'weapon',kind:'katana',name:'Beast Nichirin Swords',owner:'Inosuke Hashibira',
+      anime:'Demon Slayer',accent:'#405061',accent2:'#a6efff',
+      sketchfabId:'552492b630c94cc38d9a0e80911a6950',
+      sourceUrl:'https://sketchfab.com/3d-models/inosuke-nichirin-swords-552492b630c94cc38d9a0e80911a6950',
+      description:'Inosuke deliberately chips the twin indigo-gray blades into jagged edges suited to his ferocious Beast Breathing style.'
+    },
+    {
+      id:'giyu-nichirin',type:'weapon',kind:'katana',name:'Water Nichirin Sword',owner:'Giyu Tomioka',
+      anime:'Demon Slayer',accent:'#203f76',accent2:'#78caff',
+      sketchfabId:'1946c39681744d4bbf3ca1bccba5d8d5',
+      sourceUrl:'https://sketchfab.com/3d-models/giyu-tomiokas-nichirin-katana-1946c39681744d4bbf3ca1bccba5d8d5',
+      description:'Giyu’s deep-blue Nichirin katana carries a hexagonal guard and channels the exacting forms of Water Breathing.'
+    },
+    {
+      id:'shinobu-nichirin',type:'weapon',kind:'katana',name:'Insect Nichirin Blade',owner:'Shinobu Kocho',
+      anime:'Demon Slayer',accent:'#6a3d92',accent2:'#dfb6ff',
+      sketchfabId:'2c1e043a55ec48e3a5b363a9858b84f7',
+      sourceUrl:'https://sketchfab.com/3d-models/shinobu-kochou-nichirin-blade-demon-slayer-2c1e043a55ec48e3a5b363a9858b84f7',
+      description:'Shinobu’s needle-tipped Nichirin blade is designed to inject lethal wisteria poison rather than decapitate demons.'
+    },
+    {
+      id:'shusui',type:'weapon',kind:'katana',name:'Shusui',owner:'Ryuma / Roronoa Zoro',
+      anime:'One Piece',accent:'#2d1d35',accent2:'#d870ff',
+      sketchfabId:'0d71c7388f17439e846983521f40ba68',
+      sourceUrl:'https://sketchfab.com/3d-models/shusui-katana-0d71c7388f17439e846983521f40ba68',
+      description:'Wano’s national treasure is a permanently blackened Great Grade blade once carried by the legendary samurai Ryuma.'
+    },
+    {
+      id:'sandai-kitetsu',type:'weapon',kind:'katana',name:'Sandai Kitetsu',owner:'Roronoa Zoro',
+      anime:'One Piece',accent:'#5d1628',accent2:'#ff657d',
+      sketchfabId:'12d5d79befbd485391b782c55b06d554',
+      sourceUrl:'https://sketchfab.com/3d-models/sandai-kitetsu-12d5d79befbd485391b782c55b06d554',
+      description:'A famously cursed Kitetsu blade whose blood-red fittings and dangerous temperament are matched by Zoro’s resolve.'
+    },
+    {
+      id:'murakumogiri',type:'weapon',kind:'spear',name:'Murakumogiri',owner:'Edward Newgate',
+      anime:'One Piece',accent:'#6e341c',accent2:'#ffd36d',
+      sketchfabId:'6cdaf6635bad4da78cb5ac74d4b1680b',
+      sourceUrl:'https://sketchfab.com/3d-models/murakumogiri-whitebeards-weapon-6cdaf6635bad4da78cb5ac74d4b1680b',
+      description:'Whitebeard’s enormous bisento is one of the Supreme Grade blades and withstands his quake-infused attacks.'
+    },
+    {
+      id:'sode-no-shirayuki',type:'weapon',kind:'katana',name:'Sode no Shirayuki',owner:'Rukia Kuchiki',
+      anime:'Bleach',accent:'#d7edf3',accent2:'#ffffff',
+      sketchfabId:'20ba6aab069c480b830d3c3ad5fbbe41',
+      sourceUrl:'https://sketchfab.com/3d-models/sode-no-shirayuki-20ba6aab069c480b830d3c3ad5fbbe41',
+      description:'Called Soul Society’s most beautiful Zanpakutō, its white blade and ribbon conduct Rukia’s freezing dances.'
+    },
+    {
+      id:'zabimaru',type:'weapon',kind:'katana',name:'Zabimaru',owner:'Renji Abarai',
+      anime:'Bleach',accent:'#7d2630',accent2:'#ff9a70',
+      sketchfabId:'886ce84b131b4faba098e4f5028d893d',
+      sourceUrl:'https://sketchfab.com/3d-models/zabimaru-zanpakuto-bleach-886ce84b131b4faba098e4f5028d893d',
+      description:'Renji’s segmented Shikai extends like a bladed whip, combining a cleaver’s force with surprising reach.'
+    },
+    {
+      id:'sasuke-kusanagi',type:'weapon',kind:'katana',name:'Sword of Kusanagi',owner:'Sasuke Uchiha',
+      anime:'Naruto: Shippuden',accent:'#28304f',accent2:'#9b86ff',
+      sketchfabId:'80cd4a9ac8a444cc971b7b503f69168e',
+      sourceUrl:'https://sketchfab.com/3d-models/sword-of-kusanagi-sasuke-uchiha-80cd4a9ac8a444cc971b7b503f69168e',
+      description:'Sasuke’s chokutō channels lightning-nature chakra through its blade to sharpen every thrust and slash.'
+    },
+    {
+      id:'madara-gunbai',type:'weapon',kind:'staff',name:'Gunbai',owner:'Madara Uchiha',
+      anime:'Naruto: Shippuden',accent:'#6a241e',accent2:'#ff8a69',
+      sketchfabId:'99739dc3d41844419cd3d6bb9acd36f2',
+      sourceUrl:'https://sketchfab.com/3d-models/madaras-gunbai-99739dc3d41844419cd3d6bb9acd36f2',
+      description:'Madara’s war fan is forged from a sacred tree branch and can deflect attacks through Uchiha Reflection.'
+    },
+    {
+      id:'flying-raijin-kunai',type:'weapon',kind:'dagger',name:'Flying Raijin Kunai',owner:'Minato Namikaze',
+      anime:'Naruto: Shippuden',accent:'#314563',accent2:'#f7dd62',
+      sketchfabId:'2b39fd2504484d4982c777d631acb507',
+      sourceUrl:'https://sketchfab.com/3d-models/flying-thunder-god-kunai-fan-art-2b39fd2504484d4982c777d631acb507',
+      description:'Minato’s three-pronged kunai carry his technique formula, creating marked destinations for instant teleportation.'
+    },
+    {
+      id:'kiba-lightning-blades',type:'weapon',kind:'longsword',name:'Kiba',owner:'Ameyuri Ringo / Rashi',
+      anime:'Naruto: Shippuden',accent:'#294c67',accent2:'#69e8ff',
+      sketchfabId:'ae7b15311c7047f08cc95d50a884023e',
+      sourceUrl:'https://sketchfab.com/3d-models/kiba-ae7b15311c7047f08cc95d50a884023e',
+      description:'Twin Lightning Blades from the Seven Ninja Swordsmen naturally conduct electricity and call down lightning.'
+    },
+    {
+      id:'ea-sword-of-rupture',type:'weapon',kind:'longsword',name:'Ea — Sword of Rupture',owner:'Gilgamesh',
+      anime:'Fate',accent:'#7d111f',accent2:'#f1bd52',
+      sketchfabId:'551a02ec36b949cb93c2b6579f4d9016',
+      sourceUrl:'https://sketchfab.com/3d-models/sword-of-rupture-enuma-elish-ea-551a02ec36b949cb93c2b6579f4d9016',
+      description:'Gilgamesh’s unique cylindrical blade rotates in three sections to unleash the world-rending force of Enuma Elish.'
+    },
+    {
+      id:'kanshou-bakuya',type:'weapon',kind:'dagger',name:'Kanshou and Bakuya',owner:'Archer',
+      anime:'Fate/stay night',accent:'#222735',accent2:'#f4f5ff',
+      sketchfabId:'bdc80d32b669426ea78dae737c5ce85a',
+      sourceUrl:'https://sketchfab.com/3d-models/emiyas-daggers-fatestay-night-bdc80d32b669426ea78dae737c5ce85a',
+      description:'Archer’s paired black-and-white falchions attract one another and are repeatedly projected for close combat.'
+    },
+    {
+      id:'caliburn',type:'weapon',kind:'longsword',name:'Caliburn',owner:'Artoria Pendragon',
+      anime:'Fate',accent:'#3556a1',accent2:'#ffe681',
+      sketchfabId:'390e72d3ac8d4b29ad5247665a800dba',
+      sourceUrl:'https://sketchfab.com/3d-models/caliburn-fate-390e72d3ac8d4b29ad5247665a800dba',
+      description:'The radiant sword of selection chose Artoria as Britain’s king before Excalibur became her defining holy blade.'
+    },
+    {
+      id:'lambent-light',type:'weapon',kind:'longsword',name:'Lambent Light',owner:'Asuna Yuuki',
+      anime:'Sword Art Online',accent:'#4d739f',accent2:'#e8f6ff',
+      sketchfabId:'9caf23836fe441fe97f3e17242ad9447',
+      sourceUrl:'https://sketchfab.com/3d-models/lambent-light-sword-art-online-9caf23836fe441fe97f3e17242ad9447',
+      description:'Asuna’s elegant silver rapier is optimized for the lightning-fast linear thrusts that earned her the name The Flash.'
+    },
+    {
+      id:'night-sky-sword',type:'weapon',kind:'longsword',name:'Night Sky Sword',owner:'Kirito',
+      anime:'Sword Art Online: Alicization',accent:'#171b2f',accent2:'#7d8cff',
+      sketchfabId:'f02e4dc7c03e4184b76731f1dd342709',
+      sourceUrl:'https://sketchfab.com/3d-models/night-sky-blade-sword-art-online-f02e4dc7c03e4184b76731f1dd342709',
+      description:'Forged from the Gigas Cedar, Kirito’s pitch-black Divine Object absorbs resources and releases them as a sky of stars.'
+    },
+    {
+      id:'fragrant-olive-sword',type:'weapon',kind:'longsword',name:'Fragrant Olive Sword',owner:'Alice Zuberg',
+      anime:'Sword Art Online: Alicization',accent:'#a46d16',accent2:'#ffef7d',
+      sketchfabId:'49ab175a8aa14218ab9d72a0587efab4',
+      sourceUrl:'https://sketchfab.com/3d-models/fragrant-olive-sao-alicization-alices-sword-49ab175a8aa14218ab9d72a0587efab4',
+      description:'Alice’s golden Divine Object can divide into thousands of flower-like blades through its Enhance Armament release.'
+    },
+    {
+      id:'scissor-blade',type:'weapon',kind:'longsword',name:'Red Scissor Blade',owner:'Ryuko Matoi',
+      anime:'Kill la Kill',accent:'#86172c',accent2:'#ff596f',
+      sketchfabId:'898247cbb00f4b70917c006bcf3cb595',
+      sourceUrl:'https://sketchfab.com/3d-models/kill-la-kill-scissor-blade-898247cbb00f4b70917c006bcf3cb595',
+      description:'One half of the Rending Scissors, Ryuko’s oversized red blade can sever the Life Fibers woven into Goku Uniforms.'
+    },
+    {
+      id:'anti-titan-sword',type:'weapon',kind:'longsword',name:'Anti-Titan Sword',owner:'Survey Corps',
+      anime:'Attack on Titan',accent:'#4a5662',accent2:'#c8e1ee',
+      sketchfabId:'5c2003d406ef4f6dba9257c3b606f7c8',
+      sourceUrl:'https://sketchfab.com/3d-models/aot-ultrahard-steel-anti-titan-sword-5c2003d406ef4f6dba9257c3b606f7c8',
+      description:'Replaceable ultrahard-steel blades pair with ODM gear to cut deeply through a Titan’s vulnerable nape.'
+    },
+    {
+      id:'lance-of-longinus',type:'weapon',kind:'spear',name:'Lance of Longinus',owner:'Evangelion Unit-00',
+      anime:'Neon Genesis Evangelion',accent:'#7f1024',accent2:'#ff4868',
+      sketchfabId:'c99cc77024a141beb6555778fd577d0a',
+      sourceUrl:'https://sketchfab.com/3d-models/lance-of-longinus-c99cc77024a141beb6555778fd577d0a',
+      description:'The crimson double-helix spear is an extraterrestrial artifact capable of piercing an Angel’s A.T. Field.'
+    },
+    {
+      id:'hellsing-casull',type:'weapon',kind:'dagger',name:'Hellsing ARMS .454 Casull',owner:'Alucard',
+      anime:'Hellsing Ultimate',accent:'#4a181e',accent2:'#d9b98a',
+      sketchfabId:'4973c75213324ebcafa8be8c1fe4cbec',
+      sourceUrl:'https://sketchfab.com/3d-models/hellsing-arms-casull-4973c75213324ebcafa8be8c1fe4cbec',
+      description:'Alucard’s long-slide silver handgun fires blessed explosive rounds designed to destroy supernatural targets.'
+    },
+    {
+      id:'hellsing-jackal',type:'weapon',kind:'dagger',name:'The Jackal',owner:'Alucard',
+      anime:'Hellsing Ultimate',accent:'#151b26',accent2:'#d1dae8',
+      sketchfabId:'c73c228e70e5419cb2f85148ec143369',
+      sourceUrl:'https://sketchfab.com/3d-models/13mm-jackal-hellsing-c73c228e70e5419cb2f85148ec143369',
+      description:'The massive matte-black 13 mm pistol complements the Casull with armor-piercing explosive ammunition.'
+    },
+    {
+      id:'courechouse',type:'weapon',kind:'staff',name:'Courechouse',owner:'Ban',
+      anime:'The Seven Deadly Sins',accent:'#4b4959',accent2:'#bde9ff',
+      sketchfabId:'fd47882ebfaf4a329840b8f607f81007',
+      sourceUrl:'https://sketchfab.com/3d-models/courechouse-bans-weapon-fd47882ebfaf4a329840b8f607f81007',
+      description:'Ban’s Sacred Treasure is a four-section staff joined by chains that amplifies his reach, speed and precision.'
+    },
+    {
+      id:'crescent-rose',type:'weapon',kind:'spear',name:'Crescent Rose',owner:'Ruby Rose',
+      anime:'RWBY',accent:'#79172c',accent2:'#ff4968',
+      sketchfabId:'2e0626c3c8234acf8694ffc948296d6b',
+      sourceUrl:'https://sketchfab.com/3d-models/crescent-rose-2e0626c3c8234acf8694ffc948296d6b',
+      description:'Ruby’s signature High-Caliber Sniper-Scythe transforms between compact, rifle and full scythe configurations.'
+    },
+    {
+      id:'pumpkin-teigu',type:'weapon',kind:'staff',name:'Pumpkin',owner:'Mine',
+      anime:'Akame ga Kill!',accent:'#a34a17',accent2:'#ffcf63',
+      sketchfabId:'d7e70e9bb4a04c23a1a24d5ba25cb3ea',
+      sourceUrl:'https://sketchfab.com/3d-models/akame-ga-kill-pumpkin-d7e70e9bb4a04c23a1a24d5ba25cb3ea',
+      description:'Mine’s Roman Artillery Teigu converts emotional danger into greater firepower and can shift into a long-barrel form.'
+    },
+    {
+      id:'wolfwood-punisher',type:'weapon',kind:'staff',name:'Punisher',owner:'Nicholas D. Wolfwood',
+      anime:'Trigun',accent:'#3d3330',accent2:'#d8c8b6',
+      sketchfabId:'632998c244554b4c85fc56064698729f',
+      sourceUrl:'https://sketchfab.com/3d-models/wolfwoods-punisher-632998c244554b4c85fc56064698729f',
+      description:'Wolfwood carries an enormous cross-shaped arsenal concealing a machine gun, rocket launcher and sidearms.'
+    },
+    {
+      id:'vash-revolver',type:'weapon',kind:'dagger',name:'.45 Long Colt',owner:'Vash the Stampede',
+      anime:'Trigun',accent:'#4e6473',accent2:'#e6f3ff',
+      sketchfabId:'b71eaeaf78c049fb93023c941613d349',
+      sourceUrl:'https://sketchfab.com/3d-models/45-long-colt-vashs-revolver-from-trigun-b71eaeaf78c049fb93023c941613d349',
+      description:'Vash’s custom top-break revolver is recognizable by its low barrel, oversized frame and silver finish.'
+    },
+    {
+      id:'progressive-knife',type:'weapon',kind:'dagger',name:'PKN-01C Progressive Knife',owner:'Evangelion Unit-01',
+      anime:'Rebuild of Evangelion',accent:'#4b2b78',accent2:'#8aff5b',
+      sketchfabId:'896276075d9b4f40858ee90b63321adc',
+      sourceUrl:'https://sketchfab.com/3d-models/pkn-01c-progressive-knife-896276075d9b4f40858ee90b63321adc',
+      description:'EVA-01’s vibrating close-combat blade uses high-frequency oscillation to cut through heavily protected targets.'
+    },
+    {
+      id:'core-drill',type:'weapon',kind:'dagger',name:'Core Drill',owner:'Simon',
+      anime:'Gurren Lagann',accent:'#c18419',accent2:'#fff07a',
+      sketchfabId:'112ad6d1a48842c0bb6a395576842d89',
+      sourceUrl:'https://sketchfab.com/3d-models/core-drill-gurren-lagann-112ad6d1a48842c0bb6a395576842d89',
+      description:'Simon’s small golden drill acts as Lagann’s ignition key and a focused conduit for his ever-growing Spiral Power.'
     }
   ];
 
@@ -701,12 +911,12 @@
   }
 
   function install(){
-    if(document.documentElement.dataset.arsenalV36)return true;
+    if(document.documentElement.dataset.arsenalV37)return true;
     const app=document.getElementById('app');
     const nav=document.querySelector('.bottom-nav');
     const topbar=document.querySelector('.topbar');
     if(!app||!nav||!topbar)return false;
-    document.documentElement.dataset.arsenalV36='1';
+    document.documentElement.dataset.arsenalV37='1';
 
     let arsenalStyles=document.querySelector('link[href*="arsenal-v34.css"]');
     if(!arsenalStyles){
@@ -714,7 +924,7 @@
       arsenalStyles.rel='stylesheet';
       document.head.appendChild(arsenalStyles);
     }
-    arsenalStyles.href='./arsenal-v34.css?release=36';
+    arsenalStyles.href='./arsenal-v34.css?release=37';
 
     const settingsNav=nav.querySelector('[data-view="settings"]');
     if(settingsNav){
