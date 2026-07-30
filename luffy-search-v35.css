@@ -1,0 +1,314 @@
+#rubberSearch[data-luffy-arm-v35] {
+  position: fixed !important;
+  right: max(-10px, env(safe-area-inset-right)) !important;
+  bottom: calc(var(--safe-bottom, 0px) + 64px) !important;
+  z-index: 80 !important;
+  width: min(560px, 100vw) !important;
+  height: min(280px, 50vw) !important;
+  min-height: 168px !important;
+  display: block !important;
+  overflow: visible !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  pointer-events: none !important;
+  isolation: isolate;
+}
+
+#rubberSearch[data-luffy-arm-v35] .kn35-arm-image {
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  transform: translateY(-50%);
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#rubberSearch[data-luffy-arm-v35] .kn35-arm-animation {
+  opacity: 0;
+}
+
+#rubberSearch[data-luffy-arm-v35].kn35-playing .kn35-arm-still {
+  opacity: 0;
+}
+
+#rubberSearch[data-luffy-arm-v35].kn35-playing .kn35-arm-animation {
+  opacity: 1;
+}
+
+#rubberSearch[data-luffy-arm-v35] .kn35-effects {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#rubberSearch[data-luffy-arm-v35] #globalSearch {
+  position: absolute !important;
+  z-index: 4 !important;
+  left: 36% !important;
+  right: 12% !important;
+  top: 50% !important;
+  width: auto !important;
+  height: clamp(38px, 8vw, 48px) !important;
+  min-width: 0 !important;
+  padding: 0 4px 2px !important;
+  border: 0 !important;
+  border-bottom: 2px solid rgba(255, 38, 72, .9) !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 8px 12px -10px #ff1738, 0 10px 24px -18px #ff1738 !important;
+  font: inherit !important;
+  font-size: clamp(13px, 3.4vw, 16px) !important;
+  font-weight: 800 !important;
+  caret-color: #ff2946 !important;
+  text-shadow: 0 1px 7px #000 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(-50%) scaleX(.72) !important;
+  transform-origin: right center !important;
+  transition: opacity .18s ease, transform .28s cubic-bezier(.2, .8, .2, 1) !important;
+}
+
+#rubberSearch[data-luffy-arm-v35] #globalSearch::placeholder {
+  color: rgba(255, 255, 255, .68) !important;
+  opacity: 1 !important;
+}
+
+#rubberSearch[data-luffy-arm-v35].kn35-ready #globalSearch {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(-50%) scaleX(1) !important;
+}
+
+#rubberSearch[data-luffy-arm-v35] #searchPunch {
+  position: absolute !important;
+  z-index: 5 !important;
+  left: 4% !important;
+  right: auto !important;
+  top: 26% !important;
+  width: 72% !important;
+  height: 48% !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  transform: none !important;
+}
+
+#rubberSearch[data-luffy-arm-v35] #searchPunch .kn35-search-icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: scale(.7);
+  transition: opacity .18s ease, transform .22s ease;
+  filter: drop-shadow(0 0 8px #ff1738);
+}
+
+#rubberSearch[data-luffy-arm-v35] #searchPunch svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+#rubberSearch[data-luffy-arm-v35].kn35-ready #searchPunch {
+  left: auto !important;
+  right: 3.5% !important;
+  top: 50% !important;
+  width: 42px !important;
+  height: 42px !important;
+  transform: translateY(-50%) !important;
+}
+
+#rubberSearch[data-luffy-arm-v35].kn35-ready #searchPunch .kn35-search-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#rubberSearch[data-luffy-arm-v35] .kn35-close {
+  position: absolute;
+  z-index: 6;
+  left: 29.5%;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  background: rgba(5, 4, 13, .72);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(255, 23, 56, .42);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(.72);
+  transition: opacity .16s ease, transform .22s ease;
+}
+
+#rubberSearch[data-luffy-arm-v35] .kn35-close svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+}
+
+#rubberSearch[data-luffy-arm-v35].kn35-ready .kn35-close {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#rubberSearch[data-luffy-arm-v35].kn35-impact {
+  animation: kn35-camera-hit .24s cubic-bezier(.2, .9, .3, 1);
+}
+
+#rubberSearch[data-luffy-arm-v35].kn35-search-pulse .kn35-arm-still {
+  animation: kn35-haki-pulse .52s ease-out;
+}
+
+.kn35-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.settings-card .kn35-switch {
+  position: relative;
+  width: 58px;
+  min-width: 58px;
+  height: 32px;
+  display: block;
+  margin: 0;
+  cursor: pointer;
+}
+
+.kn35-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.kn35-switch-track {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .09);
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.kn35-switch-track::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .4);
+  transition: transform .22s cubic-bezier(.2, .8, .2, 1);
+}
+
+.kn35-switch input:checked + .kn35-switch-track {
+  border-color: rgba(166, 92, 255, .7);
+  background: linear-gradient(135deg, #4c46d9, #a65cff);
+}
+
+.kn35-switch input:checked + .kn35-switch-track::after {
+  transform: translateX(26px);
+}
+
+.kn35-switch input:focus-visible + .kn35-switch-track {
+  outline: 3px solid #69f6ff;
+  outline-offset: 3px;
+}
+
+.settings-card .kn35-search-choice {
+  margin-bottom: 0;
+  color: #fff;
+  font-weight: 800;
+}
+
+@keyframes kn35-camera-hit {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  18% { transform: translate3d(-9px, 2px, 0); }
+  38% { transform: translate3d(6px, -2px, 0); }
+  58% { transform: translate3d(-3px, 1px, 0); }
+}
+
+@keyframes kn35-haki-pulse {
+  0%, 100% { filter: brightness(1); }
+  32% { filter: brightness(1.34) saturate(1.3); }
+}
+
+@media (max-width: 520px) {
+  #rubberSearch[data-luffy-arm-v35] {
+    right: -5px !important;
+  }
+
+  #rubberSearch[data-luffy-arm-v35] #globalSearch {
+    left: 34% !important;
+    right: 13% !important;
+    font-size: 13px !important;
+  }
+
+  #rubberSearch[data-luffy-arm-v35] .kn35-close {
+    left: 27.5%;
+    width: 30px;
+    height: 30px;
+  }
+
+  #rubberSearch[data-luffy-arm-v35].kn35-ready #searchPunch {
+    right: 2.5% !important;
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .kn35-setting-row {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #rubberSearch[data-luffy-arm-v35],
+  #rubberSearch[data-luffy-arm-v35] *,
+  #rubberSearch[data-luffy-arm-v35] *::before,
+  #rubberSearch[data-luffy-arm-v35] *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
