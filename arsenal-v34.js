@@ -82,8 +82,8 @@
     {
       id:'water-breathing',type:'power',effect:'water',name:'Water Breathing',owner:'Tanjiro Kamado',
       anime:'Demon Slayer',accent:'#176fff',accent2:'#7ef4ff',
-      tenorId:'10480000295623830569',
-      sourceUrl:'https://tenor.com/view/demon-slayer-tanjiro-kamado-kimetsu-no-yaiba-water-breathing-gif-10480000295623830569',
+      tenorId:'9278577354344681912',
+      sourceUrl:'https://tenor.com/view/demon-slayer-tanjiro-water-breathing-10th-form-gif-9278577354344681912',
       description:'A flowing sword form surrounds each movement with luminous arcs of rushing water.'
     },
     {
@@ -2662,7 +2662,7 @@
     {"id":"gundam-armament-amx-011-zaku-iii-heat-bayonet-beam-rifle","type":"weapon","kind":"beam rifle","name":"AMX-011 Zaku III — Heat Bayonet+Beam Rifle","owner":"AMX-011 Zaku III / Rakan Dahkaran","anime":"Mobile Suit Gundam Unicorn","accent":"#0f2747","accent2":"#53c7ff","imageUrl":"https://static.wikia.nocookie.net/gundam/images/d/d5/Zaku3-back.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/AMX-011_Zaku_III","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows AMX-011 Zaku III equipped with its Heat Bayonet+Beam Rifle, an authentic beam rifle used in Mobile Suit Gundam Unicorn."},
     {"id":"gundam-armament-knight-gundam-knight-sword","type":"weapon","kind":"beam blade","name":"Knight Gundam — Knight Sword","owner":"Knight Gundam / Caroline Yajima","anime":"Gundam Build Fighters","accent":"#29151b","accent2":"#ff6b6b","imageUrl":"https://static.wikia.nocookie.net/gundam/images/e/ea/Knight_Back.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/Knight_Gundam","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows Knight Gundam equipped with its Knight Sword, an authentic beam blade used in Gundam Build Fighters."},
     {"id":"gundam-armament-cb-001-5-1-5-gundam-gn-buster-rifle","type":"weapon","kind":"beam rifle","name":"CB-001.5 1.5 Gundam — GN Buster Rifle","owner":"CB-001.5 1.5 Gundam / Beside Pain","anime":"Gundam Build Divers","accent":"#252112","accent2":"#ffd65a","imageUrl":"https://static.wikia.nocookie.net/gundam/images/0/05/1.5_Gundam_Front.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/CB-001.5_1.5_Gundam","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows CB-001.5 1.5 Gundam equipped with its GN Buster Rifle, an authentic beam rifle used in Gundam Build Divers."},
-    {"id":"gundam-armament-rx-121-1-gundam-tr-1-hazel-custom-xbr-m84a-beam-rifle","type":"weapon","kind":"beam rifle","name":"RX-121-1 Gundam TR-1 ［Hazel Custom］ — XBR-M84a Beam Rifle","owner":"RX-121-1 Gundam TR-1 ［Hazel Custom］ / Wes Murphy","anime":"Gundam Build Fighters","accent":"#14281f","accent2":"#53e09d","imageUrl":"https://static.wikia.nocookie.net/gundam/images/7/7d/RX-121-TR-1-4ghhg9.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/RX-121-1_Gundam_TR-1_%EF%BC%BBHazel_Custom%EF%BC%BD","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows RX-121-1 Gundam TR-1 ［Hazel Custom］ equipped with its XBR-M84a Beam Rifle, an authentic beam rifle used in Gundam Build Fighters."},
+    {"id":"gundam-armament-rx-121-1-gundam-tr-1-hazel-custom-xbr-m84a-beam-rifle","type":"weapon","kind":"beam rifle","name":"RX-121-1 Gundam TR-1 ［Hazel Custom］ — XBR-M84a Beam Rifle","owner":"RX-121-1 Gundam TR-1 ［Hazel Custom］ / Wes Murphy","anime":"Gundam Build Fighters","accent":"#14281f","accent2":"#53e09d","imageUrl":"https://static.wikia.nocookie.net/gundam/images/3/38/Hazel_custom.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/RX-121-1_Gundam_TR-1_%EF%BC%BBHazel_Custom%EF%BC%BD","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows RX-121-1 Gundam TR-1 ［Hazel Custom］ equipped with its XBR-M84a Beam Rifle, an authentic beam rifle used in Gundam Build Fighters."},
     {"id":"gundam-armament-nz-000-queen-mansa-funnel","type":"weapon","kind":"remote weapon","name":"NZ-000 Queen Mansa — Funnel","owner":"NZ-000 Queen Mansa / Ple Two","anime":"Mobile Suit Gundam ZZ","accent":"#241838","accent2":"#b88cff","imageUrl":"https://static.wikia.nocookie.net/gundam/images/a/a4/Queenmansa-back.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/NZ-000_Queen_Mansa","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows NZ-000 Queen Mansa equipped with its Funnel, an authentic remote weapon used in Mobile Suit Gundam ZZ."},
     {"id":"gundam-armament-lm111e03-gunblaster-beam-rifle","type":"weapon","kind":"beam rifle","name":"LM111E03 Gunblaster — Beam Rifle","owner":"LM111E03 Gunblaster / Odelo Henrik","anime":"Mobile Suit Victory Gundam","accent":"#191d29","accent2":"#8aa9ff","imageUrl":"https://static.wikia.nocookie.net/gundam/images/c/c8/Gunblastor.png/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/LM111E03_Gunblaster","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows LM111E03 Gunblaster equipped with its Beam Rifle, an authentic beam rifle used in Mobile Suit Victory Gundam."},
     {"id":"gundam-armament-rx-121-2a-gundam-tr-1-advanced-hazel-beam-rifle","type":"weapon","kind":"beam rifle","name":"RX-121-2A Gundam TR-1 ［Advanced Hazel］ — Beam Rifle","owner":"RX-121-2A Gundam TR-1 ［Advanced Hazel］ / Eliard Hunter","anime":"Mobile Suit Zeta Gundam","accent":"#2a1810","accent2":"#ff9b57","imageUrl":"https://static.wikia.nocookie.net/gundam/images/c/c6/Rx-121-2a.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/RX-121-2A_Gundam_TR-1_%EF%BC%BBAdvanced_Hazel%EF%BC%BD","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows RX-121-2A Gundam TR-1 ［Advanced Hazel］ equipped with its Beam Rifle, an authentic beam rifle used in Mobile Suit Zeta Gundam."},
@@ -2670,7 +2670,7 @@
     {"id":"gundam-armament-amx-109-capule-laser-beam","type":"weapon","kind":"mobile-suit armament","name":"AMX-109 Capule — Laser Beam","owner":"AMX-109 Capule / Flynn","anime":"Mobile Suit Gundam ZZ","accent":"#0f2747","accent2":"#53c7ff","imageUrl":"https://static.wikia.nocookie.net/gundam/images/a/a4/CapuleZZ-back.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/AMX-109_Capule","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows AMX-109 Capule equipped with its Laser Beam, an authentic mobile-suit armament used in Mobile Suit Gundam ZZ."},
     {"id":"gundam-armament-zm-s22sc-rig-shokew-for-imperial-guard-beam-rifle","type":"weapon","kind":"beam rifle","name":"ZM-S22SC Rig Shokew for Imperial Guard — Beam Rifle","owner":"ZM-S22SC Rig Shokew for Imperial Guard / Kishowl Bagwatt","anime":"Mobile Suit Victory Gundam","accent":"#29151b","accent2":"#ff6b6b","imageUrl":"https://static.wikia.nocookie.net/gundam/images/d/dc/ZM-S22SC_Rig_Shokew_for_Imperial_Guard_-_Front.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/ZM-S22SC_Rig_Shokew_for_Imperial_Guard","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows ZM-S22SC Rig Shokew for Imperial Guard equipped with its Beam Rifle, an authentic beam rifle used in Mobile Suit Victory Gundam."},
     {"id":"gundam-armament-zm-s14s-contio-beam-rifle","type":"weapon","kind":"beam rifle","name":"ZM-S14S Contio — Beam Rifle","owner":"ZM-S14S Contio / Cronicle Asher","anime":"Mobile Suit Victory Gundam","accent":"#252112","accent2":"#ffd65a","imageUrl":"https://static.wikia.nocookie.net/gundam/images/5/55/ZM-S14S-rear.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/ZM-S14S_Contio","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows ZM-S14S Contio equipped with its Beam Rifle, an authentic beam rifle used in Mobile Suit Victory Gundam."},
-    {"id":"gundam-armament-zmt-s12g-shokew-beam-rifle","type":"weapon","kind":"beam rifle","name":"ZMT-S12G Shokew — Beam Rifle","owner":"ZMT-S12G Shokew / Cronicle Asher","anime":"Mobile Suit Victory Gundam","accent":"#14281f","accent2":"#53e09d","imageUrl":"https://static.wikia.nocookie.net/gundam/images/3/39/ZMT.png/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/ZMT-S12G_Shokew","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows ZMT-S12G Shokew equipped with its Beam Rifle, an authentic beam rifle used in Mobile Suit Victory Gundam."},
+    {"id":"gundam-armament-zmt-s12g-shokew-beam-rifle","type":"weapon","kind":"beam rifle","name":"ZMT-S12G Shokew — Beam Rifle","owner":"ZMT-S12G Shokew / Cronicle Asher","anime":"Mobile Suit Victory Gundam","accent":"#14281f","accent2":"#53e09d","imageUrl":"https://static.wikia.nocookie.net/gundam/images/9/91/ZMT-S12G_Shokew_-_Front.png/revision/latest?cb=20201112065052","sourceUrl":"https://gundam.fandom.com/wiki/ZMT-S12G_Shokew","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows ZMT-S12G Shokew equipped with its Beam Rifle, an authentic beam rifle used in Mobile Suit Victory Gundam."},
     {"id":"gundam-armament-zmt-s28s-gengaozo-beam-rifle","type":"weapon","kind":"beam rifle","name":"ZMT-S28S Gengaozo — Beam Rifle","owner":"ZMT-S28S Gengaozo / Fuala Griffon","anime":"Mobile Suit Victory Gundam","accent":"#241838","accent2":"#b88cff","imageUrl":"https://static.wikia.nocookie.net/gundam/images/2/22/Gengaozo_Rear.png/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/ZMT-S28S_Gengaozo","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows ZMT-S28S Gengaozo equipped with its Beam Rifle, an authentic beam rifle used in Mobile Suit Victory Gundam."},
     {"id":"gundam-armament-zmt-s34s-rig-contio-beam-rifle","type":"weapon","kind":"beam rifle","name":"ZMT-S34S Rig Contio — Beam Rifle","owner":"ZMT-S34S Rig Contio / Cronicle Asher","anime":"Mobile Suit Victory Gundam","accent":"#191d29","accent2":"#8aa9ff","imageUrl":"https://static.wikia.nocookie.net/gundam/images/5/59/ZMT-S34S.png/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/ZMT-S34S_Rig_Contio","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows ZMT-S34S Rig Contio equipped with its Beam Rifle, an authentic beam rifle used in Mobile Suit Victory Gundam."},
     {"id":"gundam-armament-zm-s06s-zoloat-beam-rifle","type":"weapon","kind":"beam rifle","name":"ZM-S06S Zoloat — Beam Rifle","owner":"ZM-S06S Zoloat / Cronicle Asher","anime":"Mobile Suit Victory Gundam","accent":"#2a1810","accent2":"#ff9b57","imageUrl":"https://static.wikia.nocookie.net/gundam/images/6/6f/Zm-s06s-league.jpg/revision/latest","sourceUrl":"https://gundam.fandom.com/wiki/ZM-S06S_Zoloat","mediaKind":"OFFICIAL MECHA ART","mediaLabel":"HD SERIES LINE ART • GUNDAM WIKI","description":"Official series artwork shows ZM-S06S Zoloat equipped with its Beam Rifle, an authentic beam rifle used in Mobile Suit Victory Gundam."},
@@ -2988,7 +2988,7 @@
     const classes=`arsenal-visual ${showcase?'arsenal-showcase-visual ':''}${item.type==='power'?'arsenal-power-media':'arsenal-weapon-media'}`;
     const content=media.tag==='iframe'
       ? `<iframe class="arsenal-media-frame ${media.className}" data-arsenal-media-src="${escapeHtml(media.src)}" title="${escapeHtml(`${item.name} ${media.kind.toLowerCase()}`)}" tabindex="-1" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; xr-spatial-tracking" allowfullscreen></iframe>`
-      : `<img class="${media.className}" data-arsenal-media-src="${escapeHtml(media.src)}" alt="${escapeHtml(`${item.name}, the weapon used by ${item.owner}`)}" loading="lazy" decoding="async">`;
+      : `<img class="${media.className}" data-arsenal-media-src="${escapeHtml(media.src)}" alt="${escapeHtml(`${item.name}, the weapon used by ${item.owner}`)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
     return `<div class="${classes}" data-accent="${escapeHtml(item.accent)}" data-accent2="${escapeHtml(item.accent2)}" style="--accent:${escapeHtml(item.accent)};--accent2:${escapeHtml(item.accent2)}">
       <div class="arsenal-media-shell">
         <span class="arsenal-media-loading" aria-hidden="true"><i></i><b>LOADING REAL MEDIA</b></span>
@@ -3033,13 +3033,30 @@
       shell?.classList.add('media-loaded');
       shell?.classList.remove('media-failed');
     };
-    const failed=()=>{
-      shell?.classList.add('media-failed');
-      shell?.classList.remove('media-loaded');
+    let retries=0;
+    const attempt=()=>{
+      media.onload=()=>{
+        media.onload=null;
+        media.onerror=null;
+        loaded();
+      };
+      media.onerror=()=>{
+        media.onload=null;
+        media.onerror=null;
+        if(media.tagName==='IMG'&&retries<2){
+          retries+=1;
+          window.setTimeout(attempt,700*retries);
+          return;
+        }
+        shell?.classList.add('media-failed');
+        shell?.classList.remove('media-loaded');
+      };
+      if(retries&&media.tagName==='IMG'){
+        const separator=src.includes('?')?'&':'?';
+        media.src=`${src}${separator}knretry=${Date.now()}`;
+      }else media.src=src;
     };
-    media.addEventListener('load',loaded,{once:true});
-    media.addEventListener('error',failed,{once:true});
-    media.src=src;
+    attempt();
   }
 
   function initializeMedia(media,immediate=false){
@@ -3239,12 +3256,12 @@
   }
 
   function install(){
-    if(document.documentElement.dataset.arsenalV56)return true;
+    if(document.documentElement.dataset.arsenalV57)return true;
     const app=document.getElementById('app');
     const nav=document.querySelector('.bottom-nav');
     const topbar=document.querySelector('.topbar');
     if(!app||!nav||!topbar)return false;
-    document.documentElement.dataset.arsenalV56='1';
+    document.documentElement.dataset.arsenalV57='1';
 
     let arsenalStyles=document.querySelector('link[href*="arsenal-v34.css"]');
     if(!arsenalStyles){
@@ -3252,7 +3269,7 @@
       arsenalStyles.rel='stylesheet';
       document.head.appendChild(arsenalStyles);
     }
-    arsenalStyles.href='./arsenal-v34.css?release=56';
+    arsenalStyles.href='./arsenal-v34.css?release=57';
 
     const settingsNav=nav.querySelector('[data-view="settings"]');
     if(settingsNav){
