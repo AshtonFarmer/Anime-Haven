@@ -1,5 +1,5 @@
 {
-  "release": 52,
+  "release": 53,
   "note": "KageNexus does not claim ownership of third-party media. The app embeds each item from its credited host and links to the original source.",
   "powers": [
     {
@@ -8271,6 +8271,606 @@
       "host": "Gundam Wiki / Fandom",
       "media": "official HD mobile-suit art showing exact armament",
       "source": "https://gundam.fandom.com/wiki/DT-6800F_Daughtress_Flyer"
+    },
+    {
+      "id": "gundam-armament-dt-6800w-daughtress-weapon-90mm-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/DT-6800W_Daughtress_Weapon"
+    },
+    {
+      "id": "gundam-armament-nrx-018-2-daughtress-neo-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/NRX-018-2_Daughtress_Neo"
+    },
+    {
+      "id": "gundam-armament-dt-6800-daughtress-tank-70mm-gatling-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/DT-6800_Daughtress_Tank"
+    },
+    {
+      "id": "gundam-armament-rms-009-septem-giant-bazooka",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RMS-009_Septem"
+    },
+    {
+      "id": "gundam-armament-rms-014-octape-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RMS-014_Octape"
+    },
+    {
+      "id": "gundam-armament-dtm-7000-daughseat-torpedo-launcher",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/DTM-7000_Daughseat"
+    },
+    {
+      "id": "gundam-armament-dtm-7200-daughseat-iii-torpedo-launcher",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/DTM-7200_Daughseat_III"
+    },
+    {
+      "id": "gundam-armament-rms-007g-juracg-cold-climate-type-beam-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RMS-007G_Juracg_Cold_Climate_Type"
+    },
+    {
+      "id": "gundam-armament-nr-001-balient-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/NR-001_Balient"
+    },
+    {
+      "id": "gundam-armament-wms-03-maganac-abdul-custom-heat-tomahawk",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/WMS-03_Maganac_Abdul_Custom"
+    },
+    {
+      "id": "gundam-armament-wms-03-maganac-ahmad-custom-heat-tomahawk",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/WMS-03_Maganac_Ahmad_Custom"
+    },
+    {
+      "id": "gundam-armament-aeu-09rg-aeu-enact-suille-palace-guard-type-blade-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/AEU-09RG_AEU_Enact_Suille_Palace_Guard_Type"
+    },
+    {
+      "id": "gundam-armament-ggf-001-phoenix-gundam-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GGF-001_Phoenix_Gundam"
+    },
+    {
+      "id": "gundam-armament-gnz-004-gaga-gn-vulcan",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GNZ-004_Gaga"
+    },
+    {
+      "id": "gundam-armament-gat-x103ap-verde-buster-gundam-94mm-high-energy-beam-cannon",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-X103AP_Verde_Buster_Gundam"
+    },
+    {
+      "id": "gundam-armament-gat-a-01e2-buster-dagger-220mm-triple-missile-pod",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT%2FA-01E2_Buster_Dagger"
+    },
+    {
+      "id": "gundam-armament-gat-so2r-n-dagger-n-mk315-stiletto-rocket-propelled-anti-armor-penetrator",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-SO2R_N_Dagger_N"
+    },
+    {
+      "id": "gundam-armament-tfa-4de-gazuoot-furca-2-barrel-beam-cannon",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/TFA-4DE_GAZuOOT"
+    },
+    {
+      "id": "gundam-armament-yfx-200-cgue-deep-arms-nol-y941-heavy-laser-sword",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/YFX-200_CGUE_DEEP_Arms"
+    },
+    {
+      "id": "gundam-armament-gat-333-raider-full-spec-gau-8m2-52mm-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-333_Raider_Full_Spec"
+    },
+    {
+      "id": "gundam-armament-zgmf-1017-ginn-ceremonial-decoration-type-ceremonial-76mm-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-1017_GINN_Ceremonial_Decoration_Type"
+    },
+    {
+      "id": "gundam-armament-zgmf-1017m2-ginn-high-maneuver-type-ii-mmi-m636k-beam-carbine",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-1017M2_GINN_High_Maneuver_Type_II"
+    },
+    {
+      "id": "gundam-armament-tmf-s-3-ginn-ocher-type-mmi-m8a3-76mm-heavy-assault-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/TMF%2FS-3_GINN_OCHER_Type"
+    },
+    {
+      "id": "gundam-armament-uwmf-s-1-ginn-wasp-type-rocket-dart-launcher",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/UWMF%2FS-1_GINN_WASP_Type"
+    },
+    {
+      "id": "gundam-armament-yf-3a-ginn-femws-533mm-7-barrel-torpedo-launcher",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/YF-3A_GINN_FEMWS"
+    },
+    {
+      "id": "gundam-armament-mvf-m11c-murasame-reconnaissance-type-type-72-kai-ikazuchi-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MVF-M11C_Murasame_Reconnaissance_Type"
+    },
+    {
+      "id": "gundam-armament-mbf-m1a-m1a-astray-type-71-44-improved-sniper-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MBF-M1A_M1A_Astray"
+    },
+    {
+      "id": "gundam-armament-mwf-jg71-raysta-bazooka",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MWF-JG71_Raysta"
+    },
+    {
+      "id": "gundam-armament-zgmf-lrr704b-ginn-long-range-reconnaissance-type-sniper-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-LRR704B_GINN_Long_Range_Reconnaissance_Type"
+    },
+    {
+      "id": "gundam-armament-zgmf-tar-x1-ginn-tactical-air-reconnaissance-type-jdp3-mmx50-experimental-close-combat-beam-assault-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF%2FTAR-X1_GINN_Tactical_Air_Reconnaissance_Type"
+    },
+    {
+      "id": "gundam-armament-rag-79-aqua-gm-missile-launcher",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RAG-79_Aqua_GM"
+    },
+    {
+      "id": "gundam-armament-gat-707e-forbidden-vortex-trident",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-707E_Forbidden_Vortex"
+    },
+    {
+      "id": "gundam-armament-tmf-a-802w2-kerberos-bucue-hound-beam-fang-system",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/TMF%2FA-802W2_Kerberos_BuCUE_Hound"
+    },
+    {
+      "id": "gundam-armament-gat-x1022-blu-duel-gundam-m2m5-todesschrecken-12-5mm-automatic-ciws",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-X1022_Blu_Duel_Gundam"
+    },
+    {
+      "id": "gundam-armament-zgmf-1000-a1-gunner-zaku-warrior-mmi-m633-beam-assault-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-1000%2FA1_Gunner_ZAKU_Warrior"
+    },
+    {
+      "id": "gundam-armament-zgmf-1001-m-blaze-zaku-phantom-mmi-m633-beam-assault-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-1001%2FM_Blaze_ZAKU_Phantom"
+    },
+    {
+      "id": "gundam-armament-zgmf-1001-k-slash-zaku-phantom-mmi-m633-beam-assault-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-1001%2FK_Slash_ZAKU_Phantom"
+    },
+    {
+      "id": "gundam-armament-gn-009-seraphim-gundam-gn-bazooka-ii",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GN-009_Seraphim_Gundam"
+    },
+    {
+      "id": "gundam-armament-tmf-tr-2-bucue-tactical-reconnaissance-type-high-output-laser-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/TMF%2FTR-2_BuCUE_Tactical_Reconnaissance_Type"
+    },
+    {
+      "id": "gundam-armament-gat-01a1-aqm-e-x04-gunbarrel-dagger-gau-8m2-52mm-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-01A1%2BAQM%2FE-X04_Gunbarrel_Dagger"
+    },
+    {
+      "id": "gundam-armament-zgmf-1000-m-blaze-zaku-warrior-mmi-m633-beam-assault-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-1000%2FM_Blaze_ZAKU_Warrior"
+    },
+    {
+      "id": "gundam-armament-gat-04-aqm-e-a4e1-jet-windam-m9409l-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-04%2BAQM%2FE-A4E1_Jet_Windam"
+    },
+    {
+      "id": "gundam-armament-gat-04-aqm-e-m11-doppelhorn-windam-m9409l-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-04%2BAQM%2FE-M11_Doppelhorn_Windam"
+    },
+    {
+      "id": "gundam-armament-uta-te-6p-geo-goohn-phonon-maser-cannon",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/UTA%2FTE-6P_Geo-GOOhN"
+    },
+    {
+      "id": "gundam-armament-gat-01a2r-105-slaughter-dagger-mx703g-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-01A2R_105_Slaughter_Dagger"
+    },
+    {
+      "id": "gundam-armament-gnx-612t-aa-superbia-gn-x-gn-vulcan",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GNX-612T%2FAA_Superbia_GN-X"
+    },
+    {
+      "id": "gundam-armament-zgmf-x56s-sword-impulse-gundam-ma-bar72-high-energy-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-X56S%2F%CE%B2_Sword_Impulse_Gundam"
+    },
+    {
+      "id": "gundam-armament-zgmf-x56s-destiny-impulse-gundam-ma-bar72-high-energy-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-X56S%2F%CE%B8_Destiny_Impulse_Gundam"
+    },
+    {
+      "id": "gundam-armament-zgmf-x56s-blast-impulse-gundam-ma-bar72-high-energy-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-X56S%2F%CE%B3_Blast_Impulse_Gundam"
+    },
+    {
+      "id": "gundam-armament-gat-x105e-strike-noir-gundam-57mm-high-energy-beam-rifle-w-175mm-grenade-launcher",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-X105E_Strike_Noir_Gundam"
+    },
+    {
+      "id": "gundam-armament-amx-102-zssa-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/AMX-102_Zssa"
+    },
+    {
+      "id": "gundam-armament-gn-004-gundam-nadleeh-gn-cannon",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GN-004_Gundam_Nadleeh"
+    },
+    {
+      "id": "gundam-armament-lg-gat-x105-gale-strike-gundam-57mm-high-energy-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/LG-GAT-X105_Gale_Strike_Gundam"
+    },
+    {
+      "id": "gundam-armament-gny-0042-874-gundam-artemie-gn-beam-spray-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GNY-0042-874_Gundam_Artemie"
+    },
+    {
+      "id": "gundam-armament-oz-10vmsx-gundam-aesculapius-accelerate-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/OZ-10VMSX_Gundam_Aesculapius"
+    },
+    {
+      "id": "gundam-armament-oz-19masx-gundam-griepe-hyper-mega-particle-launcher",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/OZ-19MASX_Gundam_Griepe"
+    },
+    {
+      "id": "gundam-armament-wms-04-olifant-beam-cannon",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/WMS-04_Olifant"
+    },
+    {
+      "id": "gundam-armament-fa-100s-full-armor-hyaku-shiki-kai-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/FA-100S_Full_Armor_Hyaku_Shiki_Kai"
+    },
+    {
+      "id": "gundam-armament-msk-100s-land-combat-hyaku-shiki-kai-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MSK-100S_Land_Combat_Hyaku_Shiki_Kai"
+    },
+    {
+      "id": "gundam-armament-gat-x105-aqm-e-x01-aile-strike-gundam-57mm-high-energy-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-X105%2BAQM%2FE-X01_Aile_Strike_Gundam"
+    },
+    {
+      "id": "gundam-armament-msm-04n-agguguy-vulcan-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MSM-04N_Agguguy"
+    },
+    {
+      "id": "gundam-armament-msm-04g-juaggu-mega-particle-cannon",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MSM-04G_Juaggu"
+    },
+    {
+      "id": "gundam-armament-msm-03c-hygogg-beam-cannon",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MSM-03C_Hygogg"
+    },
+    {
+      "id": "gundam-armament-gat-x105-aqm-e-x02-sword-strike-gundam-igelstellung-75mm-multi-barrel-ciws",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GAT-X105%2BAQM%2FE-X02_Sword_Strike_Gundam"
+    },
+    {
+      "id": "gundam-armament-ms-06e-zaku-reconnaissance-type-120mm-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-06E_Zaku_Reconnaissance_Type"
+    },
+    {
+      "id": "gundam-armament-zgmf-1000-k-slash-zaku-warrior-mmi-m633-beam-assault-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-1000%2FK_Slash_ZAKU_Warrior"
+    },
+    {
+      "id": "gundam-armament-ms-06s-zaku-ii-commander-type-m-120a1-120mm-zaku-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-06S_Zaku_II_Commander_Type"
+    },
+    {
+      "id": "gundam-armament-rmv-1-guntank-ii-120mm-low-recoil-cannon",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RMV-1_Guntank_II"
+    },
+    {
+      "id": "gundam-armament-ms-09r-rick-dom-h-l-gb05r-360mm-giant-bazooka",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-09R_Rick_Dom"
+    },
+    {
+      "id": "gundam-armament-ms-09r-2-rick-dom-ii-giant-bazooka",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-09R-2_Rick_Dom_II"
+    },
+    {
+      "id": "gundam-armament-ms-09f-trop-dom-tropen-val-rb-t27-880mm-raketen-bazooka",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-09F%2Ftrop_Dom_Tropen"
+    },
+    {
+      "id": "gundam-armament-zgmf-x56s-force-impulse-gundam-ma-bar72-high-energy-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/ZGMF-X56S%2F%CE%B1_Force_Impulse_Gundam"
+    },
+    {
+      "id": "gundam-armament-yms-09-prototype-dom-360mm-giant-bazooka",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/YMS-09_Prototype_Dom"
+    },
+    {
+      "id": "gundam-armament-ms-08tx-exam-efreet-custom-heat-sword",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-08TX%EF%BC%BBEXAM%EF%BC%BD_Efreet_Custom"
+    },
+    {
+      "id": "gundam-armament-msz-008-zii-mega-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MSZ-008_ZII"
+    },
+    {
+      "id": "gundam-armament-ms-07b-gouf-120mm-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-07B_Gouf"
+    },
+    {
+      "id": "gundam-armament-gn-001reii-gundam-exia-repair-ii-gn-sword-kai",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GN-001REII_Gundam_Exia_Repair_II"
+    },
+    {
+      "id": "gundam-armament-ms-07b-3-gouf-custom-90mm-assault-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-07B-3_Gouf_Custom"
+    },
+    {
+      "id": "gundam-armament-gn-006gnhw-r-cherudim-gundam-gnhw-r-gn-sniper-rifle-ii",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GN-006GNHW%2FR_Cherudim_Gundam_GNHW%2FR"
+    },
+    {
+      "id": "gundam-armament-amx-004-qubeley-mk-ii-funnel",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/AMX-004_Qubeley_Mk-II"
+    },
+    {
+      "id": "gundam-armament-amx-004g-qubeley-mass-production-type-funnel",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/AMX-004G_Qubeley_Mass_Production_Type"
+    },
+    {
+      "id": "gundam-armament-rms-179-gm-ii-bowabr-s-85-c2-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RMS-179_GM_II"
+    },
+    {
+      "id": "gundam-armament-rgm-119-jamesgun-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RGM-119_Jamesgun"
+    },
+    {
+      "id": "gundam-armament-rgm-89s-stark-jegan-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RGM-89S_Stark_Jegan"
+    },
+    {
+      "id": "gundam-armament-gn-006-sa-cherudim-gundam-saga-gn-assault-carbine",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GN-006%2FSA_Cherudim_Gundam_SAGA"
+    },
+    {
+      "id": "gundam-armament-gn-008gnhw-b-seravee-gundam-gnhw-b-gn-bazooka-ii",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GN-008GNHW%2FB_Seravee_Gundam_GNHW%2FB"
+    },
+    {
+      "id": "gundam-armament-gn-0000-gnr-010-00-raiser-gn-sword-ii",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/GN-0000%2BGNR-010_00_Raiser"
+    },
+    {
+      "id": "gundam-armament-vms-15op-union-realdo-orbit-package-linear-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/VMS-15OP_Union_Realdo_Orbit_Package"
+    },
+    {
+      "id": "gundam-armament-amx-103-hamma-hamma-3-x-beam-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/AMX-103_Hamma_Hamma"
+    },
+    {
+      "id": "gundam-armament-ms-06c-zaku-ii-early-production-type-zmp-47d-105mm-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-06C_Zaku_II_Early_Production_Type"
+    },
+    {
+      "id": "gundam-armament-ms-06f-zaku-ii-120mm-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-06F_Zaku_II"
+    },
+    {
+      "id": "gundam-armament-rx-78-3-g-3-gundam-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RX-78-3_G-3_Gundam"
+    },
+    {
+      "id": "gundam-armament-ms-06fz-zaku-ii-kai-mmp-80-90mm-machine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MS-06FZ_Zaku_II_Kai"
+    },
+    {
+      "id": "gundam-armament-rx-77-3-guncannon-heavy-custom-xbr-m-79a-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RX-77-3_Guncannon_Heavy_Custom"
+    },
+    {
+      "id": "gundam-armament-rx-78-4-gundam-unit-4-g04-xbr-m-79h-2-hyper-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RX-78-4_Gundam_Unit_4_%22G04%22"
+    },
+    {
+      "id": "gundam-armament-rx-78nt-1-gundam-nt-1-bowanorfolk-xbr-l-type-3-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RX-78NT-1_Gundam_NT-1"
+    },
+    {
+      "id": "gundam-armament-rx-78xx-gundam-pixy-90mm-submachine-gun",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RX-78XX_Gundam_Pixy"
+    },
+    {
+      "id": "gundam-armament-rx-78gp01-fb-gundam-zephyranthes-full-burnern-xbrbowa-m-82-06a-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RX-78GP01-Fb_Gundam_%22Zephyranthes%22_Full_Burnern"
+    },
+    {
+      "id": "gundam-armament-rx-178-fxa-05d-super-gundam-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/RX-178%2BFXA-05D_Super_Gundam"
+    },
+    {
+      "id": "gundam-armament-msz-010s-enhanced-zz-gundam-double-beam-rifle",
+      "host": "Gundam Wiki / Fandom",
+      "media": "official HD mobile-suit art showing exact armament",
+      "source": "https://gundam.fandom.com/wiki/MSZ-010S_Enhanced_ZZ_Gundam"
     }
   ]
 }
