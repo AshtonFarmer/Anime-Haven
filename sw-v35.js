@@ -1,4 +1,4 @@
-const CACHE = 'kagenexus-v52-arsenal-batch-13';
+const CACHE = 'kagenexus-v53-arsenal-batch-14';
 const CORE = [
   './',
   './index.html',
@@ -18,9 +18,9 @@ const CORE = [
   './nav-scroll-guard-v13.js?release=14',
   './library-manager-v15.js?release=15',
   './library-manager-v14.css?release=15',
-  './mobile-suite-loader-v22.js?release=52',
-  './arsenal-v34.js?release=52',
-  './arsenal-v34.css?release=52',
+  './mobile-suite-loader-v22.js?release=53',
+  './arsenal-v34.js?release=53',
+  './arsenal-v34.css?release=53',
   './assets/arsenal/media-sources.json',
   './assets/css/power-transform-v29.css?release=33',
   './assets/js/power-transform-v29.js?release=33',
