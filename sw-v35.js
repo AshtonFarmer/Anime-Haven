@@ -1,4 +1,4 @@
-const CACHE = 'kagenexus-v58-compact-luffy-search';
+const CACHE = 'kagenexus-v59-lazy-arsenal';
 const CORE = [
   './',
   './index.html',
@@ -19,8 +19,8 @@ const CORE = [
   './library-manager-v15.js?release=15',
   './library-manager-v14.css?release=15',
   './mobile-suite-loader-v22.js?release=57',
-  './arsenal-v34.js?release=57',
-  './arsenal-v34.css?release=57',
+  './arsenal-v34.js?release=59',
+  './arsenal-v34.css?release=59',
   './assets/arsenal/media-sources.json',
   './assets/css/power-transform-v29.css?release=33',
   './assets/js/power-transform-v29.js?release=33',
