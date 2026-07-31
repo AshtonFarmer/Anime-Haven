@@ -60,7 +60,7 @@
   const registerCleanWorker=async()=>{
     if(!('serviceWorker' in navigator))return;
     try{
-      const registration=await navigator.serviceWorker.register('./sw-v35.js?release=48',{scope:'./',updateViaCache:'none'});
+      const registration=await navigator.serviceWorker.register('./sw-v35.js?release=49',{scope:'./',updateViaCache:'none'});
       await registration.update();
     }catch(error){console.error('KageNexus worker registration failed',error)}
   };
@@ -75,10 +75,10 @@
         source=source.replace(before,after);
       }
       source=source
-        .split('./sw-v2.js?release=22').join('./sw-v35.js?release=48')
-        .split('./sw-v25.js?release=25').join('./sw-v35.js?release=48')
-        .split('./sw-v25.js?release=25.1').join('./sw-v35.js?release=48')
-        .split('./sw-v26.js?release=26').join('./sw-v35.js?release=48');
+        .split('./sw-v2.js?release=22').join('./sw-v35.js?release=49')
+        .split('./sw-v25.js?release=25').join('./sw-v35.js?release=49')
+        .split('./sw-v25.js?release=25.1').join('./sw-v35.js?release=49')
+        .split('./sw-v26.js?release=26').join('./sw-v35.js?release=49');
       document.getElementById('knContinueWatching')?.remove();
       document.getElementById('kagenexus-mobile-suite-v22')?.remove();
       const style=document.createElement('style');style.id='kagenexus-mobile-suite-v22';style.textContent=payload.css+noSelectionCss;document.head.appendChild(style);
