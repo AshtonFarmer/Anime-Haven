@@ -2859,6 +2859,18 @@
       .filter(item=>item.type==='weapon')
       .sort((left,right)=>arsenalCollator.compare(left.anime,right.anime)||arsenalCollator.compare(left.name,right.name))
   ];
+  const ARSENAL_PAGE_SIZE=96;
+  const DISPLAY_INDEX_BY_ID=new Map(DISPLAY_ITEMS.map((item,index)=>[item.id,index]));
+  const ARSENAL_GROUP_TOTALS=new Map();
+  DISPLAY_ITEMS.forEach(item=>{
+    const key=item.type==='power'?'power:all':`weapon:${item.anime}`;
+    ARSENAL_GROUP_TOTALS.set(key,(ARSENAL_GROUP_TOTALS.get(key)||0)+1);
+  });
+
+  const arsenalGroup=item=>item.type==='power'
+    ? {key:'power:all',title:'Powers & Techniques',type:'power'}
+    : {key:`weapon:${item.anime}`,title:item.anime,type:'weapon'};
+  const arsenalSearchText=item=>`${item.name} ${item.owner} ${item.anime}`.toLowerCase();
 
   const POWER_MARKUP={
     telekinesis:'<span class="fx-ring"></span><span class="fx-ring ring-b"></span><span class="fx-core"></span><span class="fx-shard shard-a"></span><span class="fx-shard shard-b"></span><span class="fx-shard shard-c"></span>',
@@ -3022,6 +3034,7 @@
   const canvasStates=new Map();
   let canvasObserver;
   let mediaObserver;
+  let animationFrame=0;
 
   function loadMedia(media){
     if(!media||media.dataset.arsenalMediaLoaded==='1')return;
@@ -3203,6 +3216,7 @@
     canvasObserver?.observe(canvas);
     if('ResizeObserver' in window)new ResizeObserver(()=>sizeCanvas(state)).observe(canvas);
     sizeCanvas(state);
+    if(!animationFrame)animationFrame=requestAnimationFrame(animationLoop);
   }
 
   function animationLoop(time){
@@ -3210,7 +3224,7 @@
       if(!canvas.isConnected){canvasStates.delete(canvas);continue}
       if(state.active&&!document.hidden)drawCanvas(state,time);
     }
-    requestAnimationFrame(animationLoop);
+    animationFrame=canvasStates.size?requestAnimationFrame(animationLoop):0;
   }
 
   function openShowcase(item,index){
@@ -3235,33 +3249,13 @@
     navigator.vibrate?.(item.type==='power'?[18,28,36]:12);
   }
 
-  function renderArsenal(section){
-    const grid=section.querySelector('#arsenalGrid');
-    const powers=DISPLAY_ITEMS.filter(item=>item.type==='power');
-    const weaponGroups=new Map();
-    DISPLAY_ITEMS.filter(item=>item.type==='weapon').forEach(item=>{
-      if(!weaponGroups.has(item.anime))weaponGroups.set(item.anime,[]);
-      weaponGroups.get(item.anime).push(item);
-    });
-    let displayIndex=0;
-    let markup=groupDividerMarkup('Powers & Techniques',powers.length,'power:all','power');
-    markup+=powers.map(item=>cardMarkup(item,displayIndex++,'power:all')).join('');
-    weaponGroups.forEach((items,anime)=>{
-      const groupKey=`weapon:${anime}`;
-      markup+=groupDividerMarkup(anime,items.length,groupKey,'weapon');
-      markup+=items.map(item=>cardMarkup(item,displayIndex++,groupKey)).join('');
-    });
-    grid.innerHTML=markup;
-    grid.querySelectorAll('[data-arsenal-media-src]').forEach(node=>initializeMedia(node));
-  }
-
   function install(){
-    if(document.documentElement.dataset.arsenalV57)return true;
+    if(document.documentElement.dataset.arsenalV59)return true;
     const app=document.getElementById('app');
     const nav=document.querySelector('.bottom-nav');
     const topbar=document.querySelector('.topbar');
     if(!app||!nav||!topbar)return false;
-    document.documentElement.dataset.arsenalV57='1';
+    document.documentElement.dataset.arsenalV59='1';
 
     let arsenalStyles=document.querySelector('link[href*="arsenal-v34.css"]');
     if(!arsenalStyles){
@@ -3269,7 +3263,7 @@
       arsenalStyles.rel='stylesheet';
       document.head.appendChild(arsenalStyles);
     }
-    arsenalStyles.href='./arsenal-v34.css?release=57';
+    arsenalStyles.href='./arsenal-v34.css?release=59';
 
     const settingsNav=nav.querySelector('[data-view="settings"]');
     if(settingsNav){
@@ -3321,8 +3315,12 @@
         </div>
         <button class="arsenal-random" id="arsenalRandom" type="button">UNLEASH RANDOM</button>
       </div>
-      <div class="arsenal-results-line"><span id="arsenalResultCount"><strong>${totalCount}</strong> entries ready</span><span>Weapons grouped A–Z by anime</span></div>
-      <div class="arsenal-grid" id="arsenalGrid"></div>`;
+      <div class="arsenal-results-line"><span id="arsenalResultCount" aria-live="polite"><strong>${totalCount}</strong> entries ready</span><span>Weapons grouped A–Z by anime</span></div>
+      <div class="arsenal-grid" id="arsenalGrid"></div>
+      <div class="arsenal-load-more" id="arsenalLoadMore" hidden>
+        <span id="arsenalLoadStatus" aria-live="polite"></span>
+        <button id="arsenalLoadMoreButton" type="button">LOAD MORE</button>
+      </div>`;
     app.appendChild(section);
 
     const dialog=document.createElement('dialog');
@@ -3330,74 +3328,145 @@
     dialog.innerHTML='<button class="arsenal-showcase-close" type="button" aria-label="Close showcase">×</button><div id="arsenalShowcaseBody"></div>';
     document.body.appendChild(dialog);
 
-    canvasObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        const state=canvasStates.get(entry.target);
-        if(state)state.active=entry.isIntersecting;
-      });
-    },{rootMargin:'80px 0px',threshold:.05});
-    mediaObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(!entry.isIntersecting)return;
-        mediaObserver.unobserve(entry.target);
-        loadMedia(entry.target);
-      });
-    },{rootMargin:'420px 0px',threshold:.01});
+    if('IntersectionObserver' in window){
+      canvasObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          const state=canvasStates.get(entry.target);
+          if(state)state.active=entry.isIntersecting;
+        });
+      },{rootMargin:'80px 0px',threshold:.05});
+      mediaObserver=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(!entry.isIntersecting)return;
+          mediaObserver.unobserve(entry.target);
+          loadMedia(entry.target);
+        });
+      },{rootMargin:'420px 0px',threshold:.01});
+    }
 
-    renderArsenal(section);
-
+    const grid=section.querySelector('#arsenalGrid');
+    const loadMore=section.querySelector('#arsenalLoadMore');
+    const loadMoreButton=section.querySelector('#arsenalLoadMoreButton');
+    const loadStatus=section.querySelector('#arsenalLoadStatus');
+    const countLine=section.querySelector('#arsenalResultCount');
+    const searchInput=section.querySelector('#arsenalSearch');
     let activeFilter='all';
-    const updateResults=()=>{
-      const query=section.querySelector('#arsenalSearch').value.trim().toLowerCase();
-      let count=0;
-      section.querySelectorAll('.arsenal-card').forEach(card=>{
-        const matchesType=activeFilter==='all'||card.dataset.arsenalType===activeFilter;
-        const matchesQuery=!query||card.dataset.search.includes(query);
-        card.hidden=!(matchesType&&matchesQuery);
-        if(!card.hidden)count++;
-      });
-      const cards=[...section.querySelectorAll('.arsenal-card')];
-      section.querySelectorAll('.arsenal-anime-divider').forEach(divider=>{
-        divider.hidden=!cards.some(card=>card.dataset.arsenalGroup===divider.dataset.arsenalGroup&&!card.hidden);
-      });
-      const countLine=section.querySelector('#arsenalResultCount');
-      countLine.innerHTML=count
-        ? `<strong>${count}</strong> entr${count===1?'y':'ies'} ready`
-        : '<strong>0</strong> matches';
-      let empty=section.querySelector('.arsenal-empty');
-      if(!count&&!empty){
-        empty=document.createElement('div');empty.className='arsenal-empty';
-        empty.innerHTML='<b>No Arsenal entries found.</b><span>Try a character, anime, weapon or attack name.</span>';
-        section.querySelector('#arsenalGrid').appendChild(empty);
-      }else if(count&&empty)empty.remove();
+    let activeQuery='';
+    let matchingItems=[];
+    let renderedCount=0;
+    let lastRenderedGroup='';
+    let collectionReady=false;
+    let searchTimer=0;
+    let appending=false;
+
+    const releaseGridMedia=()=>{
+      grid.querySelectorAll('[data-arsenal-media-src]').forEach(media=>mediaObserver?.unobserve(media));
     };
 
-    section.querySelector('#arsenalSearch').addEventListener('input',updateResults);
+    const updateLoadState=()=>{
+      const total=matchingItems.length;
+      const remaining=Math.max(0,total-renderedCount);
+      loadMore.hidden=!remaining;
+      loadStatus.textContent=total?`Showing ${renderedCount.toLocaleString()} of ${total.toLocaleString()}`:'';
+      loadMoreButton.textContent=remaining
+        ? `LOAD ${Math.min(ARSENAL_PAGE_SIZE,remaining).toLocaleString()} MORE`
+        : 'ALL ENTRIES LOADED';
+    };
+
+    const appendNextBatch=()=>{
+      if(appending||renderedCount>=matchingItems.length)return;
+      appending=true;
+      const batch=matchingItems.slice(renderedCount,renderedCount+ARSENAL_PAGE_SIZE);
+      let markup='';
+      batch.forEach(item=>{
+        const group=arsenalGroup(item);
+        if(group.key!==lastRenderedGroup){
+          markup+=groupDividerMarkup(group.title,ARSENAL_GROUP_TOTALS.get(group.key)||1,group.key,group.type);
+          lastRenderedGroup=group.key;
+        }
+        markup+=cardMarkup(item,DISPLAY_INDEX_BY_ID.get(item.id),group.key);
+      });
+      const template=document.createElement('template');
+      template.innerHTML=markup;
+      const media=[...template.content.querySelectorAll('[data-arsenal-media-src]')];
+      grid.appendChild(template.content);
+      media.forEach(node=>initializeMedia(node));
+      renderedCount+=batch.length;
+      updateLoadState();
+      appending=false;
+    };
+
+    const resetCollection=()=>{
+      releaseGridMedia();
+      grid.replaceChildren();
+      renderedCount=0;
+      lastRenderedGroup='';
+      matchingItems=DISPLAY_ITEMS.filter(item=>{
+        const matchesType=activeFilter==='all'||item.type===activeFilter;
+        const matchesQuery=!activeQuery||arsenalSearchText(item).includes(activeQuery);
+        return matchesType&&matchesQuery;
+      });
+      countLine.innerHTML=matchingItems.length
+        ? `<strong>${matchingItems.length.toLocaleString()}</strong> entr${matchingItems.length===1?'y':'ies'} ready`
+        : '<strong>0</strong> matches';
+      if(matchingItems.length)appendNextBatch();
+      else{
+        const empty=document.createElement('div');
+        empty.className='arsenal-empty';
+        empty.innerHTML='<b>No Arsenal entries found.</b><span>Try a character, anime, weapon or attack name.</span>';
+        grid.appendChild(empty);
+        updateLoadState();
+      }
+    };
+
+    const ensureCollection=()=>{
+      if(collectionReady)return;
+      collectionReady=true;
+      resetCollection();
+    };
+
+    searchInput.addEventListener('input',()=>{
+      activeQuery=searchInput.value.trim().toLowerCase();
+      window.clearTimeout(searchTimer);
+      searchTimer=window.setTimeout(()=>{
+        ensureCollection();
+        resetCollection();
+      },120);
+    });
     section.querySelector('.arsenal-filters').addEventListener('click',event=>{
       const button=event.target.closest('[data-arsenal-filter]');if(!button)return;
       activeFilter=button.dataset.arsenalFilter;
       section.querySelectorAll('.arsenal-filter').forEach(item=>item.classList.toggle('active',item===button));
-      updateResults();
+      ensureCollection();
+      resetCollection();
     });
-    section.querySelector('#arsenalGrid').addEventListener('click',event=>{
+    grid.addEventListener('click',event=>{
       const card=event.target.closest('[data-arsenal-id]');if(!card)return;
-      const index=DISPLAY_ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
+      const index=DISPLAY_INDEX_BY_ID.get(card.dataset.arsenalId);
       if(index>=0)openShowcase(DISPLAY_ITEMS[index],index);
     });
-    section.querySelector('#arsenalGrid').addEventListener('keydown',event=>{
+    grid.addEventListener('keydown',event=>{
       if(event.key!=='Enter'&&event.key!==' ')return;
       const card=event.target.closest('[data-arsenal-id]');if(!card)return;
       event.preventDefault();
-      const index=DISPLAY_ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
+      const index=DISPLAY_INDEX_BY_ID.get(card.dataset.arsenalId);
       if(index>=0)openShowcase(DISPLAY_ITEMS[index],index);
     });
     section.querySelector('#arsenalRandom').addEventListener('click',()=>{
-      const visible=[...section.querySelectorAll('.arsenal-card:not([hidden])')];
-      if(!visible.length)return;
-      const card=visible[Math.floor(Math.random()*visible.length)];
-      const index=DISPLAY_ITEMS.findIndex(item=>item.id===card.dataset.arsenalId);
+      ensureCollection();
+      if(!matchingItems.length)return;
+      const item=matchingItems[Math.floor(Math.random()*matchingItems.length)];
+      const index=DISPLAY_INDEX_BY_ID.get(item.id);
       if(index>=0)openShowcase(DISPLAY_ITEMS[index],index);
     });
+    loadMoreButton.addEventListener('click',appendNextBatch);
+    let loadMoreObserver;
+    if('IntersectionObserver' in window){
+      loadMoreObserver=new IntersectionObserver(entries=>{
+        if(entries.some(entry=>entry.isIntersecting)&&section.classList.contains('active'))appendNextBatch();
+      },{rootMargin:'900px 0px',threshold:.01});
+      loadMoreObserver.observe(loadMore);
+    }
 
     const closeDialog=()=>{
       if(dialog.open)dialog.close();
@@ -3414,7 +3483,19 @@
     const syncArsenalState=()=>{
       const active=section.classList.contains('active');
       document.body.classList.toggle('arsenal-active',active);
-      if(!active&&dialog.open)closeDialog();
+      if(active)ensureCollection();
+      else if(collectionReady){
+        if(dialog.open)closeDialog();
+        if(renderedCount>ARSENAL_PAGE_SIZE)resetCollection();
+        grid.querySelectorAll('iframe[data-arsenal-media-src]').forEach(frame=>{
+          mediaObserver?.unobserve(frame);
+          frame.removeAttribute('src');
+          delete frame.dataset.arsenalMediaLoaded;
+          const shell=frame.closest('.arsenal-media-shell');
+          shell?.classList.remove('media-loaded','media-failed');
+          initializeMedia(frame);
+        });
+      }
     };
     new MutationObserver(syncArsenalState).observe(section,{attributes:true,attributeFilter:['class']});
     syncArsenalState();
@@ -3426,7 +3507,6 @@
     return true;
   }
 
-  requestAnimationFrame(animationLoop);
   if(install())return;
   window.addEventListener('kagenexus-ready',install,{once:true});
   window.addEventListener('anime-haven-ready',install,{once:true});
