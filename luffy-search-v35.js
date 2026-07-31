@@ -1,15 +1,16 @@
 (() => {
   'use strict';
 
-  const VERSION = '35';
+  const VERSION = '36';
+  const MEDIA_VERSION = '35';
   const STORAGE_KEY = 'kagenexus-search-style';
   const CLASSIC = 'classic';
   const LUFFY = 'luffy';
   const MEDIA_ROOT = './assets/media/luffy-search/';
-  const OPEN_SOURCE = `${MEDIA_ROOT}luffy-arm-open-v35.webp?release=${VERSION}`;
-  const CLOSE_SOURCE = `${MEDIA_ROOT}luffy-arm-close-v35.webp?release=${VERSION}`;
-  const COILED_SOURCE = `${MEDIA_ROOT}luffy-arm-coiled-v35.webp?release=${VERSION}`;
-  const SEARCH_SOURCE = `${MEDIA_ROOT}luffy-arm-search-v35.webp?release=${VERSION}`;
+  const OPEN_SOURCE = `${MEDIA_ROOT}luffy-arm-open-v35.webp?release=${MEDIA_VERSION}`;
+  const CLOSE_SOURCE = `${MEDIA_ROOT}luffy-arm-close-v35.webp?release=${MEDIA_VERSION}`;
+  const COILED_SOURCE = `${MEDIA_ROOT}luffy-arm-coiled-v35.webp?release=${MEDIA_VERSION}`;
+  const SEARCH_SOURCE = `${MEDIA_ROOT}luffy-arm-search-v35.webp?release=${MEDIA_VERSION}`;
 
   const readPreference = () => {
     try {
@@ -385,7 +386,7 @@
     const preference = readPreference();
     if (!document.getElementById('rubberSearch')) return false;
     started = true;
-    addStylesheet('./luffy-search-v35.css?release=35', 'luffy-search-v35.css');
+    addStylesheet(`./luffy-search-v35.css?release=${VERSION}`, 'luffy-search-v35.css');
     installSettings(preference);
     if (preference === CLASSIC) installClassic();
     else installLuffy();

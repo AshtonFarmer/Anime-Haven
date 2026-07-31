@@ -1,12 +1,12 @@
-const CACHE = 'kagenexus-v57-arsenal-media-repair';
+const CACHE = 'kagenexus-v58-compact-luffy-search';
 const CORE = [
   './',
   './index.html',
   './offline.html',
   './bootstrap-v4.js?release=45',
   './kagenexus-brand-v19.js?release=19',
-  './luffy-search-v35.js?release=35',
-  './luffy-search-v35.css?release=35',
+  './luffy-search-v35.js?release=36',
+  './luffy-search-v35.css?release=36',
   './rubber-search-v11.js?release=11',
   './rubber-search-v11.css?release=11',
   './rubber-search-compact-v12.js?release=12',
