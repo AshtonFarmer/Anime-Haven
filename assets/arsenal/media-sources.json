@@ -1,5 +1,5 @@
 {
-  "release": 49,
+  "release": 50,
   "note": "KageNexus does not claim ownership of third-party media. The app embeds each item from its credited host and links to the original source.",
   "powers": [
     {
@@ -6471,6 +6471,606 @@
       "host": "Fate/Grand Order Wiki / Fandom",
       "media": "official HD Saint Graph showing exact character armament",
       "source": "https://fategrandorder.fandom.com/wiki/Ereshkigal"
+    },
+    {
+      "id": "fgo-armament-altera-the-san-ta",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Altera_the_San(ta)"
+    },
+    {
+      "id": "fgo-armament-semiramis",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Semiramis"
+    },
+    {
+      "id": "fgo-armament-asagami-fujino",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Asagami_Fujino"
+    },
+    {
+      "id": "fgo-armament-chiron",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Chiron"
+    },
+    {
+      "id": "fgo-armament-okada-izo",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Okada_Iz%C5%8D"
+    },
+    {
+      "id": "fgo-armament-napoleon",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Napol%C3%A9on"
+    },
+    {
+      "id": "fgo-armament-sigurd",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Sigurd"
+    },
+    {
+      "id": "fgo-armament-valkyrie",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Valkyrie"
+    },
+    {
+      "id": "fgo-armament-ushiwakamaru-assassin",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Ushiwakamaru_(Assassin)"
+    },
+    {
+      "id": "fgo-armament-ibaraki-doji-lancer",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Ibaraki_D%C5%8Dji_(Lancer)"
+    },
+    {
+      "id": "fgo-armament-jeanne-d-arc-archer",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Jeanne_d'Arc_(Archer)"
+    },
+    {
+      "id": "fgo-armament-queen-medb-saber",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Queen_Medb_(Saber)"
+    },
+    {
+      "id": "fgo-armament-diarmuid-ua-duibhne-saber",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Diarmuid_Ua_Duibhne_(Saber)"
+    },
+    {
+      "id": "fgo-armament-lanling-wang",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Lanling_Wang"
+    },
+    {
+      "id": "fgo-armament-qin-liangyu",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Qin_Liangyu"
+    },
+    {
+      "id": "fgo-armament-li-shuwen",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Li_Shuwen"
+    },
+    {
+      "id": "fgo-armament-consort-yu",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Consort_Yu"
+    },
+    {
+      "id": "fgo-armament-bradamante",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Bradamante"
+    },
+    {
+      "id": "fgo-armament-beni-enma",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Beni-Enma"
+    },
+    {
+      "id": "fgo-armament-kama",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Kama"
+    },
+    {
+      "id": "fgo-armament-gray",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Gray"
+    },
+    {
+      "id": "fgo-armament-william-tell",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/William_Tell"
+    },
+    {
+      "id": "fgo-armament-lakshmibai",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Lakshmibai"
+    },
+    {
+      "id": "fgo-armament-asvatthaman",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/A%C5%9Bvatth%C4%81man"
+    },
+    {
+      "id": "fgo-armament-nagao-kagetora",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Nagao_Kagetora"
+    },
+    {
+      "id": "fgo-armament-jason",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Jason"
+    },
+    {
+      "id": "fgo-armament-charlotte-corday",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Charlotte_Corday"
+    },
+    {
+      "id": "fgo-armament-paris",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Paris"
+    },
+    {
+      "id": "fgo-armament-gareth",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Gareth"
+    },
+    {
+      "id": "fgo-armament-osakabehime-archer",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Osakabehime_(Archer)"
+    },
+    {
+      "id": "fgo-armament-katsushika-hokusai-saber",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Katsushika_Hokusai_(Saber)"
+    },
+    {
+      "id": "fgo-armament-mysterious-alter-ego",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Mysterious_Alter_Ego_%CE%9B"
+    },
+    {
+      "id": "fgo-armament-okita-j-soji",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Okita_J_S%C5%8Dji"
+    },
+    {
+      "id": "fgo-armament-calamity-jane",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Calamity_Jane"
+    },
+    {
+      "id": "fgo-armament-astolfo-saber",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Astolfo_(Saber)"
+    },
+    {
+      "id": "fgo-armament-nightingale-santa",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Nightingale_(Santa)"
+    },
+    {
+      "id": "fgo-armament-super-orion",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Super_Orion"
+    },
+    {
+      "id": "fgo-armament-caenis",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Caenis"
+    },
+    {
+      "id": "fgo-armament-sei-shonagon",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Sei_Sh%C5%8Dnagon"
+    },
+    {
+      "id": "fgo-armament-dioscuri",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Dioscuri"
+    },
+    {
+      "id": "fgo-armament-romulus-quirinus",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Romulus-Quirinus"
+    },
+    {
+      "id": "fgo-armament-utsumi-erice",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Utsumi_Erice"
+    },
+    {
+      "id": "fgo-armament-consort-yu-lancer",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Consort_Yu_(Lancer)"
+    },
+    {
+      "id": "fgo-armament-illyasviel-von-einzbern-archer",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Illyasviel_von_Einzbern_(Archer)"
+    },
+    {
+      "id": "fgo-armament-tomoe-gozen-saber",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Tomoe_Gozen_(Saber)"
+    },
+    {
+      "id": "fgo-armament-oda-nobukatsu",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Oda_Nobukatsu"
+    },
+    {
+      "id": "fgo-armament-saito-hajime",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Sait%C5%8D_Hajime"
+    },
+    {
+      "id": "fgo-armament-sita-arcade",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Sita_(Arcade)"
+    },
+    {
+      "id": "fgo-armament-suzuka-gozen-santa-arcade",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Suzuka_Gozen_(Santa)_(Arcade)"
+    },
+    {
+      "id": "fgo-armament-watanabe-no-tsuna",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Watanabe_no_Tsuna"
+    },
+    {
+      "id": "fgo-armament-ibuki-doji",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Ibuki_D%C5%8Dji"
+    },
+    {
+      "id": "fgo-armament-karna-santa",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Karna_(Santa)"
+    },
+    {
+      "id": "fgo-armament-vritra",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Vritra"
+    },
+    {
+      "id": "fgo-armament-senji-muramasa",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Senji_Muramasa"
+    },
+    {
+      "id": "fgo-armament-kiichi-hogen",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Kiichi_H%C5%8Dgen"
+    },
+    {
+      "id": "fgo-armament-setanta-arcade",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/S%C3%A9tanta_(Arcade)"
+    },
+    {
+      "id": "fgo-armament-jacques-de-molay-arcade",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Jacques_de_Molay_(Arcade)"
+    },
+    {
+      "id": "fgo-armament-baobhan-sith",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Baobhan_Sith"
+    },
+    {
+      "id": "fgo-armament-barghest",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Barghest"
+    },
+    {
+      "id": "fgo-armament-melusine",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/M%C3%A9lusine"
+    },
+    {
+      "id": "fgo-armament-percival",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Percival"
+    },
+    {
+      "id": "fgo-armament-koyanskaya-of-light",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Koyanskaya_of_Light"
+    },
+    {
+      "id": "fgo-armament-anastasia-viy",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Anastasia_%26_Viy"
+    },
+    {
+      "id": "fgo-armament-okita-soji-saber-alter",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Okita_S%C5%8Dji_(Saber_Alter)"
+    },
+    {
+      "id": "fgo-armament-zenobia",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Zenobia"
+    },
+    {
+      "id": "fgo-armament-sakamoto-ryoma-lancer",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Sakamoto_Ry%C5%8Dma_(Lancer)"
+    },
+    {
+      "id": "fgo-armament-trung-sisters",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Trung_Sisters"
+    },
+    {
+      "id": "fgo-armament-mary-anning",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Mary_Anning"
+    },
+    {
+      "id": "fgo-armament-charlemagne",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Charlemagne"
+    },
+    {
+      "id": "fgo-armament-roland",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Roland"
+    },
+    {
+      "id": "fgo-armament-don-quixote",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Don_Quixote"
+    },
+    {
+      "id": "fgo-armament-minamoto-no-tametomo",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Minamoto_no_Tametomo"
+    },
+    {
+      "id": "fgo-armament-gareth-saber",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Gareth_(Saber)"
+    },
+    {
+      "id": "fgo-armament-ortlinde-assassin",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Ortlinde_(Assassin)"
+    },
+    {
+      "id": "fgo-armament-hildr-assassin",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Hildr_(Assassin)"
+    },
+    {
+      "id": "fgo-armament-thrud-assassin",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Thr%C3%BAd_(Assassin)"
+    },
+    {
+      "id": "fgo-armament-yamanami-keisuke",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Yamanami_Keisuke"
+    },
+    {
+      "id": "fgo-armament-huyan-zhuo",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Huyan_Zhuo"
+    },
+    {
+      "id": "fgo-armament-britomart",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Britomart"
+    },
+    {
+      "id": "fgo-armament-kama-mistake-arcade",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Kama_(Mistake)_(Arcade)"
+    },
+    {
+      "id": "fgo-armament-tezcatlipoca",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Tezcatlipoca"
+    },
+    {
+      "id": "fgo-armament-takasugi-shinsaku",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Takasugi_Shinsaku"
+    },
+    {
+      "id": "fgo-armament-locusta",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Locusta"
+    },
+    {
+      "id": "fgo-armament-setanta",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/S%C3%A9tanta"
+    },
+    {
+      "id": "fgo-armament-kashin-koji",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Kashin_Koji"
+    },
+    {
+      "id": "fgo-armament-bhima",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Bhima"
+    },
+    {
+      "id": "fgo-armament-medusa-saber",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Medusa_(Saber)"
+    },
+    {
+      "id": "fgo-armament-durga",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Durga"
+    },
+    {
+      "id": "fgo-armament-udk-barghest",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/UDK-Barghest"
+    },
+    {
+      "id": "fgo-armament-ptolemaios",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Ptolemaios"
+    },
+    {
+      "id": "fgo-armament-sugitani-zenjubo",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Sugitani_Zenj%C5%ABb%C5%8D"
+    },
+    {
+      "id": "fgo-armament-theseus",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Theseus"
+    },
+    {
+      "id": "fgo-armament-saika-magoichi",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Saika_Magoichi"
+    },
+    {
+      "id": "fgo-armament-yamato-takeru",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Yamato_Takeru"
+    },
+    {
+      "id": "fgo-armament-miyamoto-iori",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Miyamoto_Iori"
+    },
+    {
+      "id": "fgo-armament-hassan-of-the-shining-star",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Hassan_of_the_Shining_Star"
+    },
+    {
+      "id": "fgo-armament-dobrynya-nikitich-lancer",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Dobrynya_Nikitich_(Lancer)"
+    },
+    {
+      "id": "fgo-armament-tutankhamun",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Tutankhamun"
+    },
+    {
+      "id": "fgo-armament-van-gogh-miner",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Van_Gogh_(Miner)"
+    },
+    {
+      "id": "fgo-armament-richard-i",
+      "host": "Fate/Grand Order Wiki / Fandom",
+      "media": "official HD Saint Graph showing exact character armament",
+      "source": "https://fategrandorder.fandom.com/wiki/Richard_I"
     }
   ]
 }
