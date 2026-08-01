@@ -1,4 +1,4 @@
-const CACHE = 'kagenexus-v59-lazy-arsenal';
+const CACHE = 'kagenexus-v60-unified-update-cache';
 const CORE = [
   './',
   './index.html',
@@ -18,7 +18,7 @@ const CORE = [
   './nav-scroll-guard-v13.js?release=14',
   './library-manager-v15.js?release=15',
   './library-manager-v14.css?release=15',
-  './mobile-suite-loader-v22.js?release=57',
+  './mobile-suite-loader-v22.js?release=60',
   './arsenal-v34.js?release=59',
   './arsenal-v34.css?release=59',
   './assets/arsenal/media-sources.json',
