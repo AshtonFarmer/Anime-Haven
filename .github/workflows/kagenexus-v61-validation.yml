@@ -1,0 +1,102 @@
+name: Validate KageNexus performance release
+
+on:
+  push:
+    branches:
+      - agent/full-app-performance-v61
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check changed JavaScript syntax
+        run: |
+          node --check bootstrap-v4.js
+          node --check kagenexus-brand-v19.js
+          node --check nav-scroll-guard-v13.js
+          node --check library-manager-v15.js
+          node --check mobile-suite-loader-v22.js
+          node --check sw-v35.js
+          node --check arsenal-v34.js
+          node --check luffy-search-v35.js
+          node --check assets/js/power-transform-v29.js
+
+      - name: Validate packaged application
+        run: |
+          cat data/app/anime-haven-v4.part00 data/app/anime-haven-v4.part01 data/app/anime-haven-v4.part02 \
+            | tr -d '\r\n\t ' | base64 --decode > /tmp/kagenexus-app.zip
+          unzip -t /tmp/kagenexus-app.zip
+          unzip -p /tmp/kagenexus-app.zip app-v2.js > /tmp/app-v2.js
+          unzip -p /tmp/kagenexus-app.zip data.js > /tmp/data.js
+          unzip -p /tmp/kagenexus-app.zip config.js > /tmp/config.js
+          node --check /tmp/app-v2.js
+          node --check /tmp/data.js
+          node --check /tmp/config.js
+
+      - name: Validate mobile suite payload
+        run: |
+          cat data/mobile-suite/mobile-suite-v22.part00 \
+              data/mobile-suite/mobile-suite-v22.part01 \
+              data/mobile-suite/mobile-suite-v22.part02 \
+              data/mobile-suite/mobile-suite-v22.part03 \
+              data/mobile-suite/mobile-suite-v22.part04 \
+              data/mobile-suite/mobile-suite-v22.part05a \
+              data/mobile-suite/mobile-suite-v22.part05b \
+              data/mobile-suite/mobile-suite-v22.part06 \
+              data/mobile-suite/mobile-suite-v22.part07 \
+            | tr -d '\r\n\t ' | base64 --decode > /tmp/mobile-suite.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path('/tmp/mobile-suite.json').read_text())
+          assert isinstance(payload.get('js'), str) and payload['js'].strip()
+          assert isinstance(payload.get('css'), str) and payload['css'].strip()
+          Path('/tmp/mobile-suite.js').write_text(payload['js'])
+          PY
+          node --check /tmp/mobile-suite.js
+
+      - name: Validate release and cache references
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          index = Path('index.html').read_text()
+          mobile = Path('mobile-suite-loader-v22.js').read_text()
+          worker = Path('sw-v35.js').read_text()
+
+          required_index = [
+              './bootstrap-v4.js?release=61',
+              './kagenexus-brand-v19.js?release=61',
+              './nav-scroll-guard-v13.js?release=61',
+              './library-manager-v15.js?release=61',
+              './mobile-suite-loader-v22.js?release=61',
+              './sw-v35.js?release=61',
+          ]
+          for value in required_index:
+              assert value in index, value
+
+          assert "kagenexus-v61-full-app-performance" in worker
+          for value in required_index[:-1]:
+              assert value in worker, value
+
+          assert "cache:'no-store'" not in mobile
+          assert "cache:'no-store'" not in Path('bootstrap-v4.js').read_text()
+          assert "./sw-v35.js?release=60" not in mobile
+          assert "./sw-v35.js?release=61" in mobile
+          assert "registerFallbackWorker();\n    }" in mobile
+          assert "cleanHomeHero();\n      registerFallbackWorker();" not in mobile
+
+          assert "request.mode === 'navigate'" in worker
+          assert "return cacheFirst(event, request, cache)" in worker
+          PY
+
+      - name: Validate JSON manifests
+        run: |
+          python3 -m json.tool manifest.webmanifest > /dev/null
+          python3 -m json.tool manifest-v2.webmanifest > /dev/null
+          python3 -m json.tool assets/arsenal/media-sources.json > /dev/null
