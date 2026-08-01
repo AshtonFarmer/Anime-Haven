@@ -24,7 +24,7 @@
   };
 
   const markControls=root=>{
-    if(!(root instanceof Element||root instanceof Document))return;
+    if(!(root instanceof Element||root instanceof Document||root instanceof DocumentFragment))return;
     if(root instanceof Element&&root.matches(CONTROL_SELECTOR))root.classList.add('ah-scroll-safe-control');
     root.querySelectorAll?.(CONTROL_SELECTOR).forEach(control=>control.classList.add('ah-scroll-safe-control'));
   };
@@ -100,12 +100,28 @@
     },true);
 
     markControls(document);
+    const pendingRoots=new Set();
+    let markFrame=0;
+    const scheduleMark=root=>{
+      if(root)pendingRoots.add(root);
+      if(markFrame)return;
+      markFrame=requestAnimationFrame(()=>{
+        markFrame=0;
+        const roots=[...pendingRoots];
+        pendingRoots.clear();
+        roots.forEach(markControls);
+      });
+    };
     const observer=new MutationObserver(records=>{
-      records.forEach(record=>record.addedNodes.forEach(node=>markControls(node)));
+      records.forEach(record=>record.addedNodes.forEach(node=>scheduleMark(node)));
     });
     observer.observe(document.body,{childList:true,subtree:true});
 
-    window.addEventListener('pagehide',()=>observer.disconnect(),{once:true});
+    window.addEventListener('pagehide',()=>{
+      observer.disconnect();
+      if(markFrame)cancelAnimationFrame(markFrame);
+      pendingRoots.clear();
+    },{once:true});
   };
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});
