@@ -8,6 +8,7 @@
   let updateCard=null;
   let appReady=false;
   let pendingNotice=null;
+  let waitingWorker=null;
 
   const ensureStyles=()=>{
     if(document.getElementById('kn62-update-styles'))return;
@@ -60,6 +61,7 @@
 
   const announceWaiting=worker=>{
     if(!worker)return;
+    waitingWorker=worker;
     showCard({
       title:'KageNexus update ready',
       message:'Restart once to load the newest version without losing your library or progress.',
@@ -69,6 +71,7 @@
   };
 
   const announceRelease=()=>{
+    if(waitingWorker)return;
     let previous='';
     try{previous=localStorage.getItem(LAST_RELEASE_KEY)||'';localStorage.setItem(LAST_RELEASE_KEY,RELEASE)}catch{}
     if(previous&&previous!==RELEASE){
@@ -101,7 +104,7 @@
       const ready=()=>{
         appReady=true;
         if(pendingNotice){const notice=pendingNotice;pendingNotice=null;showCard(notice)}
-        announceRelease();
+        if(!waitingWorker)announceRelease();
       };
       if(document.getElementById('app'))ready();
       else{
