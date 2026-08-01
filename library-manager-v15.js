@@ -276,9 +276,15 @@
     }
     sessionStorage.removeItem('anime-haven-migrated-v15');
     createModal();injectAddButtons();enhanceCards();enhanceDialog();showFlash();interceptExternalAdds();
+    const relevantSelector='.anime-card,#animeDialog,#homeView,.topbar,.external-card,#addAnimeDialog';
     const observer=new MutationObserver(records=>{
-      const hasNewElement=records.some(record=>Array.from(record.addedNodes).some(node=>node.nodeType===Node.ELEMENT_NODE));
-      if(hasNewElement)scheduleEnhance();
+      const relevant=records.some(record=>Array.from(record.addedNodes).some(node=>
+        node instanceof Element&&(
+          node.matches(relevantSelector)||
+          Boolean(node.querySelector?.(relevantSelector))
+        )
+      ));
+      if(relevant)scheduleEnhance();
     });
     observer.observe(document.body,{childList:true,subtree:true});
     window.addEventListener('pagehide',()=>observer.disconnect(),{once:true});
