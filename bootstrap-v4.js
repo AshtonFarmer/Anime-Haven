@@ -59,15 +59,16 @@
 
   try{
     set('Summoning Ashton’s anime nexus…',8);
-    const texts=[];
-    for(let i=0;i<parts.length;i++){
-      const response=await fetch(`./${parts[i]}?package=4`,{cache:'no-store'});
-      if(!response.ok)throw new Error(`Missing app package ${i+1}`);
+    let completedParts=0;
+    const texts=await Promise.all(parts.map(async(part,index)=>{
+      const response=await fetch(`./${part}?package=4`);
+      if(!response.ok)throw new Error(`Missing app package ${index+1}`);
       const text=(await response.text()).replace(/[^A-Za-z0-9+/=]/g,'');
-      if(!text)throw new Error(`App package ${i+1} was empty`);
-      texts.push(text);
-      set(`Loading realm ${i+1} of ${parts.length}…`,14+Math.round((i+1)/parts.length*38));
-    }
+      if(!text)throw new Error(`App package ${index+1} was empty`);
+      completedParts+=1;
+      set(`Loading realm ${completedParts} of ${parts.length}…`,14+Math.round(completedParts/parts.length*38));
+      return text;
+    }));
 
     const encoded=texts.join('');
     if(encoded.length%4!==0)throw new Error('The app package was incomplete. Refresh once more.');
@@ -136,14 +137,19 @@
     (0,eval)(config);
     (0,eval)(app);
 
-    const transformStyle=document.createElement('link');
-    transformStyle.rel='stylesheet';
-    transformStyle.href='./assets/css/power-transform-v29.css?release=33';
-    document.head.appendChild(transformStyle);
-    await loadScript('./assets/js/power-transform-v29.js?release=33');
-
     window.dispatchEvent(new CustomEvent('kagenexus-ready'));
     window.dispatchEvent(new CustomEvent('anime-haven-ready'));
+
+    const loadTransformEffects=()=>{
+      const transformStyle=document.createElement('link');
+      transformStyle.rel='stylesheet';
+      transformStyle.href='./assets/css/power-transform-v29.css?release=33';
+      document.head.appendChild(transformStyle);
+      loadScript('./assets/js/power-transform-v29.js?release=33')
+        .catch(error=>console.error('KageNexus power effects could not load',error));
+    };
+    if('requestIdleCallback' in window)requestIdleCallback(loadTransformEffects,{timeout:1200});
+    else window.setTimeout(loadTransformEffects,0);
   }catch(error){
     console.error(error);
     document.body.innerHTML=`<main class="boot-error"><div>⚠</div><h1>KageNexus could not awaken</h1><p>${String(error.message||error)}</p><button onclick="location.reload()">Try again</button></main>`;
