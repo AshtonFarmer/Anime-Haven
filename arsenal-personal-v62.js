@@ -71,6 +71,9 @@
         event.preventDefault();event.stopPropagation();event.stopImmediatePropagation();
         toggleFavorite(card);
       });
+      button.addEventListener('keydown',event=>{
+        if(event.key==='Enter'||event.key===' ')event.stopPropagation();
+      });
       card.appendChild(button);
     });
     updateFavoriteButtons();
@@ -177,15 +180,15 @@
 
   document.addEventListener('click',event=>{
     const card=event.target.closest('.arsenal-card[data-arsenal-id]');
-    if(card&&!event.target.closest('.kn62-favorite-button'))addRecent(card);
+    if(card&&!event.target.closest('.kn62-favorite-button,.arsenal-media-failed'))addRecent(card);
     const retry=event.target.closest('.arsenal-media-failed.kn62-retry-ready');
     if(retry){event.preventDefault();event.stopPropagation();retryMedia(retry)}
   },true);
   document.addEventListener('keydown',event=>{
     if((event.key==='Enter'||event.key===' ')&&event.target.matches?.('.arsenal-media-failed.kn62-retry-ready')){
-      event.preventDefault();retryMedia(event.target);
+      event.preventDefault();event.stopPropagation();event.stopImmediatePropagation();retryMedia(event.target);
     }
-  });
+  },true);
 
   const schedule=()=>{
     if(queued)return;
