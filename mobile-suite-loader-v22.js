@@ -57,17 +57,17 @@
     if(keeper)heading.replaceChildren(keeper.cloneNode(true));
     else heading.textContent='Never lose your place.';
   };
-  const registerCleanWorker=async()=>{
+  const registerFallbackWorker=async()=>{
     if(!('serviceWorker' in navigator))return;
     try{
-      const registration=await navigator.serviceWorker.register('./sw-v35.js?release=60',{scope:'./',updateViaCache:'none'});
+      const registration=await navigator.serviceWorker.register('./sw-v35.js?release=61',{scope:'./',updateViaCache:'none'});
       await registration.update();
     }catch(error){console.error('KageNexus worker registration failed',error)}
   };
   const decode=text=>{const bytes=Uint8Array.from(atob(text),c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)};
   (async()=>{
     try{
-      const chunks=await Promise.all(parts.map(path=>fetch(`./${path}?release=22`,{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error(`Missing ${path}`);return response.text()})));
+      const chunks=await Promise.all(parts.map(path=>fetch(`./${path}?release=22`).then(response=>{if(!response.ok)throw new Error(`Missing ${path}`);return response.text()})));
       const payload=JSON.parse(decode(chunks.join('').replace(/\s+/g,'')));
       let source=payload.js;
       for(const [before,after] of replacements){
@@ -75,21 +75,24 @@
         source=source.replace(before,after);
       }
       source=source
-        .split('./sw-v2.js?release=22').join('./sw-v35.js?release=60')
-        .split('./sw-v25.js?release=25').join('./sw-v35.js?release=60')
-        .split('./sw-v25.js?release=25.1').join('./sw-v35.js?release=60')
-        .split('./sw-v26.js?release=26').join('./sw-v35.js?release=60');
+        .split('./sw-v2.js?release=22').join('./sw-v35.js?release=61')
+        .split('./sw-v25.js?release=25').join('./sw-v35.js?release=61')
+        .split('./sw-v25.js?release=25.1').join('./sw-v35.js?release=61')
+        .split('./sw-v26.js?release=26').join('./sw-v35.js?release=61');
       document.getElementById('knContinueWatching')?.remove();
       document.getElementById('kagenexus-mobile-suite-v22')?.remove();
       const style=document.createElement('style');style.id='kagenexus-mobile-suite-v22';style.textContent=payload.css+noSelectionCss;document.head.appendChild(style);
       installNoSelectionGuards();
       (0,eval)(source);
       cleanHomeHero();
-      registerCleanWorker();
       const cleanupObserver=new MutationObserver(records=>{
         if(records.some(record=>[...record.addedNodes].some(node=>node instanceof Element&&(node.id==='knGlobalSearchClose'||node.id==='homeView'||node.querySelector?.('#knGlobalSearchClose,#homeView')))))cleanHomeHero();
       });
       cleanupObserver.observe(document.body,{childList:true,subtree:true});
-    }catch(error){console.error('KageNexus mobile suite could not load',error);registerCleanWorker()}
+      window.addEventListener('pagehide',()=>cleanupObserver.disconnect(),{once:true});
+    }catch(error){
+      console.error('KageNexus mobile suite could not load',error);
+      registerFallbackWorker();
+    }
   })();
 })();

@@ -43,7 +43,14 @@
   }
 
   function rewriteText(root){
-    if(!root)return;
+    if(root instanceof Text){
+      const parent=root.parentElement;
+      if(!parent||parent.closest('script,style,noscript'))return;
+      const next=replaceBrand(root.nodeValue);
+      if(next!==root.nodeValue)root.nodeValue=next;
+      return;
+    }
+    if(!(root instanceof Element||root instanceof Document||root instanceof DocumentFragment))return;
     const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(node){
       const parent=node.parentElement;
       if(!parent||parent.closest('script,style,noscript'))return NodeFilter.FILTER_REJECT;
@@ -51,7 +58,10 @@
     }});
     const nodes=[];
     while(walker.nextNode())nodes.push(walker.currentNode);
-    nodes.forEach(node=>{const next=replaceBrand(node.nodeValue);if(next!==node.nodeValue)node.nodeValue=next;});
+    nodes.forEach(node=>{
+      const next=replaceBrand(node.nodeValue);
+      if(next!==node.nodeValue)node.nodeValue=next;
+    });
   }
 
   function installInlineLogo(container){
@@ -73,31 +83,39 @@
     if(container)installInlineLogo(container);
   }
 
-  function applyBrand(){
+  function applyStaticBrand(){
     document.title='KageNexus';
     setMeta('application-name','KageNexus');
     setMeta('apple-mobile-web-app-title','KageNexus');
     setLink('icon',FAVICON,'image/svg+xml');
     setLink('shortcut icon',FAVICON,'image/svg+xml');
     setLink('apple-touch-icon',APPLE_ICON,'image/png','180x180');
-    rewriteText(document.body);
-    replaceLegacyMark();
     document.documentElement.dataset.kageNexus='19';
   }
 
+  const pendingRoots=new Set();
   let scheduled=false;
-  const schedule=()=>{
+  const schedule=root=>{
+    if(root)pendingRoots.add(root);
     if(scheduled)return;
     scheduled=true;
-    requestAnimationFrame(()=>{scheduled=false;applyBrand();});
+    requestAnimationFrame(()=>{
+      scheduled=false;
+      const roots=[...pendingRoots];
+      pendingRoots.clear();
+      roots.forEach(rewriteText);
+      replaceLegacyMark();
+    });
   };
 
-  applyBrand();
-  window.addEventListener('kagenexus-ready',schedule);
-  window.addEventListener('anime-haven-ready',schedule);
+  applyStaticBrand();
+  rewriteText(document.body);
+  replaceLegacyMark();
+  window.addEventListener('kagenexus-ready',()=>schedule(document.body));
+  window.addEventListener('anime-haven-ready',()=>schedule(document.body));
   const observer=new MutationObserver(mutations=>{
-    if(mutations.some(mutation=>mutation.type==='childList'||mutation.type==='characterData'))schedule();
+    mutations.forEach(mutation=>mutation.addedNodes.forEach(node=>schedule(node)));
   });
-  observer.observe(document.documentElement,{childList:true,subtree:true,characterData:true});
+  observer.observe(document.documentElement,{childList:true,subtree:true});
   window.addEventListener('pagehide',()=>observer.disconnect(),{once:true});
 })();
