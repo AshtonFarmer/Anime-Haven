@@ -1,10 +1,10 @@
-const CACHE = 'kagenexus-v60-unified-update-cache';
+const CACHE = 'kagenexus-v61-full-app-performance';
 const CORE = [
   './',
   './index.html',
   './offline.html',
-  './bootstrap-v4.js?release=45',
-  './kagenexus-brand-v19.js?release=19',
+  './bootstrap-v4.js?release=61',
+  './kagenexus-brand-v19.js?release=61',
   './luffy-search-v35.js?release=36',
   './luffy-search-v35.css?release=36',
   './rubber-search-v11.js?release=11',
@@ -15,10 +15,10 @@ const CORE = [
   './assets/media/luffy-search/luffy-arm-close-v35.webp?release=35',
   './assets/media/luffy-search/luffy-arm-coiled-v35.webp?release=35',
   './assets/media/luffy-search/luffy-arm-search-v35.webp?release=35',
-  './nav-scroll-guard-v13.js?release=14',
+  './nav-scroll-guard-v13.js?release=61',
   './library-manager-v15.js?release=15',
   './library-manager-v14.css?release=15',
-  './mobile-suite-loader-v22.js?release=60',
+  './mobile-suite-loader-v22.js?release=61',
   './arsenal-v34.js?release=59',
   './arsenal-v34.css?release=59',
   './assets/arsenal/media-sources.json',
@@ -66,6 +66,35 @@ self.addEventListener('message', event => {
   if (event.data?.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
+const remember = (event, cache, request, response) => {
+  if (!response?.ok) return response;
+  event.waitUntil(
+    cache.put(request, response.clone())
+      .catch(error => console.warn('KageNexus cache write skipped', error))
+  );
+  return response;
+};
+
+const networkFirst = async (event, request, cache) => {
+  try {
+    const response = await fetch(request);
+    if (!response?.ok) throw new Error(`Navigation returned ${response?.status || 0}`);
+    return remember(event, cache, request, response);
+  } catch (error) {
+    return await cache.match(request) ||
+      await cache.match('./index.html') ||
+      await cache.match('./offline.html') ||
+      Promise.reject(error);
+  }
+};
+
+const cacheFirst = async (event, request, cache) => {
+  const cached = await cache.match(request);
+  if (cached) return cached;
+  const response = await fetch(request);
+  return remember(event, cache, request, response);
+};
+
 self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
@@ -73,22 +102,8 @@ self.addEventListener('fetch', event => {
   if (url.origin !== self.location.origin) return;
 
   event.respondWith((async () => {
-    try {
-      const response = await fetch(request);
-      if (response?.ok) {
-        const cacheCopy = response.clone();
-        caches.open(CACHE)
-          .then(cache => cache.put(request, cacheCopy))
-          .catch(error => console.warn('KageNexus cache write skipped', error));
-      }
-      return response;
-    } catch (error) {
-      const cached = await caches.match(request);
-      if (cached) return cached;
-      if (request.mode === 'navigate') {
-        return await caches.match('./index.html') || await caches.match('./offline.html');
-      }
-      throw error;
-    }
+    const cache = await caches.open(CACHE);
+    if (request.mode === 'navigate') return networkFirst(event, request, cache);
+    return cacheFirst(event, request, cache);
   })());
 });
