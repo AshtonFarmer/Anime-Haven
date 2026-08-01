@@ -17,6 +17,7 @@ const CORE = [
   './assets/media/luffy-search/luffy-arm-search-v35.webp?release=35',
   './nav-scroll-guard-v13.js?release=61',
   './library-manager-v15.js?release=61',
+  './library-dialog-sync-v61.js?release=61',
   './library-manager-v14.css?release=15',
   './mobile-suite-loader-v22.js?release=61',
   './arsenal-v34.js?release=59',
