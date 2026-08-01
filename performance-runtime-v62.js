@@ -16,6 +16,7 @@
       const saved=localStorage.getItem(STORAGE_KEY);
       if(MODES.has(saved))return saved;
     }catch{}
+    if(navigator.connection?.saveData)return 'low';
     return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?'low':'balanced';
   };
 
@@ -48,6 +49,27 @@
   const pauseMedia=()=>{
     document.querySelectorAll('video,audio').forEach(media=>{
       if(!media.paused){media.dataset.kn62WasPlaying='1';media.pause()}
+    });
+  };
+
+  const pauseHeavyFrames=()=>{
+    document.querySelectorAll('#arsenalView iframe[data-arsenal-media-src][src]').forEach(frame=>{
+      frame.dataset.kn62PausedFrame='1';
+      frame.removeAttribute('src');
+      frame.closest('.arsenal-media-shell')?.classList.remove('media-loaded','media-failed');
+    });
+  };
+
+  const restoreHeavyFrames=()=>{
+    document.querySelectorAll('#arsenalView iframe[data-kn62-paused-frame="1"]').forEach(frame=>{
+      const source=frame.dataset.arsenalMediaSrc;
+      delete frame.dataset.kn62PausedFrame;
+      if(!source)return;
+      const shell=frame.closest('.arsenal-media-shell');
+      frame.onload=()=>{shell?.classList.add('media-loaded');shell?.classList.remove('media-failed')};
+      frame.onerror=()=>{shell?.classList.add('media-failed');shell?.classList.remove('media-loaded')};
+      frame.dataset.arsenalMediaLoaded='1';
+      frame.src=source;
     });
   };
 
@@ -105,9 +127,10 @@
 
   document.addEventListener('visibilitychange',()=>{
     document.documentElement.toggleAttribute('data-kn-page-hidden',document.hidden);
-    if(document.hidden)pauseMedia();
+    if(document.hidden){pauseMedia();pauseHeavyFrames()}
+    else restoreHeavyFrames();
   });
-  window.addEventListener('pagehide',pauseMedia,{once:true});
+  window.addEventListener('pagehide',()=>{pauseMedia();pauseHeavyFrames()},{once:true});
   window.addEventListener('kagenexus-ready',scheduleInstall);
   window.addEventListener('anime-haven-ready',scheduleInstall);
 
