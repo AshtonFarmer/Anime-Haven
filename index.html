@@ -9,34 +9,178 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="KageNexus">
   <meta name="application-name" content="KageNexus">
+  <meta name="description" content="KageNexus — Ashton’s anime library, progress tracker and Arsenal.">
   <title>KageNexus</title>
-  <link rel="manifest" href="./manifest.webmanifest?brand=25">
-  <link rel="icon" type="image/svg+xml" href="./icons/kagenexus-favicon-v19.svg?brand=25">
-  <link rel="shortcut icon" type="image/svg+xml" href="./icons/kagenexus-favicon-v19.svg?brand=25">
-  <link rel="apple-touch-icon" href="./icons/kagenexus-favicon-v19.svg?brand=25">
-  <style>
-    :root{color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;background:#070611;color:#fff}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 15%,#18205d 0,#0b0920 34%,#05040d 72%)}body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(70px);opacity:.58;animation:drift 5s ease-in-out infinite alternate}body:before{width:280px;height:280px;background:#623cff;left:-80px;top:5%}body:after{width:260px;height:260px;background:#00d9ff;right:-110px;bottom:5%;animation-delay:-2s}.boot{position:relative;z-index:2;width:min(86vw,430px);padding:38px 26px 30px;border:1px solid #8170ff66;border-radius:30px;background:#0c0a1dcc;box-shadow:0 28px 100px #000b,0 0 70px #6948ff2e;text-align:center;backdrop-filter:blur(18px)}.sigil{width:94px;height:94px;margin:auto;border-radius:28px;display:grid;place-items:center;overflow:hidden;background:#070611;box-shadow:0 0 30px #5e4cffaa;animation:float 1.8s ease-in-out infinite alternate}.sigil svg{width:100%;height:100%;display:block}.boot h1{font-size:clamp(32px,9vw,48px);margin:22px 0 5px;letter-spacing:-2px}.boot p{color:#aaa8c8;margin:0 0 24px}.bar{height:8px;border-radius:99px;background:#29233e;overflow:hidden}.bar i{display:block;width:5%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8b5cff,#2de5ff,#fff);box-shadow:0 0 18px #48dcff;transition:width .35s ease}.boot small{display:block;margin-top:13px;color:#d9d4ff}.boot-error{max-width:520px;padding:30px;text-align:center}.boot-error div{font-size:50px}.boot-error button{border:0;border-radius:999px;padding:14px 24px;font-weight:900;background:#6c4cff;color:#fff}@keyframes float{to{transform:translateY(-10px) rotate(3deg)}}@keyframes drift{to{transform:translate(35px,40px) scale(1.18)}}
-  </style>
+  <link rel="manifest" href="./manifest.webmanifest?release=63-core-beta">
+  <link rel="icon" type="image/svg+xml" href="./icons/kagenexus-favicon-v19.svg?release=63-core-beta">
+  <link rel="shortcut icon" type="image/svg+xml" href="./icons/kagenexus-favicon-v19.svg?release=63-core-beta">
+  <link rel="apple-touch-icon" href="./icons/kagenexus-icon.png?release=63-core-beta">
+  <link rel="stylesheet" href="./styles/core.css?release=63-core-beta">
+  <link rel="stylesheet" href="./library-manager-v14.css?release=63-core-beta">
+  <link rel="stylesheet" href="./styles/mobile.css?release=63-core-beta">
+  <link rel="stylesheet" href="./arsenal-v34.css?release=63-core-beta">
+  <link rel="stylesheet" href="./luffy-search-v35.css?release=63-core-beta">
+  <link rel="stylesheet" href="./assets/css/power-transform-v29.css?release=63-core-beta">
+  <link rel="stylesheet" href="./styles/runtime.css?release=63-core-beta">
 </head>
 <body>
-  <main class="boot">
-    <div class="sigil"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a758ff"/><stop offset=".48" stop-color="#f8f6ff"/><stop offset="1" stop-color="#46dfff"/></linearGradient><radialGradient id="bg"><stop stop-color="#151836"/><stop offset="1" stop-color="#03040b"/></radialGradient></defs><rect width="192" height="192" rx="38" fill="url(#bg)"/><circle cx="96" cy="96" r="75" fill="none" stroke="url(#g)" stroke-width="7"/><circle cx="96" cy="96" r="65" fill="none" stroke="url(#g)" stroke-opacity=".55" stroke-width="2" stroke-dasharray="18 8"/><path d="M96 14l8 10-8 10-8-10zm0 144 8 10-8 10-8-10zM14 96l10-8 10 8-10 8zm144 0 10-8 10 8-10 8z" fill="url(#g)"/><g fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"><path d="M39 71q27-4 51 20v49q-22-18-51-13zM153 71q-27-4-51 20v49q22-18 51-13z"/><path d="M96 43v102M86 76h20"/><path d="M88 45h16M86 52h20M89 59h14M86 66h20" stroke-width="4"/></g><path d="M96 145l-6-13h12z" fill="#fff"/></svg></div>
-    <h1>KageNexus</h1>
-    <p>Your anime nexus is forming.</p>
-    <div class="bar"><i id="boot-progress"></i></div>
-    <small id="boot-status">Opening the Nexus…</small>
+  <aside id="bootSplash" class="kn-core-boot" aria-live="polite">
+    <div class="kn-core-boot-card">
+      <img src="./icons/kagenexus-favicon-v19.svg" alt="" aria-hidden="true">
+      <h1>KageNexus</h1>
+      <p>Opening Ashton’s anime nexus…</p>
+      <span><i></i></span>
+    </div>
+  </aside>
+
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="aurora aurora-a" aria-hidden="true"></div>
+  <div class="aurora aurora-b" aria-hidden="true"></div>
+  <div id="screenFlash" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <button class="brand" data-view="home" aria-label="Go home">
+      <span class="brand-mark"><img src="./icons/kagenexus-favicon-v19.svg" alt="" aria-hidden="true"></span>
+      <span><strong>KAGENEXUS</strong><small>your watch universe</small></span>
+    </button>
+    <div class="profile-button user-chip" aria-label="Ashton profile">
+      <span id="profileAvatar" class="profile-avatar">A</span>
+      <span id="profileName">Ashton</span>
+    </div>
+  </header>
+
+  <main id="app" class="app-shell">
+    <section id="homeView" class="view active" data-view-name="home">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR ANIME UNIVERSE.</p>
+        <h1>Build your story.<br><span>Never lose your place.</span></h1>
+        <p class="hero-sub">Track every episode, keep every series in order and search the entire collection from one place.</p>
+      </div>
+
+      <div class="power-grid">
+        <button class="power-card watched-card" data-target="watched" aria-label="Open watched and in progress anime">
+          <span class="energy-ring"></span>
+          <span class="power-icon">⚡</span>
+          <span class="power-copy">
+            <small>ACTIVE ARCHIVE</small>
+            <strong>Watched +<br>In Progress</strong>
+            <em id="watchedCount">0 titles</em>
+          </span>
+          <span class="hold-hint">HOLD TO UNLEASH</span>
+        </button>
+
+        <button class="power-card planned-card" data-target="planned" aria-label="Open anime not started">
+          <span class="energy-ring"></span>
+          <span class="power-icon">✦</span>
+          <span class="power-copy">
+            <small>UNCHARTED REALM</small>
+            <strong>Haven’t<br>Started Yet</strong>
+            <em id="plannedCount">0 titles</em>
+          </span>
+          <span class="hold-hint">HOLD TO UNLEASH</span>
+        </button>
+      </div>
+
+      <section class="dashboard-strip">
+        <div><small>Episodes logged</small><strong id="episodeTotal">0</strong></div>
+        <div><small>Completed</small><strong id="completedTotal">0</strong></div>
+        <div><small>Current streak</small><strong id="streakTotal">0 days</strong></div>
+      </section>
+    </section>
+
+    <section id="listView" class="view" data-view-name="list">
+      <div class="section-heading">
+        <button class="back-button" data-view="home">← HOME</button>
+        <div>
+          <p class="eyebrow" id="listEyebrow">ACTIVE ARCHIVE</p>
+          <h2 id="listTitle">Watched + In Progress</h2>
+        </div>
+      </div>
+      <div class="toolbar glass-panel">
+        <div class="segmented" id="statusFilters"></div>
+        <label class="sort-control">Sort
+          <select id="sortSelect">
+            <option value="alpha">A–Z</option>
+            <option value="chronology">Series order</option>
+            <option value="recent">Recently updated</option>
+          </select>
+        </label>
+      </div>
+      <div id="animeGrid" class="anime-grid"></div>
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-orb">✦</div>
+        <h3>Nothing lives here yet.</h3>
+        <p>Use the global search punch to add an anime.</p>
+      </div>
+    </section>
+
+    <section id="searchView" class="view" data-view-name="search">
+      <div class="section-heading">
+        <button class="back-button" data-view="home">← HOME</button>
+        <div><p class="eyebrow">UNIVERSAL SEARCH</p><h2>Search Every Realm</h2></div>
+      </div>
+      <div class="search-summary glass-panel">
+        <span id="searchSummary">Type an anime title to search your library and the anime database.</span>
+      </div>
+      <div id="searchResults" class="anime-grid"></div>
+    </section>
+
+    <section id="settingsView" class="view" data-view-name="settings">
+      <div class="section-heading">
+        <button class="back-button" data-view="home">← HOME</button>
+        <div><p class="eyebrow">SYSTEM MENU</p><h2>Backup + Install</h2></div>
+      </div>
+      <div class="settings-grid">
+        <article class="glass-panel settings-card">
+          <h3>Backup your universe</h3>
+          <p>Export your full library as one file or import it on another device.</p>
+          <div class="button-row">
+            <button id="exportData" class="action-button">Export backup</button>
+            <label class="action-button file-button">Import backup<input id="importData" type="file" accept="application/json"></label>
+          </div>
+        </article>
+        <article class="glass-panel settings-card">
+          <h3>Install KageNexus</h3>
+          <p id="installHint">On iPhone: open KageNexus in Safari then use Share → Add to Home Screen → Open as Web App.</p>
+          <button id="installApp" class="action-button">Install app</button>
+        </article>
+        <article class="glass-panel settings-card">
+          <h3>Season tracking</h3>
+          <p>Every title stores its current season, current episode, completed-season history and optional episode total.</p>
+        </article>
+        <article class="glass-panel settings-card full-span">
+          <h3>Cloud sync status</h3>
+          <p id="cloudStatus">Local save is active. Secure account sync comes after the core rebuild.</p>
+          <button id="syncNow" class="action-button secondary">Sync now</button>
+        </article>
+      </div>
+    </section>
   </main>
-  <script src="./bootstrap-v4.js?release=61"></script>
-  <script src="./performance-runtime-v62.js?release=62"></script>
-  <script src="./kagenexus-brand-v19.js?release=61"></script>
-  <script src="./luffy-search-v35.js?release=36"></script>
-  <script src="./nav-scroll-guard-v13.js?release=61"></script>
-  <script src="./library-manager-v15.js?release=61"></script>
-  <script src="./library-dialog-sync-v61.js?release=61"></script>
-  <script src="./mobile-suite-loader-v22.js?release=62"></script>
-  <script src="./arsenal-v34.js?release=59"></script>
-  <script src="./up-next-v62.js?release=62"></script>
-  <script src="./arsenal-personal-v62.js?release=62"></script>
-  <script src="./update-manager-v62.js?release=62"></script>
+
+  <nav class="bottom-nav" aria-label="Primary navigation">
+    <button data-view="home" class="active"><span>⌂</span>Home</button>
+    <button data-view="watched"><span>◉</span>Archive</button>
+    <button data-view="planned"><span>◇</span>Unstarted</button>
+    <button data-view="settings"><span>⚙</span>Settings</button>
+  </nav>
+
+  <div id="rubberSearch" class="rubber-search">
+    <div class="steam steam-a"></div><div class="steam steam-b"></div>
+    <div class="arm-coil" aria-hidden="true"></div>
+    <input id="globalSearch" type="search" autocomplete="off" placeholder="Search anime or franchise…" aria-label="Search anime">
+    <button id="searchPunch" class="fist-button" aria-label="Open anime search"><span class="fist">✊</span><span class="haki"></span></button>
+  </div>
+
+  <div id="swordScroll" class="sword-scroll" aria-hidden="true">
+    <span class="sword-pommel"></span><span class="sword-grip"></span><span class="sword-guard"><i></i></span><span class="sword-blade"></span>
+  </div>
+
+  <dialog id="animeDialog" class="anime-dialog">
+    <button class="dialog-close" aria-label="Close">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="./src/app.js?release=63-core-beta"></script>
 </body>
 </html>

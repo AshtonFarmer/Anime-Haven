@@ -1,0 +1,16 @@
+{
+  "name": "kagenexus",
+  "version": "2.0.0-beta.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-concurrency=1",
+    "check": "npm test && node scripts/verify-architecture.mjs",
+    "visual:smoke": "node scripts/visual-smoke.mjs"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "149.0.0",
+    "jsdom": "29.1.1",
+    "puppeteer-core": "25.4.0"
+  }
+}
