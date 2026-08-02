@@ -270,7 +270,8 @@
     if(!document.querySelector('link[href*="library-manager-v14.css"]')){
       const link=document.createElement('link');link.rel='stylesheet';link.href='./library-manager-v14.css?release=15';document.head.appendChild(link);
     }
-    const changed=migrateLibrary();
+    // KageNexus 2.0 performs this migration in src/store.js before features load.
+    const changed=window.KageNexus?.version?false:migrateLibrary();
     if(changed&&!sessionStorage.getItem('anime-haven-migrated-v15')){
       sessionStorage.setItem('anime-haven-migrated-v15','1');location.reload();return true;
     }
