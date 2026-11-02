@@ -1,5 +1,7 @@
 # KageNexus
 
+🌐 **Live website:** https://ashtonfarmer.github.io/Anime-Haven/
+
 A private, account-ready anime and movie tracker, progress library, search hub, and 1,778-entry Arsenal.
 
 ## KageNexus 2.0 core
