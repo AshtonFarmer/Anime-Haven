@@ -1,5 +1,5 @@
-import { ANIME_META, ANIME_SEED } from './data/library-seed.js';
-import { activeProfile, getState, loadState, saveState } from './store.js';
+import { installAccounts } from './account.js';
+import { activeProfile, clearItemDeletion, getState, getStorageKey, loadState, saveState } from './store.js';
 import {
   bindLibraryEvents,
   configureLibrary,
@@ -15,9 +15,25 @@ import { installUpNext, renderUpNext } from './up-next.js';
 import { installUpdates } from './updates.js';
 import { $, $$, safeScrollToTop } from './utils.js';
 
-export const CORE_VERSION = '2.0.0-beta.1';
+export const CORE_VERSION = '2.0.0-beta.2';
 let initialized = false;
 let featuresPromise = null;
+let arsenalPromise = null;
+
+export function ensureArsenal() {
+  if (arsenalPromise) return arsenalPromise;
+  arsenalPromise = import('./arsenal.js')
+    .then(async module => {
+      module.installArsenal();
+      await import('../arsenal-personal-v62.js');
+      return module;
+    })
+    .catch(error => {
+      arsenalPromise = null;
+      throw error;
+    });
+  return arsenalPromise;
+}
 
 export function setView(view, options = {}) {
   const state = getState();
@@ -45,6 +61,9 @@ export function updateSwordScroll() {
 
 export function renderApp() {
   const state = getState();
+  if (state.view === 'arsenal' && !$('#arsenalView')) {
+    ensureArsenal().then(renderApp).catch(error => console.error('KageNexus Arsenal could not load', error));
+  }
   const currentView = state.view === 'list' ? 'list' : state.view;
   $$('.view').forEach(view => view.classList.toggle('active', view.dataset.viewName === currentView));
   $$('.bottom-nav button').forEach(button => {
@@ -91,6 +110,13 @@ function bindRoutingEvents() {
     const button = event.target.closest('[data-view]');
     if (!button) return;
     const view = button.dataset.view;
+    if (view === 'arsenal' && !$('#arsenalView')) {
+      event.preventDefault();
+      ensureArsenal()
+        .then(() => setView('arsenal'))
+        .catch(error => console.error('KageNexus Arsenal could not load', error));
+      return;
+    }
     if (view) setView(view);
   });
   $$('.power-card').forEach(button => button.addEventListener('pointerdown', event => {
@@ -148,26 +174,27 @@ export function setupStarfield() {
 }
 
 function exposeCompatibilityGlobals() {
-  window.ANIME_HAVEN_SEED = ANIME_SEED;
-  window.ANIME_HAVEN_META = ANIME_META;
+  window.ANIME_HAVEN_SEED = [];
+  window.ANIME_HAVEN_META = Object.freeze({ seedCount: 0, publicDefault: 'empty' });
   window.KageNexus = Object.freeze({
     version: CORE_VERSION,
-    storageKey: 'anime-haven-state-v2',
+    get storageKey() { return getStorageKey(); },
     getState,
     activeProfile,
+    clearDeletion: clearItemDeletion,
+    save: saveState,
     render: renderApp,
-    setView
+    setView,
+    ensureArsenal
   });
 }
 
 async function importIndependentFeatures() {
   const results = await Promise.allSettled([
-    import('./arsenal.js'),
     import('../luffy-search-v35.js'),
     import('../library-manager-v15.js'),
     import('../library-dialog-sync-v61.js'),
-    import('./mobile.js'),
-    import('../arsenal-personal-v62.js')
+    import('./mobile.js')
   ]);
   results.forEach(result => {
     if (result.status === 'rejected') console.error('A KageNexus feature module could not load', result.reason);
@@ -206,7 +233,10 @@ export function bootstrapApp({ loadFeatures = true, setupAnimations = true } = {
   removeBootSplash();
 
   if (loadFeatures) {
-    featuresPromise = importIndependentFeatures();
+    featuresPromise = Promise.all([
+      importIndependentFeatures(),
+      installAccounts({ render: renderApp })
+    ]);
     installUpdates();
   } else {
     featuresPromise = Promise.resolve();

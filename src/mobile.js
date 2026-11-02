@@ -1,8 +1,7 @@
 (()=>{
   'use strict';
 
-  const STORAGE_KEY='anime-haven-state-v2';
-  const IMPORT_SAFETY_KEY='kagenexus-import-safety-v1';
+  const IMPORT_SAFETY_KEY='kagenexus-import-safety-v2';
   const RELEASE='22';
   const MAX_CONTINUE=5;
   const $=(selector,root=document)=>root.querySelector(selector);
@@ -12,13 +11,12 @@
   const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({"&":'&amp;',"<":'&lt;',">":'&gt;',"\"":'&quot;',"'":'&#39;'}[char]));
 
   function readState(){
-    try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'null')}catch(error){console.warn('KageNexus could not read saved progress',error);return null}
+    return window.KageNexus?.getState?.()||null;
   }
   function writeState(state){
     try{
       state.updatedAt=now();
-      localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
-      return true;
+      return window.KageNexus?.save?.('mobile-action')!==false;
     }catch(error){
       console.error('KageNexus could not save progress',error);
       showToast('Progress could not be saved on this device.','error');
@@ -26,7 +24,7 @@
     }
   }
   function profileOf(state){
-    return state?.profiles?.find(profile=>profile.id===state.activeProfileId)||state?.profiles?.find(profile=>profile.id==='ashton')||state?.profiles?.[0]||null;
+    return state?.profiles?.find(profile=>profile.id===state.activeProfileId)||state?.profiles?.[0]||null;
   }
   function itemOf(state,id,title){
     const profile=profileOf(state);
@@ -331,7 +329,7 @@
   function importPayload(payload){
     const incoming=validatePayload(payload);
     const current=readState();
-    try{localStorage.setItem(IMPORT_SAFETY_KEY,JSON.stringify({savedAt:now(),state:current}))}catch{}
+    try{localStorage.setItem(`${IMPORT_SAFETY_KEY}:${window.KageNexus?.storageKey||'guest'}`,JSON.stringify({savedAt:now(),state:current}))}catch{}
     const merged=mergeStates(current,incoming);
     if(!writeState(merged))return;
     sessionStorage.setItem('kagenexus-mobile-flash','Backup merged. Your newest progress was kept for every title.');
@@ -358,10 +356,10 @@
   }
   function restoreSafetyBackup(){
     try{
-      const payload=JSON.parse(localStorage.getItem(IMPORT_SAFETY_KEY)||'null');
+      const payload=JSON.parse(localStorage.getItem(`${IMPORT_SAFETY_KEY}:${window.KageNexus?.storageKey||'guest'}`)||'null');
       if(!payload?.state)throw new Error('No previous import backup is available.');
       if(!confirm('Restore the progress saved immediately before your last import?'))return;
-      localStorage.setItem(STORAGE_KEY,JSON.stringify(payload.state));location.reload();
+      const current=readState();Object.keys(current).forEach(key=>delete current[key]);Object.assign(current,payload.state);writeState(current);location.reload();
     }catch(error){showToast(error.message||'The safety backup could not be restored.','error')}
   }
   function renderSyncPanel(){
@@ -432,7 +430,9 @@
 
   function detectBottomNav(){
     if($('.kn-bottom-nav[data-kn-safe-nav="22"]'))return;
-    const labels=['home','archive','unstarted','settings'];
+    const known=$('.bottom-nav');
+    if(known){known.classList.add('kn-bottom-nav');known.dataset.knSafeNav='22';const setHeight=()=>document.documentElement.style.setProperty('--kn-bottom-nav-height',`${Math.ceil(known.getBoundingClientRect().height)}px`);setHeight();if('ResizeObserver' in window)new ResizeObserver(setHeight).observe(known);return}
+    const labels=['home','archive','unstarted','arsenal'];
     const controls=$$('button,a,[role="button"]');
     const matches=controls.filter(control=>labels.some(label=>String(control.textContent||control.getAttribute('aria-label')||'').trim().toLowerCase()===label));
     if(matches.length<4)return;

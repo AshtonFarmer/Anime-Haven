@@ -9,26 +9,25 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="KageNexus">
   <meta name="application-name" content="KageNexus">
-  <meta name="description" content="KageNexus — Ashton’s anime library, progress tracker and Arsenal.">
+  <meta name="description" content="KageNexus — your private anime library, progress tracker and Arsenal.">
   <title>KageNexus</title>
-  <link rel="manifest" href="./manifest.webmanifest?release=63-core-beta">
-  <link rel="icon" type="image/svg+xml" href="./icons/kagenexus-favicon-v19.svg?release=63-core-beta">
-  <link rel="shortcut icon" type="image/svg+xml" href="./icons/kagenexus-favicon-v19.svg?release=63-core-beta">
-  <link rel="apple-touch-icon" href="./icons/kagenexus-icon.png?release=63-core-beta">
-  <link rel="stylesheet" href="./styles/core.css?release=63-core-beta">
-  <link rel="stylesheet" href="./library-manager-v14.css?release=63-core-beta">
-  <link rel="stylesheet" href="./styles/mobile.css?release=63-core-beta">
-  <link rel="stylesheet" href="./arsenal-v34.css?release=63-core-beta">
-  <link rel="stylesheet" href="./luffy-search-v35.css?release=63-core-beta">
-  <link rel="stylesheet" href="./assets/css/power-transform-v29.css?release=63-core-beta">
-  <link rel="stylesheet" href="./styles/runtime.css?release=63-core-beta">
+  <link rel="manifest" href="./manifest.webmanifest?release=64-account-beta">
+  <link rel="icon" type="image/svg+xml" href="./icons/kagenexus-favicon-v19.svg?release=64-account-beta">
+  <link rel="shortcut icon" type="image/svg+xml" href="./icons/kagenexus-favicon-v19.svg?release=64-account-beta">
+  <link rel="apple-touch-icon" href="./icons/kagenexus-icon.png?release=64-account-beta">
+  <link rel="stylesheet" href="./styles/core.css?release=64-account-beta">
+  <link rel="stylesheet" href="./library-manager-v14.css?release=64-account-beta">
+  <link rel="stylesheet" href="./styles/mobile.css?release=64-account-beta">
+  <link rel="stylesheet" href="./luffy-search-v35.css?release=64-account-beta">
+  <link rel="stylesheet" href="./assets/css/power-transform-v29.css?release=64-account-beta">
+  <link rel="stylesheet" href="./styles/runtime.css?release=64-account-beta">
 </head>
 <body>
   <aside id="bootSplash" class="kn-core-boot" aria-live="polite">
     <div class="kn-core-boot-card">
       <img src="./icons/kagenexus-favicon-v19.svg" alt="" aria-hidden="true">
       <h1>KageNexus</h1>
-      <p>Opening Ashton’s anime nexus…</p>
+      <p>Opening your anime nexus…</p>
       <span><i></i></span>
     </div>
   </aside>
@@ -43,9 +42,12 @@
       <span class="brand-mark"><img src="./icons/kagenexus-favicon-v19.svg" alt="" aria-hidden="true"></span>
       <span><strong>KAGENEXUS</strong><small>your watch universe</small></span>
     </button>
-    <div class="profile-button user-chip" aria-label="Ashton profile">
-      <span id="profileAvatar" class="profile-avatar">A</span>
-      <span id="profileName">Ashton</span>
+    <div class="topbar-actions">
+      <button id="arsenalSettingsButton" class="arsenal-settings-button" data-view="settings" type="button" aria-label="Open Settings"><span aria-hidden="true">⚙</span></button>
+      <button id="accountButton" class="profile-button user-chip" type="button" aria-label="Open account">
+        <span id="profileAvatar" class="profile-avatar">G</span>
+        <span id="profileName">Guest</span>
+      </button>
     </div>
   </header>
 
@@ -131,6 +133,10 @@
         <div><p class="eyebrow">SYSTEM MENU</p><h2>Backup + Install</h2></div>
       </div>
       <div class="settings-grid">
+        <article class="glass-panel settings-card full-span account-settings-card">
+          <div><h3>Private account + cloud sync</h3><p>Your library belongs only to your account. New visitors always begin with a clean Nexus.</p></div>
+          <button id="openAccount" class="action-button">Open account</button>
+        </article>
         <article class="glass-panel settings-card">
           <h3>Backup your universe</h3>
           <p>Export your full library as one file or import it on another device.</p>
@@ -150,7 +156,7 @@
         </article>
         <article class="glass-panel settings-card full-span">
           <h3>Cloud sync status</h3>
-          <p id="cloudStatus">Local save is active. Secure account sync comes after the core rebuild.</p>
+          <p id="cloudStatus">Guest mode is active. Sign in to synchronize privately across devices.</p>
           <button id="syncNow" class="action-button secondary">Sync now</button>
         </article>
       </div>
@@ -161,7 +167,7 @@
     <button data-view="home" class="active"><span>⌂</span>Home</button>
     <button data-view="watched"><span>◉</span>Archive</button>
     <button data-view="planned"><span>◇</span>Unstarted</button>
-    <button data-view="settings"><span>⚙</span>Settings</button>
+    <button data-view="arsenal"><span>⚔</span>Arsenal</button>
   </nav>
 
   <div id="rubberSearch" class="rubber-search">
@@ -179,8 +185,12 @@
     <button class="dialog-close" aria-label="Close">×</button>
     <div id="dialogContent"></div>
   </dialog>
+  <dialog id="accountDialog" class="account-dialog">
+    <button class="account-close" type="button" aria-label="Close account">×</button>
+    <div id="accountContent" class="account-content"></div>
+  </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script type="module" src="./src/app.js?release=63-core-beta"></script>
+  <script type="module" src="./src/app.js?release=64-account-beta"></script>
 </body>
 </html>

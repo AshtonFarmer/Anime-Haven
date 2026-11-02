@@ -2,6 +2,7 @@ import {
   activeProfile,
   findItem,
   getState,
+  recordItemDeletion,
   saveState,
   updateStreak
 } from './store.js';
@@ -326,6 +327,7 @@ export function bindLibraryEvents() {
       requestRender();
       showToast(`${item.title} moved to not started. Progress was kept.`);
     } else if (action === 'remove') {
+      recordItemDeletion(item);
       profile.items = profile.items.filter(entry => entry.id !== item.id);
       saveState('remove-title');
       listSignature = '';

@@ -31,16 +31,29 @@ test('active startup contains no eval, encoded package fetch, or runtime exact-t
 test('index uses static modules and normal stylesheets', async () => {
   const index = await readFile(path.join(root, 'index.html'), 'utf8');
   assert.match(index, /<script type="module" src="\.\/src\/app\.js/);
-  for (const stylesheet of ['styles/core.css', 'styles/mobile.css', 'styles/runtime.css', 'arsenal-v34.css', 'luffy-search-v35.css']) {
+  for (const stylesheet of ['styles/core.css', 'styles/mobile.css', 'styles/runtime.css', 'luffy-search-v35.css']) {
     assert.ok(index.includes(stylesheet), stylesheet);
   }
+  assert.doesNotMatch(index, /arsenal-v34\.css/, 'Arsenal CSS should load only when Arsenal opens');
   assert.doesNotMatch(index, /bootstrap-v4\.js|mobile-suite-loader-v22\.js/);
 });
 
 test('core source has the requested feature boundaries', async () => {
-  for (const file of ['app.js', 'store.js', 'library.js', 'search.js', 'settings.js', 'arsenal.js', 'updates.js']) {
+  for (const file of ['app.js', 'store.js', 'library.js', 'search.js', 'settings.js', 'account.js', 'cloud.js', 'arsenal.js', 'updates.js']) {
     await assert.doesNotReject(() => readFile(path.join(root, 'src', file), 'utf8'));
   }
+});
+
+test('public client contains no privileged Supabase credential or personal startup seed', async () => {
+  const files = [path.join(root, 'index.html'), ...await filesBelow(path.join(root, 'src'))]
+    .filter(file => /\.(?:html|js)$/.test(file));
+  const source = (await Promise.all(files.map(file => readFile(file, 'utf8')))).join('\n');
+  assert.doesNotMatch(source, /service[_-]?role/i);
+  assert.doesNotMatch(source, /supabaseSecret|secretKey/);
+  const app = await readFile(path.join(root, 'src', 'app.js'), 'utf8');
+  const store = await readFile(path.join(root, 'src', 'store.js'), 'utf8');
+  assert.doesNotMatch(app, /from ['"]\.\/data\/library-seed/);
+  assert.doesNotMatch(store, /from ['"]\.\/data\/library-seed/);
 });
 
 test('active modules do not inject style elements', async () => {

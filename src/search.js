@@ -1,4 +1,4 @@
-import { activeProfile, getState, normalizeItem, saveState, updateStreak } from './store.js';
+import { activeProfile, clearItemDeletion, getState, normalizeItem, saveState, updateStreak } from './store.js';
 import { animeCard } from './library.js';
 import { $, clone, escapeHtml, now, showToast, uid } from './utils.js';
 
@@ -153,6 +153,7 @@ export function addExternal(anilistId, startWatching = false) {
     episodesLogged: startWatching ? 1 : 0,
     updatedAt: now()
   });
+  clearItemDeletion(item);
   profile.items.push(item);
   if (startWatching) updateStreak();
   saveState('add-search-result');

@@ -1,5 +1,5 @@
-export const RELEASE = '63-core-beta';
-export const WORKER_URL = './sw-core.js?release=63-core-beta';
+export const RELEASE = '64-account-beta';
+export const WORKER_URL = './sw-core.js?release=64-account-beta';
 const LAST_RELEASE_KEY = 'kagenexus-last-seen-release';
 
 let refreshing = false;
@@ -81,7 +81,7 @@ export async function installUpdates() {
     if (previous && previous !== RELEASE && !registration.waiting) {
       showCard({
         title: `KageNexus upgraded to ${RELEASE}`,
-        message: 'The modular core and newest reliability improvements are active.',
+        message: 'Private accounts, cloud sync and the faster startup path are active.',
         timeout: 6500
       });
     }

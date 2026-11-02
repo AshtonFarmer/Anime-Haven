@@ -413,8 +413,9 @@ export function installArsenal(){
   }
   arsenalStyles.href='./arsenal-v34.css?release=59';
 
-  const settingsNav=nav.querySelector('[data-view="settings"]');
-  if(settingsNav){
+  const arsenalNav=nav.querySelector('[data-view="arsenal"]');
+  const settingsNav=arsenalNav||nav.querySelector('[data-view="settings"]');
+  if(settingsNav&&!arsenalNav){
     settingsNav.dataset.view='arsenal';
     settingsNav.setAttribute('aria-label','Open Arsenal');
     settingsNav.innerHTML='<span aria-hidden="true">⚔</span>Arsenal';
@@ -649,7 +650,7 @@ export function installArsenal(){
   syncArsenalState();
 
   try{
-    const state=JSON.parse(localStorage.getItem('anime-haven-state-v2')||'null');
+    const state=window.KageNexus?.getState?.();
     if(state?.view==='arsenal')setTimeout(()=>settingsNav?.click(),0);
   }catch(error){console.warn('Arsenal could not restore its last view',error)}
   return true;

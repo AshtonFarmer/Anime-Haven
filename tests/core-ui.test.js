@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 import { JSDOM } from 'jsdom';
+import { SAMPLE_LIBRARY } from './fixtures/sample-library.js';
 
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const dom = new JSDOM(html, { url: 'https://kagenexus.test/' });
@@ -52,30 +53,30 @@ const library = await import('../src/library.js');
 const search = await import('../src/search.js');
 const settings = await import('../src/settings.js');
 const upNext = await import('../src/up-next.js');
-const { ANIME_SEED } = await import('../src/data/library-seed.js');
-
 app.bootstrapApp({ loadFeatures: false, setupAnimations: false });
 
-function resetState() {
-  store.replaceState(store.makeInitialState(), { save: true, reason: 'test-reset' });
+function resetState({ populated = false } = {}) {
+  const next = populated
+    ? store.makeInitialState(SAMPLE_LIBRARY, { id: 'sample-user', name: 'Sample User' })
+    : store.makeInitialState();
+  store.replaceState(next, { save: true, reason: 'test-reset' });
   app.renderApp();
 }
 
-test('Home renders the complete existing library without changing the save key', () => {
+test('Fresh visitors start with a clean guest library and a non-legacy save key', () => {
   resetState();
   const profile = store.activeProfile();
-  const watched = profile.items.filter(item => item.status !== 'planned');
-  const planned = profile.items.filter(item => item.status === 'planned');
-  assert.equal(profile.items.length, 198);
-  assert.equal(ANIME_SEED.length, 195);
+  assert.equal(profile.name, 'Guest');
+  assert.equal(profile.items.length, 0);
   assert.equal(document.querySelector('#homeView').classList.contains('active'), true);
-  assert.equal(document.querySelector('#watchedCount').textContent, `${watched.length} titles`);
-  assert.equal(document.querySelector('#plannedCount').textContent, `${planned.length} titles`);
-  assert.ok(localStorage.getItem('anime-haven-state-v2'));
+  assert.equal(document.querySelector('#watchedCount').textContent, '0 titles');
+  assert.equal(document.querySelector('#plannedCount').textContent, '0 titles');
+  assert.ok(localStorage.getItem('kagenexus-guest-state-v3'));
+  assert.equal(localStorage.getItem('anime-haven-state-v2'), null);
 });
 
 test('Archive and Unstarted routes render the correct title sets', () => {
-  resetState();
+  resetState({ populated: true });
   const profile = store.activeProfile();
   app.setView('watched');
   assert.equal(document.querySelector('#listView').classList.contains('active'), true);
@@ -91,11 +92,12 @@ test('Settings renders performance and complete backup controls', () => {
   assert.equal(document.querySelector('#settingsView').classList.contains('active'), true);
   assert.ok(document.querySelector('#kn62PerformanceSettings'));
   assert.ok(document.querySelector('#knDataSyncPanel'));
-  assert.equal(document.querySelectorAll('#knDataSyncPanel .kn-sync-grid button').length, 6);
+  assert.ok(document.querySelector('.account-settings-card'));
+  assert.equal(document.querySelectorAll('#knDataSyncPanel .kn-sync-grid button').length, 7);
 });
 
 test('Search shows saved results and accepts an empty AniList response', async () => {
-  resetState();
+  resetState({ populated: true });
   search.configureSearch({
     render: app.renderApp,
     fetchImpl: async () => ({
@@ -103,14 +105,14 @@ test('Search shows saved results and accepts an empty AniList response', async (
       async json() { return { data: { Page: { media: [] } } }; }
     })
   });
-  await search.runSearch('Arcane');
+  await search.runSearch('Sample Arc');
   assert.equal(document.querySelector('#searchView').classList.contains('active'), true);
   assert.match(document.querySelector('#searchSummary').textContent, /saved match/);
-  assert.ok([...document.querySelectorAll('#searchResults h3')].some(node => node.textContent === 'Arcane'));
+  assert.ok([...document.querySelectorAll('#searchResults h3')].some(node => node.textContent === 'Sample Arc'));
 });
 
 test('Up Next renders the three most recently updated watching titles', () => {
-  resetState();
+  resetState({ populated: true });
   const profile = store.activeProfile();
   const planned = profile.items.filter(item => item.status === 'planned').slice(0, 4);
   planned.forEach((item, index) => {
@@ -127,19 +129,19 @@ test('Up Next renders the three most recently updated watching titles', () => {
 });
 
 test('Progress updates persist without changing the state schema', () => {
-  resetState();
+  resetState({ populated: true });
   const item = store.activeProfile().items.find(entry => entry.status === 'planned' && entry.mediaType !== 'movie');
-  library.addEpisode('ashton', item.id);
+  library.addEpisode(store.activeProfile().id, item.id);
   assert.equal(item.status, 'watching');
   assert.equal(item.episode, 1);
   const saved = JSON.parse(localStorage.getItem(store.STORAGE_KEY));
   const savedItem = saved.profiles[0].items.find(entry => entry.id === item.id);
-  assert.equal(saved.version, 2);
+  assert.equal(saved.version, 3);
   assert.equal(savedItem.episode, 1);
 });
 
 test('Backup import merges the newest title progress and keeps a safety copy', () => {
-  resetState();
+  resetState({ populated: true });
   const current = store.getState();
   const incoming = structuredClone(current);
   const target = incoming.profiles[0].items[0];
@@ -148,7 +150,7 @@ test('Backup import merges the newest title progress and keeps a safety copy', (
   incoming.updatedAt = target.updatedAt;
   settings.importPayload({ app: 'KageNexus', schema: 1, state: incoming }, { reload: false });
   assert.equal(store.activeProfile().items[0].episode, 777);
-  assert.ok(localStorage.getItem(settings.IMPORT_SAFETY_KEY));
+  assert.ok(localStorage.getItem(`${settings.IMPORT_SAFETY_KEY}:${store.getStorageKey()}`));
 });
 
 test('Arsenal installs all 1,778 entries but initially renders only 96 cards', async () => {

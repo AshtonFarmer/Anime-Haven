@@ -56,14 +56,18 @@ test('full modular runtime installs every Release 62 feature without packaged ex
   await new Promise(resolve => window.setTimeout(resolve, 20));
 
   assert.equal(document.documentElement.dataset.knMobileSuite, '22');
-  assert.ok(document.documentElement.dataset.arsenalV59);
+  assert.equal(document.documentElement.dataset.arsenalV59, undefined);
   assert.equal(document.documentElement.dataset.knSearchStyle, 'luffy');
   assert.ok(document.querySelector('#homeAddAnime'));
-  assert.ok(document.querySelector('#arsenalView'));
-  assert.equal(document.querySelectorAll('#arsenalGrid .arsenal-card').length, 0);
+  assert.equal(document.querySelector('#arsenalView'), null);
   assert.ok(document.querySelector('#kn35SearchStyleSettings'));
   assert.equal(document.querySelector('.bottom-nav [data-view="arsenal"]')?.textContent.trim().endsWith('Arsenal'), true);
   assert.equal(document.querySelectorAll('style').length, 0);
+
+  await app.ensureArsenal();
+  assert.ok(document.documentElement.dataset.arsenalV59);
+  assert.ok(document.querySelector('#arsenalView'));
+  assert.equal(document.querySelectorAll('#arsenalGrid .arsenal-card').length, 0);
 
   dom.window.close();
   if (previousNavigator) Object.defineProperty(globalThis, 'navigator', previousNavigator);

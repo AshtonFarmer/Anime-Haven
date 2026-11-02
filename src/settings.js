@@ -1,17 +1,30 @@
 import { APP_CONFIG } from './config.js';
-import { getState, replaceState, STORAGE_KEY } from './store.js';
-import { $, clone, escapeHtml, normalizeTitle, now, showToast } from './utils.js';
+import {
+  activeProfile,
+  getState,
+  getStorageKey,
+  hasLegacyState,
+  itemIdentity,
+  readLegacyState,
+  replaceState
+} from './store.js';
+import { $, clone, escapeHtml, now, showToast } from './utils.js';
 
-export const IMPORT_SAFETY_KEY = 'kagenexus-import-safety-v1';
+export const IMPORT_SAFETY_KEY = 'kagenexus-import-safety-v2';
 export const SYNC_CODE_PREFIX = 'KNX1.';
+export const MAX_BACKUP_BYTES = 5 * 1024 * 1024;
+export const MAX_LIBRARY_ITEMS = 10_000;
 
 let deferredInstallPrompt = null;
+
+const safetyKey = () => `${IMPORT_SAFETY_KEY}:${getStorageKey()}`;
+const timestamp = value => Date.parse(value || 0) || 0;
 
 export function backupPayload(state = getState()) {
   return {
     app: 'KageNexus',
-    schema: 1,
-    storageKey: STORAGE_KEY,
+    schema: 2,
+    storageKey: getStorageKey(),
     exportedAt: now(),
     state: clone(state)
   };
@@ -30,58 +43,80 @@ export function validatePayload(payload) {
   if (!state || !Array.isArray(state.profiles) || !state.profiles.some(profile => Array.isArray(profile.items))) {
     throw new Error('That is not a valid KageNexus backup.');
   }
+  const size = new TextEncoder().encode(JSON.stringify(state)).byteLength;
+  if (size > MAX_BACKUP_BYTES) throw new Error('That backup is too large to import safely.');
+  const itemCount = state.profiles.reduce((sum, profile) => sum + (profile.items?.length || 0), 0);
+  if (itemCount > MAX_LIBRARY_ITEMS) throw new Error('That backup contains too many library items.');
   return state;
 }
 
-export function mergeStates(current, incoming) {
-  if (!current) return clone(incoming);
-  const merged = clone(current);
-  merged.profiles ||= [];
-  for (const incomingProfile of incoming.profiles || []) {
-    let target = merged.profiles.find(profile => profile.id === incomingProfile.id)
-      || merged.profiles.find(profile => profile.name === incomingProfile.name);
-    if (!target) {
-      merged.profiles.push(clone(incomingProfile));
-      continue;
-    }
-    target.items ||= [];
-    const byId = new Map(target.items.map(item => [String(item.id), item]));
-    const byTitle = new Map(target.items.map(item => [normalizeTitle(item.title), item]));
-    for (const incomingItem of incomingProfile.items || []) {
-      const existing = byId.get(String(incomingItem.id)) || byTitle.get(normalizeTitle(incomingItem.title));
-      if (!existing) {
-        const added = clone(incomingItem);
-        target.items.push(added);
-        byId.set(String(added.id), added);
-        byTitle.set(normalizeTitle(added.title), added);
-        continue;
-      }
-      const incomingTime = Date.parse(incomingItem.updatedAt || 0) || 0;
-      const existingTime = Date.parse(existing.updatedAt || 0) || 0;
-      if (incomingTime >= existingTime) Object.assign(existing, clone(incomingItem));
-    }
+function mergeDeletionMaps(left = {}, right = {}) {
+  const merged = { ...left };
+  for (const [key, value] of Object.entries(right || {})) {
+    if (!merged[key] || timestamp(value) > timestamp(merged[key])) merged[key] = value;
   }
-  const incomingUpdated = Date.parse(incoming.updatedAt || 0) || 0;
-  const currentUpdated = Date.parse(current.updatedAt || 0) || 0;
-  if (incomingUpdated > currentUpdated) {
+  return merged;
+}
+
+function mergeProfileItems(currentProfile, incomingProfile, deletedItems) {
+  const selected = new Map();
+  for (const item of [...(currentProfile?.items || []), ...(incomingProfile?.items || [])]) {
+    const key = itemIdentity(item);
+    const existing = selected.get(key);
+    if (!existing || timestamp(item.updatedAt) >= timestamp(existing.updatedAt)) selected.set(key, clone(item));
+  }
+  return [...selected.values()].filter(item => (
+    timestamp(deletedItems[itemIdentity(item)]) < timestamp(item.updatedAt)
+  ));
+}
+
+export function mergeStates(current, incoming, { preserveUi = false } = {}) {
+  if (!current) return clone(incoming);
+  if (!incoming) return clone(current);
+
+  const merged = clone(current);
+  const currentProfile = activeProfile(merged);
+  const incomingProfile = incoming.profiles?.find(profile => profile.id === incoming.activeProfileId)
+    || incoming.profiles?.[0];
+  if (!currentProfile || !incomingProfile) return merged;
+
+  const deletedItems = mergeDeletionMaps(current.deletedItems, incoming.deletedItems);
+  const currentWasEmpty = currentProfile.items.length === 0;
+  const incomingIsNewer = timestamp(incoming.updatedAt) >= timestamp(current.updatedAt);
+  const combinedProfile = {
+    ...currentProfile,
+    ...(currentWasEmpty || incomingIsNewer ? clone(incomingProfile) : {}),
+    items: mergeProfileItems(currentProfile, incomingProfile, deletedItems)
+  };
+
+  const currentIndex = merged.profiles.findIndex(profile => profile.id === currentProfile.id);
+  merged.profiles.splice(Math.max(0, currentIndex), 1, combinedProfile);
+  merged.activeProfileId = combinedProfile.id;
+  merged.deletedItems = deletedItems;
+
+  if (incomingIsNewer) {
     merged.streak = clone(incoming.streak || merged.streak);
-    merged.filter = incoming.filter ?? merged.filter;
-    merged.sort = incoming.sort ?? merged.sort;
+    if (!preserveUi) {
+      merged.filter = incoming.filter ?? merged.filter;
+      merged.sort = incoming.sort ?? merged.sort;
+      merged.listMode = incoming.listMode ?? merged.listMode;
+      merged.view = incoming.view ?? merged.view;
+    }
   }
   merged.updatedAt = now();
   return merged;
 }
 
-export function importPayload(payload, { reload = true } = {}) {
+export function importPayload(payload, { reload = true, replace = false } = {}) {
   const incoming = validatePayload(payload);
   const current = getState();
   try {
-    localStorage.setItem(IMPORT_SAFETY_KEY, JSON.stringify({ savedAt: now(), state: current }));
+    localStorage.setItem(safetyKey(), JSON.stringify({ savedAt: now(), state: current }));
   } catch (error) {
     console.warn('KageNexus could not create the pre-import safety copy', error);
   }
-  const merged = mergeStates(current, incoming);
-  replaceState(merged, { save: true, reason: 'backup-import' });
+  const next = replace ? clone(incoming) : mergeStates(current, incoming);
+  replaceState(next, { save: true, reason: 'backup-import' });
   try {
     sessionStorage.setItem('kagenexus-mobile-flash', 'Backup merged. Your newest progress was kept for every title.');
   } catch {}
@@ -89,7 +124,14 @@ export function importPayload(payload, { reload = true } = {}) {
   return getState();
 }
 
+export function importLegacyDeviceData(options = {}) {
+  const legacy = readLegacyState();
+  if (!legacy) throw new Error('No Release 62 library was found on this device.');
+  return importPayload({ app: 'KageNexus', schema: 1, state: legacy }, options);
+}
+
 export async function importFile(file, options) {
+  if (file.size > MAX_BACKUP_BYTES) throw new Error('That backup is too large to import safely.');
   const parsed = JSON.parse(await file.text());
   return importPayload(parsed, options);
 }
@@ -117,7 +159,8 @@ export function makeSyncCode(state = getState()) {
 
 export function parseSyncCode(value) {
   const code = String(value || '').trim();
-  if (!code.startsWith(SYNC_CODE_PREFIX)) throw new Error('That sync code is not valid.');
+  if (!code.startsWith(SYNC_CODE_PREFIX)) throw new Error('That import code is not valid.');
+  if (code.length > Math.ceil(MAX_BACKUP_BYTES * 1.4)) throw new Error('That import code is too large.');
   return JSON.parse(new TextDecoder().decode(base64ToBytes(code.slice(SYNC_CODE_PREFIX.length))));
 }
 
@@ -157,16 +200,16 @@ export async function shareBackup() {
 async function copySyncCode() {
   try {
     await navigator.clipboard.writeText(makeSyncCode());
-    showToast('Sync code copied. Paste it on your other device.', 'success');
+    showToast('Private import code copied. Paste it only into your own KageNexus account.', 'success');
   } catch {
-    showToast('The sync code could not be copied. Use Export Backup instead.', 'error');
+    showToast('The import code could not be copied. Use Export Backup instead.', 'error');
   }
 }
 
 function restoreSafetyBackup() {
   try {
-    const payload = JSON.parse(localStorage.getItem(IMPORT_SAFETY_KEY) || 'null');
-    if (!payload?.state) throw new Error('No previous import backup is available.');
+    const payload = JSON.parse(localStorage.getItem(safetyKey()) || 'null');
+    if (!payload?.state) throw new Error('No previous import backup is available for this account.');
     if (!confirm('Restore the progress saved immediately before your last import?')) return;
     replaceState(payload.state, { save: true, reason: 'restore-pre-import' });
     location.reload();
@@ -183,8 +226,9 @@ function ensureSyncCodeDialog() {
   dialog.className = 'kn-sync-dialog';
   dialog.innerHTML = `<form method="dialog" class="kn-sync-panel">
     <button class="kn-sync-close" value="cancel">CLOSE</button>
-    <p>MANUAL CROSS-DEVICE SYNC</p><h2>Paste Sync Code</h2>
-    <textarea id="knSyncCodeInput" placeholder="Paste the KNX1 sync code from your other device"></textarea>
+    <p>PRIVATE ACCOUNT MIGRATION</p><h2>Paste Import Code</h2>
+    <span>Copy the KNX1 code from your old KageNexus Settings screen, then paste it here. Never share it publicly.</span>
+    <textarea id="knSyncCodeInput" placeholder="Paste your KNX1 import code"></textarea>
     <button id="knImportSyncCode" type="button">IMPORT & MERGE</button>
   </form>`;
   document.body.appendChild(dialog);
@@ -192,7 +236,7 @@ function ensureSyncCodeDialog() {
     try {
       importPayload(parseSyncCode($('#knSyncCodeInput', dialog).value));
     } catch (error) {
-      showToast(error.message || 'That sync code could not be imported.', 'error');
+      showToast(error.message || 'That import code could not be imported.', 'error');
     }
   });
   return dialog;
@@ -202,55 +246,81 @@ export function renderDataSyncPanel() {
   const settings = $('#settingsView');
   if (!settings) return false;
   let panel = $('#knDataSyncPanel');
-  if (panel) return true;
-  panel = document.createElement('section');
-  panel.id = 'knDataSyncPanel';
-  panel.className = 'kn-sync-card';
-  panel.innerHTML = `<div class="kn-sync-head"><div><p>DATA & SYNC</p><h2>Keep Your Nexus Safe</h2></div><span>MANUAL SYNC READY</span></div>
-    <p class="kn-sync-explainer">Back up everything, move progress between your phone and laptop, and safely merge the newest progress for each title.</p>
-    <div class="kn-sync-grid">
-      <button id="knShareBackup">SHARE BACKUP</button><button id="knExportBackup">EXPORT FILE</button>
-      <button id="knCopySyncCode">COPY SYNC CODE</button><button id="knPasteSyncCode">PASTE SYNC CODE</button>
-      <button id="knImportBackup">IMPORT FILE</button><button id="knRestoreImport">RESTORE PRE-IMPORT</button>
-    </div>
-    <input id="knImportFile" type="file" accept="application/json,.json" hidden>
-    <div class="kn-cloud-note"><strong>AUTOMATIC CLOUD SYNC</strong><span>The app is ready for it, but GitHub Pages cannot securely store private account data by itself. A database/login connection is still required.</span></div>`;
-  settings.appendChild(panel);
-  $('#knShareBackup', panel).addEventListener('click', shareBackup);
-  $('#knExportBackup', panel).addEventListener('click', downloadBackup);
-  $('#knCopySyncCode', panel).addEventListener('click', copySyncCode);
-  $('#knPasteSyncCode', panel).addEventListener('click', () => {
-    const dialog = ensureSyncCodeDialog();
-    if (typeof dialog.showModal === 'function') dialog.showModal();
-    else dialog.setAttribute('open', '');
-    window.setTimeout(() => $('#knSyncCodeInput', dialog)?.focus(), 80);
-  });
-  $('#knImportBackup', panel).addEventListener('click', () => $('#knImportFile', panel).click());
-  $('#knImportFile', panel).addEventListener('change', event => {
-    const file = event.target.files?.[0];
-    if (file) importFile(file).catch(error => showToast(error.message || 'That backup could not be imported.', 'error'));
-    event.target.value = '';
-  });
-  $('#knRestoreImport', panel).addEventListener('click', restoreSafetyBackup);
+  if (!panel) {
+    panel = document.createElement('section');
+    panel.id = 'knDataSyncPanel';
+    panel.className = 'kn-sync-card';
+    panel.innerHTML = `<div class="kn-sync-head"><div><p>DATA & MIGRATION</p><h2>Keep Your Nexus Safe</h2></div><span>ACCOUNT-SAFE</span></div>
+      <p class="kn-sync-explainer">Back up your account, move your Release 62 phone library, or merge the newest progress title by title.</p>
+      <div class="kn-sync-grid">
+        <button id="knShareBackup">SHARE BACKUP</button><button id="knExportBackup">EXPORT FILE</button>
+        <button id="knCopySyncCode">COPY IMPORT CODE</button><button id="knPasteSyncCode">PASTE IMPORT CODE</button>
+        <button id="knImportBackup">IMPORT FILE</button><button id="knMoveLegacy">MOVE OLD DEVICE DATA</button>
+        <button id="knRestoreImport">RESTORE PRE-IMPORT</button>
+      </div>
+      <input id="knImportFile" type="file" accept="application/json,.json" hidden>
+      <div class="kn-cloud-note"><strong>AUTOMATIC CLOUD SYNC</strong><span id="knCloudNote">Sign in to keep this account synchronized across your phone and computer.</span></div>`;
+    settings.appendChild(panel);
+    $('#knShareBackup', panel).addEventListener('click', shareBackup);
+    $('#knExportBackup', panel).addEventListener('click', downloadBackup);
+    $('#knCopySyncCode', panel).addEventListener('click', copySyncCode);
+    $('#knPasteSyncCode', panel).addEventListener('click', () => {
+      const dialog = ensureSyncCodeDialog();
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else dialog.setAttribute('open', '');
+      window.setTimeout(() => $('#knSyncCodeInput', dialog)?.focus(), 80);
+    });
+    $('#knImportBackup', panel).addEventListener('click', () => $('#knImportFile', panel).click());
+    $('#knImportFile', panel).addEventListener('change', event => {
+      const file = event.target.files?.[0];
+      if (file) importFile(file).catch(error => showToast(error.message || 'That backup could not be imported.', 'error'));
+      event.target.value = '';
+    });
+    $('#knMoveLegacy', panel).addEventListener('click', () => {
+      try {
+        importLegacyDeviceData();
+      } catch (error) {
+        showToast(error.message || 'Old device data could not be moved.', 'error');
+      }
+    });
+    $('#knRestoreImport', panel).addEventListener('click', restoreSafetyBackup);
+  }
+  const legacy = $('#knMoveLegacy', panel);
+  if (legacy) {
+    legacy.disabled = !hasLegacyState();
+    legacy.title = legacy.disabled ? 'No Release 62 save was found on this web address.' : 'Move the old local library into this account.';
+  }
   return true;
 }
 
 export function renderSettings() {
+  const snapshot = globalThis.KageNexusCloud?.getSnapshot?.();
   const status = $('#cloudStatus');
   if (status) {
-    status.textContent = APP_CONFIG.supabaseUrl && APP_CONFIG.supabaseAnonKey
-      ? 'Cloud connector configured. Use Sync now to upload the newest copy.'
-      : 'Local save is active and survives closing the app. Export/import works between devices. Live phone ↔ laptop sync needs a secure account connection.';
+    if (!APP_CONFIG.supabaseUrl || !APP_CONFIG.supabasePublishableKey) {
+      status.textContent = 'Cloud setup is not connected yet. Guest data remains private on this device.';
+    } else if (snapshot?.user) {
+      status.textContent = snapshot.status === 'syncing'
+        ? 'Synchronizing your private account…'
+        : `Signed in as ${snapshot.user.email}. ${snapshot.lastSyncedAt ? 'Your cloud copy is current.' : 'Ready for the first sync.'}`;
+    } else {
+      status.textContent = 'Guest mode is active. Sign in to keep a private copy synchronized across devices.';
+    }
   }
+  const note = $('#knCloudNote');
+  if (note && snapshot?.lastSyncedAt) note.textContent = `Last synchronized ${new Date(snapshot.lastSyncedAt).toLocaleString()}.`;
   renderDataSyncPanel();
 }
 
 async function syncNow() {
-  if (!APP_CONFIG.supabaseUrl || !APP_CONFIG.supabaseAnonKey) {
-    showToast('Cloud sync needs a secure account connection first. Local saving is already active.');
-    return;
+  try {
+    const cloud = await import('./cloud.js');
+    await cloud.syncCloudNow({ force: true });
+    renderSettings();
+    showToast('Your account is synchronized.', 'success');
+  } catch (error) {
+    showToast(error.message || 'Cloud sync could not finish.', 'error');
   }
-  showToast('Connector detected. Add your private sync table and login before production use.');
 }
 
 export function bindSettingsEvents() {
@@ -280,6 +350,7 @@ export function bindSettingsEvents() {
     const hint = $('#installHint');
     if (hint) hint.textContent = 'This device is ready. Tap Install app below.';
   });
+  window.addEventListener('kagenexus-cloud-status', renderSettings);
   renderDataSyncPanel();
 }
 

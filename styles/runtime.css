@@ -418,6 +418,162 @@ body {
 .kn62-update-restart { background: linear-gradient(135deg, #4d78ff, #9d45ff); }
 .kn62-update-dismiss { background: #242039; color: #c9c5df !important; }
 
+.arsenal-settings-button {
+  width: 43px;
+  height: 43px;
+  min-height: 43px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 14px;
+  color: #d9d7f7;
+  background: rgba(255, 255, 255, .055);
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.topbar-actions { display: flex; align-items: center; justify-content: flex-end; gap: 9px; margin-left: auto; }
+.topbar-actions .quick-add-anime { margin: 0; }
+
+.arsenal-settings-button:hover {
+  transform: rotate(22deg);
+  border-color: rgba(105, 246, 255, .42);
+  background: rgba(105, 246, 255, .09);
+}
+
+.profile-button.is-signed-in {
+  border-color: rgba(91, 238, 255, .38);
+  box-shadow: 0 0 22px rgba(52, 208, 255, .12);
+}
+
+.account-settings-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: radial-gradient(circle at 85% 15%, rgba(58, 222, 255, .12), transparent 34%), rgba(255, 255, 255, .035);
+}
+
+.account-settings-card h3,
+.account-settings-card p { margin-bottom: 0; }
+
+.account-settings-card .action-button { flex: 0 0 auto; }
+
+.account-dialog {
+  width: min(620px, calc(100% - 22px));
+  max-height: min(88dvh, 820px);
+  padding: 0;
+  overflow: auto;
+  border: 1px solid rgba(94, 235, 255, .28);
+  border-radius: 28px;
+  background: radial-gradient(circle at 85% 0, rgba(104, 77, 255, .28), transparent 38%), #0a091b;
+  color: #fff;
+  box-shadow: 0 32px 120px rgba(0, 0, 0, .75), 0 0 70px rgba(78, 88, 255, .2);
+}
+
+.account-dialog::backdrop { background: rgba(2, 2, 10, .78); backdrop-filter: blur(10px); }
+
+.account-close {
+  position: sticky;
+  z-index: 4;
+  float: right;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 50%;
+  background: rgba(6, 6, 19, .88);
+  color: #fff;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.account-content { padding: 32px 30px 30px; }
+.account-kicker { clear: both; padding-top: 4px; color: #5cecff; font-size: 10px; font-weight: 950; letter-spacing: .19em; }
+.account-content h2 { margin: 8px 0 7px; font-size: clamp(28px, 7vw, 43px); line-height: 1.02; overflow-wrap: anywhere; }
+.account-copy { margin: 0 0 20px; color: #aaa7c1; line-height: 1.55; }
+
+.account-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin: 18px 0;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, .09);
+  border-radius: 15px;
+  background: rgba(5, 5, 18, .68);
+}
+
+.account-tabs button {
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: #9995b0;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+
+.account-tabs button.active { background: linear-gradient(135deg, #5749c8, #148eaf); color: #fff; }
+.account-form { display: grid; gap: 13px; }
+.account-form label { display: grid; gap: 7px; color: #c6c2dc; font-size: 11px; font-weight: 850; }
+.account-form input,
+.account-migration textarea {
+  width: 100%;
+  border: 1px solid rgba(137, 125, 199, .42);
+  border-radius: 14px;
+  background: #070713;
+  color: #fff;
+  padding: 13px 14px;
+  font-size: 16px;
+}
+
+.account-form small { color: #9692aa; line-height: 1.45; }
+.account-text-button { border: 0; background: transparent; color: #65eaff; font-size: 10px; font-weight: 950; letter-spacing: .06em; cursor: pointer; }
+.account-text-button:disabled { color: #6e6a7c; cursor: not-allowed; }
+.account-dialog button:disabled { opacity: .45; cursor: not-allowed; }
+.account-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+
+.account-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 7px 10px;
+  border: 1px solid rgba(95, 240, 255, .28);
+  border-radius: 999px;
+  color: #69f1ff;
+  font-size: 9px;
+  font-weight: 950;
+  letter-spacing: .1em;
+}
+
+.account-status i { width: 7px; height: 7px; border-radius: 50%; background: #6affae; box-shadow: 0 0 12px #6affae; }
+.account-status.error { border-color: rgba(255, 91, 122, .34); color: #ff91a8; }
+.account-status.error i { background: #ff5b7a; box-shadow: 0 0 12px #ff5b7a; }
+
+.account-migration {
+  display: grid;
+  gap: 11px;
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid rgba(118, 106, 191, .32);
+  border-radius: 19px;
+  background: rgba(4, 4, 15, .54);
+}
+
+.account-migration p { margin: 0; color: #ffca67; font-size: 9px; font-weight: 950; letter-spacing: .14em; }
+.account-migration h3 { margin: -4px 0 0; }
+.account-migration > span { color: #9e9ab2; font-size: 12px; line-height: 1.5; }
+.account-migration textarea { min-height: 120px; resize: vertical; font: 600 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.kn-sync-grid button:disabled { opacity: .45; cursor: not-allowed; }
+
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
   .kn-core-boot-card img,
@@ -436,4 +592,8 @@ body {
   .kn62-update-actions button { flex: 1; }
   .kn62-performance-options { grid-template-columns: 1fr; }
   .kn62-performance-options button { min-height: 42px; }
+  .account-settings-card { align-items: stretch; flex-direction: column; }
+  .account-settings-card .action-button { width: 100%; }
+  .account-content { padding: 26px 19px 24px; }
+  .account-actions { grid-template-columns: 1fr; }
 }

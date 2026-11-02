@@ -1,19 +1,31 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { ANIME_META, ANIME_SEED } from '../src/data/library-seed.js';
 import { ARSENAL_ITEMS } from '../src/data/arsenal-items.js';
-import { makeInitialState, migrateState, normalizeItem, STATE_VERSION, STORAGE_KEY } from '../src/store.js';
+import {
+  GUEST_STORAGE_KEY,
+  LEGACY_STORAGE_KEY,
+  makeInitialState,
+  migrateState,
+  normalizeItem,
+  recordItemDeletion,
+  STATE_VERSION,
+  STORAGE_KEY
+} from '../src/store.js';
 import { makeSyncCode, mergeStates, parseSyncCode, validatePayload } from '../src/settings.js';
 
-test('Release 62 seed plus its existing v15 movie migration are preserved', () => {
-  assert.equal(ANIME_META.seedCount, 195);
-  assert.equal(ANIME_SEED.length, 195);
-  assert.equal(new Set(ANIME_SEED.map(item => item.id)).size, 195);
+test('Public storage contract uses the isolated version 3 guest scope', () => {
   const state = makeInitialState();
-  assert.equal(STORAGE_KEY, 'anime-haven-state-v2');
+  assert.equal(STORAGE_KEY, GUEST_STORAGE_KEY);
+  assert.equal(LEGACY_STORAGE_KEY, 'anime-haven-state-v2');
   assert.equal(state.version, STATE_VERSION);
-  assert.equal(state.profiles[0].items.length, 198);
-  assert.equal(state.libraryMigrationVersion, 15);
+  assert.equal(state.profiles[0].items.length, 0);
+});
+
+test('Public default state is empty and contains only the guest profile', () => {
+  const state = makeInitialState();
+  assert.equal(state.version, 3);
+  assert.equal(state.profiles[0].name, 'Guest');
+  assert.equal(state.profiles[0].items.length, 0);
 });
 
 test('Arsenal data contract has 1,766 weapons, 12 powers, and no duplicate IDs', () => {
@@ -39,14 +51,14 @@ test('Legacy anime-haven-state-v2 objects migrate without losing item progress',
     sort: 'recent',
     customFutureField: { keep: true },
     profiles: [{
-      id: 'ashton',
-      name: 'Ashton',
+      id: 'previous-owner',
+      name: 'Previous Owner',
       items: [{ id: 'legacy-one', title: 'Legacy One', status: 'watching', season: 4, episode: 19, unknownItemField: 'kept' }]
     }],
     streak: { lastLogDate: '2026-07-31', days: 9 }
   };
   const migrated = migrateState(legacy);
-  assert.equal(migrated.activeProfileId, 'ashton');
+  assert.equal(migrated.activeProfileId, 'previous-owner');
   assert.equal(migrated.view, 'arsenal');
   assert.equal(migrated.profiles[0].items[0].episode, 19);
   assert.equal(migrated.profiles[0].items[0].unknownItemField, 'kept');
@@ -75,4 +87,16 @@ test('KNX1 sync codes round-trip Unicode titles and validate as backups', () => 
   const payload = parseSyncCode(code);
   const decoded = validatePayload(payload);
   assert.equal(decoded.profiles[0].items[0].title, state.profiles[0].items[0].title);
+});
+
+test('Deletion tombstones prevent another device from reviving a removed title', () => {
+  const current = makeInitialState([]);
+  const removed = normalizeItem({ id: 'gone', title: 'Gone', updatedAt: '2026-08-01T00:00:00.000Z' });
+  current.profiles[0].items = [removed];
+  recordItemDeletion(removed, current);
+  current.profiles[0].items = [];
+  const staleDevice = makeInitialState([]);
+  staleDevice.profiles[0].items = [removed];
+  const merged = mergeStates(current, staleDevice);
+  assert.equal(merged.profiles[0].items.length, 0);
 });

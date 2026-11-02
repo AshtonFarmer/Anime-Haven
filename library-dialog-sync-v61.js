@@ -1,7 +1,6 @@
 (()=>{
   'use strict';
 
-  const STORAGE_KEY='anime-haven-state-v2';
   const titleKey=value=>String(value||'')
     .normalize('NFKD')
     .toLowerCase()
@@ -11,8 +10,8 @@
 
   const readProfile=()=>{
     try{
-      const state=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');
-      return state?.profiles?.find(profile=>profile.id==='ashton')||state?.profiles?.[0]||null;
+      const state=window.KageNexus?.getState?.();
+      return state?.profiles?.find(profile=>profile.id===state.activeProfileId)||state?.profiles?.[0]||null;
     }catch(error){
       console.warn('KageNexus could not sync the movie dialog',error);
       return null;

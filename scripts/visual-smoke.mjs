@@ -82,7 +82,6 @@ async function waitForCore(page) {
   await page.waitForFunction(() => (
     Boolean(window.KageNexus)
     && document.documentElement.dataset.knMobileSuite === '22'
-    && Boolean(document.getElementById('arsenalView'))
     && !document.getElementById('bootSplash')
   ), { timeout: 15000 });
 }
@@ -99,13 +98,23 @@ try {
   await settle(page);
   await page.screenshot({ path: path.join(output, 'desktop-home.png') });
 
-  const homeMetrics = await page.evaluate(() => ({
-    elements: document.getElementsByTagName('*').length,
-    arsenalCards: document.querySelectorAll('#arsenalGrid .arsenal-card').length,
-    libraryItems: window.KageNexus.activeProfile().items.length,
-    searchStyle: document.documentElement.dataset.knSearchStyle,
-    performanceMode: document.documentElement.dataset.knPerformanceMode
-  }));
+  const homeMetrics = await page.evaluate(() => {
+    const resources = performance.getEntriesByType('resource');
+    const scriptResources = resources.filter(entry => new URL(entry.name).pathname.endsWith('.js'));
+    return {
+      elements: document.getElementsByTagName('*').length,
+      arsenalCards: document.querySelectorAll('#arsenalGrid .arsenal-card').length,
+      arsenalLoaded: Boolean(document.getElementById('arsenalView')),
+      libraryItems: window.KageNexus.activeProfile().items.length,
+      searchStyle: document.documentElement.dataset.knSearchStyle,
+      performanceMode: document.documentElement.dataset.knPerformanceMode,
+      startupResources: resources.map(entry => new URL(entry.name).pathname),
+      startupDecodedBytes: resources.reduce((sum, entry) => sum + (entry.decodedBodySize || 0), 0),
+      startupScriptBytes: scriptResources.reduce((sum, entry) => sum + (entry.decodedBodySize || 0), 0),
+      settledAtMs: Math.round(performance.now()),
+      accountReady: Boolean(document.getElementById('accountDialog'))
+    };
+  });
 
   await page.click('.bottom-nav [data-view="watched"]');
   await page.waitForFunction(() => document.getElementById('listView')?.classList.contains('active'));
@@ -121,6 +130,12 @@ try {
   await page.waitForFunction(() => document.getElementById('settingsView')?.classList.contains('active'));
   await settle(page);
   await page.screenshot({ path: path.join(output, 'desktop-settings.png') });
+
+  await page.click('#openAccount');
+  await page.waitForFunction(() => document.getElementById('accountDialog')?.open);
+  await settle(page, 180);
+  await page.screenshot({ path: path.join(output, 'desktop-account.png') });
+  await page.click('#accountDialog .account-close');
 
   await page.click('.bottom-nav [data-view="arsenal"]');
   await page.waitForFunction(() => document.querySelectorAll('#arsenalGrid .arsenal-card').length === 96);
@@ -150,6 +165,22 @@ try {
     luffyWidth: document.getElementById('rubberSearch')?.getBoundingClientRect().width
   }));
 
+  await mobile.click('#accountButton');
+  await mobile.waitForFunction(() => document.getElementById('accountDialog')?.open);
+  await settle(mobile, 180);
+  await mobile.screenshot({ path: path.join(output, 'mobile-account.png') });
+  const mobileAccountMetrics = await mobile.evaluate(() => {
+    const dialog = document.getElementById('accountDialog');
+    const content = document.getElementById('accountContent');
+    return {
+      width: Math.round(dialog?.getBoundingClientRect().width || 0),
+      viewport: window.innerWidth,
+      contentScrollHeight: content?.scrollHeight || 0,
+      horizontalOverflow: document.documentElement.scrollWidth > window.innerWidth
+    };
+  });
+  await mobile.click('#accountDialog .account-close');
+
   await mobile.click('.bottom-nav [data-view="arsenal"]');
   await mobile.waitForFunction(() => (
     document.getElementById('arsenalView')?.classList.contains('active')
@@ -174,17 +205,25 @@ try {
   await page.setOfflineMode(false);
 
   if (homeMetrics.arsenalCards !== 0) throw new Error('Arsenal rendered cards during Home startup.');
+  if (homeMetrics.arsenalLoaded) throw new Error('Arsenal loaded before the user opened it.');
+  if (homeMetrics.libraryItems !== 0) throw new Error('A fresh public visitor inherited personal library data.');
+  if (homeMetrics.startupResources.some(resource => /arsenal-items|library-seed-release62|vendor\/supabase/.test(resource))) {
+    throw new Error('A deferred personal/Arsenal dataset loaded during Home startup.');
+  }
+  if (homeMetrics.startupDecodedBytes > 450_000) throw new Error('Home startup exceeded the 450 KB decoded-resource budget.');
+  if (homeMetrics.startupScriptBytes > 225_000) throw new Error('Home startup exceeded the 225 KB JavaScript budget.');
   if (arsenalMetrics.cards !== 96) throw new Error('Arsenal did not honor its 96-card first page.');
-  if (mobileHomeMetrics.horizontalOverflow || mobileArsenalMetrics.horizontalOverflow) {
+  if (mobileHomeMetrics.horizontalOverflow || mobileAccountMetrics.horizontalOverflow || mobileArsenalMetrics.horizontalOverflow) {
     throw new Error('Mobile layout has horizontal overflow.');
   }
+  if (mobileAccountMetrics.width > mobileAccountMetrics.viewport) throw new Error('The mobile account dialog exceeds the viewport.');
   if (!offlineReady) throw new Error('Offline service-worker reload did not restore the core.');
   if (errors.length) throw new Error(`Browser errors:\n${errors.join('\n')}`);
 
   console.log(JSON.stringify({
     home: homeMetrics,
     arsenal: arsenalMetrics,
-    mobile: { home: mobileHomeMetrics, arsenal: mobileArsenalMetrics },
+    mobile: { home: mobileHomeMetrics, account: mobileAccountMetrics, arsenal: mobileArsenalMetrics },
     offlineReady,
     screenshots: output
   }, null, 2));
