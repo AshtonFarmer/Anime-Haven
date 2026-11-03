@@ -46,6 +46,7 @@ test('full modular runtime installs every Release 62 feature without packaged ex
     addEventListener: window.addEventListener.bind(window),
     removeEventListener: window.removeEventListener.bind(window),
     getComputedStyle: window.getComputedStyle.bind(window),
+    __KAGENEXUS_CONFIG__: { disableCloud: true },
     __KAGENEXUS_DISABLE_AUTO_START__: true
   });
   Object.defineProperty(globalThis, 'navigator', { value: window.navigator, configurable: true });

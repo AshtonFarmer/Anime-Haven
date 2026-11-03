@@ -315,6 +315,7 @@ export function renderSettings() {
 async function syncNow() {
   try {
     const cloud = await import('./cloud.js');
+    await cloud.initCloud();
     await cloud.syncCloudNow({ force: true });
     renderSettings();
     showToast('Your account is synchronized.', 'success');

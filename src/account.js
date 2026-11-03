@@ -1,5 +1,6 @@
 import {
   getCloudSnapshot,
+  hasStoredCloudSession,
   initCloud,
   requestPasswordReset,
   signIn,
@@ -16,6 +17,31 @@ let authMode = 'signin';
 let recoveryMode = false;
 let busy = false;
 let renderApp = () => {};
+let cloudStartPromise = null;
+
+function startCloud() {
+  if (cloudStartPromise) return cloudStartPromise;
+  cloudStartPromise = initCloud({ render: renderApp }).catch(error => {
+    cloudStartPromise = null;
+    throw error;
+  });
+  return cloudStartPromise;
+}
+
+function prepareCloudForDialog() {
+  if (!getCloudSnapshot().configured || cloudStartPromise) return;
+  busy = true;
+  renderAccountDialog();
+  startCloud()
+    .catch(error => {
+      console.error('KageNexus account setup could not start', error);
+      showToast('Account sync is temporarily unavailable. Guest mode still works.', 'error');
+    })
+    .finally(() => {
+      busy = false;
+      renderAccountDialog();
+    });
+}
 
 function openDialog() {
   const dialog = $('#accountDialog');
@@ -23,6 +49,7 @@ function openDialog() {
   renderAccountDialog();
   if (typeof dialog.showModal === 'function') dialog.showModal();
   else dialog.setAttribute('open', '');
+  prepareCloudForDialog();
   window.setTimeout(() => dialog.querySelector('input:not([type="hidden"]),textarea')?.focus(), 80);
 }
 
@@ -212,12 +239,13 @@ export async function installAccounts({ render } = {}) {
   renderAccountDialog();
   const start = async () => {
     try {
-      await initCloud({ render: renderApp });
+      await startCloud();
     } catch (error) {
       console.error('KageNexus account setup could not start', error);
       showToast('Account sync is temporarily unavailable. Guest mode still works.', 'error');
     }
   };
+  if (!hasStoredCloudSession()) return;
   if ('requestIdleCallback' in window) {
     await new Promise(resolve => requestIdleCallback(() => start().finally(resolve), { timeout: 1200 }));
   } else {

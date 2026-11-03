@@ -37,6 +37,7 @@ let syncTimer = 0;
 let syncPromise = null;
 let renderApp = () => {};
 let initialized = false;
+let initPromise = null;
 let suppressStoreSync = false;
 
 function getDeviceId() {
@@ -56,6 +57,16 @@ const deviceId = getDeviceId();
 
 export function isCloudConfigured() {
   return Boolean(APP_CONFIG.supabaseUrl && APP_CONFIG.supabasePublishableKey);
+}
+
+export function hasStoredCloudSession() {
+  if (!isCloudConfigured()) return false;
+  try {
+    const projectRef = new URL(APP_CONFIG.supabaseUrl).hostname.split('.')[0];
+    return Boolean(projectRef && localStorage.getItem(`sb-${projectRef}-auth-token`));
+  } catch {
+    return false;
+  }
 }
 
 export function getCloudSnapshot() {
@@ -347,12 +358,10 @@ export function configureCloud({ createClient, render } = {}) {
   if (render) renderApp = render;
 }
 
-export async function initCloud({ render } = {}) {
-  if (render) renderApp = render;
-  if (initialized) return getCloudSnapshot();
-  initialized = true;
+async function initializeCloud() {
   globalThis.KageNexusCloud = Object.freeze({ getSnapshot: getCloudSnapshot, sync: syncCloudNow });
   if (!isCloudConfigured()) {
+    initialized = true;
     setStatus('unconfigured');
     return getCloudSnapshot();
   }
@@ -380,11 +389,26 @@ export async function initCloud({ render } = {}) {
   const { data, error } = await client.auth.getSession();
   if (error) throw error;
   await activateSession(data.session);
+  initialized = true;
   return getCloudSnapshot();
 }
 
+export function initCloud({ render } = {}) {
+  if (render) renderApp = render;
+  if (initialized) return Promise.resolve(getCloudSnapshot());
+  if (initPromise) return initPromise;
+  initPromise = initializeCloud()
+    .catch(error => {
+      client = null;
+      initialized = false;
+      throw error;
+    })
+    .finally(() => { initPromise = null; });
+  return initPromise;
+}
+
 async function requireClient() {
-  if (!initialized) await initCloud();
+  if (!initialized || initPromise) await initCloud();
   if (!client) throw new Error('Cloud accounts are not connected yet.');
   return client;
 }
@@ -442,4 +466,5 @@ export async function destroyCloud() {
   storeSubscription = null;
   client = null;
   initialized = false;
+  initPromise = null;
 }
