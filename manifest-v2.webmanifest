@@ -2,7 +2,7 @@
   "id": "./",
   "name": "KageNexus",
   "short_name": "KageNexus",
-  "description": "Ashton’s anime and movie tracking nexus",
+  "description": "A private, account-ready anime and movie tracking nexus",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

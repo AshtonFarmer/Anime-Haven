@@ -1,99 +1,20 @@
 (()=>{
   'use strict';
 
-  const STORAGE_KEY='anime-haven-state-v2';
-  const MIGRATION_VERSION=15;
-  const SINGLE_KIND={
-    'black clover sword of the wizard king':'MOVIE',
-    'blue exorcist the movie':'MOVIE',
-    'demon slayer mugen train':'MOVIE',
-    'my hero academia two heroes':'MOVIE',
-    'my hero academia heroes rising':'MOVIE',
-    'my hero academia world heroes mission':'MOVIE',
-    'my hero academia youre next':'MOVIE',
-    'rezero memory snow':'OVA',
-    'rezero the frozen bond':'OVA',
-    'a certain magical index the movie the miracle of endymion':'MOVIE',
-    'sword art online the movie ordinal scale':'MOVIE',
-    'sword art online progressive aria of a starless night':'MOVIE',
-    'sword art online progressive scherzo of deep night':'MOVIE',
-    'spy x family code white':'MOVIE',
-    'hunter x hunter phantom rouge':'MOVIE',
-    'hunter x hunter the last mission':'MOVIE'
-  };
-  const EXTRA_MOVIES=[
-    {title:'SPY x FAMILY CODE: White',franchise:'Spy x Family',seriesOrder:2,status:'completed',progressNote:'Movie watched'},
-    {title:'Hunter x Hunter: Phantom Rouge',franchise:'Hunter x Hunter',seriesOrder:2,status:'completed',progressNote:'Movie watched'},
-    {title:'Hunter x Hunter: The Last Mission',franchise:'Hunter x Hunter',seriesOrder:3,status:'completed',progressNote:'Movie watched'}
-  ];
-
   const titleKey=value=>String(value||'').normalize('NFKD').toLowerCase().replace(/[’'×:–—\-]/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
   const now=()=>new Date().toISOString();
   const uid=()=>crypto.randomUUID?.()||`id-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-  const readState=()=>{try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'null')}catch(error){console.warn('Anime Haven could not read saved data',error);return null}};
-  const writeState=state=>{try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));return true}catch(error){console.warn('Anime Haven could not save data',error);return false}};
+  const readState=()=>window.KageNexus?.getState?.()||null;
+  const writeState=()=>window.KageNexus?.save?.('library-manager')!==false;
   const setText=(node,text)=>{if(node&&node.textContent!==text)node.textContent=text};
   const setHidden=(node,value)=>{if(node&&node.hidden!==value)node.hidden=value};
 
-  function seedState(){
-    if(!Array.isArray(window.ANIME_HAVEN_SEED))return null;
-    return {
-      version:2,activeProfileId:'ashton',view:'home',listMode:'watched',filter:'all',sort:'alpha',
-      profiles:[{id:'ashton',name:'Ashton',items:JSON.parse(JSON.stringify(window.ANIME_HAVEN_SEED))}],
-      streak:{lastLogDate:null,days:0},createdAt:now(),updatedAt:now()
-    };
-  }
-
-  function migrateLibrary(){
-    const state=readState()||seedState();
-    if(!state||!Array.isArray(state.profiles))return false;
-    const profile=state.profiles.find(p=>p.id==='ashton')||state.profiles[0];
-    if(!profile||!Array.isArray(profile.items))return false;
-    let changed=Number(state.libraryMigrationVersion||0)<MIGRATION_VERSION;
-    const byKey=new Map(profile.items.map(item=>[titleKey(item.title),item]));
-
-    profile.items.forEach(item=>{
-      const kind=SINGLE_KIND[titleKey(item.title)];
-      if(!kind)return;
-      if(item.mediaType!=='movie'){item.mediaType='movie';changed=true}
-      if(item.season!==0){item.season=0;changed=true}
-      const desiredEpisode=item.status==='completed'?1:0;
-      if(item.episode!==desiredEpisode){item.episode=desiredEpisode;changed=true}
-      if(item.totalEpisodes!==1){item.totalEpisodes=1;changed=true}
-      if(Number(item.episodesLogged||0)!==0){item.episodesLogged=0;changed=true}
-      const note=item.status==='completed'?`${kind} watched`:`${kind} not watched`;
-      if(item.progressNote!==note){item.progressNote=note;changed=true}
-    });
-
-    EXTRA_MOVIES.forEach((movie,index)=>{
-      const key=titleKey(movie.title);
-      if(byKey.has(key))return;
-      const item={
-        id:`migration-${key.replace(/ /g,'-')}`,title:movie.title,status:movie.status,season:0,episode:1,
-        completedSeasons:0,totalEpisodes:1,episodesLogged:0,seasonHistory:[],progressNote:movie.progressNote,
-        mediaType:'movie',franchise:movie.franchise,seriesOrder:movie.seriesOrder,chronologyKey:movie.seriesOrder,
-        accent:['#ff755c','#9a5cff','#3fe1e8'][index%3],updatedAt:'2026-07-22T00:00:00.000Z',source:'migration',
-        anilistId:null,coverImage:'',startDate:null,relationOrder:[]
-      };
-      profile.items.push(item);byKey.set(key,item);changed=true;
-    });
-
-    const spy=byKey.get(titleKey('Spy x Family'));
-    if(spy&&/movie/i.test(spy.progressNote||'')){spy.progressNote='Season 2 Episode 12 Finale';changed=true}
-    const hunter=byKey.get(titleKey('Hunter x Hunter'));
-    if(hunter&&/movie/i.test(hunter.progressNote||'')){hunter.progressNote='Season 6 Finale';changed=true}
-
-    state.libraryMigrationVersion=MIGRATION_VERSION;
-    state.updatedAt=now();
-    return changed?writeState(state):false;
-  }
-
   const getProfile=()=>{
     const state=readState();
-    return state?.profiles?.find(p=>p.id==='ashton')||state?.profiles?.[0]||null;
+    return state?.profiles?.find(p=>p.id===state.activeProfileId)||state?.profiles?.[0]||null;
   };
   const getItemByTitle=title=>getProfile()?.items?.find(item=>titleKey(item.title)===titleKey(title))||null;
-  const mediaKind=item=>SINGLE_KIND[titleKey(item?.title)]||'MOVIE';
+  const mediaKind=item=>/ova/i.test(String(item?.progressNote||''))?'OVA':'MOVIE';
 
   async function aniListRequest(query,variables){
     const response=await fetch('https://graphql.anilist.co',{
@@ -116,7 +37,7 @@
 
   function addMedia(media,startNow){
     const state=readState();
-    const profile=state?.profiles?.find(p=>p.id==='ashton')||state?.profiles?.[0];
+    const profile=state?.profiles?.find(p=>p.id===state.activeProfileId)||state?.profiles?.[0];
     if(!profile||!media)throw new Error('Your library could not be opened.');
     const title=titleOf(media);
     if(profile.items.some(item=>item.anilistId===media.id||titleKey(item.title)===titleKey(title)))throw new Error(`${title} is already in your library.`);
@@ -128,14 +49,16 @@
     const timeline=[{id:media.id,title,date:dateKey(media.startDate),type:'CURRENT'},...relations].sort((a,b)=>a.date-b.date||a.title.localeCompare(b.title));
     const order=Math.max(1,timeline.findIndex(entry=>entry.id===media.id)+1);
     const completed=startNow&&movie;
-    profile.items.push({
+    const added={
       id:uid(),anilistId:media.id,title,status:startNow?(movie?'completed':'watching'):'planned',
       season:movie?0:1,episode:startNow?1:0,completedSeasons:0,totalEpisodes:movie?1:(media.episodes||null),episodesLogged:movie?0:(startNow?1:0),
       seasonHistory:[],progressNote:movie?(completed?'Movie watched':'Movie not watched'):(startNow?'Season 1 Episode 1':'Haven’t started yet'),
       mediaType:movie?'movie':'series',franchise:timeline[0]?.title||title,seriesOrder:order,chronologyKey:dateKey(media.startDate),
       accent:media.coverImage?.color||'#6c5cff',coverImage:media.coverImage?.extraLarge||media.coverImage?.large||'',startDate:media.startDate||null,
       relationOrder:timeline,source:'anilist',updatedAt:now()
-    });
+    };
+    window.KageNexus?.clearDeletion?.(added);
+    profile.items.push(added);
     state.updatedAt=now();
     if(!writeState(state))throw new Error('Anime Haven could not save that title.');
     sessionStorage.setItem('anime-haven-library-flash',movie?(completed?`${title} marked watched.`:`${title} added to movies.`):(startNow?`${title} started at Season 1 Episode 1.`:`${title} added to not started.`));
@@ -190,8 +113,8 @@
   function injectAddButtons(){
     const topbar=document.querySelector('.topbar');
     if(topbar&&!document.getElementById('quickAddAnime')){
-      const button=document.createElement('button');button.id='quickAddAnime';button.className='quick-add-anime';button.innerHTML='<b>＋</b><span>ADD</span>';button.addEventListener('click',openAddDialog);
-      const profile=topbar.querySelector('.profile-button');topbar.insertBefore(button,profile||null);
+      const button=document.createElement('button');button.id='quickAddAnime';button.className='quick-add-anime';button.innerHTML='<b>+</b><span>ADD</span>';button.addEventListener('click',openAddDialog);
+      const controls=topbar.querySelector('.topbar-actions')||topbar;const profile=controls.querySelector('.profile-button');controls.insertBefore(button,profile||null);
     }
     const hero=document.querySelector('#homeView .hero-copy');
     if(hero&&!document.getElementById('homeAddAnime')){
@@ -270,11 +193,6 @@
     if(!document.querySelector('link[href*="library-manager-v14.css"]')){
       const link=document.createElement('link');link.rel='stylesheet';link.href='./library-manager-v14.css?release=15';document.head.appendChild(link);
     }
-    const changed=migrateLibrary();
-    if(changed&&!sessionStorage.getItem('anime-haven-migrated-v15')){
-      sessionStorage.setItem('anime-haven-migrated-v15','1');location.reload();return true;
-    }
-    sessionStorage.removeItem('anime-haven-migrated-v15');
     createModal();injectAddButtons();enhanceCards();enhanceDialog();showFlash();interceptExternalAdds();
     const relevantSelector='.anime-card,#animeDialog,#homeView,.topbar,.external-card,#addAnimeDialog';
     const observer=new MutationObserver(records=>{
