@@ -4,7 +4,7 @@
 
 - Baseline: Release 62, commit `be161ba2b131b9d0e7c17a96b56ab085f60511e8` on `main`.
 - Rebuild branch: `agent/kagenexus-2-core-rebuild`.
-- `main` and the live GitHub Pages release remain unchanged until the beta passes device and migration checks.
+- Publication uses the repository's `main` branch and GitHub Pages.
 
 ## Release 62 architecture captured
 
@@ -45,7 +45,7 @@ flowchart TD
 - Static CSS files replace core runtime-injected styles.
 - A fresh visitor receives an empty Guest library; no personal library is bundled.
 - Arsenal data is loaded only after the user opens Arsenal.
-- The 220 KB account SDK is loaded and cached only when cloud configuration is active.
+- The account SDK loads when Account is opened, a saved session is restored, or an email confirmation/recovery callback is present. A fresh Guest Home does not download it.
 - Arsenal still contains 1,778 entries: 1,766 weapons and 12 powers.
 - Arsenal still renders 96 cards initially and adds more incrementally.
 - The service worker uses a new beta cache and update lifecycle.
@@ -87,14 +87,10 @@ flowchart TD
 - a 450 KB decoded-resource budget and 225 KB JavaScript budget for clean Home startup
 - an offline reload through `sw-core.js`
 
-## Merge gate
+## Release acceptance
 
-Before this branch replaces the live release:
+The automated suite, desktop/mobile Chromium checks, deployed RLS ownership tests, and production Auth URLs have been verified. Complete the following device/provider checks as those resources become available:
 
-1. Run the full suite from a clean checkout.
-2. Verify the beta on iPhone Safari/PWA and desktop.
-3. Test an actual old-device `KNX1.` export through the account import.
-4. Verify offline launch and the update prompt over HTTPS.
-5. Exercise AniList search and representative image, GIF, and 3D Arsenal media.
-6. Compare Home, Archive, Unstarted, Search, Settings, and Arsenal visually with Release 62.
-7. Confirm Auth redirect URLs and row-level security in the production Supabase project.
+1. Connect a verified SMTP sender, then confirm email sign-up and password recovery delivery.
+2. Verify iPhone Safari/PWA behavior on a physical phone.
+3. Import the owner's actual old-device library through the account import or same-device migration.

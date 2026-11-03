@@ -43,7 +43,8 @@ const server = http.createServer(async (request, response) => {
 
 await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
 const { port } = server.address();
-const origin = `http://127.0.0.1:${port}`;
+const siteUrl = process.argv[3] || `http://127.0.0.1:${port}`;
+const origin = new URL(siteUrl).origin;
 chromium.setGraphicsMode = false;
 const chromiumModule = fileURLToPath(import.meta.resolve('@sparticuz/chromium'));
 const chromiumArchive = path.resolve(path.dirname(chromiumModule), '..', 'bin', 'chromium.br');
@@ -93,7 +94,7 @@ async function settle(page, milliseconds = 450) {
 try {
   const page = await browser.newPage();
   attachDiagnostics(page);
-  await page.goto(origin, { waitUntil: 'domcontentloaded' });
+  await page.goto(siteUrl, { waitUntil: 'domcontentloaded' });
   await waitForCore(page);
   await settle(page);
   await page.screenshot({ path: path.join(output, 'desktop-home.png') });
@@ -133,6 +134,7 @@ try {
 
   await page.click('#openAccount');
   await page.waitForFunction(() => document.getElementById('accountDialog')?.open);
+  await page.waitForFunction(() => document.querySelector('#accountAuthForm button[type="submit"]')?.disabled === false);
   await settle(page, 180);
   await page.screenshot({ path: path.join(output, 'desktop-account.png') });
   await page.click('#accountDialog .account-close');
@@ -151,7 +153,7 @@ try {
   const mobile = await browser.newPage();
   attachDiagnostics(mobile);
   await mobile.setViewport({ width: 390, height: 844, deviceScaleFactor: 2 });
-  await mobile.goto(origin, { waitUntil: 'domcontentloaded' });
+  await mobile.goto(siteUrl, { waitUntil: 'domcontentloaded' });
   await waitForCore(mobile);
   await mobile.evaluate(() => window.KageNexus.setView('home'));
   await mobile.waitForFunction(() => document.getElementById('homeView')?.classList.contains('active'));
@@ -167,6 +169,7 @@ try {
 
   await mobile.click('#accountButton');
   await mobile.waitForFunction(() => document.getElementById('accountDialog')?.open);
+  await mobile.waitForFunction(() => document.querySelector('#accountAuthForm button[type="submit"]')?.disabled === false);
   await settle(mobile, 180);
   await mobile.screenshot({ path: path.join(output, 'mobile-account.png') });
   const mobileAccountMetrics = await mobile.evaluate(() => {
@@ -221,6 +224,7 @@ try {
   if (errors.length) throw new Error(`Browser errors:\n${errors.join('\n')}`);
 
   console.log(JSON.stringify({
+    siteUrl,
     home: homeMetrics,
     arsenal: arsenalMetrics,
     mobile: { home: mobileHomeMetrics, account: mobileAccountMetrics, arsenal: mobileArsenalMetrics },

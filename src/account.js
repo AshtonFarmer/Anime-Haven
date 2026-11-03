@@ -1,5 +1,6 @@
 import {
   getCloudSnapshot,
+  hasCloudAuthCallback,
   hasStoredCloudSession,
   initCloud,
   requestPasswordReset,
@@ -131,13 +132,10 @@ async function withBusy(task) {
   }
 }
 
-async function importCodeToAccount() {
-  const input = $('#accountImportCode');
-  const code = input?.value || '';
+async function importCodeToAccount(code) {
   importPayload(parseSyncCode(code), { reload: false });
   renderApp();
   await syncCloudNow();
-  if (input) input.value = '';
   showToast('Your phone library is now inside this private account.', 'success');
 }
 
@@ -171,7 +169,8 @@ function bindAccountEvents() {
         showToast('Signed out. Guest mode is now active.');
       }).catch(error => showToast(error.message || 'Sign out could not finish.', 'error'));
     } else if (event.target.closest('#accountImportCodeButton')) {
-      withBusy(importCodeToAccount).catch(error => showToast(error.message || 'That code could not be imported.', 'error'));
+      const code = $('#accountImportCode')?.value || '';
+      withBusy(() => importCodeToAccount(code)).catch(error => showToast(error.message || 'That code could not be imported.', 'error'));
     } else if (event.target.closest('#accountMoveLegacy')) {
       withBusy(async () => {
         importLegacyDeviceData({ reload: false });
@@ -245,8 +244,9 @@ export async function installAccounts({ render } = {}) {
       showToast('Account sync is temporarily unavailable. Guest mode still works.', 'error');
     }
   };
-  if (!hasStoredCloudSession()) return;
-  if ('requestIdleCallback' in window) {
+  const authCallback = hasCloudAuthCallback();
+  if (!hasStoredCloudSession() && !authCallback) return;
+  if (!authCallback && 'requestIdleCallback' in window) {
     await new Promise(resolve => requestIdleCallback(() => start().finally(resolve), { timeout: 1200 }));
   } else {
     await start();

@@ -39,6 +39,7 @@ let renderApp = () => {};
 let initialized = false;
 let initPromise = null;
 let suppressStoreSync = false;
+let sessionVersion = 0;
 
 function getDeviceId() {
   try {
@@ -64,6 +65,18 @@ export function hasStoredCloudSession() {
   try {
     const projectRef = new URL(APP_CONFIG.supabaseUrl).hostname.split('.')[0];
     return Boolean(projectRef && localStorage.getItem(`sb-${projectRef}-auth-token`));
+  } catch {
+    return false;
+  }
+}
+
+export function hasCloudAuthCallback() {
+  if (!isCloudConfigured()) return false;
+  try {
+    const url = new URL(globalThis.location?.href || window.location.href);
+    const hash = new URLSearchParams(url.hash.slice(1));
+    return url.searchParams.has('code') || hash.has('access_token')
+      || hash.has('error_description') || url.searchParams.has('error_description');
   } catch {
     return false;
   }
@@ -168,21 +181,38 @@ function applyRemoteState(remote) {
   renderApp();
 }
 
-async function readRemoteRow() {
-  const { data, error } = await client
+function syncContext() {
+  return { client, userId: currentUser?.id, version: sessionVersion };
+}
+
+function isCurrentSession(context) {
+  return context.client === client && context.userId === currentUser?.id
+    && context.version === sessionVersion;
+}
+
+function assertCurrentSession(context) {
+  if (!isCurrentSession(context)) {
+    const error = new Error('The account changed while syncing.');
+    error.code = 'CLOUD_SESSION_CHANGED';
+    throw error;
+  }
+}
+
+async function readRemoteRow(context) {
+  const { data, error } = await context.client
     .from(APP_CONFIG.cloudTable)
     .select('state,revision,updated_at,device_id')
-    .eq('user_id', currentUser.id)
+    .eq('user_id', context.userId)
     .maybeSingle();
   if (error) throw error;
   return data;
 }
 
-async function insertRemoteState(candidate) {
-  const { data, error } = await client
+async function insertRemoteState(context, candidate) {
+  const { data, error } = await context.client
     .from(APP_CONFIG.cloudTable)
     .insert({
-      user_id: currentUser.id,
+      user_id: context.userId,
       state: prepareCloudState(candidate),
       revision: 1,
       device_id: deviceId,
@@ -194,8 +224,8 @@ async function insertRemoteState(candidate) {
   return data;
 }
 
-async function updateRemoteState(candidate, expectedRevision) {
-  const { data, error } = await client
+async function updateRemoteState(context, candidate, expectedRevision) {
+  const { data, error } = await context.client
     .from(APP_CONFIG.cloudTable)
     .update({
       state: prepareCloudState(candidate),
@@ -203,7 +233,7 @@ async function updateRemoteState(candidate, expectedRevision) {
       device_id: deviceId,
       updated_at: now()
     })
-    .eq('user_id', currentUser.id)
+    .eq('user_id', context.userId)
     .eq('revision', expectedRevision)
     .select('state,revision,updated_at,device_id')
     .maybeSingle();
@@ -211,31 +241,36 @@ async function updateRemoteState(candidate, expectedRevision) {
   return data;
 }
 
-function rememberSync(row, candidate) {
+function rememberSync(context, row, candidate) {
   lastSyncedAt = row?.updated_at || now();
-  writeMeta(currentUser.id, {
+  writeMeta(context.userId, {
     revision: Number(row?.revision || 0),
     hash: fingerprintCloudState(candidate),
     lastSyncedAt
   });
 }
 
-async function performSync() {
-  if (!currentUser || !client) throw new Error('Sign in before syncing your account.');
+async function performSync(context) {
+  if (!context.userId || !context.client) throw new Error('Sign in before syncing your account.');
+  assertCurrentSession(context);
   if (globalThis.navigator && navigator.onLine === false) throw new Error('You are offline. Your changes are saved and will sync when you reconnect.');
   setStatus('syncing');
 
   for (let attempt = 0; attempt < 3; attempt += 1) {
-    const remoteRow = await readRemoteRow();
-    const local = getState();
-    const meta = readMeta(currentUser.id);
+    const remoteRow = await readRemoteRow(context);
+    assertCurrentSession(context);
+    const local = clone(getState());
+    const localHash = fingerprintCloudState(local);
+    const meta = readMeta(context.userId);
 
     if (!remoteRow) {
       try {
-        const inserted = await insertRemoteState(local);
-        rememberSync(inserted, local);
+        const inserted = await insertRemoteState(context, local);
+        assertCurrentSession(context);
+        rememberSync(context, inserted, local);
         setStatus('synced');
-        return local;
+        if (fingerprintCloudState() !== localHash) scheduleSync(120);
+        return getState();
       } catch (error) {
         if (attempt < 2 && String(error?.code || '') === '23505') continue;
         throw error;
@@ -243,20 +278,19 @@ async function performSync() {
     }
 
     const remote = validatePayload(remoteRow.state);
-    const localHash = fingerprintCloudState(local);
     const remoteHash = fingerprintCloudState(remote);
     const localChanged = meta.hash ? localHash !== meta.hash : hasContent(local);
     const remoteChanged = meta.revision ? Number(remoteRow.revision) !== Number(meta.revision) : hasContent(remote);
 
     if (!localChanged && remoteHash !== localHash) {
       applyRemoteState(remote);
-      rememberSync(remoteRow, getState());
+      rememberSync(context, remoteRow, getState());
       setStatus('synced');
       return getState();
     }
 
     if (!localChanged && remoteHash === localHash) {
-      rememberSync(remoteRow, local);
+      rememberSync(context, remoteRow, local);
       setStatus('synced');
       return local;
     }
@@ -264,11 +298,15 @@ async function performSync() {
     const next = remoteChanged
       ? mergeStates(remote, local, { preserveUi: true })
       : local;
-    const updated = await updateRemoteState(next, Number(remoteRow.revision));
+    const updated = await updateRemoteState(context, next, Number(remoteRow.revision));
+    assertCurrentSession(context);
     if (!updated) continue;
-    if (next !== local) applyRemoteState(next);
-    rememberSync(updated, getState());
+    const editedDuringSync = fingerprintCloudState() !== localHash;
+    if (editedDuringSync) applyRemoteState(mergeStates(next, getState(), { preserveUi: true }));
+    else if (next !== local) applyRemoteState(next);
+    rememberSync(context, updated, next);
     setStatus('synced');
+    if (fingerprintCloudState() !== fingerprintCloudState(next)) scheduleSync(120);
     return getState();
   }
   throw new Error('Your account changed on another device. Please try Sync now again.');
@@ -276,13 +314,17 @@ async function performSync() {
 
 export function syncCloudNow() {
   if (syncPromise) return syncPromise;
-  syncPromise = performSync()
+  const context = syncContext();
+  const pending = performSync(context)
     .catch(error => {
-      setStatus(globalThis.navigator && navigator.onLine === false ? 'offline' : 'error', error.message || String(error));
+      if (isCurrentSession(context)) {
+        setStatus(globalThis.navigator && navigator.onLine === false ? 'offline' : 'error', error.message || String(error));
+      }
       throw error;
     })
-    .finally(() => { syncPromise = null; });
-  return syncPromise;
+    .finally(() => { if (syncPromise === pending) syncPromise = null; });
+  syncPromise = pending;
+  return pending;
 }
 
 function scheduleSync(delay = 900) {
@@ -301,8 +343,8 @@ async function stopRealtime() {
 }
 
 function startRealtime() {
-  if (!currentUser || !client) return;
-  stopRealtime();
+  if (!currentUser || !client || realtimeChannel) return;
+  const context = syncContext();
   realtimeChannel = client
     .channel(`user-state:${currentUser.id}`)
     .on('postgres_changes', {
@@ -311,40 +353,42 @@ function startRealtime() {
       table: APP_CONFIG.cloudTable,
       filter: `user_id=eq.${currentUser.id}`
     }, payload => {
+      if (!isCurrentSession(context)) return;
       if (payload.new?.device_id === deviceId) return;
       scheduleSync(120);
     })
     .subscribe();
 }
 
-async function activateSession(session) {
+function applySession(session) {
   const user = session?.user || null;
-  if (!user) {
-    if (activeUserId) {
-      await stopRealtime();
-      activeUserId = null;
-      currentUser = null;
-      switchStorageScope({
-        storageKey: GUEST_STORAGE_KEY,
-        profile: { id: 'guest', name: 'Guest' }
-      });
-      renderApp();
-    }
-    setStatus('guest');
-    return;
-  }
-
   currentUser = user;
-  if (activeUserId !== user.id) {
-    activeUserId = user.id;
+  if (activeUserId !== (user?.id || null)) {
+    sessionVersion += 1;
+    activeUserId = user?.id || null;
+    window.clearTimeout(syncTimer);
+    syncPromise = null;
+    lastSyncedAt = '';
+    stopRealtime();
     switchStorageScope({
-      storageKey: userStorageKey(user.id),
-      profile: { id: 'primary', name: profileName(user) }
+      storageKey: user ? userStorageKey(user.id) : GUEST_STORAGE_KEY,
+      profile: user ? { id: 'primary', name: profileName(user) } : { id: 'guest', name: 'Guest' }
     });
     renderApp();
   }
+  if (!user) setStatus('guest');
+}
+
+async function activateSession(session) {
+  applySession(session);
+  if (!currentUser) return;
   startRealtime();
   await syncCloudNow();
+}
+
+function onOnline() { scheduleSync(50); }
+function onVisibilityChange() {
+  if (!document.hidden && currentUser) scheduleSync(150);
 }
 
 async function loadCreateClient() {
@@ -371,25 +415,32 @@ async function initializeCloud() {
     auth: { autoRefreshToken: true, persistSession: true, detectSessionInUrl: true }
   });
   const auth = client.auth.onAuthStateChange((event, session) => {
+    applySession(session);
     globalThis.dispatchEvent?.(new CustomEvent('kagenexus-auth-event', { detail: { event } }));
-    queueMicrotask(() => activateSession(session).catch(error => {
-      setStatus('error', error.message || String(error));
-    }));
+    const context = syncContext();
+    // Supabase holds its auth lock while notifying subscribers. Start API work afterward.
+    window.setTimeout(() => {
+      if (!isCurrentSession(context) || !currentUser) return;
+      startRealtime();
+      syncCloudNow().catch(error => {
+        if (isCurrentSession(context)) console.warn('KageNexus sync is waiting to retry', error);
+      });
+    }, 0);
   });
   authSubscription = auth.data.subscription;
   storeSubscription = subscribe((_state, reason) => {
     if (suppressStoreSync || NO_AUTO_SYNC_REASONS.has(reason)) return;
     scheduleSync();
   });
-  window.addEventListener('online', () => scheduleSync(50));
-  document.addEventListener('visibilitychange', () => {
-    if (!document.hidden && currentUser) scheduleSync(150);
-  });
+  window.addEventListener('online', onOnline);
+  document.addEventListener('visibilitychange', onVisibilityChange);
 
   const { data, error } = await client.auth.getSession();
   if (error) throw error;
-  await activateSession(data.session);
   initialized = true;
+  await activateSession(data.session).catch(error => {
+    console.warn('KageNexus initial sync is waiting to retry', error);
+  });
   return getCloudSnapshot();
 }
 
@@ -399,6 +450,12 @@ export function initCloud({ render } = {}) {
   if (initPromise) return initPromise;
   initPromise = initializeCloud()
     .catch(error => {
+      authSubscription?.unsubscribe?.();
+      storeSubscription?.();
+      authSubscription = null;
+      storeSubscription = null;
+      window.removeEventListener('online', onOnline);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
       client = null;
       initialized = false;
       throw error;
@@ -424,6 +481,7 @@ export async function signUp({ email, password, displayName = '' }) {
     }
   });
   if (error) throw error;
+  if (data.session) await activateSession(data.session);
   return data;
 }
 
@@ -434,6 +492,7 @@ export async function signIn({ email, password }) {
     password: String(password || '')
   });
   if (error) throw error;
+  await activateSession(data.session);
   return data;
 }
 
@@ -441,6 +500,7 @@ export async function signOut() {
   const supabase = await requireClient();
   const { error } = await supabase.auth.signOut();
   if (error) throw error;
+  applySession(null);
 }
 
 export async function requestPasswordReset(email) {
@@ -458,12 +518,18 @@ export async function updatePassword(password) {
 }
 
 export async function destroyCloud() {
+  sessionVersion += 1;
   window.clearTimeout(syncTimer);
   await stopRealtime();
   authSubscription?.unsubscribe?.();
   storeSubscription?.();
   authSubscription = null;
   storeSubscription = null;
+  window.removeEventListener('online', onOnline);
+  document.removeEventListener('visibilitychange', onVisibilityChange);
+  currentUser = null;
+  activeUserId = null;
+  syncPromise = null;
   client = null;
   initialized = false;
   initPromise = null;
